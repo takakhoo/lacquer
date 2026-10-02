@@ -1,8 +1,8 @@
-"""Measure why the thesis pipeline (Curriculum_Tokenize_Master) could not make music sound better.
+"""Measure why an EnCodec token-prediction pipeline could not make music sound better.
 
   python -m remaster.diagnose_legacy --data data/raw/fma_medium --out docs/evidence/legacy
 
-Each check reuses the original functions/parameter ranges from Curriculum_Tokenize_Master/demastering.py.
+Each check re-implements that pipeline's degradation functions and parameter ranges.
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ from .data import list_tracks, load_audio, split_of
 from .losses import log_spec_dist, si_sdr
 
 SR = 44100
-# ranges copied from demastering.py BASE
+# the old pipeline's parameter ranges
 OLD = dict(eq=dict(fc=(500, 2000), Q=(0.9, 1.2), gain=(-0.8, 0.8)), gain=dict(db=(-1, 1)),
            echo=dict(delay=(0.1, 0.2), att=(0.2, 0.3)), reverb=dict(decay=(0.2, 0.4), ir=(0.05, 0.15)),
            comp=dict(thr=(-12, -8), ratio=(1.5, 2.5), makeup=(0, 0.5)))

@@ -223,7 +223,7 @@ Readings:
   effect, most on clipping (0.93 vs 0.79), noise (0.91 vs 0.80) and compression (0.76 vs 0.56).
 - Codebooks 2-16 add nothing for this purpose: one codebook does as well as sixteen. For this probe the fine
   residual codebooks carried no usable information about the degradation. They were 15/16 of what the
-  thesis model was trained to predict.
+  token model was trained to predict.
 - Echo and EQ are near chance from any EnCodec representation at this probe size. Echo is found reliably
   by the cepstral detector (E4); EQ is ambiguous by nature (E5).
 - A plain log-mel ties the latents overall (0.778 vs 0.78). The latents are better at reverb (0.88 vs 0.75),
@@ -266,7 +266,7 @@ reference. Restoration only (no mastering, no stems). Raw rows: `docs/evidence/q
   LSD 3.11 -> 1.12. Without clean negatives it also flattens tracks that had no problem (identity env 0 -> 0.70).
 - Reading: the mixed problem has a "do nothing" optimum the network cannot leave, because it cannot yet
   tell an injected fault from natural dynamics. Running now: per-effect specialists trained against clean
-  negatives, and the thesis curriculum (single effect -> pairs -> full mix, advance on plateau, LR stepped down).
+  negatives, and a curriculum (single effect -> pairs -> full mix, advance on plateau, LR stepped down).
 
 ### E13. Reverb the model never saw
 Added `degrade.algo_rir`: a Schroeder/Moorer comb-and-allpass reverb (the sound of reverb plug-ins), built in
@@ -285,8 +285,8 @@ the frequency domain. Before training on it, used it as a held-out family. Check
 - From the next training segment on, a share of training reverb comes from `algo_rir` (`--p-algo`).
 
 ### E14. Curriculum vs mixed-from-start for the controller (running)
-Same controller, data and Huber parameter loss; only the schedule differs. Curriculum is the thesis
-schedule ported from `Curriculum_Tokenize_Master/token_train.py`: single effect -> one or two effects ->
+Same controller, data and Huber parameter loss; only the schedule differs. Curriculum (Bengio et al. 2009):
+single effect -> one or two effects ->
 full mix, advancing when validation plateaus after a minimum stay, LR x1.0 / 0.6 / 0.4.
 
 Before this, with an L1 parameter loss, nothing learned in any setup: the EQ-only specialist (7000 steps)
@@ -356,3 +356,19 @@ p90 18.1 dB; integrated loudness median -11.9 LUFS.
   transients, PLR 18.2 -> 17.5 dB before the limiter (2.9 dB of gain reduction).
 - Below: flagged as already heavily compressed, and the limiter is not allowed to add more than 1 dB.
 The rule is measured rather than learned, because E15 showed undoing compression is not learnable here yet.
+
+### E17. Does time attention lock onto the echo delay? (30 clips)
+`python -m remaster.attention_probe`, checkpoint at step 15000. Each held-out clip gets one echo with a random
+delay between 90 and 500 ms and gain 0.3 to 0.6, with no reverberation. The lag profile of time attention (mean
+weight against frames back, over every fourth band and all heads) is compared with the profile on the same clip
+without the echo. Raw rows: `docs/evidence/attention_lag.json`.
+
+| layer | largest relative increase within one frame of the true delay | median attention ratio at the true lag |
+|---|---:|---:|
+| 1 | 9 / 30 | 1.00 |
+| 6 | 30 / 30 | 2.50 |
+| 12 | 26 / 30 | 14.3 |
+
+The first layer does not respond to the echo at all. By layer 6 the network has located it in every clip, and by
+layer 12 it puts fourteen times more weight on the frame one echo-delay back than it does without the echo. The
+delay is never an input. One trace with attention maps is in `docs/figures/stage_4_attention.png`.

@@ -207,7 +207,7 @@ def main():
     p.add_argument("--fast-gain", action="store_true", help="gain head at the full 86 fps frame rate")
     p.add_argument("--p-identity", type=float, default=0.15)
     p.add_argument("--curriculum", action="store_true",
-                   help="single effect -> pairs -> full mix, advancing on a validation plateau (the thesis schedule)")
+                   help="single effect -> pairs -> full mix, advancing on a validation plateau")
     p.add_argument("--min-stage-steps", type=int, default=4000)
     p.add_argument("--max-stage-steps", type=int, default=12000)
     p.add_argument("--task", default="tone", help='"tone" or a single-effect diagnostic like "tone:ride"')
@@ -227,7 +227,7 @@ def main():
         ck = torch.load(a.resume, map_location=dev, weights_only=True)
         model.load_state_dict(ck["model"]); ema.load_state_dict(ck["ema"]); opt.load_state_dict(ck["opt"]); step, best = ck["step"], ck["best"]
     crit = MagLoss().to(dev)
-    # Curriculum, ported from the thesis trainer (Curriculum_Tokenize_Master/token_train.py): stages get
+    # Curriculum: stages get
     # harder, a stage ends when validation stops improving (after a minimum stay), and the LR steps down.
     stages = [("tone:s1", 1.0), ("tone:s2", 0.6), ("tone", 0.4)] if a.curriculum else [(a.task, 1.0)]
     stage_i, stage_start, hist, lr_scale = 0, 0, [], [1.0]

@@ -463,7 +463,7 @@ def stage7(t):
     save(fig, "stage_7_controller.png")
 
 
-# ------------------------------------------------------------------ the thesis representation, same clip
+# ------------------------------------------------------------------ the codec-token view of the same clip
 def stage_encodec(t):
     if "enc_tokens" not in t.files:
         return
@@ -474,9 +474,9 @@ def stage_encodec(t):
     def sisdr(a, b):
         a, b = a.ravel() - a.mean(), b.ravel() - b.mean(); al = (a @ b) / (b @ b); return 10 * np.log10(((al * b) ** 2).sum() / ((a - al * b) ** 2).sum())
     rt = sisdr(t["enc_roundtrip"], t["clean"])
-    fig.text(0.3 / W, 1 - 0.28 / H, "THE THESIS REPRESENTATION", fontsize=8.5, color=ORANGE, fontweight="bold", va="top")
+    fig.text(0.3 / W, 1 - 0.28 / H, "THE CODEC-TOKEN VIEW", fontsize=8.5, color=ORANGE, fontweight="bold", va="top")
     bg.text(0.3, H - 0.52, "The same clean clip as EnCodec sees it", fontsize=14, fontweight="bold", va="top", color=INK)
-    bg.text(0.3, H - 0.93, "48 kHz stereo EnCodec at 24 kbps. The thesis model read these tokens and had to write a full set of them back.", fontsize=9, color=INK2, va="top")
+    bg.text(0.3, H - 0.93, "48 kHz stereo EnCodec at 24 kbps. A token-prediction model reads these tokens and has to write a full set of them back.", fontsize=9, color=INK2, va="top")
     # latents block and token block
     norm = lambda a: np.clip((a - np.percentile(a, 2)) / (np.percentile(a, 98) - np.percentile(a, 2) + 1e-9), 0, 1)
     block(bg, 0.8, 3.55, 4.6, 2.1, 0.3, norm(lat), cmap="cividis", vlim=(0, 1))

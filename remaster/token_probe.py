@@ -1,6 +1,6 @@
 """What do EnCodec representations know about degradations?
 
-The thesis tried to synthesize clean audio from EnCodec tokens and hit the codec's quality ceiling.
+Synthesizing clean audio from EnCodec tokens hits the codec's quality ceiling (docs/design.md).
 This asks the opposite question: are tokens a good *analysis* representation for deciding what is
 wrong with a track? Identical small probes are trained on (a) discrete tokens, (b) continuous
 encoder latents, (c) a log-mel spectrogram, to detect each degradation and regress its strength.

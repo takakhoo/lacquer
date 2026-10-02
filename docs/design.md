@@ -1,13 +1,13 @@
-# Revival notes (October 2026)
+# Design notes
 
-Why the thesis project (github.com/takakhoo/neural-audio-restoration) could not make tracks sound
-better, and the design that replaced it. The thesis code stays in its own repo, unchanged; paths like
-`Curriculum_Tokenize_Master/` below refer to that repo.
+Why Lacquer corrects a spectrogram instead of generating audio from codec tokens, and how the stages are
+split. Section 1 measures a token-prediction pipeline I built first: EnCodec tokens in, a 1-D U-Net trained
+with cross-entropy, EnCodec tokens out.
 
-## 1. Why the thesis pipeline could not improve audio
+## 1. Why token prediction could not improve audio
 
-Measured with `python -m remaster.diagnose_legacy` using the original functions and parameter
-ranges from `Curriculum_Tokenize_Master/demastering.py`. Raw numbers: `docs/evidence/legacy/legacy_findings.json`.
+Measured with `python -m remaster.diagnose_legacy`, which re-implements that pipeline's degradations and
+parameter ranges. Raw numbers: `docs/evidence/legacy/legacy_findings.json`.
 
 | Finding | Evidence |
 |---|---|
@@ -15,11 +15,11 @@ ranges from `Curriculum_Tokenize_Master/demastering.py`. Raw numbers: `docs/evid
 | The "EQ" was a band-pass. `scipy.signal.iirpeak` returns a resonator that passes only the band around `fc`; it does not boost or cut a band of an otherwise flat response. | -20 dB at 100 Hz and -21.6 dB at 10 kHz for fc = 1 kHz, Q = 1 |
 | Gain was invisible to the model. The 48 kHz EnCodec normalizes each chunk and stores level in a separate scale value. | 100% of tokens unchanged after a +1 dB gain change |
 | The codec is a quality ceiling below the input. A perfect token prediction decodes to the EnCodec reconstruction of the clean track. | Clean round trip: 9.6 dB SI-SDR, 10.3 dB log-spectral distance. The legacy echo-degraded input sits at 12.2 dB SI-SDR, closer to clean than a perfect model output could be |
-| Audio-domain losses carried no gradient. `compute_loss` decodes `logits.argmax()`, which is not differentiable, and the mel/STFT terms compare two precomputed constants. | `token_train.py` lines 553-590. Only token cross-entropy trained the network |
-| "Compression" was a memoryless waveshaper (no attack/release), i.e. distortion. | `apply_compression` in `demastering.py` |
-| PESQ and STOI are narrowband speech metrics and say little about 44.1 kHz music. | Reported tables in the thesis README |
+| Audio-domain losses carried no gradient. `compute_loss` decodes `logits.argmax()`, which is not differentiable, and the mel/STFT terms compare two precomputed constants. | The old training loop. Only token cross-entropy trained the network |
+| "Compression" was a memoryless waveshaper (no attack/release), i.e. distortion. | the old compression function |
+| PESQ and STOI are narrowband speech metrics and say little about 44.1 kHz music. | They were the reported metrics |
 
-Net effect: 1.08B parameters were trained by cross-entropy alone to predict 16 codebooks of
+Net effect: 1.08 B parameters were trained by cross-entropy alone to predict 16 codebooks of
 mostly noise-like residual tokens, on degradations that were either inaudible (gain, +-1 dB), invisible
 in token space (gain), or mislabeled (reverb, EQ), with an output ceiling lower than the input quality.
 
@@ -64,12 +64,3 @@ python -m remaster.evaluate --ckpt runs/x/best.pt --data data/raw/fma_medium --r
 ```
 
 Training runs on a remote GPU box through `scripts/lab`, `scripts/sync`, `scripts/train_lab.sh`.
-
-## 5. Deferred deliverable: visual walkthrough
-
-Requested by Taka: once training curves are final and the system audibly works, produce a cohesive
-set of figures in the spirit of `thesis_images/` (unet.png, encodec.png, structure.png, curriculum.png,
-degradation_stack.png): the full signal path with real tensor shapes at every stage, the band-split
-transformer internals, where EnCodec fits (analysis, see experiments), the decision flow
-(echo -> room reverb -> vocal ambience -> VU riding -> mastering), and training curves.
-Do this last, from measured shapes and logged curves, not from memory.

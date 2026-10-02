@@ -10,10 +10,8 @@ decision it made and leaves alone whatever is already fine.
 the restored audio, right of it the damaged input. The echo is found and inverted by DSP, the reverb is
 removed by the network, the vocal reverb and the dynamics are measured and judged normal, and loudness is set for release.*
 
-A lacquer is the disc a record's master is cut into. This project is the successor to my honors thesis
-([neural-audio-restoration](https://github.com/takakhoo/neural-audio-restoration)), which tried to restore
-music by predicting EnCodec tokens with a U-Net. [`docs/REVIVAL.md`](docs/REVIVAL.md) shows, with
-measurements, why that approach could not improve audio and what replaced it.
+A lacquer is the disc a record's master is cut into. [`docs/design.md`](docs/design.md) explains the design,
+including why the network corrects a spectrogram instead of generating audio from codec tokens.
 
 ## Headline
 
@@ -107,6 +105,10 @@ frames. In layer 12 the time attention has a second stripe 18 frames below the d
 weight against lag peaks at exactly 210 ms. One of the eight heads carries most of it. The delay was never
 given to the model; it finds the earlier copy of each sound and uses it.
 
+This holds beyond one clip. Over 30 held-out clips with random echo delays from 90 to 500 ms, layer 6 puts its
+largest relative increase in attention within one frame of the true delay in 30 of 30 clips, and layer 12 puts a
+median 14 times more weight on the true lag than on the same clip without the echo. Layer 1 does not react.
+
 ### Stage 5. The mask
 
 ![Input times mask equals output, what was removed against what was added, and energy between notes](docs/figures/stage_5_mask.png)
@@ -138,14 +140,15 @@ almost all tone and dynamics damage; blind, the network learned the fader and no
 
 ![Controller network and the curriculum it was trained with](docs/figures/controller.png)
 
-### What changed from the thesis
+### Why a mask and not codec tokens
 
-![The thesis Token U-Net path against the Lacquer path, with shapes and failure points](docs/figures/thesis_vs_lacquer.png)
+![Token prediction against spectrogram masking, with shapes and failure points](docs/figures/tokens_vs_mask.png)
 
-The thesis model had twenty times the parameters and could not beat its own input. Three things in the path
-decided that, each measured in [`docs/REVIVAL.md`](docs/REVIVAL.md): level is not in the tokens, the audio
-losses sat behind an `argmax`, and the decoder caps quality at the codec's reconstruction. The U-Net itself,
-with CBAM and FiLM, was never the problem and was never tested in isolation; that ablation is running.
+An obvious alternative is to encode the track with a neural codec, predict clean tokens with a large network
+and decode. I built and measured that route first (EnCodec tokens, a 1.08 B parameter 1-D U-Net). It could not
+beat its own input, for three reasons that are properties of the route and not of the network: level is not
+in the tokens, audio losses sit behind an `argmax`, and the decoder caps quality at the codec's own
+reconstruction. Measurements are in [`docs/design.md`](docs/design.md).
 
 ### Training evidence
 
@@ -184,9 +187,9 @@ A "reverb target" control shifts steps 2 and 3 drier or wetter.
 
 Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiments.md).
 
-- **The thesis pipeline could not win.** Its "reverb" was a lowpass with +72.8 dB of gain that clipped every
-  example, its "EQ" was a band-pass, gain was invisible in EnCodec tokens, and a perfect prediction decoded to
-  9.6 dB SI-SDR, below the damaged input it was meant to fix ([`docs/REVIVAL.md`](docs/REVIVAL.md)).
+- **Predicting codec tokens could not win.** Gain is invisible in EnCodec tokens, and a perfect prediction
+  decodes to 9.6 dB SI-SDR against the clean track, below the damaged input it was meant to fix
+  ([`docs/design.md`](docs/design.md)).
 - **A warm start mattered more than architecture.** From scratch, 8,000 steps bought +0.8 dB on reverb. Fine-tuning
   a public vocal dereverb model on full mixes bought +3.5 dB in 1,000 steps, although that model wrecks full mixes
   when used as released (E2, E3).
@@ -196,8 +199,8 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
 - **EnCodec tokens are a poor place to look for damage.** The same probe detects degradations with AUROC 0.68
   from tokens, 0.78 from the encoder's continuous latents, and 0.78 from a mel spectrogram. One codebook does as
   well as sixteen (E10).
-- **The thesis curriculum earns its place.** Training the controller on all effects at once left it stuck at
-  "do nothing". The single-effect, then pairs, then full-mix schedule from the thesis got it moving and ended
+- **A curriculum earns its place.** Training the controller on all effects at once left it stuck at
+  "do nothing". A single-effect, then pairs, then full-mix schedule got it moving and ended
   ahead: level-envelope error 1.52 dB against 1.76 dB, with a third of the disturbance to clean input (E14).
 - **Some things are not learnable blind at this scale.** Track-to-track tonal variation (3.6 dB) is larger than
   a typical EQ mistake (2.6 dB), so pulling toward an average spectrum hurts more than it helps (E5). Undoing
@@ -246,7 +249,7 @@ python -m remaster.evaluate_quality --ckpt runs/x/best.pt --data <music> --rir <
 ```
 remaster/                    package: models, DSP stages, training, evaluation, web app, demo
 remaster/third_party/msst/   BS-RoFormer and Mel-Band RoFormer model code, vendored (MIT)
-docs/REVIVAL.md              why the thesis pipeline failed, and the new design
+docs/design.md               design rationale: why masking, why not codec tokens
 docs/experiments.md          every experiment with numbers, including the negative results
 docs/evidence/               figures and metric files behind those numbers
 docs/demo/                   the recorded session and animation shown above

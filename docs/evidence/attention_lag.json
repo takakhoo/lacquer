@@ -1,0 +1,649 @@
+{
+ "n": 30,
+ "summary": {
+  "L1": {
+   "hit_rate": 0.3,
+   "median_ratio_at_true": 1.0034947395324707
+  },
+  "L6": {
+   "hit_rate": 1.0,
+   "median_ratio_at_true": 2.4978188276290894
+  },
+  "L12": {
+   "hit_rate": 0.8666666666666667,
+   "median_ratio_at_true": 14.27734661102295
+  }
+ },
+ "rows": [
+  {
+   "file": "072289.mp3",
+   "delay_ms": 243.2937737145853,
+   "gain": 0.4940470724369206,
+   "true_lag_frames": 20.955576993775807,
+   "L1": {
+    "peak_lag": 20,
+    "hit": true,
+    "ratio_at_true": 0.9752794504165649
+   },
+   "L6": {
+    "peak_lag": 21,
+    "hit": true,
+    "ratio_at_true": 2.950685501098633
+   },
+   "L12": {
+    "peak_lag": 21,
+    "hit": true,
+    "ratio_at_true": 18.080947875976562
+   }
+  },
+  {
+   "file": "116514.mp3",
+   "delay_ms": 435.9254447787984,
+   "gain": 0.42464703031722184,
+   "true_lag_frames": 37.54748459911135,
+   "L1": {
+    "peak_lag": 37,
+    "hit": true,
+    "ratio_at_true": 1.010438084602356
+   },
+   "L6": {
+    "peak_lag": 38,
+    "hit": true,
+    "ratio_at_true": 1.6985384225845337
+   },
+   "L12": {
+    "peak_lag": 37,
+    "hit": true,
+    "ratio_at_true": 3.724607229232788
+   }
+  },
+  {
+   "file": "080693.mp3",
+   "delay_ms": 348.98407784445993,
+   "gain": 0.4559296041201567,
+   "true_lag_frames": 30.05898014246227,
+   "L1": {
+    "peak_lag": 30,
+    "hit": true,
+    "ratio_at_true": 1.0094679594039917
+   },
+   "L6": {
+    "peak_lag": 30,
+    "hit": true,
+    "ratio_at_true": 3.012226104736328
+   },
+   "L12": {
+    "peak_lag": 29,
+    "hit": false,
+    "ratio_at_true": 19.60089874267578
+   }
+  },
+  {
+   "file": "043859.mp3",
+   "delay_ms": 184.598108058727,
+   "gain": 0.3596775157302541,
+   "true_lag_frames": 15.899954229277073,
+   "L1": {
+    "peak_lag": 17,
+    "hit": false,
+    "ratio_at_true": 0.9909443855285645
+   },
+   "L6": {
+    "peak_lag": 16,
+    "hit": true,
+    "ratio_at_true": 2.64013934135437
+   },
+   "L12": {
+    "peak_lag": 16,
+    "hit": true,
+    "ratio_at_true": 15.07408618927002
+   }
+  },
+  {
+   "file": "062180.mp3",
+   "delay_ms": 275.4377694119531,
+   "gain": 0.5383090335952128,
+   "true_lag_frames": 23.724229748177994,
+   "L1": {
+    "peak_lag": 10,
+    "hit": false,
+    "ratio_at_true": 0.9783022999763489
+   },
+   "L6": {
+    "peak_lag": 24,
+    "hit": true,
+    "ratio_at_true": 2.784374475479126
+   },
+   "L12": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 15.512105941772461
+   }
+  },
+  {
+   "file": "116099.mp3",
+   "delay_ms": 333.24372640638654,
+   "gain": 0.509796617262848,
+   "true_lag_frames": 28.703219403362592,
+   "L1": {
+    "peak_lag": 27,
+    "hit": false,
+    "ratio_at_true": 0.9881471395492554
+   },
+   "L6": {
+    "peak_lag": 29,
+    "hit": true,
+    "ratio_at_true": 3.976299285888672
+   },
+   "L12": {
+    "peak_lag": 29,
+    "hit": true,
+    "ratio_at_true": 15.996593475341797
+   }
+  },
+  {
+   "file": "056691.mp3",
+   "delay_ms": 389.3919426621566,
+   "gain": 0.4863795873851703,
+   "true_lag_frames": 33.53942318633028,
+   "L1": {
+    "peak_lag": 16,
+    "hit": false,
+    "ratio_at_true": 0.9973833560943604
+   },
+   "L6": {
+    "peak_lag": 34,
+    "hit": true,
+    "ratio_at_true": 3.032306671142578
+   },
+   "L12": {
+    "peak_lag": 33,
+    "hit": true,
+    "ratio_at_true": 14.119241714477539
+   }
+  },
+  {
+   "file": "025233.mp3",
+   "delay_ms": 190.15845372022923,
+   "gain": 0.4325110594468052,
+   "true_lag_frames": 16.378882439574433,
+   "L1": {
+    "peak_lag": 17,
+    "hit": true,
+    "ratio_at_true": 1.0326683521270752
+   },
+   "L6": {
+    "peak_lag": 16,
+    "hit": true,
+    "ratio_at_true": 1.2603954076766968
+   },
+   "L12": {
+    "peak_lag": 16,
+    "hit": true,
+    "ratio_at_true": 14.43545150756836
+   }
+  },
+  {
+   "file": "114239.mp3",
+   "delay_ms": 300.5988973499371,
+   "gain": 0.30333369140552574,
+   "true_lag_frames": 25.89142846314888,
+   "L1": {
+    "peak_lag": 26,
+    "hit": true,
+    "ratio_at_true": 1.025562047958374
+   },
+   "L6": {
+    "peak_lag": 26,
+    "hit": true,
+    "ratio_at_true": 2.0098042488098145
+   },
+   "L12": {
+    "peak_lag": 27,
+    "hit": false,
+    "ratio_at_true": 9.650253295898438
+   }
+  },
+  {
+   "file": "060536.mp3",
+   "delay_ms": 211.15686922551907,
+   "gain": 0.4077804869667734,
+   "true_lag_frames": 18.187535025088653,
+   "L1": {
+    "peak_lag": 18,
+    "hit": true,
+    "ratio_at_true": 1.0341306924819946
+   },
+   "L6": {
+    "peak_lag": 18,
+    "hit": true,
+    "ratio_at_true": 2.1558456420898438
+   },
+   "L12": {
+    "peak_lag": 18,
+    "hit": true,
+    "ratio_at_true": 10.572773933410645
+   }
+  },
+  {
+   "file": "054942.mp3",
+   "delay_ms": 94.23955048148879,
+   "gain": 0.4686502208768836,
+   "true_lag_frames": 8.117117531706358,
+   "L1": {
+    "peak_lag": 22,
+    "hit": false,
+    "ratio_at_true": 0.9993124604225159
+   },
+   "L6": {
+    "peak_lag": 8,
+    "hit": true,
+    "ratio_at_true": 1.4331094026565552
+   },
+   "L12": {
+    "peak_lag": 8,
+    "hit": true,
+    "ratio_at_true": 6.054943561553955
+   }
+  },
+  {
+   "file": "040657.mp3",
+   "delay_ms": 315.0500599836868,
+   "gain": 0.32684507621188263,
+   "true_lag_frames": 27.136147744688653,
+   "L1": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 1.0078707933425903
+   },
+   "L6": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 2.3952553272247314
+   },
+   "L12": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 18.12957000732422
+   }
+  },
+  {
+   "file": "092949.mp3",
+   "delay_ms": 192.1849129900708,
+   "gain": 0.5712857427807797,
+   "true_lag_frames": 16.553427075902583,
+   "L1": {
+    "peak_lag": 20,
+    "hit": false,
+    "ratio_at_true": 1.0060197114944458
+   },
+   "L6": {
+    "peak_lag": 17,
+    "hit": true,
+    "ratio_at_true": 2.09263277053833
+   },
+   "L12": {
+    "peak_lag": 16,
+    "hit": true,
+    "ratio_at_true": 11.816214561462402
+   }
+  },
+  {
+   "file": "086119.mp3",
+   "delay_ms": 269.6880701283582,
+   "gain": 0.3781362083179364,
+   "true_lag_frames": 23.22899197785273,
+   "L1": {
+    "peak_lag": 53,
+    "hit": false,
+    "ratio_at_true": 1.0036852359771729
+   },
+   "L6": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 2.8749799728393555
+   },
+   "L12": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 22.225927352905273
+   }
+  },
+  {
+   "file": "043858.mp3",
+   "delay_ms": 443.7008342277378,
+   "gain": 0.43670146940550636,
+   "true_lag_frames": 38.21720076063132,
+   "L1": {
+    "peak_lag": 55,
+    "hit": false,
+    "ratio_at_true": 0.9912645816802979
+   },
+   "L6": {
+    "peak_lag": 38,
+    "hit": true,
+    "ratio_at_true": 3.2555291652679443
+   },
+   "L12": {
+    "peak_lag": 38,
+    "hit": true,
+    "ratio_at_true": 7.417540073394775
+   }
+  },
+  {
+   "file": "149102.mp3",
+   "delay_ms": 346.3928984532607,
+   "gain": 0.571155281243063,
+   "true_lag_frames": 29.835794573806243,
+   "L1": {
+    "peak_lag": 59,
+    "hit": false,
+    "ratio_at_true": 1.006941795349121
+   },
+   "L6": {
+    "peak_lag": 30,
+    "hit": true,
+    "ratio_at_true": 3.604034900665283
+   },
+   "L12": {
+    "peak_lag": 29,
+    "hit": true,
+    "ratio_at_true": 18.3236141204834
+   }
+  },
+  {
+   "file": "104277.mp3",
+   "delay_ms": 313.440795521892,
+   "gain": 0.3472536071057254,
+   "true_lag_frames": 26.997537270537965,
+   "L1": {
+    "peak_lag": 12,
+    "hit": false,
+    "ratio_at_true": 1.000471591949463
+   },
+   "L6": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 1.5798125267028809
+   },
+   "L12": {
+    "peak_lag": 28,
+    "hit": false,
+    "ratio_at_true": 15.191728591918945
+   }
+  },
+  {
+   "file": "122503.mp3",
+   "delay_ms": 382.71040318618,
+   "gain": 0.5806522944511618,
+   "true_lag_frames": 32.96392339943464,
+   "L1": {
+    "peak_lag": 33,
+    "hit": true,
+    "ratio_at_true": 1.0342694520950317
+   },
+   "L6": {
+    "peak_lag": 33,
+    "hit": true,
+    "ratio_at_true": 2.581956624984741
+   },
+   "L12": {
+    "peak_lag": 31,
+    "hit": false,
+    "ratio_at_true": 4.976656913757324
+   }
+  },
+  {
+   "file": "036616.mp3",
+   "delay_ms": 261.51361166920384,
+   "gain": 0.49852286043377697,
+   "true_lag_frames": 22.524902880101347,
+   "L1": {
+    "peak_lag": 44,
+    "hit": false,
+    "ratio_at_true": 0.9974741339683533
+   },
+   "L6": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 2.710148811340332
+   },
+   "L12": {
+    "peak_lag": 22,
+    "hit": true,
+    "ratio_at_true": 15.512579917907715
+   }
+  },
+  {
+   "file": "110204.mp3",
+   "delay_ms": 448.4504194070025,
+   "gain": 0.346838499767885,
+   "true_lag_frames": 38.62629589032971,
+   "L1": {
+    "peak_lag": 56,
+    "hit": false,
+    "ratio_at_true": 0.9928231835365295
+   },
+   "L6": {
+    "peak_lag": 39,
+    "hit": true,
+    "ratio_at_true": 2.8657541275024414
+   },
+   "L12": {
+    "peak_lag": 39,
+    "hit": true,
+    "ratio_at_true": 15.738673210144043
+   }
+  },
+  {
+   "file": "108416.mp3",
+   "delay_ms": 410.80875951168105,
+   "gain": 0.4421530069509442,
+   "true_lag_frames": 35.38411385637722,
+   "L1": {
+    "peak_lag": 58,
+    "hit": false,
+    "ratio_at_true": 0.9998686909675598
+   },
+   "L6": {
+    "peak_lag": 35,
+    "hit": true,
+    "ratio_at_true": 3.591473340988159
+   },
+   "L12": {
+    "peak_lag": 35,
+    "hit": true,
+    "ratio_at_true": 11.921313285827637
+   }
+  },
+  {
+   "file": "112488.mp3",
+   "delay_ms": 316.5612718013837,
+   "gain": 0.5772753955259841,
+   "true_lag_frames": 27.26631266883012,
+   "L1": {
+    "peak_lag": 59,
+    "hit": false,
+    "ratio_at_true": 1.0047920942306519
+   },
+   "L6": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 1.8748141527175903
+   },
+   "L12": {
+    "peak_lag": 27,
+    "hit": true,
+    "ratio_at_true": 20.669666290283203
+   }
+  },
+  {
+   "file": "085438.mp3",
+   "delay_ms": 423.3931357728011,
+   "gain": 0.34017993514280254,
+   "true_lag_frames": 36.46804157730572,
+   "L1": {
+    "peak_lag": 37,
+    "hit": true,
+    "ratio_at_true": 1.0104410648345947
+   },
+   "L6": {
+    "peak_lag": 36,
+    "hit": true,
+    "ratio_at_true": 2.4136810302734375
+   },
+   "L12": {
+    "peak_lag": 36,
+    "hit": true,
+    "ratio_at_true": 9.452496528625488
+   }
+  },
+  {
+   "file": "107578.mp3",
+   "delay_ms": 260.05400900733963,
+   "gain": 0.5027336989603706,
+   "true_lag_frames": 22.39918319770249,
+   "L1": {
+    "peak_lag": 20,
+    "hit": false,
+    "ratio_at_true": 1.0222983360290527
+   },
+   "L6": {
+    "peak_lag": 22,
+    "hit": true,
+    "ratio_at_true": 1.5686646699905396
+   },
+   "L12": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 9.470356941223145
+   }
+  },
+  {
+   "file": "046159.mp3",
+   "delay_ms": 422.8056197029659,
+   "gain": 0.3482162142697151,
+   "true_lag_frames": 36.417437165821866,
+   "L1": {
+    "peak_lag": 35,
+    "hit": false,
+    "ratio_at_true": 1.0045641660690308
+   },
+   "L6": {
+    "peak_lag": 36,
+    "hit": true,
+    "ratio_at_true": 2.358700752258301
+   },
+   "L12": {
+    "peak_lag": 36,
+    "hit": true,
+    "ratio_at_true": 13.172012329101562
+   }
+  },
+  {
+   "file": "091755.mp3",
+   "delay_ms": 377.5146573961579,
+   "gain": 0.4556757636701474,
+   "true_lag_frames": 32.516399201505,
+   "L1": {
+    "peak_lag": 42,
+    "hit": false,
+    "ratio_at_true": 0.9951639771461487
+   },
+   "L6": {
+    "peak_lag": 33,
+    "hit": true,
+    "ratio_at_true": 2.1145272254943848
+   },
+   "L12": {
+    "peak_lag": 32,
+    "hit": true,
+    "ratio_at_true": 9.49190902709961
+   }
+  },
+  {
+   "file": "057891.mp3",
+   "delay_ms": 121.88080122837441,
+   "gain": 0.45583713422272765,
+   "true_lag_frames": 10.497936199553344,
+   "L1": {
+    "peak_lag": 24,
+    "hit": false,
+    "ratio_at_true": 0.996051549911499
+   },
+   "L6": {
+    "peak_lag": 11,
+    "hit": true,
+    "ratio_at_true": 1.5025194883346558
+   },
+   "L12": {
+    "peak_lag": 10,
+    "hit": true,
+    "ratio_at_true": 9.364896774291992
+   }
+  },
+  {
+   "file": "014358.mp3",
+   "delay_ms": 274.00886091904607,
+   "gain": 0.4331559161363486,
+   "true_lag_frames": 23.601153840878773,
+   "L1": {
+    "peak_lag": 53,
+    "hit": false,
+    "ratio_at_true": 0.9937251806259155
+   },
+   "L6": {
+    "peak_lag": 24,
+    "hit": true,
+    "ratio_at_true": 3.9928712844848633
+   },
+   "L12": {
+    "peak_lag": 23,
+    "hit": true,
+    "ratio_at_true": 15.079475402832031
+   }
+  },
+  {
+   "file": "064628.mp3",
+   "delay_ms": 199.69509366299758,
+   "gain": 0.4095633581384253,
+   "true_lag_frames": 17.20030005964491,
+   "L1": {
+    "peak_lag": 8,
+    "hit": false,
+    "ratio_at_true": 1.0033042430877686
+   },
+   "L6": {
+    "peak_lag": 17,
+    "hit": true,
+    "ratio_at_true": 2.2185215950012207
+   },
+   "L12": {
+    "peak_lag": 17,
+    "hit": true,
+    "ratio_at_true": 16.070823669433594
+   }
+  },
+  {
+   "file": "107850.mp3",
+   "delay_ms": 402.36927656992674,
+   "gain": 0.40268555633441505,
+   "true_lag_frames": 34.657197454558144,
+   "L1": {
+    "peak_lag": 17,
+    "hit": false,
+    "ratio_at_true": 1.0044527053833008
+   },
+   "L6": {
+    "peak_lag": 35,
+    "hit": true,
+    "ratio_at_true": 2.735093355178833
+   },
+   "L12": {
+    "peak_lag": 34,
+    "hit": true,
+    "ratio_at_true": 11.745109558105469
+   }
+  }
+ ]
+}

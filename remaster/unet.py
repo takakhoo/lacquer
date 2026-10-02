@@ -1,4 +1,4 @@
-"""Spectrogram U-Net baseline with the thesis building blocks (CBAM, FiLM) as switches.
+"""Spectrogram U-Net baseline with CBAM and FiLM as switches.
 
 Exists to answer one question with a measurement: on the same task, data and budget as the band-split
 transformer, does a conv U-Net compete, and do CBAM and (unconditional) FiLM change anything?
@@ -14,7 +14,7 @@ SR = 44100
 
 
 class CBAM(nn.Module):
-    """Channel attention then spatial attention (Woo et al. 2018), 2-D version of the thesis block."""
+    """Channel attention then spatial attention (Woo et al. 2018)."""
 
     def __init__(self, ch, reduction=8, kernel=7):
         super().__init__()
@@ -29,7 +29,7 @@ class CBAM(nn.Module):
 
 
 class FiLM(nn.Module):
-    """The thesis FiLM: learned per-channel scale and shift with no conditioning input."""
+    """Unconditional FiLM: a learned per-channel scale and shift with no conditioning input."""
 
     def __init__(self, ch):
         super().__init__()

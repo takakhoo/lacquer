@@ -132,14 +132,14 @@ def fig_architecture():
     save(fig, "architecture.png")
 
 
-# ---------------------------------------------------------------- 2. thesis vs lacquer
-def fig_thesis_vs_lacquer():
+# ---------------------------------------------------------------- 2. tokens vs mask
+def fig_tokens_vs_mask():
     W, H = 14.0, 7.6
     fig, ax = canvas(W, H)
-    title(ax, W, H, "What changed from the thesis", "Same 4 s stereo clip through both designs. The thesis generated audio from codec tokens; Lacquer corrects the input spectrogram.")
-    # thesis row
+    title(ax, W, H, "Two routes to restoration", "Same 4 s stereo clip through both. One generates audio from codec tokens; the other corrects the input spectrogram.")
+    # token-prediction row
     y, h = 4.65, 1.4
-    note(ax, 0.3, y + h + 0.28, "Thesis: Token U-Net (1.08 B parameters)", INK, 10.5, weight="bold")
+    note(ax, 0.3, y + h + 0.28, "Token prediction: EnCodec tokens through a 1-D U-Net (1.08 B parameters)", INK, 10.5, weight="bold")
     xs = [0.3, 2.15, 4.25, 6.3, 9.2, 11.25]
     box(ax, xs[0], y, 1.55, h, "Audio", ["4 s, resampled", "to 48 kHz"], BLUE, "[2, 192000]")
     box(ax, xs[1], y, 1.8, h, "EnCodec encoder", ["24 kbps, 150 frames/s", "16 residual codebooks"], INK2, "tokens [16, 598]")
@@ -172,7 +172,7 @@ def fig_thesis_vs_lacquer():
     for x, t in [(xs2[1] + 1.07, "level, tone and phase all stay\nin the representation"), (xs2[2] + 1.7, "losses act on the waveform and\nspectrogram, with gradients"), (xs2[3] + 1.0, "no ceiling: what is not masked\npasses through unchanged")]:
         ax.text(x, y2 - 0.18, t, ha="center", va="top", fontsize=7.8, color="#0d7a55")
         ax.plot([x, x], [y2 - 0.12, y2], color=AQUA, lw=1.2)
-    save(fig, "thesis_vs_lacquer.png")
+    save(fig, "tokens_vs_mask.png")
 
 
 # ---------------------------------------------------------------- 3. decision pipeline
@@ -224,7 +224,7 @@ def fig_controller():
     arrow(ax, (xs[4] + 2.0, y + 1.3), (xs[5], y + h / 2 + 0.2)); arrow(ax, (xs[4] + 2.0, y + 0.15), (xs[5], y + h / 2 - 0.2))
     # curriculum
     yc = 1.25
-    note(ax, 0.3, yc + 1.2, "Trained with the thesis curriculum", INK, 10.5, weight="bold")
+    note(ax, 0.3, yc + 1.2, "Trained with a curriculum", INK, 10.5, weight="bold")
     stages = [("Stage 1: one effect", "EQ or compression or level riding, or clean", "LR x1.0, steps 0 to 10k"),
               ("Stage 2: one or two", "pairs of effects mixed in", "LR x0.6, 10k to 15k"),
               ("Stage 3: full mix", "each effect present independently", "LR x0.4, 15k onward")]
@@ -292,7 +292,7 @@ def fig_curves():
             ax.text(*pos, lab, transform=ax.transAxes, fontsize=7.8, color=INK2, ha="right" if lab == "curriculum" else "left", va="center")
     for s_, lab in ((10000, "stage 2"), (15000, "stage 3")):
         ax.axvline(s_, color=GRID, lw=1.2); ax.text(s_ + 300, 3.05, lab, fontsize=7.3, color=INK2, va="top")
-    _style(ax, "training step", "level-envelope error (dB)", "Level controller: the thesis curriculum helps")
+    _style(ax, "training step", "level-envelope error (dB)", "Level controller: the curriculum helps")
     save(fig, "training_curves.png")
 
 
@@ -323,4 +323,4 @@ def fig_probe():
 
 
 if __name__ == "__main__":
-    fig_architecture(); fig_thesis_vs_lacquer(); fig_pipeline(); fig_controller(); fig_curves(); fig_probe()
+    fig_architecture(); fig_tokens_vs_mask(); fig_pipeline(); fig_controller(); fig_curves(); fig_probe()
