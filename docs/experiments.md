@@ -781,3 +781,17 @@ What the first run showed, and what changed:
 After the changes 80 of 98 clean tracks come out bit-identical. The 18 that change include 5 echo removals and
 8 level rides that may or may not be wanted, so the stage outputs are best read as proposals: every one is
 listed with its reading, and each can be switched off.
+
+### E8 rerun with the audited defaults (24 songs, checkpoint at step 23000)
+Same protocol as E8, after the threshold changes of E33. Raw rows: `docs/evidence/stems_policy/`.
+
+| scenario (SI-SDR, dB) | input | full-mix model | per-stem | two-level auto |
+|---|---:|---:|---:|---:|
+| room reverb on the whole mix | 4.7 | 9.8 | 5.3 | 9.7 |
+| reverb on the vocal only | 6.7 | 7.3 | 7.7 | 7.8 |
+| clean songs altered by the auto policy | | | | 1 of 24 |
+
+Room reverb improves with the longer-trained network (9.0 to 9.7 dB). The vocal-only case drops from 8.7 to
+7.8 dB: with the "too wet" threshold at +4 dB instead of 0 dB the policy now reduces the vocal on 7 of 24 songs
+instead of most of them. That is the price of the threshold that cut vocal-reverb false alarms on clean released
+music from 10 to 4 in 98 (E33). One clean song is still altered, down from two.

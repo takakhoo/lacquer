@@ -1,0 +1,3395 @@
+{
+ "summary": {
+  "room": {
+   "input": {
+    "sisdr": 4.691224604845047,
+    "lsd": 4.048334777355194
+   },
+   "full_mix": {
+    "sisdr": 9.824065764745077,
+    "lsd": 3.8359454522530236
+   },
+   "stems": {
+    "sisdr": 5.278648247321446,
+    "lsd": 4.22452596326669
+   },
+   "auto": {
+    "sisdr": 9.705211440722147,
+    "lsd": 3.8549041201670966
+   },
+   "auto_actions": {
+    "room_reduce": 24,
+    "vocal_reduce": 0
+   },
+   "actions": {
+    "vocals": {
+     "reduce": 4,
+     "keep": 20,
+     "add": 0,
+     "skip": 0
+    },
+    "drums": {
+     "reduce": 14,
+     "keep": 10,
+     "add": 0,
+     "skip": 0
+    },
+    "bass": {
+     "reduce": 3,
+     "keep": 20,
+     "add": 0,
+     "skip": 1
+    },
+    "other": {
+     "reduce": 16,
+     "keep": 8,
+     "add": 0,
+     "skip": 0
+    }
+   },
+   "n": 24
+  },
+  "wet_vocal": {
+   "input": {
+    "sisdr": 6.67894946038723,
+    "lsd": 2.9086630642414093
+   },
+   "full_mix": {
+    "sisdr": 7.27331127723058,
+    "lsd": 2.8868602265914283
+   },
+   "stems": {
+    "sisdr": 7.704528570175171,
+    "lsd": 2.95271285623312
+   },
+   "auto": {
+    "sisdr": 7.797058463096619,
+    "lsd": 2.861523777246475
+   },
+   "auto_actions": {
+    "room_reduce": 7,
+    "vocal_reduce": 7
+   },
+   "actions": {
+    "vocals": {
+     "reduce": 9,
+     "keep": 15,
+     "add": 0,
+     "skip": 0
+    },
+    "drums": {
+     "reduce": 0,
+     "keep": 23,
+     "add": 0,
+     "skip": 1
+    },
+    "bass": {
+     "reduce": 0,
+     "keep": 23,
+     "add": 0,
+     "skip": 1
+    },
+    "other": {
+     "reduce": 0,
+     "keep": 24,
+     "add": 0,
+     "skip": 0
+    }
+   },
+   "n": 24
+  },
+  "clean": {
+   "input": {
+    "sisdr": 124.08036104838054,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.08036104838054,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 114.75233860810597,
+    "lsd": 0.1707474100377165
+   },
+   "auto": {
+    "sisdr": 119.58287922541301,
+    "lsd": 0.04946485161781311
+   },
+   "auto_actions": {
+    "room_reduce": 0,
+    "vocal_reduce": 1
+   },
+   "actions": {
+    "vocals": {
+     "reduce": 2,
+     "keep": 22,
+     "add": 0,
+     "skip": 0
+    },
+    "drums": {
+     "reduce": 0,
+     "keep": 23,
+     "add": 0,
+     "skip": 1
+    },
+    "bass": {
+     "reduce": 0,
+     "keep": 23,
+     "add": 0,
+     "skip": 1
+    },
+    "other": {
+     "reduce": 0,
+     "keep": 24,
+     "add": 0,
+     "skip": 0
+    }
+   },
+   "n": 24
+  }
+ },
+ "rows": [
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.5358834266662598,
+    "lsd": 2.355252981185913
+   },
+   "full_mix": {
+    "sisdr": 5.800459861755371,
+    "lsd": 3.8066821098327637
+   },
+   "stems": {
+    "sisdr": 3.035820722579956,
+    "lsd": 3.0363845825195312
+   },
+   "auto": {
+    "sisdr": 5.800459861755371,
+    "lsd": 3.8066821098327637
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 3.995760679244995,
+    "lsd": 2.0896410942077637
+   },
+   "full_mix": {
+    "sisdr": 3.995760679244995,
+    "lsd": 2.0896410942077637
+   },
+   "stems": {
+    "sisdr": 8.159703254699707,
+    "lsd": 1.9652628898620605
+   },
+   "auto": {
+    "sisdr": 8.159703254699707,
+    "lsd": 1.9652628898620605
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 126.74270629882812,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 126.74270629882812,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 126.74270629882812,
+    "lsd": 7.61812160021691e-08
+   },
+   "auto": {
+    "sisdr": 126.74270629882812,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.8761823177337646,
+    "lsd": 8.345010757446289
+   },
+   "full_mix": {
+    "sisdr": 5.390913963317871,
+    "lsd": 6.5516862869262695
+   },
+   "stems": {
+    "sisdr": 1.9103593826293945,
+    "lsd": 8.363554000854492
+   },
+   "auto": {
+    "sisdr": 5.390913963317871,
+    "lsd": 6.5516862869262695
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 0.9487212896347046,
+    "lsd": 2.1829617023468018
+   },
+   "full_mix": {
+    "sisdr": 2.248798131942749,
+    "lsd": 2.3353466987609863
+   },
+   "stems": {
+    "sisdr": 4.247564315795898,
+    "lsd": 2.3332691192626953
+   },
+   "auto": {
+    "sisdr": 4.4902472496032715,
+    "lsd": 2.3445029258728027
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.24590301513672,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.24590301513672,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.24590301513672,
+    "lsd": 4.713515409093816e-06
+   },
+   "auto": {
+    "sisdr": 124.24590301513672,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "room",
+   "input": {
+    "sisdr": 8.335305213928223,
+    "lsd": 1.5671848058700562
+   },
+   "full_mix": {
+    "sisdr": 9.8133544921875,
+    "lsd": 1.6256227493286133
+   },
+   "stems": {
+    "sisdr": 8.335305213928223,
+    "lsd": 1.5671848058700562
+   },
+   "auto": {
+    "sisdr": 9.8133544921875,
+    "lsd": 1.6256227493286133
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 9.319048881530762,
+    "lsd": 1.5896787643432617
+   },
+   "full_mix": {
+    "sisdr": 10.282459259033203,
+    "lsd": 1.5975947380065918
+   },
+   "stems": {
+    "sisdr": 9.319048881530762,
+    "lsd": 1.5896787643432617
+   },
+   "auto": {
+    "sisdr": 9.403217315673828,
+    "lsd": 1.5885435342788696
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.64602661132812,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.64602661132812,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.64602661132812,
+    "lsd": 2.1194236410337908e-07
+   },
+   "auto": {
+    "sisdr": 124.64602661132812,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "room",
+   "input": {
+    "sisdr": 8.698914527893066,
+    "lsd": 3.597813129425049
+   },
+   "full_mix": {
+    "sisdr": 14.52563762664795,
+    "lsd": 3.318781852722168
+   },
+   "stems": {
+    "sisdr": 8.712199211120605,
+    "lsd": 3.5854275226593018
+   },
+   "auto": {
+    "sisdr": 14.018630981445312,
+    "lsd": 3.3261241912841797
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 9.368149757385254,
+    "lsd": 1.300490379333496
+   },
+   "full_mix": {
+    "sisdr": 9.368149757385254,
+    "lsd": 1.300490379333496
+   },
+   "stems": {
+    "sisdr": 9.368149757385254,
+    "lsd": 1.300490379333496
+   },
+   "auto": {
+    "sisdr": 9.368149757385254,
+    "lsd": 1.300490379333496
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 126.43463134765625,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 126.43463134765625,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 126.43463134765625,
+    "lsd": 3.1702120395493694e-07
+   },
+   "auto": {
+    "sisdr": 126.43463134765625,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.3947199583053589,
+    "lsd": 2.5249929428100586
+   },
+   "full_mix": {
+    "sisdr": 8.496286392211914,
+    "lsd": 3.2508797645568848
+   },
+   "stems": {
+    "sisdr": 1.958149790763855,
+    "lsd": 3.903196334838867
+   },
+   "auto": {
+    "sisdr": 8.496286392211914,
+    "lsd": 3.2508797645568848
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "unsure"
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 4.220613479614258,
+    "lsd": 1.448487639427185
+   },
+   "full_mix": {
+    "sisdr": 4.220613479614258,
+    "lsd": 1.448487639427185
+   },
+   "stems": {
+    "sisdr": 6.135289192199707,
+    "lsd": 3.4311881065368652
+   },
+   "auto": {
+    "sisdr": 4.220613479614258,
+    "lsd": 1.448487639427185
+   },
+   "auto_room": "keep",
+   "auto_vocal": "unsure"
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 123.34378051757812,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 123.34378051757812,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 7.410889625549316,
+    "lsd": 2.9107136726379395
+   },
+   "auto": {
+    "sisdr": 123.34378051757812,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "unsure"
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.2132974863052368,
+    "lsd": 2.412520408630371
+   },
+   "full_mix": {
+    "sisdr": 5.4314045906066895,
+    "lsd": 2.9421164989471436
+   },
+   "stems": {
+    "sisdr": 1.2132974863052368,
+    "lsd": 2.412520408630371
+   },
+   "auto": {
+    "sisdr": 5.4314045906066895,
+    "lsd": 2.9421164989471436
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 7.7227044105529785,
+    "lsd": 3.2161340713500977
+   },
+   "full_mix": {
+    "sisdr": 7.7227044105529785,
+    "lsd": 3.2161340713500977
+   },
+   "stems": {
+    "sisdr": 7.7227044105529785,
+    "lsd": 3.2161340713500977
+   },
+   "auto": {
+    "sisdr": 7.7227044105529785,
+    "lsd": 3.2161340713500977
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.0647964477539,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.0647964477539,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.0647964477539,
+    "lsd": 6.578504780918593e-07
+   },
+   "auto": {
+    "sisdr": 124.0647964477539,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "room",
+   "input": {
+    "sisdr": 2.3704442977905273,
+    "lsd": 8.003554344177246
+   },
+   "full_mix": {
+    "sisdr": 8.4849214553833,
+    "lsd": 6.297352313995361
+   },
+   "stems": {
+    "sisdr": 2.676860809326172,
+    "lsd": 8.000259399414062
+   },
+   "auto": {
+    "sisdr": 8.4849214553833,
+    "lsd": 6.297352313995361
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 8.230033874511719,
+    "lsd": 4.186075210571289
+   },
+   "full_mix": {
+    "sisdr": 11.80776596069336,
+    "lsd": 3.7426865100860596
+   },
+   "stems": {
+    "sisdr": 8.230033874511719,
+    "lsd": 4.186075210571289
+   },
+   "auto": {
+    "sisdr": 11.211931228637695,
+    "lsd": 3.8036623001098633
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 118.08719635009766,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 118.08719635009766,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 118.08719635009766,
+    "lsd": 8.388326477870578e-08
+   },
+   "auto": {
+    "sisdr": 118.08719635009766,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "room",
+   "input": {
+    "sisdr": 4.898011684417725,
+    "lsd": 1.3819217681884766
+   },
+   "full_mix": {
+    "sisdr": 15.164271354675293,
+    "lsd": 1.36687433719635
+   },
+   "stems": {
+    "sisdr": 6.931790828704834,
+    "lsd": 1.6649487018585205
+   },
+   "auto": {
+    "sisdr": 15.164271354675293,
+    "lsd": 1.36687433719635
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 6.630010604858398,
+    "lsd": 5.021289348602295
+   },
+   "full_mix": {
+    "sisdr": 6.630010604858398,
+    "lsd": 5.021289348602295
+   },
+   "stems": {
+    "sisdr": 6.630010604858398,
+    "lsd": 5.021289348602295
+   },
+   "auto": {
+    "sisdr": 6.630010604858398,
+    "lsd": 5.021289348602295
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 122.51406860351562,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 122.51406860351562,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 122.51406860351562,
+    "lsd": 4.1198131839337293e-07
+   },
+   "auto": {
+    "sisdr": 122.51406860351562,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "room",
+   "input": {
+    "sisdr": 6.5237908363342285,
+    "lsd": 1.6768505573272705
+   },
+   "full_mix": {
+    "sisdr": 10.46343994140625,
+    "lsd": 1.8187892436981201
+   },
+   "stems": {
+    "sisdr": 6.5237908363342285,
+    "lsd": 1.6768505573272705
+   },
+   "auto": {
+    "sisdr": 10.46343994140625,
+    "lsd": 1.8187892436981201
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 7.646513938903809,
+    "lsd": 3.9255614280700684
+   },
+   "full_mix": {
+    "sisdr": 7.646513938903809,
+    "lsd": 3.9255614280700684
+   },
+   "stems": {
+    "sisdr": 9.459294319152832,
+    "lsd": 3.8337066173553467
+   },
+   "auto": {
+    "sisdr": 9.459294319152832,
+    "lsd": 3.8337066173553467
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 126.44486236572266,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 126.44486236572266,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 126.44486236572266,
+    "lsd": 8.517724836565321e-07
+   },
+   "auto": {
+    "sisdr": 126.44486236572266,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "room",
+   "input": {
+    "sisdr": 6.168668270111084,
+    "lsd": 3.9226882457733154
+   },
+   "full_mix": {
+    "sisdr": 10.181145668029785,
+    "lsd": 3.799647331237793
+   },
+   "stems": {
+    "sisdr": 6.179012298583984,
+    "lsd": 3.925360679626465
+   },
+   "auto": {
+    "sisdr": 10.060585975646973,
+    "lsd": 3.799482822418213
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 1.2825894355773926,
+    "lsd": 5.675154685974121
+   },
+   "full_mix": {
+    "sisdr": 1.2825894355773926,
+    "lsd": 5.675154685974121
+   },
+   "stems": {
+    "sisdr": 4.088278770446777,
+    "lsd": 5.180568695068359
+   },
+   "auto": {
+    "sisdr": 4.088278770446777,
+    "lsd": 5.180568695068359
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 125.21648406982422,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 125.21648406982422,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 125.21647644042969,
+    "lsd": 1.1489029020594899e-05
+   },
+   "auto": {
+    "sisdr": 125.21648406982422,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "room",
+   "input": {
+    "sisdr": 4.108669757843018,
+    "lsd": 4.6562347412109375
+   },
+   "full_mix": {
+    "sisdr": 10.614336013793945,
+    "lsd": 4.454352378845215
+   },
+   "stems": {
+    "sisdr": 5.438918113708496,
+    "lsd": 4.684715270996094
+   },
+   "auto": {
+    "sisdr": 10.614336013793945,
+    "lsd": 4.454352378845215
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 6.665999412536621,
+    "lsd": 4.49796199798584
+   },
+   "full_mix": {
+    "sisdr": 6.665999412536621,
+    "lsd": 4.49796199798584
+   },
+   "stems": {
+    "sisdr": 6.665999412536621,
+    "lsd": 4.49796199798584
+   },
+   "auto": {
+    "sisdr": 6.665999412536621,
+    "lsd": 4.49796199798584
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 122.93000030517578,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 122.93000030517578,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 122.93000030517578,
+    "lsd": 9.442341024623602e-07
+   },
+   "auto": {
+    "sisdr": 122.93000030517578,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "room",
+   "input": {
+    "sisdr": 5.015052795410156,
+    "lsd": 1.2607406377792358
+   },
+   "full_mix": {
+    "sisdr": 13.43629264831543,
+    "lsd": 1.2449471950531006
+   },
+   "stems": {
+    "sisdr": 7.499644756317139,
+    "lsd": 1.6000053882598877
+   },
+   "auto": {
+    "sisdr": 13.43629264831543,
+    "lsd": 1.2449471950531006
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 8.488150596618652,
+    "lsd": 2.1835756301879883
+   },
+   "full_mix": {
+    "sisdr": 8.488150596618652,
+    "lsd": 2.1835756301879883
+   },
+   "stems": {
+    "sisdr": 8.488150596618652,
+    "lsd": 2.1835756301879883
+   },
+   "auto": {
+    "sisdr": 8.488150596618652,
+    "lsd": 2.1835756301879883
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.369384765625,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.369384765625,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.3693618774414,
+    "lsd": 2.9041009838692844e-05
+   },
+   "auto": {
+    "sisdr": 124.369384765625,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.207192063331604,
+    "lsd": 5.324936866760254
+   },
+   "full_mix": {
+    "sisdr": 10.16478157043457,
+    "lsd": 5.237724304199219
+   },
+   "stems": {
+    "sisdr": 2.077544927597046,
+    "lsd": 5.385625839233398
+   },
+   "auto": {
+    "sisdr": 10.16478157043457,
+    "lsd": 5.237724304199219
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 9.114523887634277,
+    "lsd": 3.387299060821533
+   },
+   "full_mix": {
+    "sisdr": 9.114523887634277,
+    "lsd": 3.387299060821533
+   },
+   "stems": {
+    "sisdr": 9.114523887634277,
+    "lsd": 3.387299060821533
+   },
+   "auto": {
+    "sisdr": 9.114523887634277,
+    "lsd": 3.387299060821533
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 123.46004486083984,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 123.46004486083984,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 123.46004486083984,
+    "lsd": 8.219977303269843e-07
+   },
+   "auto": {
+    "sisdr": 123.46004486083984,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "room",
+   "input": {
+    "sisdr": 4.1981658935546875,
+    "lsd": 5.728618621826172
+   },
+   "full_mix": {
+    "sisdr": 7.687225818634033,
+    "lsd": 5.083393096923828
+   },
+   "stems": {
+    "sisdr": 5.656378746032715,
+    "lsd": 5.705541133880615
+   },
+   "auto": {
+    "sisdr": 7.687225818634033,
+    "lsd": 5.083393096923828
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 2.5288848876953125,
+    "lsd": 0.9628512859344482
+   },
+   "full_mix": {
+    "sisdr": 2.5288848876953125,
+    "lsd": 0.9628512859344482
+   },
+   "stems": {
+    "sisdr": 4.776535987854004,
+    "lsd": 1.2429109811782837
+   },
+   "auto": {
+    "sisdr": 4.776535987854004,
+    "lsd": 1.2429109811782837
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.82865142822266,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.82865142822266,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.82865142822266,
+    "lsd": 9.298486816078366e-07
+   },
+   "auto": {
+    "sisdr": 124.82865142822266,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "room",
+   "input": {
+    "sisdr": 3.837507963180542,
+    "lsd": 4.064679145812988
+   },
+   "full_mix": {
+    "sisdr": 8.826180458068848,
+    "lsd": 3.9071555137634277
+   },
+   "stems": {
+    "sisdr": 4.462780475616455,
+    "lsd": 4.091165065765381
+   },
+   "auto": {
+    "sisdr": 8.826180458068848,
+    "lsd": 3.9071555137634277
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 2.4694533348083496,
+    "lsd": 4.136758804321289
+   },
+   "full_mix": {
+    "sisdr": 2.4694533348083496,
+    "lsd": 4.136758804321289
+   },
+   "stems": {
+    "sisdr": 6.788482189178467,
+    "lsd": 3.9186272621154785
+   },
+   "auto": {
+    "sisdr": 2.4694533348083496,
+    "lsd": 4.136758804321289
+   },
+   "auto_room": "keep",
+   "auto_vocal": "unsure"
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 124.45178985595703,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 124.45178985595703,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 124.45178985595703,
+    "lsd": 2.44233717694442e-07
+   },
+   "auto": {
+    "sisdr": 124.45178985595703,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "room",
+   "input": {
+    "sisdr": 8.69290542602539,
+    "lsd": 3.904059410095215
+   },
+   "full_mix": {
+    "sisdr": 10.442351341247559,
+    "lsd": 3.8018550872802734
+   },
+   "stems": {
+    "sisdr": 8.69290542602539,
+    "lsd": 3.904059410095215
+   },
+   "auto": {
+    "sisdr": 9.539449691772461,
+    "lsd": 3.8576173782348633
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 10.204286575317383,
+    "lsd": 1.9985623359680176
+   },
+   "full_mix": {
+    "sisdr": 10.204286575317383,
+    "lsd": 1.9985623359680176
+   },
+   "stems": {
+    "sisdr": 10.204286575317383,
+    "lsd": 1.9985626935958862
+   },
+   "auto": {
+    "sisdr": 10.204286575317383,
+    "lsd": 1.9985623359680176
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 125.69926452636719,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 125.69926452636719,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 125.69926452636719,
+    "lsd": 2.108944499923382e-06
+   },
+   "auto": {
+    "sisdr": 125.69926452636719,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "room",
+   "input": {
+    "sisdr": 4.852110385894775,
+    "lsd": 4.29881477355957
+   },
+   "full_mix": {
+    "sisdr": 9.267086029052734,
+    "lsd": 4.16752815246582
+   },
+   "stems": {
+    "sisdr": 6.134645938873291,
+    "lsd": 4.299982070922852
+   },
+   "auto": {
+    "sisdr": 9.267086029052734,
+    "lsd": 4.16752815246582
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 11.175209045410156,
+    "lsd": 4.6217756271362305
+   },
+   "full_mix": {
+    "sisdr": 11.175209045410156,
+    "lsd": 4.6217756271362305
+   },
+   "stems": {
+    "sisdr": 11.175209045410156,
+    "lsd": 4.6217756271362305
+   },
+   "auto": {
+    "sisdr": 11.175209045410156,
+    "lsd": 4.6217756271362305
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 125.74542999267578,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 125.74542999267578,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 125.74542999267578,
+    "lsd": 1.3822818800690584e-06
+   },
+   "auto": {
+    "sisdr": 125.74542999267578,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "room",
+   "input": {
+    "sisdr": 3.5879530906677246,
+    "lsd": 1.980158805847168
+   },
+   "full_mix": {
+    "sisdr": 9.022786140441895,
+    "lsd": 2.2171664237976074
+   },
+   "stems": {
+    "sisdr": 3.7764856815338135,
+    "lsd": 2.0591163635253906
+   },
+   "auto": {
+    "sisdr": 9.022786140441895,
+    "lsd": 2.2171664237976074
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 5.083810806274414,
+    "lsd": 2.8484787940979004
+   },
+   "full_mix": {
+    "sisdr": 6.212887763977051,
+    "lsd": 2.8300304412841797
+   },
+   "stems": {
+    "sisdr": 5.083810806274414,
+    "lsd": 2.8484787940979004
+   },
+   "auto": {
+    "sisdr": 5.083810806274414,
+    "lsd": 2.8484787940979004
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 122.07451629638672,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 122.07451629638672,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 122.07451629638672,
+    "lsd": 3.5745129025599454e-06
+   },
+   "auto": {
+    "sisdr": 122.07451629638672,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "room",
+   "input": {
+    "sisdr": 8.758048057556152,
+    "lsd": 2.1781253814697266
+   },
+   "full_mix": {
+    "sisdr": 13.073257446289062,
+    "lsd": 2.0619425773620605
+   },
+   "stems": {
+    "sisdr": 8.790167808532715,
+    "lsd": 2.525698661804199
+   },
+   "auto": {
+    "sisdr": 13.006460189819336,
+    "lsd": 2.050286293029785
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 12.50058364868164,
+    "lsd": 2.311262607574463
+   },
+   "full_mix": {
+    "sisdr": 12.50058364868164,
+    "lsd": 2.311262607574463
+   },
+   "stems": {
+    "sisdr": 13.151861190795898,
+    "lsd": 2.505579948425293
+   },
+   "auto": {
+    "sisdr": 13.151861190795898,
+    "lsd": 2.505579948425293
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 125.51985168457031,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 125.51985168457031,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 17.58028793334961,
+    "lsd": 1.1871564388275146
+   },
+   "auto": {
+    "sisdr": 17.58028793334961,
+    "lsd": 1.1871564388275146
+   },
+   "auto_room": "keep",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "room",
+   "input": {
+    "sisdr": 9.04340648651123,
+    "lsd": 9.236159324645996
+   },
+   "full_mix": {
+    "sisdr": 11.458373069763184,
+    "lsd": 8.438531875610352
+   },
+   "stems": {
+    "sisdr": 9.04340648651123,
+    "lsd": 9.236159324645996
+   },
+   "auto": {
+    "sisdr": 10.478033065795898,
+    "lsd": 8.856428146362305
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 11.26846694946289,
+    "lsd": 1.3710641860961914
+   },
+   "full_mix": {
+    "sisdr": 11.26846694946289,
+    "lsd": 1.3710641860961914
+   },
+   "stems": {
+    "sisdr": 11.26846694946289,
+    "lsd": 1.3710641860961914
+   },
+   "auto": {
+    "sisdr": 11.26846694946289,
+    "lsd": 1.3710641860961914
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 121.77944946289062,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 121.77944946289062,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 121.7793960571289,
+    "lsd": 2.0247882730473066e-06
+   },
+   "auto": {
+    "sisdr": 121.77944946289062,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "room",
+   "input": {
+    "sisdr": 7.591663360595703,
+    "lsd": 2.1477723121643066
+   },
+   "full_mix": {
+    "sisdr": 11.970462799072266,
+    "lsd": 2.0143070220947266
+   },
+   "stems": {
+    "sisdr": 7.681025505065918,
+    "lsd": 2.1550145149230957
+   },
+   "auto": {
+    "sisdr": 11.695564270019531,
+    "lsd": 2.0001349449157715
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 7.582781791687012,
+    "lsd": 1.8965349197387695
+   },
+   "full_mix": {
+    "sisdr": 9.542044639587402,
+    "lsd": 1.9539955854415894
+   },
+   "stems": {
+    "sisdr": 7.582781791687012,
+    "lsd": 1.8965349197387695
+   },
+   "auto": {
+    "sisdr": 9.542044639587402,
+    "lsd": 1.9539955854415894
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 123.27861785888672,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 123.27861785888672,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 123.27861785888672,
+    "lsd": 1.4655754512205021e-06
+   },
+   "auto": {
+    "sisdr": 123.27861785888672,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "room",
+   "input": {
+    "sisdr": 1.9984411001205444,
+    "lsd": 9.043014526367188
+   },
+   "full_mix": {
+    "sisdr": 7.644571304321289,
+    "lsd": 6.740283966064453
+   },
+   "stems": {
+    "sisdr": 2.337554693222046,
+    "lsd": 8.887401580810547
+   },
+   "auto": {
+    "sisdr": 7.644571304321289,
+    "lsd": 6.740283966064453
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 4.239182472229004,
+    "lsd": 2.411990165710449
+   },
+   "full_mix": {
+    "sisdr": 6.964865207672119,
+    "lsd": 2.2953734397888184
+   },
+   "stems": {
+    "sisdr": 4.239182472229004,
+    "lsd": 2.411990165710449
+   },
+   "auto": {
+    "sisdr": 6.397289752960205,
+    "lsd": 2.303986072540283
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 122.92085266113281,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 122.92085266113281,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 122.92085266113281,
+    "lsd": 1.1300039659545291e-06
+   },
+   "auto": {
+    "sisdr": 122.92085266113281,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "room",
+   "input": {
+    "sisdr": 2.6885082721710205,
+    "lsd": 5.319714546203613
+   },
+   "full_mix": {
+    "sisdr": 6.522261619567871,
+    "lsd": 5.238550186157227
+   },
+   "stems": {
+    "sisdr": 3.2275283336639404,
+    "lsd": 5.457606792449951
+   },
+   "auto": {
+    "sisdr": 6.522261619567871,
+    "lsd": 5.238550186157227
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 2.0261130332946777,
+    "lsd": 5.7204132080078125
+   },
+   "full_mix": {
+    "sisdr": 2.163285255432129,
+    "lsd": 5.288668632507324
+   },
+   "stems": {
+    "sisdr": 5.426123142242432,
+    "lsd": 5.099173545837402
+   },
+   "auto": {
+    "sisdr": 5.315600395202637,
+    "lsd": 5.049563407897949
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "reduce"
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 122.93997192382812,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 122.93997192382812,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 122.93997192382812,
+    "lsd": 2.356867526032147e-06
+   },
+   "auto": {
+    "sisdr": 122.93997192382812,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "room",
+   "input": {
+    "sisdr": 3.9945478439331055,
+    "lsd": 2.229215621948242
+   },
+   "full_mix": {
+    "sisdr": 11.895776748657227,
+    "lsd": 2.676520586013794
+   },
+   "stems": {
+    "sisdr": 4.391984462738037,
+    "lsd": 3.2608447074890137
+   },
+   "auto": {
+    "sisdr": 11.895776748657227,
+    "lsd": 2.676520586013794
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "wet_vocal",
+   "input": {
+    "sisdr": 7.583194255828857,
+    "lsd": 0.8239105939865112
+   },
+   "full_mix": {
+    "sisdr": 10.055463790893555,
+    "lsd": 1.0930792093276978
+   },
+   "stems": {
+    "sisdr": 7.583194255828857,
+    "lsd": 0.8239105343818665
+   },
+   "auto": {
+    "sisdr": 8.722020149230957,
+    "lsd": 0.8724098205566406
+   },
+   "auto_room": "reduce",
+   "auto_vocal": "keep"
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "clean",
+   "input": {
+    "sisdr": 126.19038391113281,
+    "lsd": 0.0
+   },
+   "full_mix": {
+    "sisdr": 126.19038391113281,
+    "lsd": 0.0
+   },
+   "stems": {
+    "sisdr": 126.19038391113281,
+    "lsd": 2.891964413720416e-06
+   },
+   "auto": {
+    "sisdr": 126.19038391113281,
+    "lsd": 0.0
+   },
+   "auto_room": "keep",
+   "auto_vocal": "keep"
+  }
+ ],
+ "decisions": [
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     10.2
+    ],
+    "drums": [
+     "reduce",
+     -4.8
+    ],
+    "bass": [
+     "keep",
+     -42.5
+    ],
+    "other": [
+     "reduce",
+     -2.4
+    ]
+   }
+  },
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     7.4
+    ],
+    "drums": [
+     "keep",
+     -41.3
+    ],
+    "bass": [
+     "keep",
+     -38.6
+    ],
+    "other": [
+     "keep",
+     -35.3
+    ]
+   }
+  },
+  {
+   "song": "AM Contra - Heart Peripheral",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.7
+    ],
+    "drums": [
+     "keep",
+     -42.6
+    ],
+    "bass": [
+     "keep",
+     -40.7
+    ],
+    "other": [
+     "keep",
+     -36.0
+    ]
+   }
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.3
+    ],
+    "drums": [
+     "reduce",
+     -23.4
+    ],
+    "bass": [
+     "keep",
+     -31.1
+    ],
+    "other": [
+     "reduce",
+     -21.3
+    ]
+   }
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     8.4
+    ],
+    "drums": [
+     "keep",
+     -39.0
+    ],
+    "bass": [
+     "keep",
+     -36.8
+    ],
+    "other": [
+     "keep",
+     -43.3
+    ]
+   }
+  },
+  {
+   "song": "Al James - Schoolboy Facination",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -5.0
+    ],
+    "drums": [
+     "keep",
+     -39.5
+    ],
+    "bass": [
+     "keep",
+     -34.7
+    ],
+    "other": [
+     "keep",
+     -44.7
+    ]
+   }
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -1.0
+    ],
+    "drums": [
+     "keep",
+     -32.4
+    ],
+    "bass": [
+     "keep",
+     -38.5
+    ],
+    "other": [
+     "keep",
+     -38.4
+    ]
+   }
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.1
+    ],
+    "drums": [
+     "keep",
+     -32.7
+    ],
+    "bass": [
+     "keep",
+     -42.7
+    ],
+    "other": [
+     "keep",
+     -44.7
+    ]
+   }
+  },
+  {
+   "song": "Angels In Amplifiers - I'm Alright",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -3.0
+    ],
+    "drums": [
+     "keep",
+     -32.8
+    ],
+    "bass": [
+     "keep",
+     -41.8
+    ],
+    "other": [
+     "keep",
+     -44.9
+    ]
+   }
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -13.6
+    ],
+    "drums": [
+     "keep",
+     -35.4
+    ],
+    "bass": [
+     "keep",
+     -34.0
+    ],
+    "other": [
+     "reduce",
+     -21.8
+    ]
+   }
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -1.3
+    ],
+    "drums": [
+     "keep",
+     -39.3
+    ],
+    "bass": [
+     "keep",
+     -41.0
+    ],
+    "other": [
+     "keep",
+     -39.4
+    ]
+   }
+  },
+  {
+   "song": "Arise - Run Run Run",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -20.1
+    ],
+    "drums": [
+     "keep",
+     -39.2
+    ],
+    "bass": [
+     "keep",
+     -40.9
+    ],
+    "other": [
+     "keep",
+     -39.5
+    ]
+   }
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     15.3
+    ],
+    "drums": [
+     "reduce",
+     -8.4
+    ],
+    "bass": [
+     "reduce",
+     -9.3
+    ],
+    "other": [
+     "reduce",
+     -13.1
+    ]
+   }
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     16.8
+    ],
+    "drums": [
+     "keep",
+     -44.1
+    ],
+    "bass": [
+     "keep",
+     -41.3
+    ],
+    "other": [
+     "keep",
+     -44.1
+    ]
+   }
+  },
+  {
+   "song": "BKS - Bulldozer",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     14.3
+    ],
+    "drums": [
+     "keep",
+     -43.9
+    ],
+    "bass": [
+     "keep",
+     -40.6
+    ],
+    "other": [
+     "keep",
+     -44.4
+    ]
+   }
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.1
+    ],
+    "drums": [
+     "keep",
+     -43.3
+    ],
+    "bass": [
+     "keep",
+     -44.1
+    ],
+    "other": [
+     "keep",
+     -30.9
+    ]
+   }
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.8
+    ],
+    "drums": [
+     "keep",
+     -40.4
+    ],
+    "bass": [
+     "keep",
+     -41.4
+    ],
+    "other": [
+     "keep",
+     -43.5
+    ]
+   }
+  },
+  {
+   "song": "BKS - Too Much",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -6.5
+    ],
+    "drums": [
+     "keep",
+     -40.1
+    ],
+    "bass": [
+     "keep",
+     -43.0
+    ],
+    "other": [
+     "keep",
+     -42.4
+    ]
+   }
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.2
+    ],
+    "drums": [
+     "keep",
+     -25.3
+    ],
+    "bass": [
+     "keep",
+     -38.1
+    ],
+    "other": [
+     "reduce",
+     -12.9
+    ]
+   }
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.9
+    ],
+    "drums": [
+     "skip",
+     null
+    ],
+    "bass": [
+     "keep",
+     -44.8
+    ],
+    "other": [
+     "keep",
+     -46.5
+    ]
+   }
+  },
+  {
+   "song": "Ben Carrigan - We'll Talk About It All Tonight",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -6.2
+    ],
+    "drums": [
+     "skip",
+     null
+    ],
+    "bass": [
+     "keep",
+     -44.9
+    ],
+    "other": [
+     "keep",
+     -46.1
+    ]
+   }
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     5.0
+    ],
+    "drums": [
+     "keep",
+     -41.4
+    ],
+    "bass": [
+     "keep",
+     -32.8
+    ],
+    "other": [
+     "reduce",
+     -7.3
+    ]
+   }
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     2.5
+    ],
+    "drums": [
+     "keep",
+     -42.8
+    ],
+    "bass": [
+     "keep",
+     -45.6
+    ],
+    "other": [
+     "keep",
+     -45.8
+    ]
+   }
+  },
+  {
+   "song": "Bobby Nobody - Stitch Up",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.0
+    ],
+    "drums": [
+     "keep",
+     -42.8
+    ],
+    "bass": [
+     "keep",
+     -45.0
+    ],
+    "other": [
+     "keep",
+     -44.7
+    ]
+   }
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     2.9
+    ],
+    "drums": [
+     "keep",
+     -39.6
+    ],
+    "bass": [
+     "keep",
+     -40.4
+    ],
+    "other": [
+     "keep",
+     -27.6
+    ]
+   }
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     4.4
+    ],
+    "drums": [
+     "keep",
+     -40.1
+    ],
+    "bass": [
+     "keep",
+     -41.2
+    ],
+    "other": [
+     "keep",
+     -42.5
+    ]
+   }
+  },
+  {
+   "song": "Buitraker - Revo X",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.2
+    ],
+    "drums": [
+     "keep",
+     -43.2
+    ],
+    "bass": [
+     "keep",
+     -42.1
+    ],
+    "other": [
+     "keep",
+     -45.4
+    ]
+   }
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.1
+    ],
+    "drums": [
+     "reduce",
+     -23.1
+    ],
+    "bass": [
+     "keep",
+     -28.7
+    ],
+    "other": [
+     "keep",
+     -29.4
+    ]
+   }
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     5.1
+    ],
+    "drums": [
+     "keep",
+     -28.2
+    ],
+    "bass": [
+     "keep",
+     -29.0
+    ],
+    "other": [
+     "keep",
+     -42.1
+    ]
+   }
+  },
+  {
+   "song": "Carlos Gonzalez - A Place For Us",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -4.4
+    ],
+    "drums": [
+     "keep",
+     -28.3
+    ],
+    "bass": [
+     "keep",
+     -29.2
+    ],
+    "other": [
+     "keep",
+     -42.1
+    ]
+   }
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.8
+    ],
+    "drums": [
+     "reduce",
+     -13.3
+    ],
+    "bass": [
+     "keep",
+     -32.2
+    ],
+    "other": [
+     "reduce",
+     -11.7
+    ]
+   }
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.0
+    ],
+    "drums": [
+     "keep",
+     -34.2
+    ],
+    "bass": [
+     "keep",
+     -36.2
+    ],
+    "other": [
+     "keep",
+     -46.9
+    ]
+   }
+  },
+  {
+   "song": "Cristina Vane - So Easy",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -7.9
+    ],
+    "drums": [
+     "keep",
+     -34.3
+    ],
+    "bass": [
+     "keep",
+     -35.9
+    ],
+    "other": [
+     "keep",
+     -47.2
+    ]
+   }
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -4.6
+    ],
+    "drums": [
+     "reduce",
+     -8.8
+    ],
+    "bass": [
+     "keep",
+     -32.9
+    ],
+    "other": [
+     "reduce",
+     -18.6
+    ]
+   }
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -3.0
+    ],
+    "drums": [
+     "keep",
+     -27.3
+    ],
+    "bass": [
+     "keep",
+     -42.5
+    ],
+    "other": [
+     "keep",
+     -40.1
+    ]
+   }
+  },
+  {
+   "song": "Detsky Sad - Walkie Talkie",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -8.4
+    ],
+    "drums": [
+     "keep",
+     -27.2
+    ],
+    "bass": [
+     "keep",
+     -43.0
+    ],
+    "other": [
+     "keep",
+     -39.8
+    ]
+   }
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.4
+    ],
+    "drums": [
+     "reduce",
+     -8.2
+    ],
+    "bass": [
+     "reduce",
+     -20.6
+    ],
+    "other": [
+     "reduce",
+     -10.4
+    ]
+   }
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -5.8
+    ],
+    "drums": [
+     "keep",
+     -40.7
+    ],
+    "bass": [
+     "keep",
+     -46.7
+    ],
+    "other": [
+     "keep",
+     -43.7
+    ]
+   }
+  },
+  {
+   "song": "Enda Reilly - Cur An Long Ag Seol",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -13.8
+    ],
+    "drums": [
+     "keep",
+     -40.6
+    ],
+    "bass": [
+     "keep",
+     -46.7
+    ],
+    "other": [
+     "keep",
+     -44.1
+    ]
+   }
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     1.6
+    ],
+    "drums": [
+     "reduce",
+     -6.9
+    ],
+    "bass": [
+     "keep",
+     -34.5
+    ],
+    "other": [
+     "reduce",
+     -21.4
+    ]
+   }
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     4.6
+    ],
+    "drums": [
+     "keep",
+     -40.6
+    ],
+    "bass": [
+     "keep",
+     -35.4
+    ],
+    "other": [
+     "keep",
+     -45.4
+    ]
+   }
+  },
+  {
+   "song": "Forkupines - Semantics",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -1.0
+    ],
+    "drums": [
+     "keep",
+     -41.2
+    ],
+    "bass": [
+     "keep",
+     -37.0
+    ],
+    "other": [
+     "keep",
+     -45.8
+    ]
+   }
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     0.7
+    ],
+    "drums": [
+     "reduce",
+     -21.0
+    ],
+    "bass": [
+     "keep",
+     -29.3
+    ],
+    "other": [
+     "reduce",
+     -10.6
+    ]
+   }
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     9.2
+    ],
+    "drums": [
+     "keep",
+     -37.8
+    ],
+    "bass": [
+     "keep",
+     -30.2
+    ],
+    "other": [
+     "keep",
+     -44.6
+    ]
+   }
+  },
+  {
+   "song": "Georgia Wonder - Siren",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -5.9
+    ],
+    "drums": [
+     "keep",
+     -37.9
+    ],
+    "bass": [
+     "keep",
+     -29.9
+    ],
+    "other": [
+     "keep",
+     -45.6
+    ]
+   }
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -9.5
+    ],
+    "drums": [
+     "keep",
+     -37.6
+    ],
+    "bass": [
+     "keep",
+     -38.2
+    ],
+    "other": [
+     "keep",
+     -39.9
+    ]
+   }
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -3.3
+    ],
+    "drums": [
+     "keep",
+     -41.2
+    ],
+    "bass": [
+     "keep",
+     -38.3
+    ],
+    "other": [
+     "keep",
+     -42.7
+    ]
+   }
+  },
+  {
+   "song": "Girls Under Glass - We Feel Alright",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -13.0
+    ],
+    "drums": [
+     "keep",
+     -41.2
+    ],
+    "bass": [
+     "keep",
+     -38.6
+    ],
+    "other": [
+     "keep",
+     -43.3
+    ]
+   }
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -11.2
+    ],
+    "drums": [
+     "reduce",
+     -20.3
+    ],
+    "bass": [
+     "keep",
+     -35.3
+    ],
+    "other": [
+     "reduce",
+     -10.5
+    ]
+   }
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -3.4
+    ],
+    "drums": [
+     "keep",
+     -40.9
+    ],
+    "bass": [
+     "keep",
+     -38.8
+    ],
+    "other": [
+     "keep",
+     -44.3
+    ]
+   }
+  },
+  {
+   "song": "Hollow Ground - Ill Fate",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -35.4
+    ],
+    "drums": [
+     "keep",
+     -41.1
+    ],
+    "bass": [
+     "keep",
+     -36.9
+    ],
+    "other": [
+     "keep",
+     -44.4
+    ]
+   }
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     0.9
+    ],
+    "drums": [
+     "reduce",
+     -17.1
+    ],
+    "bass": [
+     "skip",
+     null
+    ],
+    "other": [
+     "reduce",
+     -13.3
+    ]
+   }
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.1
+    ],
+    "drums": [
+     "keep",
+     -37.4
+    ],
+    "bass": [
+     "skip",
+     null
+    ],
+    "other": [
+     "keep",
+     -32.8
+    ]
+   }
+  },
+  {
+   "song": "James Elder & Mark M Thompson - The English Actor",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -10.3
+    ],
+    "drums": [
+     "keep",
+     -37.5
+    ],
+    "bass": [
+     "skip",
+     null
+    ],
+    "other": [
+     "keep",
+     -37.5
+    ]
+   }
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     7.1
+    ],
+    "drums": [
+     "keep",
+     -27.1
+    ],
+    "bass": [
+     "keep",
+     -29.8
+    ],
+    "other": [
+     "reduce",
+     -19.5
+    ]
+   }
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     6.8
+    ],
+    "drums": [
+     "keep",
+     -43.0
+    ],
+    "bass": [
+     "keep",
+     -32.8
+    ],
+    "other": [
+     "keep",
+     -44.7
+    ]
+   }
+  },
+  {
+   "song": "Juliet's Rescue - Heartbeats",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "reduce",
+     5.2
+    ],
+    "drums": [
+     "keep",
+     -43.1
+    ],
+    "bass": [
+     "keep",
+     -32.9
+    ],
+    "other": [
+     "keep",
+     -44.8
+    ]
+   }
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -1.5
+    ],
+    "drums": [
+     "keep",
+     -32.3
+    ],
+    "bass": [
+     "keep",
+     -28.0
+    ],
+    "other": [
+     "keep",
+     -32.6
+    ]
+   }
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     3.2
+    ],
+    "drums": [
+     "keep",
+     -33.6
+    ],
+    "bass": [
+     "keep",
+     -31.3
+    ],
+    "other": [
+     "keep",
+     -33.9
+    ]
+   }
+  },
+  {
+   "song": "Little Chicago's Finest - My Own",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.1
+    ],
+    "drums": [
+     "keep",
+     -33.5
+    ],
+    "bass": [
+     "keep",
+     -31.6
+    ],
+    "other": [
+     "keep",
+     -33.2
+    ]
+   }
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -10.4
+    ],
+    "drums": [
+     "reduce",
+     -20.7
+    ],
+    "bass": [
+     "keep",
+     -24.9
+    ],
+    "other": [
+     "keep",
+     -30.3
+    ]
+   }
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -6.0
+    ],
+    "drums": [
+     "keep",
+     -35.4
+    ],
+    "bass": [
+     "keep",
+     -34.7
+    ],
+    "other": [
+     "keep",
+     -44.9
+    ]
+   }
+  },
+  {
+   "song": "Louis Cressy Band - Good Time",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -18.4
+    ],
+    "drums": [
+     "keep",
+     -35.3
+    ],
+    "bass": [
+     "keep",
+     -31.8
+    ],
+    "other": [
+     "keep",
+     -45.3
+    ]
+   }
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -2.2
+    ],
+    "drums": [
+     "reduce",
+     -11.7
+    ],
+    "bass": [
+     "keep",
+     -33.8
+    ],
+    "other": [
+     "keep",
+     -29.8
+    ]
+   }
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.8
+    ],
+    "drums": [
+     "keep",
+     -37.1
+    ],
+    "bass": [
+     "keep",
+     -42.8
+    ],
+    "other": [
+     "keep",
+     -47.1
+    ]
+   }
+  },
+  {
+   "song": "Lyndsey Ollard - Catching Up",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -15.7
+    ],
+    "drums": [
+     "keep",
+     -37.1
+    ],
+    "bass": [
+     "keep",
+     -42.7
+    ],
+    "other": [
+     "keep",
+     -40.7
+    ]
+   }
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.2
+    ],
+    "drums": [
+     "reduce",
+     -22.1
+    ],
+    "bass": [
+     "reduce",
+     -14.8
+    ],
+    "other": [
+     "reduce",
+     -11.5
+    ]
+   }
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "reduce",
+     5.8
+    ],
+    "drums": [
+     "keep",
+     -39.4
+    ],
+    "bass": [
+     "keep",
+     -40.8
+    ],
+    "other": [
+     "keep",
+     -32.6
+    ]
+   }
+  },
+  {
+   "song": "M.E.R.C. Music - Knockout",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -4.7
+    ],
+    "drums": [
+     "keep",
+     -39.0
+    ],
+    "bass": [
+     "keep",
+     -40.9
+    ],
+    "other": [
+     "keep",
+     -43.4
+    ]
+   }
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "room",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     0.8
+    ],
+    "drums": [
+     "keep",
+     -39.1
+    ],
+    "bass": [
+     "keep",
+     -33.9
+    ],
+    "other": [
+     "reduce",
+     -6.7
+    ]
+   }
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "wet_vocal",
+   "full_mix_bypassed": false,
+   "stems": {
+    "vocals": [
+     "keep",
+     -0.9
+    ],
+    "drums": [
+     "keep",
+     -39.5
+    ],
+    "bass": [
+     "keep",
+     -32.5
+    ],
+    "other": [
+     "keep",
+     -43.0
+    ]
+   }
+  },
+  {
+   "song": "Moosmusic - Big Dummy Shake",
+   "scenario": "clean",
+   "full_mix_bypassed": true,
+   "stems": {
+    "vocals": [
+     "keep",
+     -7.0
+    ],
+    "drums": [
+     "keep",
+     -39.6
+    ],
+    "bass": [
+     "keep",
+     -32.6
+    ],
+    "other": [
+     "keep",
+     -44.2
+    ]
+   }
+  }
+ ]
+}

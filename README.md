@@ -22,8 +22,8 @@ Held-out music with synthetic damage. SI-SDR is closeness to the clean track in 
 |---|---:|---:|
 | Echo, 79 clips (DSP stage alone, no training) | 8.8 dB | **25.2 dB** |
 | Hard clipping, 29 clips (DSP stage alone, no training) | 20.1 dB | **26.7 dB** |
-| Room reverb on the whole mix, 24 MUSDB18-HQ test songs | 4.7 dB | **9.0 dB** |
-| Reverb on the vocal only, same songs | 6.7 dB | **8.7 dB** |
+| Room reverb on the whole mix, 24 MUSDB18-HQ test songs | 4.7 dB | **9.7 dB** |
+| Reverb on the vocal only, same songs | 6.7 dB | **7.8 dB** |
 | Reverb from a plug-in style the model never trained on, 40 clips | 3.6 dB | **8.7 dB** |
 | Reverb from six real rooms the model never trained on, 40 clips | 3.1 dB | **5.7 dB** |
 | Level problems inside a track, 20 clips (envelope error, lower is better) | 4.5 dB | **2.4 dB** |
@@ -39,8 +39,8 @@ added (E18, E20, E22, E27).
 
 What does not work yet, stated plainly: real rooms outside the training set gain far less than rooms inside it;
 noise and soft saturation are not improved; blind EQ correction and undoing compression or limiting are unsolved
-(measured, see below); two of 24 clean songs were still altered in the stem test; everything above is synthetic
-damage on real music.
+(measured, see below); the careful thresholds that protect clean music also leave light reverb, tempo-synced
+echoes and moderately wet vocals alone; everything above is synthetic damage on real music.
 
 Every number has its experiment, data and caveats in [`docs/experiments.md`](docs/experiments.md).
 
