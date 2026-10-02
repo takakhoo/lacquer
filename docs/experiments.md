@@ -372,3 +372,21 @@ without the echo. Raw rows: `docs/evidence/attention_lag.json`.
 The first layer does not respond to the echo at all. By layer 6 the network has located it in every clip, and by
 layer 12 it puts fourteen times more weight on the frame one echo-delay back than it does without the echo. The
 delay is never an input. One trace with attention maps is in `docs/figures/stage_4_attention.png`.
+
+### E18. Head-to-head on reverberant full mixes: WPE, the released vocal model, Lacquer
+`python -m remaster.evaluate_baselines`, 20 held-out FMA clips of 12 s, DRR -3 to 9 dB, reverb drawn from all
+three families (7 measured rooms, 9 noise-tail, 4 algorithmic). WPE is `nara_wpe` with 30 taps, delay 2, 3
+iterations on a 2048/512 STFT. Checkpoint at step 15000. Raw rows: `docs/evidence/baselines/baselines.json`.
+
+| method | SI-SDR (dB) | LSD (dB) |
+|---|---:|---:|
+| damaged input | 3.2 | 5.48 |
+| WPE (classical, no training) | 3.0 | 5.15 |
+| vocal BS-RoFormer as released | 2.9 | 13.54 |
+| Lacquer restoration network | **9.1** | **4.17** |
+
+By reverb family (SI-SDR): measured rooms 2.9 -> WPE 1.9, vocal 0.5, Lacquer 11.3; noise-tail 3.1 -> 4.8, 6.1,
+8.4; algorithmic 4.0 -> 0.9, 0.0, 6.9. Lacquer beats WPE on 18 of 20 clips. WPE nudges the spectrum closer to
+clean and does not improve the waveform on music at these settings. The released vocal model helps on some
+noise-tail clips and is destructive on the rest. Measured rooms were seen in Lacquer's training, so that column
+favors it.
