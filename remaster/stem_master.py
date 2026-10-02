@@ -89,5 +89,7 @@ def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_ton
         rep["stems"][name] = r
     rep["notes"] = rep.pop("level_notes", []) + stem_notes(stems, x, sr, present_db)
     if not rep["decisions"]:
-        rep["decisions"].append("Instrument balance: vocal level inside the normal range of professional mixes, left alone.")
+        absent = rep["stems"].get("vocals", {}).get("action") == "absent"
+        rep["decisions"].append("Instrument balance: no vocal in this track, nothing to balance." if absent
+                                else "Instrument balance: vocal level inside the normal range of professional mixes, left alone.")
     return y, rep

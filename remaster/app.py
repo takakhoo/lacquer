@@ -77,7 +77,7 @@ def stats(x):
 async def process(file: UploadFile = File(None), reference: UploadFile = File(None), example: str = Form(""), restore_strength: float = Form(1.0), do_master: bool = Form(True),
                   target_lufs: float = Form(-14.0), tonal_strength: float = Form(0.6), stress: str = Form("none"),
                   do_deecho: bool = Form(True), use_stems: bool = Form(True), backend: str = Form("demucs"),
-                  reverb_bias_db: float = Form(0.0), ride: float = Form(0.75), allow_add: bool = Form(False), fix_balance: bool = Form(False),
+                  reverb_bias_db: float = Form(0.0), ride: float = Form(0.75), allow_add: bool = Form(False), fix_balance: bool = Form(False), echo_mode: str = Form("faults"),
                   genre: str = Form("all"), profile: str = Form("streaming")):
     sid = uuid.uuid4().hex[:12]
     d = os.path.join(WORK, sid)
@@ -114,7 +114,8 @@ async def process(file: UploadFile = File(None), reference: UploadFile = File(No
         return JSONResponse(dict(error="ELEVENLABS_API_KEY is not set in the environment of this server"), status_code=400)
     try:
         y, report = enhance_auto(dict(mix=STATE["model"], vocal=STATE["vocal"], controller=STATE["controller"]), x, reference=ref, restore_strength=restore_strength,
-                                 do_master=do_master, do_deecho=do_deecho, use_stems=use_stems, backend=backend,
+                                 do_master=do_master, do_deecho=do_deecho and echo_mode != "off", keep_musical_echo=echo_mode != "all",
+                                 use_stems=use_stems, backend=backend,
                                  reverb_bias_db=reverb_bias_db, ride=ride, allow_add=allow_add, stem_balance="fix" if fix_balance else "report",
                                  genre=genre, profile=profile, target_lufs=None if profile != "custom" else target_lufs, tonal_strength=tonal_strength)
     except Exception as e:

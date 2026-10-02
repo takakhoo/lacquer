@@ -80,7 +80,8 @@
     </div>
     <div class="row" style="margin-top:16px">
       <button id="go" disabled>Enhance</button>
-      <label style="margin:0;color:var(--text)"><input type="checkbox" id="deecho" checked> Remove detected echoes</label>
+      <input type="checkbox" id="deecho" checked hidden>
+      <label style="margin:0;color:var(--text)">Echo <select id="echomode" style="width:auto"><option value="faults">remove, but keep tempo-synced delays</option><option value="all">remove every detected echo</option><option value="off">leave alone</option></select></label>
       <label style="margin:0;color:var(--text)" title="Off: an unusual vocal level or a bone-dry vocal is reported and left alone"><input type="checkbox" id="fixvocal"> Also correct vocal level and dry vocals</label>
       <span id="status">Choose a file to begin.</span>
     </div>
@@ -157,6 +158,7 @@ $('#go').onclick = async () => {
   fd.append('target_lufs', $('#lu').value); fd.append('stress', $('#stress').value); fd.append('do_master', 'true'); fd.append('do_deecho', $('#deecho').checked ? 'true' : 'false');
   fd.append('use_stems', $('#stems').value === 'off' ? 'false' : 'true'); fd.append('backend', $('#stems').value === 'off' ? 'demucs' : $('#stems').value);
   fd.append('reverb_bias_db', $('#rv').value); fd.append('ride', $('#rd').value / 100);
+  fd.append('echo_mode', $('#echomode').value);
   fd.append('fix_balance', $('#fixvocal').checked ? 'true' : 'false'); fd.append('allow_add', $('#fixvocal').checked ? 'true' : 'false');
   fd.append('genre', $('#genre').value); fd.append('profile', $('#profile').value || 'streaming');
   try {

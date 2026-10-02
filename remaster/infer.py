@@ -127,7 +127,7 @@ def enhance_stems(models, x, backend="demucs", reverb_bias_db=0.0, allow_add=Tru
 
 def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0, allow_add=False, restore_strength=1.0,
                  ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-18.0, do_declip=True, genre="all", profile="streaming",
-                 stem_balance="report", ride_gate_db=3.0, **master_kw):
+                 stem_balance="report", ride_gate_db=3.0, keep_musical_echo=True, **master_kw):
     """The full decision pipeline.
 
     0. Clipping: a flat ceiling on both polarities means hard clipping; the clipped samples are rebuilt by
@@ -158,7 +158,7 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
             share = 100 * max(report["clipping"]["share"])
             report["decisions"].append(f"Clipping: flat ceiling found ({share:.2f}% of samples): peaks rebuilt.")
     if do_deecho:
-        y, report["echoes"] = deecho(y)
+        y, report["echoes"] = deecho(y, keep_musical=keep_musical_echo)
         for e in report["echoes"]:
             if e.get("kept"):
                 report["decisions"].append(f"Echo at {e['delay_ms']:.0f} ms sits on the tempo grid ({e['grid']} at {e['bpm']:.0f} BPM): a musical delay, left alone.")
