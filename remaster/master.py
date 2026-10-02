@@ -106,6 +106,53 @@ def limiter(x, sr=SR, ceiling_db=-1.0, lookahead_ms=5.0, release_ms=120.0, os_fa
     return y.astype(np.float32), dict(max_gr_db=float(-20 * np.log10(g.min() + 1e-12)))
 
 
+_DYN_PATH = os.path.join(os.path.dirname(__file__), "dynamics_norms.json")
+
+
+def bus_compress(x, sr=SR, threshold_db=-18.0, ratio=2.0, attack_ms=20.0, release_ms=180.0, knee_db=6.0):
+    """Gentle stereo-linked feed-forward compressor with a soft knee. Returns (audio, max gain reduction dB)."""
+    hop = 16
+    level = np.abs(x).max(axis=0)
+    n = len(level) // hop * hop
+    db = 20 * np.log10(level[:n].reshape(-1, hop).max(axis=1) + 1e-7)
+    over = db - threshold_db
+    slope = 1 / ratio - 1
+    target = np.where(over <= -knee_db / 2, 0.0, np.where(over >= knee_db / 2, slope * over, slope * (over + knee_db / 2) ** 2 / (2 * knee_db)))
+    ca, cr = np.exp(-hop / (attack_ms * 1e-3 * sr)), np.exp(-hop / (release_ms * 1e-3 * sr))
+    gr = np.empty_like(target)
+    g = 0.0
+    for i, tg in enumerate(target):
+        c = ca if tg < g else cr
+        g = c * g + (1 - c) * tg
+        gr[i] = g
+    gain = np.interp(np.arange(x.shape[1]), np.arange(len(gr)) * hop + hop / 2, gr)
+    return (x * 10 ** (gain / 20)).astype(np.float32), float(-gr.min())
+
+
+def dynamics_decision(x, sr=SR):
+    """Compare the peak-to-loudness ratio with the corpus range and choose: leave, glue, or protect.
+
+    Returns (audio, report). Over-compressed material is flagged and protected from further limiting,
+    because undoing compression blind is not something this project can do reliably (experiment E15).
+    """
+    lufs = loudness(x, sr)
+    if not os.path.exists(_DYN_PATH) or not np.isfinite(lufs):
+        return x, dict(action="skip")
+    norms = json.load(open(_DYN_PATH))["plr_db"]
+    plr = float(true_peak_db(x, sr)) - lufs
+    rep = dict(plr_db=plr, normal_range_db=[norms["p10"], norms["p90"]])
+    if plr > norms["p90"]:
+        # unusually peaky: bring the excess down with 2:1 compression on the loudest part
+        excess = min(plr - norms["p90"], 4.0)
+        level = 20 * np.log10(np.abs(x).max(axis=0)[::64] + 1e-7)
+        thr = float(np.percentile(level, 99.5)) - 2.0 * excess
+        y, gr = bus_compress(x, sr, threshold_db=thr, ratio=2.0)
+        rep.update(action="compress", threshold_db=thr, max_gr_db=gr, plr_after_db=float(true_peak_db(y, sr)) - loudness(y, sr))
+        return y, rep
+    rep["action"] = "protect" if plr < norms["p10"] else "keep"
+    return x, rep
+
+
 def loudness(x, sr=SR):
     meter = pyln.Meter(sr)
     return float(meter.integrated_loudness(x.T.astype(np.float64)))
@@ -123,6 +170,9 @@ def master(x, sr=SR, target_lufs=-14.0, ceiling_db=-1.0, tonal_strength=0.6, max
         y, report["tonal"] = tonal_balance(y, sr, strength=tonal_strength, max_db=9.0 if reference is not None else 6.0, reference=reference)
     if reference is not None and np.isfinite(loudness(reference, sr)):
         target_lufs = report["reference_lufs"] = loudness(reference, sr)
+    y, report["dynamics"] = dynamics_decision(y, sr)
+    if report["dynamics"]["action"] == "protect":
+        max_limit_db = min(max_limit_db, 1.0)  # already squashed: reach the target by gain alone where possible
     lufs = loudness(y, sr)
     if np.isfinite(lufs):
         gain_db = target_lufs - lufs

@@ -85,11 +85,7 @@ def record(a):
         fig.text(0.96, 0.935, "restored" if frac >= 1 else "damaged" if frac <= 0 else "restoring", fontsize=11, ha="right", color="#ffb35c" if frac > 0 else "#7aa2ff")
         shown = int(np.ceil(frac * len(sess["decisions"]))) if frac > 0 else 0
         for i, d in enumerate(sess["decisions"][:shown]):
-            fig.text(0.06, 0.28 - i * 0.052, "✓  " + d, fontsize=9.5, color="#e8e6e1")
-        if frac >= 1:
-            fig.text(0.06, 0.28 - len(sess["decisions"]) * 0.052 - 0.01,
-                     f"Loudness {sess['loudness']['before']:.1f} → {sess['loudness']['after']:.1f} LUFS   true peak {sess['true_peak']['before']:.1f} → {sess['true_peak']['after']:.1f} dBTP",
-                     fontsize=9.5, color="#6fd49a")
+            fig.text(0.06, 0.295 - i * 0.041, "\u2713  " + d, fontsize=9, color="#6fd49a" if d.startswith("Loudness") else "#e8e6e1")
         fig.canvas.draw()
         frames.append(Image.fromarray(np.asarray(fig.canvas.buffer_rgba())[..., :3]).quantize(96, method=Image.Quantize.MEDIANCUT))
         plt.close(fig)

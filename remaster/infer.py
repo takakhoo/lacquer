@@ -76,6 +76,7 @@ def enhance(model, x, restore_strength=1.0, do_master=True, do_deecho=True, bypa
             y = x + restore_strength * (r - x)
     if do_master:
         y, report["master"] = master(y, **master_kw)
+        _describe_master(report)
     return y.astype(np.float32), report
 
 
@@ -119,6 +120,7 @@ def enhance_stems(models, x, backend="demucs", reverb_bias_db=0.0, allow_add=Tru
     y = remix(stems)
     if do_master:
         y, report["master"] = master(y, **master_kw)
+        _describe_master(report)
     return y.astype(np.float32), report
 
 
@@ -196,4 +198,23 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
         report["decisions"].append(f"Level ({how}): rode the gain by up to {report['vu']['max_ride_db']:.1f} dB.")
     if do_master:
         y, report["master"] = master(y, **master_kw)
+        _describe_master(report)
     return y.astype(np.float32), report
+
+
+def _describe_master(report):
+    """Turn the mastering report into decision lines."""
+    m, out = report.get("master", {}), report.setdefault("decisions", [])
+    d = m.get("dynamics", {})
+    if d.get("action") == "compress":
+        out.append(f"Dynamics: peak-to-loudness {d['plr_db']:.1f} dB, above the normal range ({d['normal_range_db'][0]:.0f}-{d['normal_range_db'][1]:.0f}): gentle 2:1 compression, up to {d['max_gr_db']:.1f} dB.")
+    elif d.get("action") == "protect":
+        out.append(f"Dynamics: peak-to-loudness {d['plr_db']:.1f} dB, already heavily compressed: no further limiting pushed onto it.")
+    elif d.get("action") == "keep":
+        out.append(f"Dynamics: peak-to-loudness {d['plr_db']:.1f} dB, inside the normal range: left alone.")
+    t = m.get("tonal")
+    if t:
+        big = max(abs(v) for v in t["correction_db"])
+        out.append("Tone: inside the normal range, left alone." if big < 0.5 else f"Tone: trimmed bands outside the normal range by up to {big:.1f} dB.")
+    if "output_lufs" in m:
+        out.append(f"Loudness: {m['input_lufs']:.1f} to {m['output_lufs']:.1f} LUFS, true peak {m['output_true_peak_db']:.1f} dBTP, limiter up to {max(0.0, m['limiter']['max_gr_db']):.1f} dB.")

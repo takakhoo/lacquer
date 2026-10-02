@@ -304,7 +304,7 @@ if __name__ == "__main__":
 
 
 @torch.no_grad()
-def ride_with_controller(model, x, chunk_s=8.0, hop_s=4.0, rate=20):
+def ride_with_controller(model, x, chunk_s=8.0, hop_s=4.0, rate=20, max_db=6.0, gate_db=18.0):
     """Full-track level riding with the learned gain trajectory.
 
     The controller was trained on 8 s windows, so the track is covered with overlapping windows and
@@ -342,8 +342,20 @@ def ride_with_controller(model, x, chunk_s=8.0, hop_s=4.0, rate=20):
         acc[s0:s0 + m] += gs * w
         wsum[s0:s0 + m] += w
     gain = acc / np.maximum(wsum, 1e-9)
-    gain -= np.median(gain)
-    y = (x * 10 ** (gain / 20)).astype(np.float32)
+    # Safeguards, as in the VU rider: quiet passages (fades, breaks) do not steer the fader, the gain holds
+    # its last value through them, and the ride is bounded.
     step = SR // rate
+    vu = vu_trace(x, SR, rate)
+    home = np.median(vu[vu > np.percentile(vu, 95) - 40])
+    active = vu > home - gate_db
+    gd = gain[step // 2::step][: len(vu)]
+    gd = gd - np.median(gd[active[: len(gd)]]) if active[: len(gd)].any() else gd
+    idx = np.where(active[: len(gd)], np.arange(len(gd)), 0)
+    np.maximum.accumulate(idx, out=idx)
+    gd = np.clip(np.where(active[: len(gd)] | (idx > 0), gd[idx], 0.0), -max_db, max_db)
+    from scipy import ndimage
+    gd = ndimage.gaussian_filter1d(gd, 0.25 * rate, mode="nearest")
+    gain = np.interp(np.arange(n), (np.arange(len(gd)) + 0.5) * step, gd)
+    y = (x * 10 ** (gain / 20)).astype(np.float32)
     return y, dict(vu_before=np.round(vu_trace(x, SR, rate), 2).tolist(), vu_after=np.round(vu_trace(y, SR, rate), 2).tolist(),
                    gain_db=np.round(gain[step // 2::step], 2).tolist(), rate=rate, max_ride_db=float(np.abs(gain).max()), method="controller")

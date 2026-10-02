@@ -8,7 +8,7 @@ decision it made and leaves alone whatever is already fine.
 
 *One real run on a held-out clip that was damaged with room reverb and a 163 ms echo. Left of the white line is
 the restored audio, right of it the damaged input. The echo is found and inverted by DSP, the reverb is
-removed by the network, the vocal reverb is measured and judged normal, and the level is ridden by 0.7 dB.*
+removed by the network, the vocal reverb and the dynamics are measured and judged normal, and loudness is set for release.*
 
 A lacquer is the disc a record's master is cut into. This project is the successor to my honors thesis
 ([neural-audio-restoration](https://github.com/takakhoo/neural-audio-restoration)), which tried to restore
@@ -25,7 +25,7 @@ Held-out music with synthetic damage. SI-SDR is closeness to the clean track in 
 | Room reverb on the whole mix, 24 MUSDB18-HQ test songs | 4.7 dB | **9.0 dB** |
 | Reverb on the vocal only, same songs | 6.7 dB | **8.7 dB** |
 | Reverb from a plug-in style the model never trained on, 40 clips | 3.6 dB | **8.7 dB** |
-| Level problems inside a track, 20 clips (envelope error, lower is better) | 4.5 dB | **2.3 dB** |
+| Level problems inside a track, 20 clips (envelope error, lower is better) | 4.5 dB | **2.4 dB** |
 
 A separate judge that never sees the clean reference (Meta's Audiobox Aesthetics, production quality 1-10)
 rates reverberant clips 6.37, the restored versions 6.63, and the clean originals 6.66.
@@ -75,7 +75,9 @@ all ones, so anything it does not touch passes through unchanged. There is no co
    range, so the vocal is only changed when it is clearly outside it: reduced if far too wet, and a plate added
    if bone dry. Stems are remixed only when the vocal was changed.
 4. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move.
-5. **Finish.** Bands outside the normal tonal range are trimmed, loudness is set to the target, and peaks are
+5. **Dynamics.** The peak-to-loudness ratio is compared with the corpus range (8 to 16 dB). Unusually peaky
+   tracks get gentle 2:1 compression; tracks that are already squashed are flagged and not limited further.
+6. **Finish.** Bands outside the normal tonal range are trimmed, loudness is set to the target, and peaks are
    limited at -1 dBTP. A reference track can replace the tonal and loudness targets.
 
 A "reverb target" control shifts steps 2 and 3 drier or wetter.

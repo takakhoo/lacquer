@@ -341,3 +341,18 @@ on their overlap (without that the controller scored worse than the VU rider on 
   does not claim to undo them.
 - The controller's 32-point EQ output also stayed near zero in every run, consistent with E5: blind EQ
   correction is ambiguous without a reference or a content-aware prior.
+
+Safeguards on the learned level rider (clamp to +-6 dB, hold the gain through passages more than 18 dB below
+the track's usual level, light smoothing), same 20 full clips: input 4.52, controller 2.36, VU rider 2.94;
+controller better on 14/20; clean clips disturbed by 0.30 (controller) vs 0.31 (VU); largest ride on a clean
+clip 5.8 dB, mean 1.1 dB. Before the safeguards one clean clip was ridden by 8.1 dB during a quiet passage.
+
+### E16. Dynamics decision in the mastering stage
+`master.dynamics_decision`. Norms from 600 FMA-small clips (`remaster/dynamics_norms.json`): peak-to-loudness
+ratio (true peak minus integrated LUFS) p10 8.1, median 11.4, p90 15.7 dB; crest factor p10 10.0, median 13.6,
+p90 18.1 dB; integrated loudness median -11.9 LUFS.
+- Inside 8.1-15.7 dB: left alone.
+- Above: 2:1 soft-knee bus compression aimed at the excess, capped at 4 dB. On a test clip with added
+  transients, PLR 18.2 -> 17.5 dB before the limiter (2.9 dB of gain reduction).
+- Below: flagged as already heavily compressed, and the limiter is not allowed to add more than 1 dB.
+The rule is measured rather than learned, because E15 showed undoing compression is not learnable here yet.
