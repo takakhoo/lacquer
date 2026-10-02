@@ -160,5 +160,52 @@ def fig_recovery():
     save(fig, "mastering_recovery.png")
 
 
+def fig_limiter_trace():
+    from scipy import signal
+    d = np.load(os.path.join(ROOT, "docs", "evidence", "loudness", "limiter_trace.npz"))
+    sr, x, c = int(d["sr"]), d["input"], int(d["peak_index"])
+    cols = [("clip", "hard clip"), ("matchering", "Matchering 2.0"), ("ozone", "Ozone 9 Maximizer"), ("ours", "ours, two-stage")]
+    fig, axs = plt.subplots(3, 4, figsize=(15, 8.2), dpi=160, gridspec_kw=dict(height_ratios=[1, 0.75, 1.15]))
+    fig.subplots_adjust(left=0.065, right=0.93, top=0.86, bottom=0.07, wspace=0.16, hspace=0.42)
+    fig.text(0.065, 0.955, "What four limiters do to the same two seconds", fontsize=14, fontweight="bold")
+    fig.text(0.065, 0.92, f"One unmastered mix, every limiter driven to the loudness ({float(d['target_lufs']):.1f} LUFS) and true peak of the Ozone version. "
+             "The distortion row is what a smooth gain cannot explain.", fontsize=9, color=INK2)
+    t = (np.arange(x.shape[1]) - c) / sr * 1000
+    w = slice(max(0, c - int(0.004 * sr)), c + int(0.008 * sr))
+    ref = 10 * np.log10(np.mean(x ** 2) + 1e-12)
+    im = None
+    for j, (k, name) in enumerate(cols):
+        y, g, r = d[k], d[k + "_gain_db"], d[k + "_residual"]
+        ax = axs[0, j]
+        _ax(ax, name, "time around the peak (ms)", "sample value" if j == 0 else None)
+        ax.plot(t[w], (x[0] * 10 ** (g / 20))[w], color=INK2, lw=1.0, alpha=0.55, label="input x fitted gain")
+        ax.plot(t[w], y[0][w], color=ORANGE if k == "ours" else INK, lw=1.5, label="output")
+        if j == 0:
+            ax.legend(frameon=False, fontsize=7.5, loc="lower right", ncol=1)
+        ax = axs[1, j]
+        _ax(ax, "", "time (s)", "applied gain (dB)" if j == 0 else None)
+        tt = np.arange(len(g)) / sr
+        ax.plot(tt, g - np.median(g), color=ORANGE if k == "ours" else INK, lw=1.1)
+        ax.set_ylim(-9, 3)
+        ax.text(0.02, 0.06, f"spread {np.percentile(g, 95) - np.percentile(g, 5):.1f} dB", transform=ax.transAxes, fontsize=8, color=INK2)
+        ax = axs[2, j]
+        f, tm, S = signal.spectrogram(r.mean(0), sr, nperseg=2048, noverlap=1536)
+        db = 10 * np.log10(S * (f[1] - f[0]) * len(f) + 1e-14) - ref
+        im = ax.pcolormesh(tm, f / 1000, db, vmin=-80, vmax=-20, cmap="magma", shading="auto", rasterized=True)
+        ax.set_title("", loc="left"); ax.set_xlabel("time (s)", fontsize=8.5); ax.tick_params(length=0, labelsize=8)
+        if j == 0:
+            ax.set_ylabel("distortion: frequency (kHz)", fontsize=8.5)
+        rel = 10 * np.log10(np.mean(r ** 2) / np.mean(y ** 2) + 1e-14)
+        ax.text(0.02, 0.92, f"{rel:.0f} dB re signal", transform=ax.transAxes, fontsize=8, color="white", va="top")
+        if j > 0:
+            for a_ in axs[:, j]:
+                a_.set_yticklabels([])
+    for j in range(4):
+        axs[0, j].set_ylim(axs[0, 0].get_ylim())
+    cax = fig.add_axes([0.94, 0.07, 0.008, 0.3])
+    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=7, length=0); cb.set_label("dB re input level", fontsize=7.5); cb.outline.set_visible(False)
+    save(fig, "mastering_limiter_trace.png")
+
+
 if __name__ == "__main__":
-    fig_corpus(); fig_limiter(); fig_recovery()
+    fig_corpus(); fig_limiter(); fig_recovery(); fig_limiter_trace()

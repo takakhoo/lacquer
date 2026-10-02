@@ -130,6 +130,8 @@ Ozone 9 Maximizer versions of the same songs (musdb-XL), at Ozone's loudness and
 distortion at equal or lower gain movement, while Ozone changes the long-term spectrum least. These are signal
 measures. Which limiter sounds better is a listening-test question.
 
+![The same two seconds through a hard clipper, Matchering, Ozone 9 and the two-stage limiter: waveform at a peak, applied gain, and the distortion a smooth gain cannot explain](docs/figures/mastering_limiter_trace.png)
+
 **Reference mastering (E25).** Give it a reference track and the same chain matches the mid and side spectra,
 band dynamics and loudness of the reference. On 200 held-out tracks with a deliberate tonal fault and the
 original as reference, it leaves 0.19 dB of tone error after a tilt and 0.12 dB after EQ bumps, where
