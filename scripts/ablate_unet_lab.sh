@@ -11,7 +11,7 @@ run() {
   name=$1; shift
   echo "=== $name: $* ($(date))" >> logs/ablate.log
   $ROOT/venvs/remaster/bin/python -m remaster.train --data data/raw/fma_medium --rir data/raw/mit_ir --task artifact --arch unet \
-    --batch 8 --lr 3e-4 --steps 40000 --stop-at $N --val-every 2000 --workers 10 --out runs/ablate/$name "$@" >> logs/ablate_$name.log 2>&1
+    --batch 4 --lr 3e-4 --steps 40000 --stop-at $N --val-every 2000 --workers 8 --out runs/ablate/$name "$@" >> logs/ablate_$name.log 2>&1
   grep "\[val" logs/ablate_$name.log | tail -2 >> logs/ablate.log
 }
 run unet_plain

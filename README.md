@@ -39,6 +39,7 @@ Every number has its experiment, data and caveats in [`docs/experiments.md`](doc
 ## Contents
 
 - [How it works](#how-it-works)
+- [Inside the model](#inside-the-model)
 - [The decisions](#the-decisions)
 - [What the experiments found](#what-the-experiments-found)
 - [Try it](#try-it)
@@ -61,6 +62,64 @@ learned prior use a network. Aesthetic choices are measured against a normal ran
 
 The restoration network never generates audio. It multiplies the input spectrogram by a mask that starts as
 all ones, so anything it does not touch passes through unchanged. There is no codec or vocoder in the path.
+
+![The six decision stages, with the measured readings behind each rule](docs/figures/pipeline.png)
+
+## Inside the model
+
+Every shape below was read from the running model with forward hooks, for a 4 s stereo clip at 44.1 kHz.
+
+![Band-split transformer with tensor shapes at every stage](docs/figures/architecture.png)
+
+Following one clip through:
+
+1. **Audio in.** `[2, 176400]`: two channels, 4 s at 44.1 kHz.
+2. **STFT.** A 2048-sample window (46 ms) every 512 samples (11.6 ms) gives a complex spectrogram of
+   `[2, 1025, 345]`: 1025 frequency bins, 21.5 Hz apart, over 345 frames.
+3. **Band split.** The 1025 bins are grouped into 62 bands, 2 bins wide at the bottom (43 Hz, where pitch
+   needs resolution) and up to 129 bins wide at the top (2.8 kHz). Each band's bins, for both channels,
+   real and imaginary parts together, pass through that band's own linear layer. The clip becomes a grid of
+   `[345, 62, 256]`: 21,390 tokens of width 256.
+4. **Twelve layers, two views each.** Time attention treats each band as a sequence of 345 frames, which is
+   where a reverb tail or an echo shows up as "this band was loud a moment ago". Band attention treats each
+   frame as a sequence of 62 bands, which is where harmonics and timbre live. Positions are rotary embeddings.
+5. **Mask.** A small MLP per band turns each token back into a complex gain for every bin it covers:
+   `[2, 1025, 345]` again.
+6. **Multiply and invert.** The mask multiplies the input spectrogram and an inverse STFT returns `[2, 176400]`.
+
+The model has 51 M parameters. It was fine-tuned from a public vocal dereverb checkpoint with a waveform L1
+loss plus a multi-resolution STFT loss (complex L1 and log-magnitude L1 at windows from 4096 down to 256).
+The log-magnitude term is there because reverb tails are quiet and a linear loss barely sees them.
+
+### What changed from the thesis
+
+![The thesis Token U-Net path against the Lacquer path, with shapes and failure points](docs/figures/thesis_vs_lacquer.png)
+
+The thesis model had twenty times the parameters and could not beat its own input. Three things in the path
+decided that, each measured in [`docs/REVIVAL.md`](docs/REVIVAL.md): level is not in the tokens, the audio
+losses sat behind an `argmax`, and the decoder caps quality at the codec's reconstruction. The U-Net itself,
+with CBAM and FiLM, was never the problem and was never tested in isolation; that ablation is running.
+
+### The level controller
+
+![Controller network and the curriculum it was trained with](docs/figures/controller.png)
+
+The second network is small (5.7 M parameters) and outputs parameters instead of audio: a 32-point EQ curve
+and a gain value for each of the 690 frames in an 8 s clip. They combine into a mask that is separable in
+decibels, `G(t, f) = eq(f) + g(t)`, so the only things it can do are an EQ move and a fader move. With ideal
+parameters that family repairs almost all tone and dynamics damage (EQ error 2.67 to 0.31 dB, compression
+envelope error 1.27 to 0.04 dB). Blind, the network learned the fader and not the EQ.
+
+### Training evidence
+
+![Validation curves: warm start vs from scratch, clean-audio floor, curriculum vs mixed](docs/figures/training_curves.png)
+
+### What EnCodec is good for
+
+![Detection AUROC from tokens, continuous latents and a mel spectrogram](docs/figures/encodec_probe.png)
+
+Quantizing to tokens discards most of what distinguishes damaged audio from clean. The encoder's continuous
+latents keep it, about as well as a plain mel spectrogram, and better for reverb.
 
 ## The decisions
 
@@ -152,6 +211,7 @@ docs/REVIVAL.md              why the thesis pipeline failed, and the new design
 docs/experiments.md          every experiment with numbers, including the negative results
 docs/evidence/               figures and metric files behind those numbers
 docs/demo/                   the recorded session and animation shown above
+docs/figures/                diagrams and charts in this README (python -m remaster.figures)
 scripts/                     remote training helpers
 ```
 

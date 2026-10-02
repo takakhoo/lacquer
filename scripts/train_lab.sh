@@ -1,6 +1,7 @@
 #!/bin/sh
 # Usage on the training box: scripts/train_lab.sh <run-name> [train args...]
-# Runs in tmux session <run-name> on ONE GPU: the one with the most free memory (GPU 5 excluded, it is
+# Runs in tmux session <run-name> (on a dedicated tmux server, "tmux -L remaster", so another project's
+# "tmux kill-server" on the default server cannot take the run down) on ONE GPU: the one with the most free memory (GPU 5 excluded, it is
 # used by another of our jobs). Restarts from last.pt if the process dies (shared machine, OOM happens).
 ROOT=${REMASTER_ROOT:-/scratch/$USER}
 NAME=$1; shift
@@ -20,4 +21,4 @@ while true; do
 done
 EOF
 chmod +x runs/$NAME/run.sh
-tmux new-session -d -s "$NAME" "runs/$NAME/run.sh 2>&1 | tee -a logs/$NAME.log"
+tmux -L remaster new-session -d -s "$NAME" "runs/$NAME/run.sh 2>&1 | tee -a logs/$NAME.log"
