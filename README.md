@@ -289,9 +289,15 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
 - **Predicting codec tokens could not win.** Gain is invisible in EnCodec tokens, and a perfect prediction
   decodes to 9.6 dB SI-SDR against the clean track, below the damaged input it was meant to fix
   ([`docs/design.md`](docs/design.md)).
-- **A warm start mattered more than architecture.** From scratch, 8,000 steps bought +0.8 dB on reverb. Fine-tuning
-  a public vocal dereverb model on full mixes bought +3.5 dB in 1,000 steps, although that model wrecks full mixes
-  when used as released (E2, E3).
+- **A warm start mattered more than architecture or size.** From scratch, 8,000 steps bought about +1 dB on
+  reverb for a 7.7 M model, for the identical 51 M network, and for U-Nets with or without attention modules.
+  Fine-tuning a public vocal dereverb model on full mixes bought +3.5 dB in 1,000 steps, although that model
+  wrecks full mixes when used as released (E2, E3, E23, E34).
+- **Every repair stage earns its place, and the echo stage is the one to watch.** With one stage removed at a
+  time, each carries its own fault; on clean clips 26 of 30 pass through bit-identical and the echo stage
+  accounts for the other four (E36).
+- **Restored clips are distributed like clean music.** On unseen rooms the Frechet audio distance to a clean
+  reference set closes 87% (CLAP) and 96% (VGGish) of the gap between reverberant and clean (E35).
 - **Echo is a DSP problem.** Cepstral detection plus an exact inverse beats the network by 15 dB with no training (E4).
 - **Clipping is a DSP problem too.** The network never improved clipped audio in SI-SDR. A declipper that uses
   what clipping leaves intact gains 6.6 dB and improved 29 of 29 clips, with no false triggers on 150 full songs (E21).
