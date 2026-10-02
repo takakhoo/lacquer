@@ -105,12 +105,20 @@ def refresh(a):
     rd = lambda f: sf.read(f, dtype="float32", always_2d=True)[0].T
     for mode, sub, name in (("transfer", "work_transfer", "transfer.json"), ("recover", "work", "reference.json")):
         path = os.path.join(a.out, name)
+        partial = os.path.join(a.out, "reference_rows.json" if mode == "recover" else "transfer_rows.json")
+        if not os.path.exists(path) and os.path.exists(partial):
+            json.dump(dict(rows=json.load(open(partial))), open(path, "w"))      # a run that stopped early still has its rows
         if not os.path.exists(path):
             continue
         d = json.load(open(path))
         dirs = sorted(glob.glob(os.path.join(a.out, sub, "*", "")))
+        if mode == "recover":                                                    # row order: track, then fault in FAULTS order
+            key = lambda p_: (int(os.path.basename(p_.rstrip("/"))[:3]), FAULTS.index(os.path.basename(p_.rstrip("/"))[4:]))
+            dirs = sorted(dirs, key=key)
         assert len(dirs) >= len(d["rows"]), (len(dirs), len(d["rows"]))
         for row, wd in zip(d["rows"], dirs):
+            if mode == "recover":
+                assert os.path.basename(wd.rstrip("/")).endswith(row["fault"]), (wd, row["fault"])
             x, ref = rd(os.path.join(wd, "input.wav")), rd(os.path.join(wd, "reference.wav"))
             y = master_track(x, reference=ref, match_reference_peak=True)[0]
             e = errors(mastering_features(y), mastering_features(ref))
@@ -175,7 +183,10 @@ def main():
             row = dict(file=os.path.basename(f), fault=fault, info=info, damaged=errors(mastering_features(d), f0), systems={})
             y, _ = master_track(d, reference=x, match_reference_peak=True)
             row["systems"]["ours"] = errors(mastering_features(y), f0)
-            row["systems"]["matchering"] = errors(mastering_features(matchering_master(d, x)), f0)
+            try:
+                row["systems"]["matchering"] = errors(mastering_features(matchering_master(d, x)), f0)
+            except Exception as e:
+                print("matchering failed", str(e)[-120:], flush=True)
             if a.ito_repo:
                 for name, opt in (("ito_master", False), ("ito_master_optimized", True)):
                     if opt and seed >= a.ito_opt_tracks:

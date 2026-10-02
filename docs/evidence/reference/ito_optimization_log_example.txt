@@ -1,0 +1,81 @@
+Inference-Time Optimization Log:
+Step 10
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 20
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 30
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 40
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 50
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 60
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 70
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 80
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 90
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00
+Step 100
+   Loss: 0.8064
+   Top 5 parameter differences (initial / ITO / normalized diff):
+      EQ - low_shelf_gain_db: -4.72 / -4.72 / 0.00
+      EQ - low_shelf_cutoff_freq: 552.50 / 552.50 / 0.00
+      EQ - low_shelf_q_factor: 1.89 / 1.89 / 0.00
+      EQ - band0_gain_db: 9.24 / 9.24 / 0.00
+      EQ - band0_cutoff_freq: 596.37 / 596.37 / 0.00

@@ -72,15 +72,43 @@ def remove_echo(x, d, path):
     return out.astype(np.float32)
 
 
-def deecho(x, sr=SR, max_iter=4, refine=4, **kw):
-    """Peel echoes until no sharp cepstral peak remains. Returns (audio, list of detections)."""
+def tempo_bpm(x, sr=SR):
+    import librosa
+    mono = librosa.resample(x.mean(axis=0).astype(np.float32), orig_sr=sr, target_sr=22050)
+    return float(np.atleast_1d(librosa.feature.tempo(y=mono, sr=22050))[0])
+
+
+def on_tempo_grid(delay_s, bpm, tol_s=0.006, tol_rel=0.02):
+    """Is the delay a whole number of sixteenth notes or eighth-note triplets? Then it is most likely a delay
+    effect or a repeating pattern that belongs to the music. Returns the subdivision name or None."""
+    beat = 60.0 / max(bpm, 1e-6)
+    for name, unit in (("sixteenth notes", beat / 4), ("triplet eighths", beat / 3)):
+        n = delay_s / unit
+        if round(n) >= 1 and abs(n - round(n)) * unit <= max(tol_s, tol_rel * delay_s):
+            return f"{int(round(n))} {name}"
+    return None
+
+
+def deecho(x, sr=SR, max_iter=4, refine=4, keep_musical=True, **kw):
+    """Peel echoes until no sharp cepstral peak remains. Returns (audio, list of detections).
+
+    With keep_musical, an echo whose delay sits on the tempo grid is reported and left in place: on clean
+    released music most cepstral echo peaks are tempo-synced delays and loops (experiment E33).
+    """
     found = []
     y = x
+    bpm = None
     for _ in range(max_iter):
         hit = find_echo(y, sr, **kw)
         if hit is None:
             break
         d, path, z = hit
+        if keep_musical:
+            bpm = bpm or tempo_bpm(x, sr)
+            grid = on_tempo_grid(d / sr, bpm)
+            if grid:
+                found.append(dict(delay_ms=1000 * d / sr, gain=float(path[0]), z=z, kept=True, grid=grid, bpm=bpm))
+                break
         width = len(path)
         # The cepstrum reads the echo path only to first order and loses some amplitude at frame edges.
         # Fixed-point refinement: invert, look at what is left at the same quefrencies, add it back.

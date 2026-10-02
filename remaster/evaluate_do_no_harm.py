@@ -49,9 +49,9 @@ def main():
         x = x[:, :n]
         y, rep = enhance_auto(models, x, do_master=False)
         d = " ".join(rep["decisions"])
-        fired = dict(clipping="peaks rebuilt" in d, echo="Echo at" in d, room=rep.get("room", {}).get("action") == "reduce",
+        fired = dict(clipping="peaks rebuilt" in d, echo="): removed." in d, room=rep.get("room", {}).get("action") == "reduce",
                      vocal=rep.get("vocal", {}).get("action") in ("reduce", "add"), balance="moved by" in d,
-                     ride=rep.get("vu", {}).get("max_ride_db", 0.0) > 1.0)
+                     ride="rode the gain" in d)
         same = float(np.abs(y - x).max()) < 1e-6
         s = 120.0 if same else min(120.0, si_sdr(torch.from_numpy(y)[None], torch.from_numpy(x)[None]).item())
         rows.append(dict(file=os.path.basename(f), fired=fired, sisdr_vs_input=s, decisions=rep["decisions"], max_ride_db=rep.get("vu", {}).get("max_ride_db", 0.0)))

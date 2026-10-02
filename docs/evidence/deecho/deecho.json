@@ -1,0 +1,2524 @@
+{
+ "summary": {
+  "n": 100,
+  "input": 9.472981979846955,
+  "always_remove": {
+   "sisdr": 26.767939696311952,
+   "median_sisdr": 26.30599594116211,
+   "echoes_removed": 94,
+   "echoes_left_as_musical": 0,
+   "clean_tracks_altered": 11,
+   "clean_tracks_with_musical_echo": 0
+  },
+  "tempo_rule": {
+   "sisdr": 22.236049900054933,
+   "median_sisdr": 22.7778263092041,
+   "echoes_removed": 69,
+   "echoes_left_as_musical": 25,
+   "clean_tracks_altered": 3,
+   "clean_tracks_with_musical_echo": 8
+  }
+ },
+ "rows": [
+  {
+   "file": "122503.mp3",
+   "info": {
+    "delay": 0.19922230073444072,
+    "att": 0.1700721868543103,
+    "taps": 1
+   },
+   "input": 15.533823013305664,
+   "always_remove": {
+    "sisdr": 15.533823013305664,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 15.533823013305664,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "107578.mp3",
+   "info": {
+    "delay": 0.337243886788591,
+    "att": 0.3070789501811211,
+    "taps": 1
+   },
+   "input": 10.635713577270508,
+   "always_remove": {
+    "sisdr": 31.519033432006836,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 31.519033432006836,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "082584.mp3",
+   "info": {
+    "delay": 0.2252247952318398,
+    "att": 0.16247968556440656,
+    "taps": 4
+   },
+   "input": 15.744321823120117,
+   "always_remove": {
+    "sisdr": 7.587231636047363,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 7.737944602966309
+   },
+   "tempo_rule": {
+    "sisdr": 7.587231636047363,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 7.737944602966309
+   }
+  },
+  {
+   "file": "101930.mp3",
+   "info": {
+    "delay": 0.31451311583392766,
+    "att": 0.4926642238040747,
+    "taps": 1
+   },
+   "input": 6.745661735534668,
+   "always_remove": {
+    "sisdr": 22.819316864013672,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 22.819316864013672,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "109349.mp3",
+   "info": {
+    "delay": 0.19644232695609387,
+    "att": 0.3479910974028475,
+    "taps": 1
+   },
+   "input": 9.21566104888916,
+   "always_remove": {
+    "sisdr": 43.56532669067383,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 9.21566104888916,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "075935.mp3",
+   "info": {
+    "delay": 0.38308798620777185,
+    "att": 0.40881162790827064,
+    "taps": 1
+   },
+   "input": 8.855204582214355,
+   "always_remove": {
+    "sisdr": 15.786945343017578,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 2,
+    "clean_kept": 0,
+    "clean_sisdr": 16.017623901367188
+   },
+   "tempo_rule": {
+    "sisdr": 18.671100616455078,
+    "removed": 3,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "016340.mp3",
+   "info": {
+    "delay": 0.08114692913387558,
+    "att": 0.1587748026683637,
+    "taps": 3
+   },
+   "input": 15.950834274291992,
+   "always_remove": {
+    "sisdr": 25.32402992248535,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.32402992248535,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "036616.mp3",
+   "info": {
+    "delay": 0.06470193097948453,
+    "att": 0.15819577924711162,
+    "taps": 3
+   },
+   "input": 16.14576530456543,
+   "always_remove": {
+    "sisdr": 16.14576530456543,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.14576530456543,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "026635.mp3",
+   "info": {
+    "delay": 0.1727744649777208,
+    "att": 0.2554573353411286,
+    "taps": 5
+   },
+   "input": 11.819911003112793,
+   "always_remove": {
+    "sisdr": 11.819911003112793,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 11.819911003112793,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "109972.mp3",
+   "info": {
+    "delay": 0.23890423366701102,
+    "att": 0.35203037964233985,
+    "taps": 1
+   },
+   "input": 9.022090911865234,
+   "always_remove": {
+    "sisdr": 42.52437210083008,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 9.022090911865234,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "091572.mp3",
+   "info": {
+    "delay": 0.3134620649017282,
+    "att": 0.4088550489027001,
+    "taps": 2
+   },
+   "input": 7.319445610046387,
+   "always_remove": {
+    "sisdr": 25.283607482910156,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.283607482910156,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "093060.mp3",
+   "info": {
+    "delay": 0.1956233578796928,
+    "att": 0.5589396145078543,
+    "taps": 1
+   },
+   "input": 5.022172927856445,
+   "always_remove": {
+    "sisdr": 38.47108459472656,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 5.022174835205078,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "012923.mp3",
+   "info": {
+    "delay": 0.49460442764574725,
+    "att": 0.2692141188194016,
+    "taps": 2
+   },
+   "input": 11.445517539978027,
+   "always_remove": {
+    "sisdr": 25.012062072753906,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 11.445517539978027,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "073778.mp3",
+   "info": {
+    "delay": 0.4483800646007716,
+    "att": 0.5409514029710956,
+    "taps": 5
+   },
+   "input": 4.125374794006348,
+   "always_remove": {
+    "sisdr": 12.805000305175781,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 4.125374794006348,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "133320.mp3",
+   "info": {
+    "delay": 0.21235020261326243,
+    "att": 0.43017920625372963,
+    "taps": 5
+   },
+   "input": 6.495027542114258,
+   "always_remove": {
+    "sisdr": 14.795622825622559,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 14.795622825622559,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "011629.mp3",
+   "info": {
+    "delay": 0.14236961487489855,
+    "att": 0.4994890543651239,
+    "taps": 2
+   },
+   "input": 5.231988906860352,
+   "always_remove": {
+    "sisdr": 18.238880157470703,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 5.231988906860352,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "104277.mp3",
+   "info": {
+    "delay": 0.31968581115640726,
+    "att": 0.2402948957797773,
+    "taps": 1
+   },
+   "input": 12.495220184326172,
+   "always_remove": {
+    "sisdr": 49.913124084472656,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 49.913124084472656,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "118673.mp3",
+   "info": {
+    "delay": 0.32462518673189394,
+    "att": 0.526674793653147,
+    "taps": 1
+   },
+   "input": 5.763301372528076,
+   "always_remove": {
+    "sisdr": 35.371238708496094,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 35.371238708496094,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "145357.mp3",
+   "info": {
+    "delay": 0.4317670503905478,
+    "att": 0.27523196476254647,
+    "taps": 2
+   },
+   "input": 11.097711563110352,
+   "always_remove": {
+    "sisdr": 22.39090347290039,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 22.39090347290039,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "066806.mp3",
+   "info": {
+    "delay": 0.08128548897083887,
+    "att": 0.3303545313672029,
+    "taps": 5
+   },
+   "input": 9.146056175231934,
+   "always_remove": {
+    "sisdr": 31.065671920776367,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 31.065671920776367,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "038556.mp3",
+   "info": {
+    "delay": 0.2617200499024901,
+    "att": 0.5105857401925323,
+    "taps": 4
+   },
+   "input": 4.62260627746582,
+   "always_remove": {
+    "sisdr": 22.74265480041504,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 22.74265480041504,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "053685.mp3",
+   "info": {
+    "delay": 0.2695491064077866,
+    "att": 0.47339295201419607,
+    "taps": 1
+   },
+   "input": 6.202030658721924,
+   "always_remove": {
+    "sisdr": 10.67798137664795,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 10.87822151184082
+   },
+   "tempo_rule": {
+    "sisdr": 10.67798137664795,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 10.87822151184082
+   }
+  },
+  {
+   "file": "024795.mp3",
+   "info": {
+    "delay": 0.3597235063982676,
+    "att": 0.15470209898678838,
+    "taps": 5
+   },
+   "input": 16.194976806640625,
+   "always_remove": {
+    "sisdr": 31.33577537536621,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.194976806640625,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "007262.mp3",
+   "info": {
+    "delay": 0.21802930778992022,
+    "att": 0.541295090930245,
+    "taps": 4
+   },
+   "input": 4.698559761047363,
+   "always_remove": {
+    "sisdr": 23.785411834716797,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 23.785411834716797,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "116827.mp3",
+   "info": {
+    "delay": 0.3488986937169943,
+    "att": 0.4604276361433385,
+    "taps": 1
+   },
+   "input": 6.798277854919434,
+   "always_remove": {
+    "sisdr": 33.427520751953125,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 33.427520751953125,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "141134.mp3",
+   "info": {
+    "delay": 0.3838547361818086,
+    "att": 0.385553343242019,
+    "taps": 1
+   },
+   "input": 8.64961051940918,
+   "always_remove": {
+    "sisdr": 30.2165584564209,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 30.2165584564209,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "147160.mp3",
+   "info": {
+    "delay": 0.16859915495530656,
+    "att": 0.44562825981986676,
+    "taps": 1
+   },
+   "input": 6.782484531402588,
+   "always_remove": {
+    "sisdr": 26.603681564331055,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 26.603681564331055,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "043859.mp3",
+   "info": {
+    "delay": 0.3003371042079507,
+    "att": 0.16692503616350055,
+    "taps": 1
+   },
+   "input": 15.770017623901367,
+   "always_remove": {
+    "sisdr": 15.770017623901367,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 15.770017623901367,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "112976.mp3",
+   "info": {
+    "delay": 0.06369559154039334,
+    "att": 0.403390510088256,
+    "taps": 2
+   },
+   "input": 7.400862693786621,
+   "always_remove": {
+    "sisdr": 16.93598175048828,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.93598175048828,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "112372.mp3",
+   "info": {
+    "delay": 0.18458296527708978,
+    "att": 0.5198874729151743,
+    "taps": 3
+   },
+   "input": 4.49265193939209,
+   "always_remove": {
+    "sisdr": 5.500819683074951,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 6.677451133728027
+   },
+   "tempo_rule": {
+    "sisdr": 4.492651462554932,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "055295.mp3",
+   "info": {
+    "delay": 0.3923733278338768,
+    "att": 0.41329252776795466,
+    "taps": 1
+   },
+   "input": 7.707142353057861,
+   "always_remove": {
+    "sisdr": 27.005966186523438,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 27.005966186523438,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "025233.mp3",
+   "info": {
+    "delay": 0.2780795730046543,
+    "att": 0.547809997756828,
+    "taps": 1
+   },
+   "input": 5.096846103668213,
+   "always_remove": {
+    "sisdr": 37.004451751708984,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 37.004451751708984,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "075314.mp3",
+   "info": {
+    "delay": 0.30867357321719646,
+    "att": 0.44563948136889175,
+    "taps": 2
+   },
+   "input": 6.438562393188477,
+   "always_remove": {
+    "sisdr": 22.812997817993164,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 22.812997817993164,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "132015.mp3",
+   "info": {
+    "delay": 0.3413048050784716,
+    "att": 0.1562825373422045,
+    "taps": 2
+   },
+   "input": 16.0638427734375,
+   "always_remove": {
+    "sisdr": 32.186588287353516,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 32.186588287353516,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "023365.mp3",
+   "info": {
+    "delay": 0.12373477255413097,
+    "att": 0.24560951742557346,
+    "taps": 5
+   },
+   "input": 11.963820457458496,
+   "always_remove": {
+    "sisdr": 38.68257141113281,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 11.963820457458496,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "023041.mp3",
+   "info": {
+    "delay": 0.3017479329815933,
+    "att": 0.22196657195388514,
+    "taps": 1
+   },
+   "input": 13.28495979309082,
+   "always_remove": {
+    "sisdr": 36.30927276611328,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 36.30927276611328,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "062901.mp3",
+   "info": {
+    "delay": 0.41945374420785786,
+    "att": 0.22260149918951921,
+    "taps": 4
+   },
+   "input": 12.866718292236328,
+   "always_remove": {
+    "sisdr": 25.99820327758789,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 12.866718292236328,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "036300.mp3",
+   "info": {
+    "delay": 0.31383426851727986,
+    "att": 0.30410012383094265,
+    "taps": 4
+   },
+   "input": 10.054217338562012,
+   "always_remove": {
+    "sisdr": 20.735618591308594,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 20.735618591308594,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "122539.mp3",
+   "info": {
+    "delay": 0.15298622451132846,
+    "att": 0.31178729226015767,
+    "taps": 1
+   },
+   "input": 10.116462707519531,
+   "always_remove": {
+    "sisdr": 39.640316009521484,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 10.116462707519531,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "113300.mp3",
+   "info": {
+    "delay": 0.19165426866834043,
+    "att": 0.3400160531865982,
+    "taps": 1
+   },
+   "input": 9.62474536895752,
+   "always_remove": {
+    "sisdr": 31.13256072998047,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 31.13256072998047,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "046159.mp3",
+   "info": {
+    "delay": 0.19221519613723534,
+    "att": 0.4280288634173466,
+    "taps": 1
+   },
+   "input": 7.881741523742676,
+   "always_remove": {
+    "sisdr": 26.31783676147461,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 7.881741523742676,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "043858.mp3",
+   "info": {
+    "delay": 0.46137107465809346,
+    "att": 0.5298782913303948,
+    "taps": 1
+   },
+   "input": 5.475483417510986,
+   "always_remove": {
+    "sisdr": 41.194923400878906,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 41.194923400878906,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "091228.mp3",
+   "info": {
+    "delay": 0.2950039942271844,
+    "att": 0.468897292976747,
+    "taps": 4
+   },
+   "input": 5.911311149597168,
+   "always_remove": {
+    "sisdr": 14.579288482666016,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 14.579288482666016,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "000668.mp3",
+   "info": {
+    "delay": 0.15851421808572955,
+    "att": 0.3989103965906675,
+    "taps": 1
+   },
+   "input": 7.978642463684082,
+   "always_remove": {
+    "sisdr": 42.863365173339844,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 42.863365173339844,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "144165.mp3",
+   "info": {
+    "delay": 0.2364617975386018,
+    "att": 0.22487424161132452,
+    "taps": 4
+   },
+   "input": 12.738759994506836,
+   "always_remove": {
+    "sisdr": 25.931720733642578,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.931720733642578,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "032461.mp3",
+   "info": {
+    "delay": 0.3361229502119274,
+    "att": 0.22718405913258582,
+    "taps": 1
+   },
+   "input": 13.142157554626465,
+   "always_remove": {
+    "sisdr": 31.21880531311035,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 31.21880531311035,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "126963.mp3",
+   "info": {
+    "delay": 0.33313923571332915,
+    "att": 0.31142416652433086,
+    "taps": 3
+   },
+   "input": 9.742432594299316,
+   "always_remove": {
+    "sisdr": 18.84326934814453,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 18.84326934814453,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "014358.mp3",
+   "info": {
+    "delay": 0.11956553346932339,
+    "att": 0.20191460454709753,
+    "taps": 1
+   },
+   "input": 13.745923042297363,
+   "always_remove": {
+    "sisdr": 42.86564636230469,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 13.745923042297363,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "113529.mp3",
+   "info": {
+    "delay": 0.33470500916501417,
+    "att": 0.28303169929861605,
+    "taps": 1
+   },
+   "input": 11.16772747039795,
+   "always_remove": {
+    "sisdr": 29.154808044433594,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 29.154808044433594,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "060318.mp3",
+   "info": {
+    "delay": 0.4871112926712892,
+    "att": 0.35845176015695757,
+    "taps": 1
+   },
+   "input": 8.953617095947266,
+   "always_remove": {
+    "sisdr": 41.67713928222656,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 8.953617095947266,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "120447.mp3",
+   "info": {
+    "delay": 0.08458579652723348,
+    "att": 0.18361923994554918,
+    "taps": 3
+   },
+   "input": 15.297847747802734,
+   "always_remove": {
+    "sisdr": 15.297847747802734,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 15.297847747802734,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "124337.mp3",
+   "info": {
+    "delay": 0.06287423745623749,
+    "att": 0.3322048831159169,
+    "taps": 5
+   },
+   "input": 9.065447807312012,
+   "always_remove": {
+    "sisdr": 27.25141143798828,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 27.25141143798828,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "066888.mp3",
+   "info": {
+    "delay": 0.13040515182768314,
+    "att": 0.5266256538010576,
+    "taps": 4
+   },
+   "input": 4.198465824127197,
+   "always_remove": {
+    "sisdr": 21.111797332763672,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 21.111797332763672,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "094462.mp3",
+   "info": {
+    "delay": 0.09129477604445606,
+    "att": 0.45698066583018915,
+    "taps": 1
+   },
+   "input": 6.174490451812744,
+   "always_remove": {
+    "sisdr": 41.304344177246094,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 41.304344177246094,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "015857.mp3",
+   "info": {
+    "delay": 0.4108961397084926,
+    "att": 0.19781282598120614,
+    "taps": 1
+   },
+   "input": 14.16589641571045,
+   "always_remove": {
+    "sisdr": 41.12157440185547,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 14.16589641571045,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "021352.mp3",
+   "info": {
+    "delay": 0.4373531840718965,
+    "att": 0.5992815641455266,
+    "taps": 1
+   },
+   "input": 4.3075852394104,
+   "always_remove": {
+    "sisdr": 15.831258773803711,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 15.561095237731934
+   },
+   "tempo_rule": {
+    "sisdr": 33.51094055175781,
+    "removed": 1,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "100534.mp3",
+   "info": {
+    "delay": 0.40908700339890813,
+    "att": 0.4102522520984968,
+    "taps": 1
+   },
+   "input": 7.879585266113281,
+   "always_remove": {
+    "sisdr": 18.132648468017578,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 18.798812866210938
+   },
+   "tempo_rule": {
+    "sisdr": 18.132648468017578,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 18.798812866210938
+   }
+  },
+  {
+   "file": "145986.mp3",
+   "info": {
+    "delay": 0.17942130890451582,
+    "att": 0.22698119924233004,
+    "taps": 1
+   },
+   "input": 13.352197647094727,
+   "always_remove": {
+    "sisdr": 37.20688247680664,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 37.20688247680664,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "041867.mp3",
+   "info": {
+    "delay": 0.4368823421051248,
+    "att": 0.432972983104962,
+    "taps": 1
+   },
+   "input": 7.296772480010986,
+   "always_remove": {
+    "sisdr": 17.654926300048828,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 19.44903564453125
+   },
+   "tempo_rule": {
+    "sisdr": 7.296770095825195,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "047480.mp3",
+   "info": {
+    "delay": 0.27015875658204525,
+    "att": 0.4365570715425239,
+    "taps": 1
+   },
+   "input": 7.5366926193237305,
+   "always_remove": {
+    "sisdr": 29.48440933227539,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 29.48440933227539,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "066186.mp3",
+   "info": {
+    "delay": 0.31869523282933265,
+    "att": 0.44758774119515043,
+    "taps": 2
+   },
+   "input": 6.392378330230713,
+   "always_remove": {
+    "sisdr": 22.8450984954834,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 22.8450984954834,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "111866.mp3",
+   "info": {
+    "delay": 0.201499904550101,
+    "att": 0.3629173435341881,
+    "taps": 1
+   },
+   "input": 8.985310554504395,
+   "always_remove": {
+    "sisdr": 24.039316177368164,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 24.039316177368164,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "129731.mp3",
+   "info": {
+    "delay": 0.2961114015704423,
+    "att": 0.3873084505201978,
+    "taps": 2
+   },
+   "input": 7.655303955078125,
+   "always_remove": {
+    "sisdr": 24.024179458618164,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 24.024179458618164,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "056519.mp3",
+   "info": {
+    "delay": 0.4427047773830734,
+    "att": 0.545983297596117,
+    "taps": 1
+   },
+   "input": 5.537016868591309,
+   "always_remove": {
+    "sisdr": 39.38797378540039,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 5.537016868591309,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "049582.mp3",
+   "info": {
+    "delay": 0.3733217483202653,
+    "att": 0.5722714915491723,
+    "taps": 1
+   },
+   "input": 5.106690406799316,
+   "always_remove": {
+    "sisdr": 38.62796401977539,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 38.62796401977539,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "011769.mp3",
+   "info": {
+    "delay": 0.42164294537839053,
+    "att": 0.443459819139702,
+    "taps": 1
+   },
+   "input": 7.022194862365723,
+   "always_remove": {
+    "sisdr": 35.50634002685547,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 7.022194862365723,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "099310.mp3",
+   "info": {
+    "delay": 0.3703331578367217,
+    "att": 0.32950925185335855,
+    "taps": 1
+   },
+   "input": 9.879134178161621,
+   "always_remove": {
+    "sisdr": 37.21527862548828,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 37.21527862548828,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "140565.mp3",
+   "info": {
+    "delay": 0.2886642142056041,
+    "att": 0.16796947619687083,
+    "taps": 1
+   },
+   "input": 15.621313095092773,
+   "always_remove": {
+    "sisdr": 37.45946502685547,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 37.45946502685547,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "039440.mp3",
+   "info": {
+    "delay": 0.17441241301036048,
+    "att": 0.556008706582771,
+    "taps": 2
+   },
+   "input": 4.433819770812988,
+   "always_remove": {
+    "sisdr": 16.376556396484375,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.376556396484375,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "134643.mp3",
+   "info": {
+    "delay": 0.20945371785326555,
+    "att": 0.21406458764530809,
+    "taps": 5
+   },
+   "input": 13.220756530761719,
+   "always_remove": {
+    "sisdr": 39.5284309387207,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 39.5284309387207,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "059707.mp3",
+   "info": {
+    "delay": 0.1160093141625935,
+    "att": 0.5924739920395232,
+    "taps": 2
+   },
+   "input": 4.889894962310791,
+   "always_remove": {
+    "sisdr": 16.03093910217285,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.03093910217285,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "122611.mp3",
+   "info": {
+    "delay": 0.3818552336443798,
+    "att": 0.19222319956650985,
+    "taps": 4
+   },
+   "input": 14.391448974609375,
+   "always_remove": {
+    "sisdr": 25.26241111755371,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.26241111755371,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "078068.mp3",
+   "info": {
+    "delay": 0.2994702427931561,
+    "att": 0.21289365576872693,
+    "taps": 5
+   },
+   "input": 13.25643539428711,
+   "always_remove": {
+    "sisdr": 26.705781936645508,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 26.705781936645508,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "010979.mp3",
+   "info": {
+    "delay": 0.15053993035352503,
+    "att": 0.5153531047298808,
+    "taps": 3
+   },
+   "input": 4.628719329833984,
+   "always_remove": {
+    "sisdr": 8.206454277038574,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 8.030141830444336
+   },
+   "tempo_rule": {
+    "sisdr": 14.049505233764648,
+    "removed": 2,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "130165.mp3",
+   "info": {
+    "delay": 0.4707421273506221,
+    "att": 0.3819141660940152,
+    "taps": 1
+   },
+   "input": 8.5637788772583,
+   "always_remove": {
+    "sisdr": 9.021281242370605,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 3,
+    "clean_kept": 0,
+    "clean_sisdr": 9.043001174926758
+   },
+   "tempo_rule": {
+    "sisdr": 8.5637788772583,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "121259.mp3",
+   "info": {
+    "delay": 0.1755377000059759,
+    "att": 0.28351569020458656,
+    "taps": 3
+   },
+   "input": 10.59306526184082,
+   "always_remove": {
+    "sisdr": 34.30210876464844,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 34.30210876464844,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "107482.mp3",
+   "info": {
+    "delay": 0.2158412232775426,
+    "att": 0.1716374880511693,
+    "taps": 5
+   },
+   "input": 15.243501663208008,
+   "always_remove": {
+    "sisdr": 29.519941329956055,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 29.519941329956055,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "120455.mp3",
+   "info": {
+    "delay": 0.22913818143482012,
+    "att": 0.17427239050479162,
+    "taps": 1
+   },
+   "input": 15.226333618164062,
+   "always_remove": {
+    "sisdr": 15.226333618164062,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 15.226333618164062,
+    "removed": 0,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "075233.mp3",
+   "info": {
+    "delay": 0.43112116647244686,
+    "att": 0.43615457552038595,
+    "taps": 5
+   },
+   "input": 6.380141258239746,
+   "always_remove": {
+    "sisdr": 14.531617164611816,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 14.531617164611816,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "127409.mp3",
+   "info": {
+    "delay": 0.2834425695814415,
+    "att": 0.15237429675513642,
+    "taps": 3
+   },
+   "input": 16.417495727539062,
+   "always_remove": {
+    "sisdr": 26.588428497314453,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 16.417495727539062,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "091742.mp3",
+   "info": {
+    "delay": 0.3207960707275895,
+    "att": 0.157367412455913,
+    "taps": 1
+   },
+   "input": 16.324180603027344,
+   "always_remove": {
+    "sisdr": 27.133981704711914,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 27.133981704711914,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "149547.mp3",
+   "info": {
+    "delay": 0.31283688332184084,
+    "att": 0.23124631019486597,
+    "taps": 4
+   },
+   "input": 12.54576301574707,
+   "always_remove": {
+    "sisdr": 36.22381591796875,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 36.22381591796875,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "092949.mp3",
+   "info": {
+    "delay": 0.09274942196370614,
+    "att": 0.24664692091342783,
+    "taps": 2
+   },
+   "input": 12.08061408996582,
+   "always_remove": {
+    "sisdr": 22.56694793701172,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 12.08061408996582,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "149212.mp3",
+   "info": {
+    "delay": 0.27843042872835017,
+    "att": 0.21685602574584698,
+    "taps": 1
+   },
+   "input": 13.480327606201172,
+   "always_remove": {
+    "sisdr": 7.275712966918945,
+    "removed": 4,
+    "kept": 0,
+    "clean_removed": 3,
+    "clean_kept": 0,
+    "clean_sisdr": 7.202057361602783
+   },
+   "tempo_rule": {
+    "sisdr": 13.480327606201172,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "069567.mp3",
+   "info": {
+    "delay": 0.47206986894490366,
+    "att": 0.5993970486286785,
+    "taps": 1
+   },
+   "input": 4.405734539031982,
+   "always_remove": {
+    "sisdr": 47.071563720703125,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 4.405735969543457,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "003909.mp3",
+   "info": {
+    "delay": 0.13273791033873641,
+    "att": 0.5374678025896273,
+    "taps": 3
+   },
+   "input": 4.185869216918945,
+   "always_remove": {
+    "sisdr": 29.65349578857422,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 29.65349578857422,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "070968.mp3",
+   "info": {
+    "delay": 0.43027120148278886,
+    "att": 0.5394143132037217,
+    "taps": 1
+   },
+   "input": 5.0804924964904785,
+   "always_remove": {
+    "sisdr": 37.4223518371582,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 37.4223518371582,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "074433.mp3",
+   "info": {
+    "delay": 0.2896812908755261,
+    "att": 0.2667232912377438,
+    "taps": 1
+   },
+   "input": 11.567024230957031,
+   "always_remove": {
+    "sisdr": 36.34048843383789,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 36.34048843383789,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "061746.mp3",
+   "info": {
+    "delay": 0.33112951094561904,
+    "att": 0.4482395698285435,
+    "taps": 5
+   },
+   "input": 6.3001298904418945,
+   "always_remove": {
+    "sisdr": 11.660279273986816,
+    "removed": 3,
+    "kept": 0,
+    "clean_removed": 1,
+    "clean_kept": 0,
+    "clean_sisdr": 14.253722190856934
+   },
+   "tempo_rule": {
+    "sisdr": 15.42717456817627,
+    "removed": 2,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 1,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "114006.mp3",
+   "info": {
+    "delay": 0.287148558718208,
+    "att": 0.28919282564207954,
+    "taps": 1
+   },
+   "input": 11.096261978149414,
+   "always_remove": {
+    "sisdr": 23.34458351135254,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 23.34458351135254,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "010692.mp3",
+   "info": {
+    "delay": 0.07623085926425419,
+    "att": 0.28624134143435037,
+    "taps": 1
+   },
+   "input": 11.608016967773438,
+   "always_remove": {
+    "sisdr": 34.3403205871582,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 34.3403205871582,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "084516.mp3",
+   "info": {
+    "delay": 0.4215913060161768,
+    "att": 0.4640204571223765,
+    "taps": 1
+   },
+   "input": 7.054413795471191,
+   "always_remove": {
+    "sisdr": 42.45315933227539,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 42.45315933227539,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "064696.mp3",
+   "info": {
+    "delay": 0.4290958663979834,
+    "att": 0.586549737677102,
+    "taps": 5
+   },
+   "input": 2.912147283554077,
+   "always_remove": {
+    "sisdr": 8.964542388916016,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 8.964542388916016,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "087272.mp3",
+   "info": {
+    "delay": 0.20831629230573806,
+    "att": 0.5298180717005558,
+    "taps": 1
+   },
+   "input": 5.694639205932617,
+   "always_remove": {
+    "sisdr": 25.38863182067871,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.38863182067871,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "076363.mp3",
+   "info": {
+    "delay": 0.17626043312249523,
+    "att": 0.31369804929118433,
+    "taps": 5
+   },
+   "input": 9.751178741455078,
+   "always_remove": {
+    "sisdr": 36.715797424316406,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 36.715797424316406,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "112756.mp3",
+   "info": {
+    "delay": 0.08515643161568016,
+    "att": 0.4482186348439968,
+    "taps": 1
+   },
+   "input": 7.251958847045898,
+   "always_remove": {
+    "sisdr": 25.291168212890625,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 25.291168212890625,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "140872.mp3",
+   "info": {
+    "delay": 0.2906078285847232,
+    "att": 0.21959299191745013,
+    "taps": 4
+   },
+   "input": 13.061188697814941,
+   "always_remove": {
+    "sisdr": 26.29415512084961,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 26.29415512084961,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "107509.mp3",
+   "info": {
+    "delay": 0.1915408957333751,
+    "att": 0.40141637401459973,
+    "taps": 4
+   },
+   "input": 7.328851222991943,
+   "always_remove": {
+    "sisdr": 17.539108276367188,
+    "removed": 2,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 7.328851222991943,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "000425.mp3",
+   "info": {
+    "delay": 0.3504064348972588,
+    "att": 0.2543431308667947,
+    "taps": 1
+   },
+   "input": 12.968769073486328,
+   "always_remove": {
+    "sisdr": 26.540042877197266,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 12.968770027160645,
+    "removed": 0,
+    "kept": 1,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  },
+  {
+   "file": "008489.mp3",
+   "info": {
+    "delay": 0.36671433938401804,
+    "att": 0.31211350874275534,
+    "taps": 2
+   },
+   "input": 10.502924919128418,
+   "always_remove": {
+    "sisdr": 20.6461181640625,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   },
+   "tempo_rule": {
+    "sisdr": 20.6461181640625,
+    "removed": 1,
+    "kept": 0,
+    "clean_removed": 0,
+    "clean_kept": 0,
+    "clean_sisdr": 120.0
+   }
+  }
+ ]
+}

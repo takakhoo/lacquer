@@ -46,13 +46,15 @@ def stem_notes(stems, x, sr=SR, present_db=-22.0):
 
 
 def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_tone=False, max_gain_db=6.0, present_db=-22.0, tone_strength=0.7,
-                 only=("vocals",), margin_db=0.0):
+                 only=("vocals",), margin_db=0.0, act=True):
     """Returns (audio, report). `stems` may be passed in to skip separation.
 
     Tone correction per stem is off by default: instrument tone varies more between songs than a typical fault
     (experiment E30), so pulling a stem toward the norm of its kind does more harm than good. Only the vocal level
     is corrected by default: with all four stems a third of unmodified songs has some stem outside its range,
-    with the vocal alone 8% (E31). The other stems are reported. `margin_db` widens the normal range.
+    with the vocal alone 8% (E31). The other stems are reported. `margin_db` widens the normal range. With
+    act=False the vocal reading is reported too and nothing is changed, which is what the pipeline does by default:
+    on released music of all genres a quiet "vocal" stem is usually a sample or separation residue (E33).
     """
     stems = stems or separate(x, backend=backend)
     levels = stem_levels(stems, x, sr)
@@ -73,9 +75,12 @@ def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_ton
             p5, p10, _, p90, p95 = rng["level"]
             g = float(np.clip(p10 - lv, 0, max_gain_db)) if lv < p5 - margin_db else float(np.clip(p90 - lv, -max_gain_db, 0)) if lv > p95 + margin_db else 0.0
             r["gain_db"] = g
-            if g:
+            if g and act:
                 new = new * 10 ** (g / 20)
                 rep["decisions"].append(f"{name.capitalize()} level: {lv:.1f} LU relative to the mix, outside the normal {p5:.1f} to {p95:.1f}: moved by {g:+.1f} dB.")
+            elif g:
+                r["gain_db"] = 0.0
+                rep["decisions"].append(f"{name.capitalize()} level: {lv:.1f} LU relative to the mix, outside the normal {p5:.1f} to {p95:.1f} of professional mixes: reported, not changed.")
         elif do_balance:
             p5, _, _, _, p95 = rng["level"]
             if lv < p5 or lv > p95:

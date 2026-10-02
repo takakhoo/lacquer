@@ -74,10 +74,10 @@ learned prior use a network. Aesthetic choices are measured against a normal ran
 | stage | method | module |
 |---|---|---|
 | Hard clipping | Flat-ceiling detection, then the clipped samples are rebuilt by consistent sparse reconstruction (A-SPADE) | `remaster/declip.py` |
-| Discrete echo | Cepstral detection, then an exact recursive inverse filter | `remaster/deecho.py` |
+| Discrete echo | Cepstral detection, a tempo-grid check that spares musical delays, then an exact recursive inverse filter | `remaster/deecho.py` |
 | Room reverb, noise, clipping | Band-split transformer that predicts a complex mask on the stereo spectrogram, fine-tuned from a pretrained vocal dereverb model | `remaster/pretrained.py`, `remaster/train.py` |
 | Reverb decisions | The same network is a calibrated meter for excess reverb on the mix; a vocal model measures how wet the vocal stem is | `remaster/reverb_meter.py`, `remaster/stems.py` |
-| Instrument balance | Stem loudness relative to the mix against its range in professional mixes; a vocal outside it is moved to the edge, applied as a stem difference; other stems are reported | `remaster/stem_master.py` |
+| Instrument balance | Stem loudness relative to the mix against its range in professional mixes; readings outside it are reported, and a vocal can be moved to the edge on request, applied as a stem difference | `remaster/stem_master.py` |
 | Level riding | A small controller network outputs a gain trajectory (a VU-ballistics rider is the fallback) | `remaster/controller.py`, `remaster/vu.py` |
 | Tone, stereo image, band dynamics | 60 measured features compared with the 10th to 90th percentile range of released music in the chosen genre, or with a reference track | `remaster/analysis.py`, `remaster/mastering.py` |
 | Loudness and peaks | BS.1770 target by delivery profile, two-stage true-peak limiter with a 3 dB limiting budget | `remaster/master.py`, `remaster/mastering.py` |
@@ -132,8 +132,10 @@ width (0.03 against 0.27 dB) and on peak-to-loudness ratio.
 the mix alone: when the stage acts, the balance error falls from 6.9 to 4.6 dB, and separated stems cost almost
 nothing against true stems because the change is applied as a stem difference. The limit is the decision, since
 balance varies widely in professional mixes. Checking all four stems would alter a third of unmodified songs, so
-only the vocal is moved (8% of unmodified songs touched, 44% of vocal faults caught). Correcting the tone of
-individual stems made every case worse and is off.
+only the vocal is a candidate (8% of unmodified pop and rock songs touched, 44% of vocal faults caught). On
+released music of all genres even that fires on a fifth of tracks, mostly on samples and separation residue, so
+the vocal reading is reported by default and moved only on request (E33). Correcting the tone of individual
+stems made every case worse and is off.
 
 **Decisions with a budget.** The limiter may take 3 dB (6 dB for the loud profile). A target that needs more is
 not reached and the report says by how much. The ceiling drops to -2 dBTP above -14 LUFS. Delivery profiles:
@@ -247,18 +249,21 @@ latents keep it, about as well as a plain mel spectrogram, and better for reverb
    samples under the ceiling are exact and the clipped ones are known to be at least that large, so the peaks
    are rebuilt as the sparsest spectrum consistent with both facts. No ceiling, no action.
 2. **Echo.** A delayed copy leaves a ripple on the log spectrum, which is a sharp peak in the cepstrum. If one
-   is found, the delay and echo path are read off and inverted. If none is found, nothing happens.
+   is found, the delay and echo path are read off and inverted. If the delay sits on the tempo grid (a whole
+   number of sixteenth notes or triplet eighths) it is a delay effect or a loop, and it is reported and left alone.
 3. **Room reverb.** The network's proposed change is measured first, on a few windows. On clean productions it
-   reads about -41 dB; with light added reverb about -20 dB; with heavy reverb about -4 dB. Above the gate the
-   reverb is removed, scaled by how far above; below it the network is bypassed.
+   reads about -42 dB (95% of released tracks are under -20 dB); with heavy added reverb about -4 dB. Above the
+   gate of -18 dB the reverb is removed, scaled by how far above; below it the network is bypassed.
 4. **Vocal reverb.** The vocal stem (Demucs) gets an absolute wetness reading. Produced vocals span a wide
-   range, so the vocal is only changed when it is clearly outside it: reduced if far too wet, and a plate added
-   if bone dry. Stems are remixed only when the vocal was changed.
+   range, so the vocal is only changed when it is clearly outside it: reduced to the edge of the range if far
+   too wet. A bone-dry vocal is reported, and gets a plate only on request. Stems are remixed only when the
+   vocal was changed.
 5. **Instrument balance.** The loudness of each separated stem relative to the mix is compared with its range in
-   professional mixes, measured on separated stems. A vocal outside its range is moved to the edge; drums, bass
-   and accompaniment are reported. The change is applied as a difference, so a stem that needed nothing
-   contributes nothing and its separation artifacts never reach the output.
-6. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move.
+   professional mixes, measured on separated stems. Readings outside the range are reported. On request a vocal
+   outside its range is moved to the edge, applied as a difference so that untouched stems contribute nothing
+   and their separation artifacts never reach the output.
+6. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move when it exceeds
+   3 dB. A steady track is left alone.
 7. **Tone and stereo image.** Third-octave bands and band-wise side level outside the range of the chosen genre
    are moved to its edge, by at most 1.5 dB unless a reference track is given. A decorrelated low end is narrowed.
 8. **Dynamics.** Band crest factors and the peak-to-loudness ratio are compared with the genre's range. Peaky
@@ -297,6 +302,10 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
   and less gain movement than Matchering, and in the same class as Ozone 9 on signal measures (E28, E29).
 - **CBAM helps a little, FiLM without a condition does nothing.** On a U-Net baseline CBAM raises the identity
   score from 25 to 30 dB; neither closes the gap to a pretrained start (E23).
+- **Clean music is the hardest test.** Run on 98 untouched released tracks, the first version of the repair half
+  changed every one of them: tempo-synced delays were removed as echoes, quiet vocal samples were boosted, and the
+  level controller nudged everything. After recalibrating on that audit, 80 of 98 come out bit-identical and the
+  rest are listed proposals (E33).
 - **Stems are for balance, and only the vocal.** Stem tone correction made mixes worse; stem level correction
   works mechanically, but only the vocal has a range tight enough to act on without touching a third of clean
   songs (E30, E31).

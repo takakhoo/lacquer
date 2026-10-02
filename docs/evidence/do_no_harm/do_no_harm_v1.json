@@ -1,0 +1,1902 @@
+{
+ "summary": {
+  "n": 98,
+  "fired": {
+   "clipping": 0,
+   "echo": 13,
+   "room": 10,
+   "vocal": 10,
+   "balance": 21,
+   "ride": 24
+  },
+  "untouched_by_repair": 60,
+  "sisdr_vs_input": {
+   "median": 30.188751220703125,
+   "p10": 16.117883586883547
+  }
+ },
+ "rows": [
+  {
+   "file": "118746.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 26.729785919189453,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-43.3 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.4 dB."
+   ],
+   "max_ride_db": 1.4228064362746213
+  },
+  {
+   "file": "072289.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 8.082984924316406,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.0 dB): left alone.",
+    "Vocal reverb: 5.6 dB, outside the normal range: reduced to -4.2 dB.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.09704434262748897
+  },
+  {
+   "file": "147160.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 28.83277130126953,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.6 dB): left alone.",
+    "Vocal reverb: -28.9 dB, inside the normal range: left alone.",
+    "Vocals level: -20.4 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 1.0 dB."
+   ],
+   "max_ride_db": 1.0440357527861754
+  },
+  {
+   "file": "086119.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 72.67868041992188,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.3 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.013044406111937338
+  },
+  {
+   "file": "099135.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 52.36982727050781,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-39.7 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.07065323070791515
+  },
+  {
+   "file": "143979.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 36.9364013671875,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-32.8 dB): left alone.",
+    "Vocal reverb: -12.6 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5329661456386798
+  },
+  {
+   "file": "020361.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 41.9676513671875,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.3 dB): left alone.",
+    "Vocal reverb: -16.0 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.27620397764631277
+  },
+  {
+   "file": "120169.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 32.01286315917969,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-26.6 dB): left alone.",
+    "Vocal reverb: reading of 19.4 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.7172909876975311
+  },
+  {
+   "file": "150310.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 16.829652786254883,
+   "decisions": [
+    "Echo at 341 ms (gain 0.16): removed.",
+    "Room reverb: none in excess of a normal production (-33.7 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.010389993150858177
+  },
+  {
+   "file": "112756.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 16.811859130859375,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-36.8 dB): left alone.",
+    "Vocal reverb: -9.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 4.0 dB."
+   ],
+   "max_ride_db": 4.0394553137656395
+  },
+  {
+   "file": "129836.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 28.27618408203125,
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -22.3 dB (gate -24): removed at 21% strength.",
+    "Vocal reverb: -7.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.9 dB."
+   ],
+   "max_ride_db": 0.8719692879621601
+  },
+  {
+   "file": "080434.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 16.739612579345703,
+   "decisions": [
+    "Echo at 338 ms (gain 0.08): removed.",
+    "Room reverb: none in excess of a normal production (-25.9 dB): left alone.",
+    "Vocal reverb: -8.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 4.5 dB."
+   ],
+   "max_ride_db": 4.533191337022075
+  },
+  {
+   "file": "032855.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 60.75282287597656,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-40.8 dB): left alone.",
+    "Vocal reverb: -25.0 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.06735729505274976
+  },
+  {
+   "file": "043587.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 26.762407302856445,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-49.8 dB): left alone.",
+    "Vocal reverb: -10.3 dB, inside the normal range: left alone.",
+    "Vocals level: -1.1 LU relative to the mix, outside the normal -10.5 to -1.1: moved by -0.9 dB.",
+    "Level (learned controller): rode the gain by up to 0.6 dB."
+   ],
+   "max_ride_db": 0.5660460869715375
+  },
+  {
+   "file": "032461.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 29.87790298461914,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-37.5 dB): left alone.",
+    "Vocal reverb: -1.7 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.0938025547626207
+  },
+  {
+   "file": "066806.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 28.498672485351562,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-26.7 dB): left alone.",
+    "Vocal reverb: 0.9 dB, outside the normal range: reduced to -4.2 dB.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.6539733005970155
+  },
+  {
+   "file": "096745.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 26.31208610534668,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-50.7 dB): left alone.",
+    "Vocal reverb: -53.5 dB, outside the normal range: ambience added to -15.6 dB.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5310678350939931
+  },
+  {
+   "file": "041959.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 28.269140243530273,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.3 dB): left alone.",
+    "Vocal reverb: reading of 25.6 dB is not credible for a voice: left alone.",
+    "Vocals level: -0.1 LU relative to the mix, outside the normal -10.5 to -1.1: moved by -1.8 dB.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.1402132267674445
+  },
+  {
+   "file": "062180.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 34.373687744140625,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.7 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.7085873819810272
+  },
+  {
+   "file": "056840.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 25.74600601196289,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-51.1 dB): left alone.",
+    "Vocal reverb: -20.3 dB, inside the normal range: left alone.",
+    "Vocals level: -1.0 LU relative to the mix, outside the normal -10.5 to -1.1: moved by -1.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.095217516937965
+  },
+  {
+   "file": "009793.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 11.10472583770752,
+   "decisions": [
+    "Echo at 468 ms (gain 0.29): removed.",
+    "Room reverb / noise / clipping: excess measured at -16.2 dB (gate -24): removed at 97% strength.",
+    "Vocal reverb: -15.1 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 2.2 dB."
+   ],
+   "max_ride_db": 2.184455163589037
+  },
+  {
+   "file": "054596.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 71.47543334960938,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.7 dB): left alone.",
+    "Vocal reverb: -10.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.012005651010736845
+  },
+  {
+   "file": "085709.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 36.32933044433594,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.8 dB): left alone.",
+    "Vocal reverb: -10.6 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5330157549235626
+  },
+  {
+   "file": "091217.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 17.5210018157959,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.3 dB): left alone.",
+    "Vocal reverb: 3.7 dB, outside the normal range: reduced to -4.2 dB.",
+    "Vocals level: -13.1 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +4.2 dB.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.05934325297788232
+  },
+  {
+   "file": "137624.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 44.030738830566406,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-37.7 dB): left alone.",
+    "Vocal reverb: -8.0 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.10944407642424858
+  },
+  {
+   "file": "109355.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 44.992698669433594,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.9 dB): left alone.",
+    "Vocal reverb: -4.1 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.8 dB."
+   ],
+   "max_ride_db": 0.7889327045373483
+  },
+  {
+   "file": "066634.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 16.686798095703125,
+   "decisions": [
+    "Echo at 643 ms (gain 0.10): removed.",
+    "Room reverb: none in excess of a normal production (-46.1 dB): left alone.",
+    "Vocal reverb: -3.9 dB, inside the normal range: left alone.",
+    "Vocals level: -14.4 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +5.6 dB.",
+    "Level (learned controller): rode the gain by up to 0.9 dB."
+   ],
+   "max_ride_db": 0.9313466782926497
+  },
+  {
+   "file": "011832.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 44.3296012878418,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.9 dB): left alone.",
+    "Vocal reverb: -21.9 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.3050003309171806
+  },
+  {
+   "file": "041867.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 20.199525833129883,
+   "decisions": [
+    "Echo at 444 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -22.7 dB (gate -24): removed at 17% strength.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.8 dB."
+   ],
+   "max_ride_db": 0.7755796440297668
+  },
+  {
+   "file": "016340.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 41.59531021118164,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.9 dB): left alone.",
+    "Vocal reverb: -23.2 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.30031003595154215
+  },
+  {
+   "file": "113300.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 32.160316467285156,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-28.6 dB): left alone.",
+    "Vocal reverb: reading of 18.2 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.0 dB."
+   ],
+   "max_ride_db": 0.9695582693673981
+  },
+  {
+   "file": "116514.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 35.404945373535156,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-43.1 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.4 dB."
+   ],
+   "max_ride_db": 0.3690949826443364
+  },
+  {
+   "file": "075314.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 19.139177322387695,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-37.8 dB): left alone.",
+    "Vocal reverb: -15.9 dB, inside the normal range: left alone.",
+    "Vocals level: -16.1 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 2.0 dB."
+   ],
+   "max_ride_db": 1.9531475702642596
+  },
+  {
+   "file": "088824.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 35.075294494628906,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.1 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.48770950141100816
+  },
+  {
+   "file": "140584.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 47.12308883666992,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-37.0 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.18965574943299549
+  },
+  {
+   "file": "023041.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 36.55003356933594,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.1 dB): left alone.",
+    "Vocal reverb: -20.6 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.4 dB."
+   ],
+   "max_ride_db": 0.4155763879882812
+  },
+  {
+   "file": "057545.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 25.154760360717773,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-40.6 dB): left alone.",
+    "Vocal reverb: -23.4 dB, inside the normal range: left alone.",
+    "Vocals level: -11.0 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +2.1 dB.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.2655477385746098
+  },
+  {
+   "file": "038748.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 43.257110595703125,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.6 dB): left alone.",
+    "Vocal reverb: -4.0 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.2263393203834789
+  },
+  {
+   "file": "107482.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 30.207176208496094,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.0 dB): left alone.",
+    "Vocal reverb: -10.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.0621188979057514
+  },
+  {
+   "file": "105670.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 33.765892028808594,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-36.2 dB): left alone.",
+    "Vocal reverb: -4.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.6885975320712934
+  },
+  {
+   "file": "091572.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 36.82747268676758,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.3 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.4610481147661794
+  },
+  {
+   "file": "000668.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 29.72438621520996,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-49.7 dB): left alone.",
+    "Vocal reverb: -7.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.1317845410465357
+  },
+  {
+   "file": "104277.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 54.957679748535156,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.1 dB): left alone.",
+    "Vocal reverb: -26.6 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.044539635283080185
+  },
+  {
+   "file": "100534.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 18.98533058166504,
+   "decisions": [
+    "Echo at 429 ms (gain 0.22): removed.",
+    "Room reverb: none in excess of a normal production (-42.9 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.19639842363047666
+  },
+  {
+   "file": "033988.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 48.46550750732422,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-49.0 dB): left alone.",
+    "Vocal reverb: -25.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.4 dB."
+   ],
+   "max_ride_db": 0.43292444527233026
+  },
+  {
+   "file": "113529.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 35.66920471191406,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.2 dB): left alone.",
+    "Vocal reverb: -19.1 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5275620068320248
+  },
+  {
+   "file": "015857.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 52.94359588623047,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-38.3 dB): left alone.",
+    "Vocal reverb: -26.3 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.06263979829829978
+  },
+  {
+   "file": "014481.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 33.595279693603516,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.7 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.46995526457697134
+  },
+  {
+   "file": "026635.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 21.86927032470703,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-36.1 dB): left alone.",
+    "Vocal reverb: 6.5 dB, outside the normal range: reduced to -4.2 dB.",
+    "Vocals level: -14.9 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.1323870276589448
+  },
+  {
+   "file": "092502.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 51.87328338623047,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.3 dB): left alone.",
+    "Vocal reverb: -1.3 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.18983797806295757
+  },
+  {
+   "file": "046159.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 84.78888702392578,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.0 dB): left alone.",
+    "Vocal reverb: -14.3 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.004800167251745882
+  },
+  {
+   "file": "070274.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 59.79520797729492,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-49.0 dB): left alone.",
+    "Vocal reverb: -18.9 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.11576604009781366
+  },
+  {
+   "file": "098009.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 24.982194900512695,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.7 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 2.5 dB."
+   ],
+   "max_ride_db": 2.4532006777697144
+  },
+  {
+   "file": "061746.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 13.485960960388184,
+   "decisions": [
+    "Echo at 586 ms (gain 0.08): removed.",
+    "Echo at 352 ms (gain 0.06): removed.",
+    "Room reverb: none in excess of a normal production (-31.0 dB): left alone.",
+    "Vocal reverb: -22.3 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.9 dB."
+   ],
+   "max_ride_db": 0.939525421196155
+  },
+  {
+   "file": "049582.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 16.578367233276367,
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -16.2 dB (gate -24): removed at 98% strength.",
+    "Vocal reverb: -14.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.01903712539495669
+  },
+  {
+   "file": "024795.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 23.386201858520508,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-29.6 dB): left alone.",
+    "Vocal reverb: -12.8 dB, inside the normal range: left alone.",
+    "Vocals level: -17.5 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 1.5 dB."
+   ],
+   "max_ride_db": 1.4914048635303563
+  },
+  {
+   "file": "075898.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 16.282995223999023,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-33.9 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 5.0 dB."
+   ],
+   "max_ride_db": 5.017093760210684
+  },
+  {
+   "file": "140000.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 19.717647552490234,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-43.8 dB): left alone.",
+    "Vocal reverb: -8.5 dB, inside the normal range: left alone.",
+    "Vocals level: -18.9 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 3.2 dB."
+   ],
+   "max_ride_db": 3.1700952614759976
+  },
+  {
+   "file": "039511.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 1.8912549018859863,
+   "decisions": [
+    "Echo at 571 ms (gain 0.81): removed.",
+    "Echo at 571 ms (gain 0.20): removed.",
+    "Room reverb: none in excess of a normal production (-40.3 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.6757149357136092
+  },
+  {
+   "file": "007262.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 9.077191352844238,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.8 dB): left alone.",
+    "Vocal reverb: 4.4 dB, outside the normal range: reduced to -4.2 dB.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.8 dB."
+   ],
+   "max_ride_db": 1.7828539655718658
+  },
+  {
+   "file": "030048.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 72.66984558105469,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-29.7 dB): left alone.",
+    "Vocal reverb: reading of 18.6 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.012005436426885655
+  },
+  {
+   "file": "112488.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 30.170326232910156,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.6 dB): left alone.",
+    "Vocal reverb: -4.0 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.6 dB."
+   ],
+   "max_ride_db": 1.592828841633651
+  },
+  {
+   "file": "046074.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 42.83964157104492,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-42.2 dB): left alone.",
+    "Vocal reverb: reading of 15.7 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.2819859780364191
+  },
+  {
+   "file": "045126.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 45.94112777709961,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-33.0 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.21789086486218287
+  },
+  {
+   "file": "036616.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 25.512237548828125,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-39.1 dB): left alone.",
+    "Vocal reverb: -16.2 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 3.1 dB."
+   ],
+   "max_ride_db": 3.0646788655481005
+  },
+  {
+   "file": "021352.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": true,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 12.264317512512207,
+   "decisions": [
+    "Echo at 343 ms (gain 0.21): removed.",
+    "Echo at 171 ms (gain 0.12): removed.",
+    "Echo at 514 ms (gain 0.09): removed.",
+    "Room reverb / noise / clipping: excess measured at -22.5 dB (gate -24): removed at 19% strength.",
+    "Vocal reverb: 4.9 dB, outside the normal range: reduced to -4.2 dB.",
+    "Vocals level: -17.0 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.7 dB."
+   ],
+   "max_ride_db": 0.6940770347439817
+  },
+  {
+   "file": "125588.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 41.915283203125,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-29.0 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.6 dB."
+   ],
+   "max_ride_db": 0.60570376908287
+  },
+  {
+   "file": "145357.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 29.4185848236084,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.6 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.8 dB."
+   ],
+   "max_ride_db": 0.8121504704222867
+  },
+  {
+   "file": "109353.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 59.50727462768555,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.4 dB): left alone.",
+    "Vocal reverb: -6.5 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.04928960232920666
+  },
+  {
+   "file": "066888.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 37.31521224975586,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.8 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5087914086438068
+  },
+  {
+   "file": "071166.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 9.583536148071289,
+   "decisions": [
+    "Echo at 536 ms (gain 0.11): removed.",
+    "Echo at 321 ms (gain 0.11): removed.",
+    "Room reverb / noise / clipping: excess measured at -20.9 dB (gate -24): removed at 39% strength.",
+    "Vocal reverb: reading of 23.2 dB is not credible for a voice: left alone.",
+    "Vocals level: -15.9 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.3 dB."
+   ],
+   "max_ride_db": 0.3360113547398445
+  },
+  {
+   "file": "010692.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 31.747102737426758,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.4 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.6 dB."
+   ],
+   "max_ride_db": 0.5516313976813565
+  },
+  {
+   "file": "136877.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 43.494384765625,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-34.6 dB): left alone.",
+    "Vocal reverb: -12.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.4 dB."
+   ],
+   "max_ride_db": 1.370415015334694
+  },
+  {
+   "file": "108416.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 8.039512634277344,
+   "decisions": [
+    "Echo at 522 ms (gain 0.48): removed.",
+    "Echo at 131 ms (gain 0.09): removed.",
+    "Room reverb / noise / clipping: excess measured at -16.8 dB (gate -24): removed at 90% strength.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.9 dB."
+   ],
+   "max_ride_db": 1.8524890662293965
+  },
+  {
+   "file": "073778.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 42.992088317871094,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.8 dB): left alone.",
+    "Vocal reverb: -12.6 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.246819374768543
+  },
+  {
+   "file": "069726.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 34.172245025634766,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.9 dB): left alone.",
+    "Vocal reverb: -6.8 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.4 dB."
+   ],
+   "max_ride_db": 0.3549776376547701
+  },
+  {
+   "file": "134643.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 29.342716217041016,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.2 dB): left alone.",
+    "Vocal reverb: -9.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.0640727819086038
+  },
+  {
+   "file": "064762.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": true,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 26.41035270690918,
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -21.4 dB (gate -24): removed at 33% strength.",
+    "Vocal reverb: -1.8 dB, inside the normal range: left alone.",
+    "Vocals level: -22.0 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.4915054096930501
+  },
+  {
+   "file": "062587.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 19.65692138671875,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.3 dB): left alone.",
+    "Vocal reverb: 3.0 dB, outside the normal range: reduced to -4.2 dB.",
+    "Vocals level: -12.5 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +3.7 dB.",
+    "Level (learned controller): rode the gain by up to 0.5 dB."
+   ],
+   "max_ride_db": 0.5130255804598565
+  },
+  {
+   "file": "133727.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 23.985166549682617,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.8 dB): left alone.",
+    "Vocal reverb: 0.9 dB, outside the normal range: reduced to -4.2 dB.",
+    "Vocals level: -14.1 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +5.3 dB.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.09044611033414712
+  },
+  {
+   "file": "144165.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 46.91648483276367,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-42.4 dB): left alone.",
+    "Vocal reverb: -20.2 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.6 dB."
+   ],
+   "max_ride_db": 0.5506743270569266
+  },
+  {
+   "file": "024144.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": true,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 9.603649139404297,
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -9.7 dB (gate -24): removed at 100% strength.",
+    "Vocal reverb: -7.5 dB, inside the normal range: left alone.",
+    "Vocals level: -15.9 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.19386361543385103
+  },
+  {
+   "file": "055295.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 26.151092529296875,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.2 dB): left alone.",
+    "Vocal reverb: reading of 15.0 dB is not credible for a voice: left alone.",
+    "Vocals level: -21.8 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 1.3 dB."
+   ],
+   "max_ride_db": 1.2578424006688205
+  },
+  {
+   "file": "066186.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 40.40095901489258,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.0 dB): left alone.",
+    "Vocal reverb: -16.2 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.21799757054963806
+  },
+  {
+   "file": "042485.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 43.4541130065918,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.3 dB): left alone.",
+    "Vocal reverb: -6.4 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.8 dB."
+   ],
+   "max_ride_db": 0.7779471540717102
+  },
+  {
+   "file": "011198.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": true,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 15.787991523742676,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-34.8 dB): left alone.",
+    "Vocal reverb: 0.3 dB, outside the normal range: reduced to -4.2 dB.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.9 dB."
+   ],
+   "max_ride_db": 0.9130768498256236
+  },
+  {
+   "file": "040630.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 77.76243591308594,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-42.5 dB): left alone.",
+    "Vocal reverb: -17.1 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.007911063910826202
+  },
+  {
+   "file": "004102.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 43.35698699951172,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.8 dB): left alone.",
+    "Vocal reverb: -9.1 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.17748760607883704
+  },
+  {
+   "file": "000425.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": false
+   },
+   "sisdr_vs_input": 17.455995559692383,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-44.1 dB): left alone.",
+    "Vocal reverb: reading of 17.6 dB is not credible for a voice: left alone.",
+    "Vocals level: -15.6 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.1181868965192258
+  },
+  {
+   "file": "115158.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 54.190792083740234,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-39.1 dB): left alone.",
+    "Vocal reverb: -29.7 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.04410962881707538
+  },
+  {
+   "file": "094797.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 17.89122772216797,
+   "decisions": [
+    "Echo at 640 ms (gain 0.10): removed.",
+    "Room reverb: none in excess of a normal production (-29.6 dB): left alone.",
+    "Vocal reverb: reading of 11.5 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.0 dB."
+   ],
+   "max_ride_db": 0.010622576959603874
+  },
+  {
+   "file": "031316.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 39.346866607666016,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-47.2 dB): left alone.",
+    "Vocal reverb: -32.2 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.4 dB."
+   ],
+   "max_ride_db": 0.43844369728866983
+  },
+  {
+   "file": "080693.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 28.075458526611328,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-34.1 dB): left alone.",
+    "Vocal reverb: -22.7 dB, inside the normal range: left alone.",
+    "Vocals level: -0.0 LU relative to the mix, outside the normal -10.5 to -1.1: moved by -1.9 dB.",
+    "Level (learned controller): rode the gain by up to 1.6 dB."
+   ],
+   "max_ride_db": 1.5652762671168325
+  },
+  {
+   "file": "069567.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 45.241554260253906,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-30.8 dB): left alone.",
+    "Vocal reverb: reading of 10.3 dB is not credible for a voice: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.2 dB."
+   ],
+   "max_ride_db": 0.23725227549774242
+  },
+  {
+   "file": "123633.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": true,
+    "room": true,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 16.259265899658203,
+   "decisions": [
+    "Echo at 300 ms (gain 0.37): removed.",
+    "Echo at 601 ms (gain 0.22): removed.",
+    "Room reverb / noise / clipping: excess measured at -18.8 dB (gate -24): removed at 65% strength.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.1 dB."
+   ],
+   "max_ride_db": 0.05659624484059902
+  },
+  {
+   "file": "081885.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": true,
+    "ride": true
+   },
+   "sisdr_vs_input": 24.866621017456055,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-40.1 dB): left alone.",
+    "Vocal reverb: -19.8 dB, inside the normal range: left alone.",
+    "Vocals level: -17.7 LU relative to the mix, outside the normal -10.5 to -1.1: moved by +6.0 dB.",
+    "Level (learned controller): rode the gain by up to 1.1 dB."
+   ],
+   "max_ride_db": 1.0903132304239804
+  },
+  {
+   "file": "078068.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": true
+   },
+   "sisdr_vs_input": 24.64197540283203,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.4 dB): left alone.",
+    "Vocal reverb: -7.3 dB, inside the normal range: left alone.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 1.4 dB."
+   ],
+   "max_ride_db": 1.3598768150147367
+  },
+  {
+   "file": "092949.mp3",
+   "fired": {
+    "clipping": false,
+    "echo": false,
+    "room": false,
+    "vocal": false,
+    "balance": false,
+    "ride": false
+   },
+   "sisdr_vs_input": 35.61742401123047,
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-39.2 dB): left alone.",
+    "Vocal: no active vocal found.",
+    "Instrument balance: vocal level inside the normal range of professional mixes, left alone.",
+    "Level (learned controller): rode the gain by up to 0.9 dB."
+   ],
+   "max_ride_db": 0.8773676978005355
+  }
+ ]
+}

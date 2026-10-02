@@ -702,3 +702,77 @@ so fewer than half of 4 to 9 dB faults leave the normal range, and with four ste
 songs has some stem outside it. The default is therefore the vocal alone, the one element with published level
 norms: 8% of unmodified songs are touched, 44% of vocal faults are caught, and no other stem is moved by
 mistake. Drums, bass and accompaniment are measured and reported.
+
+### E32. Reference mastering, three ways: ours, Matchering 2.0, ITO-Master
+`python -m remaster.evaluate_reference_baselines`, two tasks on held-out released tracks.
+*Recover*: the faulted clips of E25 with the original as reference (19 tracks per fault; the run stopped early
+on a mono track that Matchering rejects, and the saved rows were kept). *Transfer*: an untouched clip and a
+different track of the same genre as reference (27 pairs), scored by how close the output's features end up to
+the reference's. ITO-Master (Koo et al., ISMIR 2025) is run through its released inference script, white-box
+model, public weights, with the dependency versions pinned by its authors' demo. Raw rows:
+`docs/evidence/reference/`.
+
+| recover: error against the original (dB) | damaged | ours | Matchering | ITO-Master |
+|---|---:|---:|---:|---:|
+| tilt, tone | 3.23 | **0.19** | 0.69 | 7.81 |
+| EQ bumps, tone | 2.55 | **0.16** | 0.67 | 8.05 |
+| width, side level | 5.52 | 0.31 | **0.07** | 6.36 |
+
+| transfer: distance to the reference, median over 27 pairs | input | ours | Matchering | ITO-Master |
+|---|---:|---:|---:|---:|
+| tone (dB) | 11.1 | **3.6** | 4.9 | 9.5 |
+| side level by band (dB) | 9.2 | 2.4 | **2.2** | 8.2 |
+| peak-to-loudness ratio (dB) | 1.7 | **0.6** | 0.7 | 5.4 |
+| SI-SDR of the output against the input (dB) | | **2.5** | 2.1 | 1.6 |
+
+Ours and Matchering are both direct matching methods and are close to each other; ours is ahead on tone and
+Matchering on stereo width, as in E25. ITO-Master does something different: it encodes the reference into a
+style embedding and predicts the parameters of a fixed effect chain. Measured by these signal features it moves
+a clip much less far toward the reference (tone 11.1 to 9.5 dB), and when the reference is the clip's own
+original it moves the clip away (3.2 to 7.8 dB). On the example shipped with its repository it reduces the tone
+distance from 7.6 to 4.9 dB, so the installation works as released. Two caveats: its inference-time
+optimization left the loss unchanged in our environment (`ito_optimization_log_example.txt`), so only its base
+style transfer is reported; and its authors evaluate with learned effect embeddings and listeners, on which
+it may do better than these features show. The transfer means are dominated by a few pairs with a mono
+reference, so medians are given.
+
+### E33. Do-no-harm audit: what the repair half does to clean released music
+`python -m remaster.evaluate_do_no_harm`: 98 held-out FMA-medium tracks of all genres (30 s), untouched, through
+the whole repair half with stems, vocal meter and controller (no mastering), checkpoint at step 23000. Any
+action is a false alarm or an unrequested change. The first run used the defaults at the time; the second run
+uses defaults changed because of the first. Raw rows: `docs/evidence/do_no_harm/`.
+
+| on 98 clean tracks | first run | after the changes |
+|---|---:|---:|
+| output bit-identical to input | 0 | **80** |
+| clipping rebuilt | 0 | 0 |
+| echo removed | 13 | 5 (9 more found and left as musical delays) |
+| room reverb removed | 10 | 3 |
+| vocal reverb changed | 10 | 4 |
+| vocal level moved | 21 | 0 (20 reported) |
+| level ridden | 98 (24 by more than 1 dB) | 8 |
+| output below 20 dB SI-SDR against the input | 24 | 11 |
+
+What the first run showed, and what changed:
+
+- **Echo.** 13 detections, almost all in electronic music at delays like 341, 429 and 571 ms: tempo-synced delay
+  effects and loops, which are music. The echo stage now estimates the tempo and leaves an echo alone when its
+  delay is a whole number of sixteenth notes or triplet eighths. On 100 held-out clips
+  (`python -m remaster.evaluate_deecho`, `docs/evidence/deecho/`) that cuts altered clean tracks from 11 to 3,
+  and costs the added echoes that happen to land on the grid: 69 instead of 94 of 100 removed (SI-SDR 9.5 to
+  22.2 dB instead of 26.8; 27.5 dB on the ones removed).
+- **Room reverb.** Clean released music reads higher on the excess meter than the MUSDB18-HQ mixes it was
+  calibrated on (90th percentile -24.9 dB, 95th -20.6 dB, against -32.7 dB). The gate moved from -24 to -18 dB.
+  Light added reverb (median reading -20 dB at 12 dB DRR) is now left alone.
+- **Vocal reverb.** The "too wet" threshold moved from 0 to +4 dB (95th percentile of readings on released
+  vocals) and a wet vocal is reduced to 0 dB, the edge of the range, instead of to the middle. Adding ambience
+  to a dry vocal is off unless asked for.
+- **Vocal level.** On instrumental and electronic tracks the separated "vocal" stem is a sample or residue at
+  -12 to -22 LU, and the stage boosted it by up to 6 dB on 21 tracks. The reading is now reported and nothing
+  is moved unless asked for.
+- **Level riding.** The controller moved every track a little. It now acts only when its trajectory exceeds
+  2 dB (3 dB after this run), so that a steady track is not flattened.
+
+After the changes 80 of 98 clean tracks come out bit-identical. The 18 that change include 5 echo removals and
+8 level rides that may or may not be wanted, so the stage outputs are best read as proposals: every one is
+listed with its reading, and each can be switched off.

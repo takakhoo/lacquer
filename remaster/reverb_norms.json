@@ -2,8 +2,8 @@
  "vocals": {
   "low_db": -32.5,
   "low_target_db": -15.6,
-  "high_db": 0.0,
-  "high_target_db": -4.2,
+  "high_db": 4.0,
+  "high_target_db": 0.0,
   "percentiles": {
    "p10": -32.5,
    "p25": -15.6,
@@ -13,7 +13,7 @@
   },
   "source": "anvuew vocal dereverb BS-RoFormer on MUSDB18-HQ train vocal stems, 20 s vocal-active excerpts",
   "max_credible_db": 8.0,
-  "note": "high_db is 0 dB (reverb as loud as the voice) rather than the corpus p90 (-1.3): produced vocals and over-wet vocals overlap, so auto mode only acts on clear cases. Readings above max_credible_db mean the stem is not a voice the meter understands."
+  "note": "high_db is +4 dB, the 95th percentile of readings on 65 released tracks of all genres (E33); the MUSDB18-HQ p90 is -1.3. A vocal above it is reduced to 0 dB, the edge of the normal range, and no further. Readings above max_credible_db mean the stem is not a voice the meter understands."
  },
  "mix_excess": {
   "clean_p50": -41.2,
@@ -21,6 +21,9 @@
   "drr12_p50": -20.4,
   "drr6_p50": -9.4,
   "drr0_p50": -3.6,
-  "source": "ft_bs full-mix model on MUSDB18-HQ train mixtures, MIT IR Survey + synthetic reverb"
+  "source": "ft_bs full-mix model on MUSDB18-HQ train mixtures, MIT IR Survey + synthetic reverb",
+  "released_p90": -24.9,
+  "released_p95": -20.6,
+  "gate_db": -18.0
  }
 }

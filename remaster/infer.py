@@ -125,9 +125,9 @@ def enhance_stems(models, x, backend="demucs", reverb_bias_db=0.0, allow_add=Tru
     return y.astype(np.float32), report
 
 
-def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0, allow_add=True, restore_strength=1.0,
-                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-24.0, do_declip=True, genre="all", profile="streaming",
-                 stem_balance=True, **master_kw):
+def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0, allow_add=False, restore_strength=1.0,
+                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-18.0, do_declip=True, genre="all", profile="streaming",
+                 stem_balance="report", ride_gate_db=3.0, **master_kw):
     """The full decision pipeline.
 
     0. Clipping: a flat ceiling on both polarities means hard clipping; the clipped samples are rebuilt by
@@ -160,7 +160,10 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
     if do_deecho:
         y, report["echoes"] = deecho(y)
         for e in report["echoes"]:
-            report["decisions"].append(f"Echo at {e['delay_ms']:.0f} ms (gain {e['gain']:.2f}): removed.")
+            if e.get("kept"):
+                report["decisions"].append(f"Echo at {e['delay_ms']:.0f} ms sits on the tempo grid ({e['grid']} at {e['bpm']:.0f} BPM): a musical delay, left alone.")
+            else:
+                report["decisions"].append(f"Echo at {e['delay_ms']:.0f} ms (gain {e['gain']:.2f}): removed.")
     mix_model, vocal_model = models.get("mix"), models.get("vocal")
     if mix_model is not None and restore_strength > 0:
         wet = measure_fast(mix_model, y)  # full-track pass only if something needs removing
@@ -204,18 +207,24 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
             from .stem_master import master_stems
             if action in ("reduce", "add"):
                 stems = separate(y, backend=backend)      # the vocal changed: measure the balance on the new mix
-            y, report["stems"] = master_stems(y, stems=stems, do_tone=False)
+            y, report["stems"] = master_stems(y, stems=stems, do_tone=False, act=stem_balance in (True, "fix"))
             report["decisions"] += report["stems"]["decisions"]
     if ride > 0:
         if models.get("controller") is not None:
             # learned gain trajectory: fixes more than the VU rider at the same disturbance to clean audio (E14)
             from .controller import ride_with_controller
             yr, report["vu"] = ride_with_controller(models["controller"], y)
-            y = y + min(1.0, ride / 0.75) * (yr - y)
+            yr = y + min(1.0, ride / 0.75) * (yr - y)
         else:
-            y, report["vu"] = ride_gain(y, ratio=ride)
+            yr, report["vu"] = ride_gain(y, ratio=ride)
         how = "learned controller" if report["vu"].get("method") == "controller" else "VU rider"
-        report["decisions"].append(f"Level ({how}): rode the gain by up to {report['vu']['max_ride_db']:.1f} dB.")
+        if report["vu"]["max_ride_db"] >= ride_gate_db:
+            y = yr
+            report["decisions"].append(f"Level ({how}): rode the gain by up to {report['vu']['max_ride_db']:.1f} dB.")
+        else:
+            # small moves on a steady track would only flatten dynamics the music meant to have
+            report["vu"]["applied"] = False
+            report["decisions"].append(f"Level ({how}): steady within {report['vu']['max_ride_db']:.1f} dB, left alone.")
     if do_master and load_mastering_norms() is not None:
         from .mastering import PROFILES, master_track
         y, m = master_track(y, genre=genre, profile=profile if profile in PROFILES else "streaming", target_lufs=master_kw.get("target_lufs"), reference=master_kw.get("reference"),
