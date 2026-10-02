@@ -826,3 +826,19 @@ Raw rows: `docs/evidence/stems_policy/unseen_rooms/`.
 
 On lossless professional mixes with unseen rooms the pipeline gains 3.3 dB, more than the 2.6 dB on MP3 clips in
 E27, and the ordering of the three policies is the same as with training rooms.
+
+### E35. Frechet audio distance on unseen rooms, two embeddings
+`python -m remaster.evaluate_fad` with `scripts/embed_fad.py`: 250 held-out FMA-medium clips of 10 s, reverb
+from the Aachen rooms (unseen), restored by the network alone (step 23000). The reference distribution is 1500
+clean clips from the training split. The distance of the clean test clips to the reference is the floor that
+two samples of clean music measure. Embeddings: CLAP (LAION, 630k-audioset checkpoint, one vector per clip) and
+VGGish (one vector per 0.96 s). Raw: `docs/evidence/fad/fad.json`.
+
+| distance to the clean reference set | clean test clips (floor) | reverberant | restored | gap closed |
+|---|---:|---:|---:|---:|
+| FAD, CLAP | 0.081 | 0.114 | 0.086 | 87% |
+| FAD, VGGish | 0.212 | 0.740 | 0.231 | 96% |
+
+On both embeddings the restored set sits close to the floor. Both embeddings work on downmixed, band-limited
+audio (VGGish at 16 kHz mono), so this says the restored clips are distributed like clean music at that
+resolution. It complements the paired SI-SDR numbers and does not replace them.

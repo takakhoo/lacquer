@@ -8,5 +8,15 @@
   "n_damaged": 250,
   "restored": 0.08579985882362795,
   "n_restored": 250
+ },
+ "vggish": {
+  "dim": 128,
+  "n_reference": 15000,
+  "clean": 0.21190157991681424,
+  "n_clean": 2500,
+  "damaged": 0.7401586332139178,
+  "n_damaged": 2500,
+  "restored": 0.23127431604093474,
+  "n_restored": 2500
  }
 }
