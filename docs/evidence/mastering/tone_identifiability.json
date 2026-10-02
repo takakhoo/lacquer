@@ -1,0 +1,61 @@
+{
+ "bands": 22,
+ "band_range_hz": [
+  62.5,
+  8000.0
+ ],
+ "predictability_db": {
+  "population_mean": 5.245971722748924,
+  "genre_mean": 4.622189943713331,
+  "nearest_5": 4.473513020872504,
+  "nearest_20": 4.33172673591511,
+  "nearest_100": 4.414236267487583
+ },
+ "released_corpus": {
+  "n_train": 24409,
+  "n_test": 506,
+  "fault": 2.275798182805257,
+  "after": {
+   "range_rule": 2.50634622426857,
+   "gaussian_map": 2.248477557032813,
+   "mean_match": 5.245971722748924
+  },
+  "clean_disturbed": {
+   "range_rule": 0.9756105131330808,
+   "gaussian_map": 1.1406452880471836,
+   "mean_match": 5.245971722748924
+  },
+  "band_std_db": 6.108616498784423
+ },
+ "professional_mixes": {
+  "n_train": 100,
+  "n_test": 50,
+  "fault": 2.407876677453039,
+  "after": {
+   "range_rule": 2.080845072394955,
+   "gaussian_map": 4.083194533344519,
+   "mean_match": 2.653418931166145
+  },
+  "clean_disturbed": {
+   "range_rule": 0.40751376484681145,
+   "gaussian_map": 2.430936170756788,
+   "mean_match": 2.653418931166145
+  },
+  "band_std_db": 2.927628686252796
+ },
+ "slope_std_db_oct": {
+  "mix": 0.7840907847317721,
+  "vocals": 1.5740032150308305,
+  "drums": 0.8551846865226775,
+  "bass": 2.5829542894715836,
+  "other": 1.6320043980407106
+ },
+ "slope_correlation_between_stems": {
+  "vocals-drums": 0.18062728618793913,
+  "vocals-bass": 0.06814261802365842,
+  "vocals-other": 0.132366858191924,
+  "drums-bass": 0.19982451280771646,
+  "drums-other": 0.2474220598157315,
+  "bass-other": 0.24845491559105873
+ }
+}

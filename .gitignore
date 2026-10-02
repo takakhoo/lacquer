@@ -14,3 +14,4 @@ docs/evidence/trace.npz
 paper/
 .venv-sep/
 pretrained/
+docs/research/venues.md

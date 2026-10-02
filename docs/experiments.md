@@ -478,3 +478,134 @@ Lacquer improves all 40 clips and is the only method that improves the average, 
 and mono; the Aachen rooms are longer (median 0.93 s) and binaural. The honest reading is that the network
 learned the training rooms' early reflection patterns well and general room reverb much less well. The number to
 quote for real rooms is this one. E24 retrains with 4000 simulated rooms to close the gap.
+
+### E23. Does CBAM or FiLM help? A spectrogram U-Net ablation
+`scripts/ablate_unet_lab.sh`: a complex-spectrogram U-Net (`remaster/unet.py`) trained from scratch for 8000
+steps on the same task, data and losses as the from-scratch band-split run of E2 (FMA-medium, artifact task,
+batch 4, lr 3e-4), in three variants. Validation on the same fixed set.
+
+| model (8000 steps, from scratch) | mean SI-SDR gain | reverb | echo | noise | identity |
+|---|---:|---:|---:|---:|---:|
+| U-Net | -1.42 | 3.0 -> 4.1 | 9.5 -> 8.9 | 31.0 -> 22.8 | 25.4 |
+| U-Net + CBAM | -0.86 | 3.0 -> 4.0 | 9.5 -> 9.1 | 31.0 -> 25.1 | 30.0 |
+| U-Net + CBAM + FiLM | -0.92 | 3.0 -> 4.0 | 9.5 -> 9.1 | 31.0 -> 24.9 | 28.9 |
+| band-split transformer, 7.7 M (E2) | | 2.9 -> 3.7 | 9.5 -> 8.9 | | 27.7 |
+| fine-tuned BS-RoFormer, 1000 steps (E3) | | 2.9 -> 6.4 | 9.5 -> 9.6 | | 29.1 |
+
+CBAM helps the U-Net leave clean audio alone (identity 25.4 to 30.0 dB) and costs nothing on reverb. FiLM with
+no conditioning signal is a learned per-channel scale and shift, and adds nothing measurable (-0.06 dB). Neither
+changes the main picture: every from-scratch model at this budget gains about 1 dB on reverb, has a negative
+mean gain because it damages the lightly degraded conditions, and is far behind 1000 steps of fine-tuning from
+the pretrained checkpoint. Attention modules matter much less here than the initialization.
+
+### E24. What released music measures like, by genre, against unmastered mixes
+`python -m remaster.build_mastering_norms` measures 60 mastering features per track (`remaster/analysis.py`:
+BS.1770 loudness, loudness range, true peak, peak-to-loudness ratio, third-octave spectrum, spectral slope,
+side/mid level in five bands, channel correlation overall and below 150 Hz, crest factor and level spread in
+four bands) on 24,980 FMA-medium tracks with their genre labels and on the 150 MUSDB18-HQ mixtures and their
+stems. Norms use training-split tracks only (`remaster/mastering_norms.json`). Figure:
+`docs/figures/mastering_corpus.png`.
+
+| group | n | loudness (LUFS) | peak-to-loudness (dB) | spectral slope (dB/oct) | side minus mid (dB) |
+|---|---:|---:|---:|---:|---:|
+| all released | 24,474 | -11.9 [-18.9, -7.5] | 11.6 [7.9, 15.8] | -5.1 [-7.5, -3.5] | -11.3 [-28.0, -4.1] |
+| Hip-Hop | 2,141 | -10.5 [-15.9, -7.3] | 10.7 [8.0, 14.1] | -4.6 [-5.8, -3.6] | -15.1 [-26.1, -8.3] |
+| Rock | 6,964 | -10.7 [-16.6, -6.7] | 10.5 [7.2, 14.6] | -5.0 [-6.5, -3.8] | -10.7 [-23.7, -5.0] |
+| Electronic | 6,173 | -11.3 [-17.0, -7.6] | 11.4 [8.3, 15.2] | -4.9 [-7.0, -3.5] | -11.4 [-25.0, -4.5] |
+| Jazz | 377 | -14.2 [-21.6, -9.9] | 13.3 [10.1, 17.7] | -6.1 [-8.6, -3.9] | -9.3 [-21.9, -3.3] |
+| Classical | 612 | -20.6 [-28.5, -14.5] | 14.9 [11.9, 18.0] | -7.3 [-11.6, -4.7] | -4.1 [-15.6, -0.5] |
+| unmastered professional mixes (MUSDB18-HQ) | 150 | -15.8 [-17.8, -13.6] | 15.8 [13.7, 17.9] | -5.1 [-6.2, -4.4] | -10.0 [-16.1, -6.2] |
+
+Median [10th, 90th percentile]. Two readings matter for the design. First, unmastered professional mixes have
+the same tone and stereo image as released music (slope -5.1 against -5.1 dB/octave) and differ in dynamics:
+4 dB more peak-to-loudness ratio. Mastering a good mix is mostly a dynamics and loudness job. Second, the spread
+inside released music is wide (tone varies by 6 dB per band between tracks), while professional mixes are tight
+(2.9 dB). Instrument balance in the professional mixes, as stem loudness relative to the mix: vocals -3.5 LU
+[-6.1, -1.8], other -4.9, drums -6.4, bass -7.6.
+
+### E25. Can a tonal or stereo fault be corrected without a reference? Mostly no, and here is the bound
+Two tests. (a) `python -m remaster.evaluate_mastering`: 200 held-out released tracks get a mastering fault
+(spectral tilt of 0.6 to 1.6 dB/octave, one or two broad EQ bumps of 3 to 8 dB, side level changed by 3 to 9 dB,
+upward expansion) and go through the mastering chain (`remaster/mastering.py`) with different targets. Error is
+measured against the original track's own features. (b) `python -m remaster.tone_identifiability` works on the
+measured spectra directly.
+
+| fault | measure (dB) | damaged | global norms | genre norms | oracle (the original as reference) |
+|---|---|---:|---:|---:|---:|
+| tilt | tone error | 3.13 | 3.01 | 2.91 | 1.36 |
+| EQ bumps | tone error | 2.56 | 2.52 | 2.44 | 1.19 |
+| stereo width | width error | 5.68 | 5.08 | 4.92 | 2.04 |
+| no fault | tone moved | 0 | 0.79 | 0.80 | 0.21 |
+
+Population norms take back 4 to 7% of a tonal fault and genre labels add 3 points, while moving undamaged tracks
+by 0.8 dB. With the original as reference the same chain removes 54 to 64%. The reason is in (b): a held-out
+track's own tone is 5.2 dB RMS away from the population mean, 4.6 dB from its genre mean and 4.3 dB from the mean
+of its 20 nearest neighbours in EQ-invariant descriptors, while the fault is 2.3 dB. A Gaussian posterior-mean
+estimator with the full band covariance does no better than the range rule (2.28 to 2.25 dB). Professional mixes
+are tighter (2.9 dB band spread), and there the range rule removes 14% (2.41 to 2.08 dB) at 0.4 dB disturbance.
+Stems do not rescue this: per-stem tone varies more than the mix (slope spread 1.6 dB/octave for vocals against
+0.8 for the mix), although stem deviations are nearly independent of each other (correlations 0.07 to 0.25).
+Consequence for the system: blind tone and width corrections stay conservative, and anything stronger needs a
+reference track.
+
+### E26. A reference-free quality predictor does not see mastering faults
+`python -m remaster.probe_quality_sensitivity`: 100 held-out tracks, each scored by Audiobox Aesthetics as is and
+with the faults of E25 (two draws each, level-matched).
+
+| fault | production-quality change | original scored higher |
+|---|---:|---:|
+| tilt | -0.02 | 52% |
+| EQ bumps | -0.06 | 60% |
+| stereo width | +0.00 | 47% |
+| over-dynamic | +0.00 | 53% |
+
+The predictor that separates reverberant from clean clips (E11) is close to chance on mastering faults. It
+cannot steer a mastering search and it is not evidence for or against a mastering result, so mastering is
+evaluated here with feature errors against known originals and with baselines at equal loudness.
+
+### E27. Retraining with simulated rooms to close the unseen-room gap (running)
+E22 showed the network had learned its 270 training rooms better than reverberation in general. Fix under test:
+`python -m remaster.build_ism_bank` generates 4000 stereo impulse responses of shoebox rooms with
+pyroomacoustics (image sources for the early part, ray tracing for the tail, frequency-dependent absorption,
+a spaced microphone pair, RT60 0.25 to 2.8 s). The fine-tune continues from step 16500 with these added as a
+second impulse-response source (`--train-rir`, sampled as often as the measured rooms; run `ft_bs2`). Validation
+keeps its fixed set, and the Aachen rooms stay unseen. Same 40 Aachen clips as E22, and 20 clips with 64
+simulated rooms from seeds not used in training.
+
+| reverb source (SI-SDR, dB) | input | step 15000 (before) | step 19000 (2500 steps with simulated rooms) | paired change |
+|---|---:|---:|---:|---:|
+| Aachen measured rooms, unseen (40 clips) | 3.11 | 4.81 | 5.51 | +0.70 [+0.53, +0.88], 37 of 40 better |
+| simulated rooms, unseen seeds (20 clips) | 2.25 | 5.20 | 5.98 | +0.78 [+0.54, +1.04], 19 of 20 better |
+| fixed validation set, training families | 3.0 | 8.2 | 8.5 | |
+
+The gain on unseen measured rooms went from +1.70 to +2.40 dB with no loss on the validation set. Part of that
+is 4000 more training steps in general; the earlier trend on the validation set was about +0.1 dB per 1000
+steps, so most of it is the new data. The run continues to 60000 steps and this entry will be updated.
+
+### E28. Loudness without damage: limiters at equal loudness and equal true peak
+`python -m remaster.evaluate_loudness --true-peak-safe`: the loudest 30 s of each of the 50 MUSDB18-HQ test
+mixtures (unmastered, -14.7 LUFS and 14.3 dB peak-to-loudness on these excerpts) is driven into each limiter until
+the output measures the target loudness, and the limiter's ceiling is lowered until the 4x-oversampled peak
+respects -1 dBTP. What the limiter did is split into a smooth gain (fitted in 10 ms windows) and the remainder:
+"distortion" is the remainder relative to the signal, "gain movement" is the 5th to 95th percentile spread of the
+fitted gain. A clipper scores badly on the first, a pumping limiter on the second. Raw rows:
+`docs/evidence/loudness/`.
+
+| system, target -9 LUFS at -1 dBTP | distortion (dB) | gain movement (dB) | reaches target |
+|---|---:|---:|---|
+| hard clip | -23.9 | 0.8 | yes |
+| Matchering 2.0 limiter | -27.7 | 4.0 | yes |
+| ffmpeg alimiter (5 ms attack, 50 ms release) | -37.1 | 6.0 | yes |
+| ffmpeg loudnorm (one pass) | -37.0 | 6.6 | no (-10.9 LUFS) |
+| Pedalboard limiter | -24.4 | 1.1 | no (does not hold the true-peak ceiling) |
+| ours, first version (single lookahead stage) | -44.3 | 6.3 | yes |
+| ours, two-stage, 1 dB clip stage | -37.7 | 3.6 | yes |
+| ours, two-stage, 2 dB clip stage | -32.7 | 2.3 | yes |
+
+The two-stage limiter (`remaster/master.py:limiter_v2`: a slow stage for sustained reduction, a fast lookahead
+stage, and a 4x-oversampled soft clipper that takes the last 1 to 2 dB off the shortest peaks) is better than
+Matchering on both measures (5 to 10 dB less distortion with less gain movement) and matches ffmpeg's limiter
+on distortion with 2.5 dB less gain movement. Without the true-peak requirement every baseline overshoots the
+ceiling by 0.9 to 1.9 dB at this loudness (`loudness.json`), and ours by 0.0. At the streaming target of -14 LUFS
+these mixes need under 1 dB of limiting and every system except loudnorm is transparent (distortion below
+-57 dB). The two measures are signal measures: which trade-off sounds best is a question for the listening test.

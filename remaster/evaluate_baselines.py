@@ -48,9 +48,10 @@ def main():
     p.add_argument("--tracks", type=int, default=20)
     p.add_argument("--seconds", type=float, default=12.0)
     p.add_argument("--p-real", type=float, default=0.5, help="1.0 = every clip uses a measured room from --rir")
+    p.add_argument("--ours-only", action="store_true", help="skip WPE and the vocal model (to compare checkpoints on the same clips)")
     a = p.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    ours, vocal = load_model(a.ckpt), load_model(a.vocal_ckpt)
+    ours, vocal = load_model(a.ckpt), (None if a.ours_only else load_model(a.vocal_ckpt))
     bank = RIRBank(a.rir)
     files = [f for f in list_tracks(a.data) if split_of(f) == "test"]
     files = [files[i] for i in np.random.default_rng(13).permutation(len(files))]
@@ -68,12 +69,18 @@ def main():
         rng = np.random.default_rng([13, fi])
         rev, log = apply_reverb(ctx, rng, bank, drr_db=float(rng.uniform(-3, 9)), p_real=a.p_real, p_algo=0.34)
         clean, deg = match_level(ctx[:, -n:], -20.0), match_level(rev[:, -n:], -20.0)
+        if a.ours_only:
+            row = dict(file=os.path.basename(f), reverb=log, input=score(deg, clean), lacquer=score(restore(ours, deg), clean))
+            rows.append(row)
+            print(len(rows), log["kind"], {k: round(row[k]["sisdr"], 1) for k in ("input", "lacquer")}, flush=True)
+            continue
         row = dict(file=os.path.basename(f), reverb=log, input=score(deg, clean), wpe=score(match_level(wpe_dereverb(deg), -20.0), clean),
                    vocal_model=score(restore(vocal, deg), clean), lacquer=score(restore(ours, deg), clean))
         rows.append(row)
         print(len(rows), log["kind"], {k: round(row[k]["sisdr"], 1) for k in ("input", "wpe", "vocal_model", "lacquer")}, flush=True)
-    summ = {k: {m: float(np.mean([r[k][m] for r in rows])) for m in ("sisdr", "lsd")} for k in ("input", "wpe", "vocal_model", "lacquer")}
-    summ["lacquer_beats_wpe"] = float(np.mean([r["lacquer"]["sisdr"] > r["wpe"]["sisdr"] for r in rows]))
+    summ = {k: {m: float(np.mean([r[k][m] for r in rows])) for m in ("sisdr", "lsd")} for k in ("input", "wpe", "vocal_model", "lacquer") if k in rows[0]}
+    if not a.ours_only:
+        summ["lacquer_beats_wpe"] = float(np.mean([r["lacquer"]["sisdr"] > r["wpe"]["sisdr"] for r in rows]))
     json.dump(dict(n=len(rows), summary=summ, rows=rows), open(os.path.join(a.out, "baselines.json"), "w"), indent=1)
     print(json.dumps(summ))
 

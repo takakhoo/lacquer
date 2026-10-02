@@ -5,6 +5,7 @@ import numpy as np
 import torch
 
 from .deecho import deecho
+from .mastering_norms import load as load_mastering_norms
 from .degrade import rms_db
 from .master import master
 from .vu import ride_gain
@@ -125,7 +126,8 @@ def enhance_stems(models, x, backend="demucs", reverb_bias_db=0.0, allow_add=Tru
 
 
 def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0, allow_add=True, restore_strength=1.0,
-                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-24.0, do_declip=True, **master_kw):
+                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-24.0, do_declip=True, genre="all", profile="streaming",
+                 stem_balance=True, **master_kw):
     """The full decision pipeline.
 
     0. Clipping: a flat ceiling on both polarities means hard clipping; the clipped samples are rebuilt by
@@ -137,7 +139,11 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
     3. Vocal ambience: the vocal stem gets an absolute wetness reading and is steered into the normal
        range of produced vocals, down if too wet, up if too dry. Stems are only remixed when the
        vocal is actually changed, so separation artifacts never reach a track that needed nothing.
-    4. Level: VU-style gain riding, then tonal balance, loudness and limiting.
+    4. Instrument balance: each stem's loudness relative to the mix is compared with professional mixes and moved
+       to the edge of the normal range when it is outside it.
+    5. Level: gain riding, then the mastering chain (`remaster.mastering.master_track`): tone, band dynamics,
+       stereo image, glue compression, loudness and true-peak limiting against the norms of `genre`, for the
+       delivery `profile`, or against a reference track.
     reverb_bias_db shifts the reverb targets (negative = drier, positive = wetter).
     """
     from .reverb_meter import apply_decision, decide, load_norms, measure_fast
@@ -194,6 +200,12 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
             report["decisions"].append(f"Vocal reverb: reading of {v_wet:.1f} dB is not credible for a voice: left alone.")
         else:
             report["decisions"].append("Vocal: no active vocal found.")
+        if stem_balance and "stems" in (norms_m := (load_mastering_norms() or {})):
+            from .stem_master import master_stems
+            if action in ("reduce", "add"):
+                stems = separate(y, backend=backend)      # the vocal changed: measure the balance on the new mix
+            y, report["stems"] = master_stems(y, stems=stems, do_tone=False)
+            report["decisions"] += report["stems"]["decisions"]
     if ride > 0:
         if models.get("controller") is not None:
             # learned gain trajectory: fixes more than the VU rider at the same disturbance to clean audio (E14)
@@ -204,7 +216,17 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
             y, report["vu"] = ride_gain(y, ratio=ride)
         how = "learned controller" if report["vu"].get("method") == "controller" else "VU rider"
         report["decisions"].append(f"Level ({how}): rode the gain by up to {report['vu']['max_ride_db']:.1f} dB.")
-    if do_master:
+    if do_master and load_mastering_norms() is not None:
+        from .mastering import PROFILES, master_track
+        y, m = master_track(y, genre=genre, profile=profile if profile in PROFILES else "streaming", target_lufs=master_kw.get("target_lufs"), reference=master_kw.get("reference"),
+                            do_tonal=master_kw.get("tonal_strength", 1.0) > 0)
+        report["decisions"] += m["decisions"]
+        # keys the web page reads
+        m.update(input_lufs=m["before"]["lufs"], output_lufs=m["after"]["lufs"], output_true_peak_db=m["after"]["true_peak"], limiter=m["finish"]["limiter"])
+        if master_kw.get("reference") is not None:
+            m["reference_lufs"] = m["after"]["lufs"]
+        report["master"] = m
+    elif do_master:
         y, report["master"] = master(y, **master_kw)
         _describe_master(report)
     return y.astype(np.float32), report

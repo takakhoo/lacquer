@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Remaster</title>
+<title>Lacquer</title>
 <style>
   :root { --bg:#0e0f12; --panel:#16181d; --line:#262a33; --text:#e8e6e1; --dim:#8b8f99; --a:#7aa2ff; --b:#ffb35c; --ok:#6fd49a; }
   * { box-sizing: border-box; }
@@ -48,7 +48,7 @@
 </head>
 <body>
 <main>
-  <header><h1>Remaster</h1><span id="modelinfo">loading…</span></header>
+  <header><h1>Lacquer</h1><span id="modelinfo">loading…</span></header>
 
   <div class="panel">
     <div id="drop"><b>Drop a track here</b> or click to choose. WAV, FLAC, MP3, M4A.</div>
@@ -59,10 +59,12 @@
     <div class="controls">
       <div><label>Restoration strength <output id="o_rs"></output></label><input type="range" id="rs" min="0" max="100" value="100"></div>
       <div><label>Tonal balance <output id="o_tb"></output></label><input type="range" id="tb" min="0" max="100" value="60"></div>
-      <div><label>Target loudness <output id="o_lu"></output></label><input type="range" id="lu" min="-18" max="-8" step="0.5" value="-14"></div>
+      <div><label>Style (sets the normal ranges)</label><select id="genre"><option value="all">All released music</option></select></div>
+      <div><label>Delivery</label><select id="profile"></select></div>
+      <div id="lurow" hidden><label>Target loudness <output id="o_lu"></output></label><input type="range" id="lu" min="-27" max="-8" step="0.5" value="-14"></div>
       <div><label>Reverb target <output id="o_rv"></output></label><input type="range" id="rv" min="-12" max="12" step="1" value="0"></div>
       <div><label>Level riding (VU) <output id="o_rd"></output></label><input type="range" id="rd" min="0" max="100" value="75"></div>
-      <div><label>Vocal stem analysis</label>
+      <div><label>Stem analysis (vocal reverb, instrument balance)</label>
         <select id="stems"><option value="demucs">On: local separation (Demucs)</option><option value="off">Off: whole mix only</option></select></div>
       <div><label>Stress test (damage the upload first)</label>
         <select id="stress">
@@ -106,6 +108,10 @@
       <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
       <tbody id="stats"></tbody>
     </table>
+    <div id="balance" hidden>
+      <p class="hint" style="margin:14px 0 4px">Instrument balance: stem loudness relative to the mix (LU). The band is the normal range in professional mixes.</p>
+      <canvas id="bal" style="width:100%;height:120px;display:block"></canvas>
+    </div>
     <p class="hint" style="margin:14px 0 4px">Tonal balance correction applied (dB by frequency)</p>
     <canvas id="eq"></canvas>
     <p class="hint" id="notes"></p>
@@ -123,6 +129,11 @@ fetch('/api/info').then(r => r.json()).then(j => {
   $('#modelinfo').textContent = j.model ? 'restoration model: ' + j.model : 'no restoration model loaded: mastering only';
   if (j.elevenlabs) { const o = document.createElement('option'); o.value = 'elevenlabs'; o.textContent = 'On: ElevenLabs API (uploads your track)'; $('#stems').appendChild(o); }
   if (!j.vocal_model) { $('#stems').value = 'off'; $('#stems').disabled = true; }
+  (j.genres || []).forEach(g => { const o = document.createElement('option'); o.value = o.textContent = g; $('#genre').appendChild(o); });
+  const names = {streaming: 'Streaming (-14 LUFS, -1 dBTP)', track: 'Track normalization (-16 LUFS)', loud: 'Loud (-9 LUFS, -2 dBTP)', broadcast: 'Broadcast R128 (-23 LUFS)', cinema: 'Film streaming (-27 LUFS, -2 dBTP)'};
+  Object.keys(j.profiles || {streaming: ''}).forEach(k => { const o = document.createElement('option'); o.value = k; o.textContent = names[k] || k; o.title = (j.profiles || {})[k] || ''; $('#profile').appendChild(o); });
+  const c = document.createElement('option'); c.value = 'custom'; c.textContent = 'Custom loudness'; $('#profile').appendChild(c);
+  $('#profile').onchange = () => { $('#lurow').hidden = $('#profile').value !== 'custom'; };
   if (j.examples && j.examples.length) { $('#exrow').hidden = false; j.examples.forEach(e => { const o = document.createElement('option'); o.value = o.textContent = e; $('#example').appendChild(o); }); }
 });
 $('#example').onchange = e => { if (e.target.value) { file = null; drop.innerHTML = '<b>Example:</b> ' + e.target.value; $('#go').disabled = false; $('#status').textContent = 'Ready.'; } };
@@ -144,6 +155,7 @@ $('#go').onclick = async () => {
   fd.append('target_lufs', $('#lu').value); fd.append('stress', $('#stress').value); fd.append('do_master', 'true'); fd.append('do_deecho', $('#deecho').checked ? 'true' : 'false');
   fd.append('use_stems', $('#stems').value === 'off' ? 'false' : 'true'); fd.append('backend', $('#stems').value === 'off' ? 'demucs' : $('#stems').value);
   fd.append('reverb_bias_db', $('#rv').value); fd.append('ride', $('#rd').value / 100);
+  fd.append('genre', $('#genre').value); fd.append('profile', $('#profile').value || 'streaming');
   try {
     const r = await fetch('/api/process', { method: 'POST', body: fd });
     info = await r.json();
@@ -250,7 +262,7 @@ function renderReport() {
   const rows = [['Integrated loudness (LUFS)', 'lufs'], ['True peak (dBTP)', 'true_peak_db'], ['Crest factor (dB)', 'crest_db']];
   $('#stats').innerHTML = rows.map(([n, k]) => `<tr><td>${n}</td><td>${info.before[k].toFixed(1)}</td><td>${info.after[k].toFixed(1)}</td></tr>`).join('');
   $('#decisions').innerHTML = (info.report.decisions || []).map(d => '<li>' + d.replace(/[<>&]/g, '') + '</li>').join('');
-  drawVU(0);
+  drawVU(0); drawBalance();
   const m = info.report.master || {}, notes = [];
   if (m.reference_lufs !== undefined) notes.push('Matched to reference (' + m.reference_lufs.toFixed(1) + ' LUFS).');
   if (m.limiter) notes.push('Limiter max gain reduction: ' + m.limiter.max_gr_db.toFixed(1) + ' dB.');
@@ -262,11 +274,31 @@ function renderReport() {
   const g = c.getContext('2d'); g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
   const t = m.tonal; g.strokeStyle = '#262a33'; g.beginPath(); g.moveTo(0, h / 2); g.lineTo(w, h / 2); g.stroke();
   if (!t) return;
-  const x = f => Math.log(f / 20) / Math.log(1000) * w, y = d => h / 2 - d / 8 * (h / 2 - 6);
+  const span = Math.max(2, Math.ceil(Math.max(...t.correction_db.map(Math.abs))));
+  const x = f => Math.log(f / 20) / Math.log(1000) * w, y = d => h / 2 - d / span * (h / 2 - 6);
   g.strokeStyle = '#ffb35c'; g.lineWidth = 2; g.beginPath();
   t.bands_hz.forEach((f, i) => i ? g.lineTo(x(f), y(t.correction_db[i])) : g.moveTo(x(f), y(t.correction_db[i]))); g.stroke();
   g.fillStyle = '#8b8f99'; g.font = '10px system-ui'; [100, 1000, 10000].forEach(f => g.fillText(f >= 1000 ? f / 1000 + 'k' : f, x(f) + 3, h - 3));
-  g.fillText('+8 dB', 3, 10); g.fillText('-8 dB', 3, h - 14);
+  g.fillText('+' + span + ' dB', 3, 10); g.fillText('-' + span + ' dB', 3, h - 14);
+}
+
+function drawBalance() {
+  const st = info.report.stems;
+  $('#balance').hidden = !st;
+  if (!st) return;
+  const c = $('#bal'), dpr = devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight; c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext('2d'); g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+  const names = ['vocals', 'drums', 'bass', 'other'], lo = -20, hi = 0, left = 64, x = v => left + (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (w - left - 12);
+  g.font = '11px system-ui';
+  names.forEach((n, i) => {
+    const y = 14 + i * 26, nr = st.normal[n], lv = st.levels[n], ok = lv >= nr[0] && lv <= nr[2];
+    g.fillStyle = '#8b8f99'; g.fillText(n, 4, y + 4);
+    g.fillStyle = '#262a33'; g.fillRect(left, y - 1, w - left - 12, 2);
+    g.fillStyle = 'rgba(92,200,255,0.25)'; g.fillRect(x(nr[0]), y - 7, x(nr[2]) - x(nr[0]), 14);
+    g.fillStyle = '#5cc8ff'; g.fillRect(x(nr[1]) - 1, y - 7, 2, 14);
+    if (isFinite(lv)) { g.fillStyle = ok ? '#e8e8ea' : '#ffb35c'; g.beginPath(); g.arc(x(lv), y, 5, 0, 7); g.fill(); g.fillText(lv.toFixed(1), Math.min(x(lv) + 9, w - 34), y + 4); }
+  });
+  g.fillStyle = '#8b8f99'; [-20, -15, -10, -5, 0].forEach(v => g.fillText(v, x(v) - 8, h - 2));
 }
 </script>
 </body>

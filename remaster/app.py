@@ -27,6 +27,8 @@ from .degrade import RIRBank, degrade
 from .infer import enhance_auto, load_model
 from . import elevenlabs_backend
 from .master import loudness, true_peak_db
+from .mastering import PROFILES
+from .mastering_norms import genres as mastering_genres
 from .model import SR
 
 HERE = os.path.dirname(__file__)
@@ -75,7 +77,8 @@ def stats(x):
 async def process(file: UploadFile = File(None), reference: UploadFile = File(None), example: str = Form(""), restore_strength: float = Form(1.0), do_master: bool = Form(True),
                   target_lufs: float = Form(-14.0), tonal_strength: float = Form(0.6), stress: str = Form("none"),
                   do_deecho: bool = Form(True), use_stems: bool = Form(True), backend: str = Form("demucs"),
-                  reverb_bias_db: float = Form(0.0), ride: float = Form(0.75), allow_add: bool = Form(True)):
+                  reverb_bias_db: float = Form(0.0), ride: float = Form(0.75), allow_add: bool = Form(True),
+                  genre: str = Form("all"), profile: str = Form("streaming")):
     sid = uuid.uuid4().hex[:12]
     d = os.path.join(WORK, sid)
     os.makedirs(d)
@@ -113,7 +116,7 @@ async def process(file: UploadFile = File(None), reference: UploadFile = File(No
         y, report = enhance_auto(dict(mix=STATE["model"], vocal=STATE["vocal"], controller=STATE["controller"]), x, reference=ref, restore_strength=restore_strength,
                                  do_master=do_master, do_deecho=do_deecho, use_stems=use_stems, backend=backend,
                                  reverb_bias_db=reverb_bias_db, ride=ride, allow_add=allow_add,
-                                 target_lufs=target_lufs, tonal_strength=tonal_strength)
+                                 genre=genre, profile=profile, target_lufs=None if profile != "custom" else target_lufs, tonal_strength=tonal_strength)
     except Exception as e:
         return JSONResponse(dict(error=f"processing failed: {e}"), status_code=500)
     sf.write(os.path.join(d, "before.wav"), x.T, SR, subtype="PCM_24")
@@ -136,7 +139,8 @@ def get_file(sid: str, name: str):
 @app.get("/api/info")
 def info():
     return dict(model=os.path.basename(STATE["ckpt"]) if STATE["ckpt"] else None, has_rirs=bool(STATE["bank"] and len(STATE["bank"])),
-                examples=sorted(STATE["examples"]), vocal_model=STATE["vocal"] is not None, controller=STATE["controller"] is not None, elevenlabs=elevenlabs_backend.available())
+                examples=sorted(STATE["examples"]), vocal_model=STATE["vocal"] is not None, controller=STATE["controller"] is not None, elevenlabs=elevenlabs_backend.available(),
+                genres=mastering_genres(), profiles={k: v["note"] for k, v in PROFILES.items()})
 
 
 app.mount("/", StaticFiles(directory=os.path.join(HERE, "web"), html=True), name="web")

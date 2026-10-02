@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listening test</title>
+<style>
+  :root { --ink:#0b0b0b; --ink2:#52514e; --line:#e4e2dc; --bg:#fcfcfb; --blue:#2a78d6; --tint:#e6f0fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:22px; margin:0 0 6px; } p { color:var(--ink2); margin:6px 0 14px; }
+  label { display:block; margin:10px 0 4px; font-weight:600; }
+  select, input[type=text] { font:inherit; padding:7px 9px; border:1px solid var(--line); border-radius:6px; width:100%; max-width:360px; background:#fff; }
+  button { font:inherit; padding:9px 16px; border:1px solid var(--line); border-radius:8px; background:#fff; cursor:pointer; }
+  button.primary { background:var(--blue); border-color:var(--blue); color:#fff; }
+  button.playing { background:var(--tint); border-color:var(--blue); }
+  button:disabled { opacity:.45; cursor:default; }
+  .row { display:flex; gap:14px; align-items:center; padding:12px 0; border-top:1px solid var(--line); flex-wrap:wrap; }
+  .row input[type=range] { flex:1; min-width:200px; }
+  .val { width:36px; text-align:right; font-variant-numeric:tabular-nums; }
+  .scale { display:flex; justify-content:space-between; color:var(--ink2); font-size:12px; margin:2px 50px 0 4px; }
+  .bar { display:flex; justify-content:space-between; align-items:center; margin-top:18px; gap:12px; flex-wrap:wrap; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <section id="intro">
+    <h1>Listening test</h1>
+    <p>You will hear short music excerpts in several versions and rate each version from 0 (bad) to 100 (excellent).
+       When a reference is offered, rate how close each version is to it in overall quality; one version is the reference itself.
+       When there is no reference, rate how good each version sounds to you. Use headphones or studio monitors and set a comfortable level before you start.</p>
+    <label for="exp">Your experience with critical listening</label>
+    <select id="exp"><option value="">choose</option><option>audio engineer or producer</option><option>musician</option><option>researcher in audio</option><option>none of these</option></select>
+    <label for="gear">Playback</label>
+    <select id="gear"><option value="">choose</option><option>closed headphones</option><option>open headphones</option><option>earbuds</option><option>studio monitors</option><option>laptop or phone speaker</option></select>
+    <label for="pid">Initials or nickname (optional)</label>
+    <input type="text" id="pid" maxlength="24">
+    <div class="bar"><span id="count"></span><button class="primary" id="start">Start</button></div>
+  </section>
+  <section id="trial" hidden>
+    <h1 id="title"></h1>
+    <p id="hint"></p>
+    <div><button id="ref">Reference</button> <button id="stop">Stop</button></div>
+    <div id="rows"></div>
+    <div class="scale"><span>bad</span><span>poor</span><span>fair</span><span>good</span><span>excellent</span></div>
+    <div class="bar"><span id="progress"></span><button class="primary" id="next" disabled>Next</button></div>
+  </section>
+  <section id="done" hidden><h1>Thank you</h1><p id="saved"></p></section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let manifest, order = [], ti = 0, results = [], players = {}, current = null, touched = new Set(), started = 0;
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function stopAll() { Object.values(players).forEach(p => { p.pause(); }); document.querySelectorAll('button.playing').forEach(b => b.classList.remove('playing')); current = null; }
+function play(key, btn) {
+  const pos = current ? players[current].currentTime : 0;
+  stopAll();
+  const p = players[key]; p.currentTime = Math.min(pos, Math.max(0, (p.duration || 0) - 0.1)); p.loop = true; p.play();
+  current = key; btn.classList.add('playing');
+}
+function show() {
+  stopAll(); players = {}; touched = new Set(); started = Date.now();
+  const t = order[ti], conds = shuffle([...t.conditions]);
+  $('title').textContent = 'Excerpt ' + (ti + 1) + ' of ' + order.length;
+  $('hint').textContent = t.reference ? 'Compare each version with the reference. One of them is the reference itself.' : 'No reference here: rate how good each version sounds.';
+  $('ref').hidden = !t.reference;
+  if (t.reference) { players.reference = new Audio('audio/' + t.name + '/reference'); $('ref').onclick = () => play('reference', $('ref')); }
+  const rows = $('rows'); rows.innerHTML = '';
+  conds.forEach((c, i) => {
+    players[c] = new Audio('audio/' + t.name + '/' + c);
+    const row = document.createElement('div'); row.className = 'row';
+    const b = document.createElement('button'); b.textContent = 'Version ' + String.fromCharCode(65 + i); b.onclick = () => play(c, b);
+    const s = document.createElement('input'); s.type = 'range'; s.min = 0; s.max = 100; s.value = 50; s.dataset.cond = c; s.setAttribute('aria-label', 'Rating for version ' + String.fromCharCode(65 + i));
+    const v = document.createElement('span'); v.className = 'val'; v.textContent = '50';
+    s.oninput = () => { v.textContent = s.value; touched.add(c); $('next').disabled = touched.size < conds.length; };
+    row.append(b, s, v); rows.append(row);
+  });
+  $('next').disabled = true;
+  $('progress').textContent = 'Move every slider to continue.';
+}
+$('stop').onclick = stopAll;
+$('next').onclick = async () => {
+  const t = order[ti], ratings = {};
+  document.querySelectorAll('#rows input').forEach(s => ratings[s.dataset.cond] = Number(s.value));
+  results.push({trial: t.name, ratings, seconds: (Date.now() - started) / 1000});
+  ti++;
+  if (ti < order.length) return show();
+  stopAll(); $('trial').hidden = true; $('done').hidden = false;
+  try {
+    const r = await fetch('submit', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({experience: $('exp').value, playback: $('gear').value, name: $('pid').value, trials: results})});
+    $('saved').textContent = r.ok ? 'Your ratings were saved. You can close this page.' : 'Saving failed. Please tell the person running the test.';
+  } catch (e) { $('saved').textContent = 'Saving failed. Please tell the person running the test.'; }
+};
+$('start').onclick = () => {
+  if (!$('exp').value || !$('gear').value) { $('count').textContent = 'Please answer both questions first.'; return; }
+  order = shuffle([...manifest.trials]); $('intro').hidden = true; $('trial').hidden = false; show();
+};
+fetch('manifest').then(r => r.json()).then(m => { manifest = m; $('count').textContent = m.trials.length + ' excerpts, about ' + Math.max(1, Math.round(m.trials.length * 1.2)) + ' minutes.'; });
+</script>
+</body>
+</html>

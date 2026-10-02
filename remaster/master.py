@@ -106,6 +106,63 @@ def limiter(x, sr=SR, ceiling_db=-1.0, lookahead_ms=5.0, release_ms=120.0, os_fa
     return y.astype(np.float32), dict(max_gr_db=float(-20 * np.log10(g.min() + 1e-12)))
 
 
+def _follow(need_db, attack, release):
+    """One-pole follower on a gain-reduction curve in dB (values <= 0): fast toward more reduction, slow back."""
+    out = np.empty_like(need_db)
+    cur = 0.0
+    for i, v in enumerate(need_db):
+        c = attack if v < cur else release
+        cur = c * cur + (1 - c) * v
+        out[i] = cur
+    return out
+
+
+def limiter_v2(x, sr=SR, ceiling_db=-1.0, clip_db=1.5, lookahead_ms=3.0, fast_ms=25.0, slow_ms=250.0, os_factor=4):
+    """Two-stage true-peak limiter with an optional clip stage for the last `clip_db` of the shortest peaks.
+
+    A slow stage (30 ms attack, `slow_ms` release) carries sustained gain reduction, so the level does not pump.
+    A fast lookahead stage catches what is left. With clip_db > 0 the gain stages stop `clip_db` above the
+    ceiling and a 4x-oversampled soft clipper rounds off the remainder, which trades a little distortion on
+    transients for less gain movement.
+    """
+    ceil = 10 ** (ceiling_db / 20)
+    c1 = ceil * 10 ** (clip_db / 20)
+    n = x.shape[1]
+    up = signal.resample_poly(x, os_factor, 1, axis=1)
+    peak = np.abs(up[:, : n * os_factor]).reshape(x.shape[0], n, os_factor).max(axis=(0, 2))
+    hop = 8
+    m = n // hop * hop
+    pk = peak[:m].reshape(-1, hop).max(axis=1)
+    need = np.minimum(0.0, 20 * np.log10(c1 / (pk + 1e-12)))
+    slow = _follow(need, np.exp(-hop / (0.030 * sr)), np.exp(-hop / (slow_ms * 1e-3 * sr))) if slow_ms > 0 else np.zeros_like(need)
+    rest = np.minimum(0.0, need - slow)
+    rel = np.exp(-hop / (fast_ms * 1e-3 * sr))
+    fast = np.empty_like(rest)
+    cur = 0.0
+    for i, v in enumerate(rest):
+        cur = v if v < cur else rel * cur
+        fast[i] = cur
+    la = max(1, int(lookahead_ms * 1e-3 * sr / hop))
+    fast = ndimage.minimum_filter1d(fast, 2 * la + 1, mode="nearest")
+    fast = ndimage.uniform_filter1d(fast, la, mode="nearest")
+    slow = ndimage.minimum_filter1d(slow, 2 * la + 1, mode="nearest")
+    g = np.interp(np.arange(n), np.arange(len(fast)) * hop + hop / 2, slow + fast)
+    y = x * 10 ** (g / 20)
+    if clip_db > 0:
+        u = signal.resample_poly(y, os_factor, 1, axis=1)
+        knee = ceil * 10 ** (-clip_db / 20)                      # linear below the knee, rounded off between knee and ceiling
+        a = np.abs(u)
+        over = np.maximum(a - knee, 0.0)
+        clipped = np.sign(u) * np.where(a > knee, knee + (ceil - knee) * np.tanh(over / (ceil - knee)), a)
+        # add back only what the clipper changed, so audio under the knee does not pass through the resampler
+        if (a > knee).any():
+            y = y + signal.resample_poly(clipped - u, 1, os_factor, axis=1)[:, :n]
+    tp = np.abs(signal.resample_poly(y, os_factor, 1, axis=1)).max()
+    if tp > ceil:
+        y = y * (ceil / tp)
+    return y.astype(np.float32), dict(max_gr_db=float(max(0.0, -g.min())), slow_gr_db=float(max(0.0, -slow.min())))
+
+
 _DYN_PATH = os.path.join(os.path.dirname(__file__), "dynamics_norms.json")
 
 
