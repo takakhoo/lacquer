@@ -12,3 +12,5 @@ docs/evidence/**/*.wav
 scripts/.env
 docs/evidence/trace.npz
 paper/
+.venv-sep/
+pretrained/

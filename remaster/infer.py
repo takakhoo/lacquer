@@ -125,9 +125,11 @@ def enhance_stems(models, x, backend="demucs", reverb_bias_db=0.0, allow_add=Tru
 
 
 def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0, allow_add=True, restore_strength=1.0,
-                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-24.0, **master_kw):
+                 ride=0.75, do_master=True, do_deecho=True, excess_gate_db=-24.0, do_declip=True, **master_kw):
     """The full decision pipeline.
 
+    0. Clipping: a flat ceiling on both polarities means hard clipping; the clipped samples are rebuilt by
+       consistent sparse reconstruction. No ceiling, no action.
     1. Echo: cepstral detection, exact inverse if one is found.
     2. Room reverb: the full-mix model doubles as a meter for reverb in excess of a normal production.
        Above the gate it is removed from the whole mix; below it the network is bypassed.
@@ -143,6 +145,12 @@ def enhance_auto(models, x, backend="demucs", use_stems=True, reverb_bias_db=0.0
 
     report = {"mode": "auto", "decisions": []}
     y = x
+    if do_declip:
+        from .declip import declip
+        y, report["clipping"] = declip(y)
+        if any(report["clipping"]["clipped"]):
+            share = 100 * max(report["clipping"]["share"])
+            report["decisions"].append(f"Clipping: flat ceiling found ({share:.2f}% of samples): peaks rebuilt.")
     if do_deecho:
         y, report["echoes"] = deecho(y)
         for e in report["echoes"]:

@@ -91,26 +91,35 @@ class RIRBank:
     """Real impulse responses, split at the direct-path peak into (direct, tail)."""
 
     def __init__(self, root=None, sr=SR):
-        self.tails = []
-        for f in sorted(glob.glob(os.path.join(root, "**", "*.wav"), recursive=True)) if root else []:
-            x, fs = sf.read(f, dtype="float32", always_2d=True)
-            x = x.T
-            if fs != sr:
-                x = signal.resample_poly(x, sr, fs, axis=1).astype(np.float32)
-            peak = int(np.argmax(np.abs(x).max(axis=0)))
-            cut = peak + int(0.0025 * sr)
-            tail = x[:, cut:cut + 3 * sr].copy()
-            if tail.shape[1] < sr // 20:
-                continue
-            tail[:, : int(0.001 * sr)] *= np.linspace(0, 1, int(0.001 * sr), dtype=np.float32)
-            tail /= np.sqrt(np.sum(tail ** 2, axis=1, keepdims=True).mean()) + 1e-9
-            self.tails.append(tail)
+        """root: one directory, or a list of directories that are then sampled with equal probability each."""
+        self.tails, self.groups = [], []
+        for r in ([root] if isinstance(root, str) else list(root or [])):
+            first = len(self.tails)
+            for f in sorted(glob.glob(os.path.join(r, "**", "*.wav"), recursive=True)):
+                x, fs = sf.read(f, dtype="float32", always_2d=True)
+                x = x.T
+                if fs != sr:
+                    x = signal.resample_poly(x, sr, fs, axis=1).astype(np.float32)
+                peak = int(np.argmax(np.abs(x).max(axis=0)))
+                cut = peak + int(0.0025 * sr)
+                tail = x[:, cut:cut + 3 * sr].copy()
+                if tail.shape[1] < sr // 20:
+                    continue
+                tail[:, : int(0.001 * sr)] *= np.linspace(0, 1, int(0.001 * sr), dtype=np.float32)
+                tail /= np.sqrt(np.sum(tail ** 2, axis=1, keepdims=True).mean()) + 1e-9
+                self.tails.append(tail)
+            if len(self.tails) > first:
+                self.groups.append((first, len(self.tails)))
 
     def __len__(self):
         return len(self.tails)
 
     def sample(self, rng):
-        tail = self.tails[rng.integers(len(self.tails))]
+        if len(self.groups) > 1:
+            a, b = self.groups[rng.integers(len(self.groups))]
+            tail = self.tails[rng.integers(a, b)]
+        else:
+            tail = self.tails[rng.integers(len(self.tails))]
         if tail.shape[0] == 1:
             # decorrelate a mono IR into stereo with a short random allpass-ish jitter
             shift = rng.integers(1, 40)

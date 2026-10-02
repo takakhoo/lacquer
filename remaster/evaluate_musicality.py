@@ -26,6 +26,40 @@ NAMES = dict(decay_s="note decay (s)", pulse_clarity="pulse clarity", key_clarit
              crest_db="crest factor (dB)", dynamics_db="dynamics (dB)", centroid_hz="brightness (Hz)")
 
 
+def summarize(rows, out, ckpt):
+    summ = {}
+    for c in CONDS:
+        rs = [r for r in rows if r["cond"] == c]
+        s = dict(n=len(rs))
+        for k in KEYS:
+            # a descriptor can be undefined on a clip (no clear note decay): use the clips where all three exist
+            ok = [r for r in rs if all(np.isfinite(r[w][k]) for w in ("clean", "damaged", "restored"))]
+            if not ok:
+                s[k] = dict(n=0)
+                continue
+            ed = float(np.mean([abs(r["damaged"][k] - r["clean"][k]) for r in ok])); er = float(np.mean([abs(r["restored"][k] - r["clean"][k]) for r in ok]))
+            s[k] = dict(n=len(ok), clean=float(np.mean([r["clean"][k] for r in ok])), damaged=float(np.mean([r["damaged"][k] for r in ok])), restored=float(np.mean([r["restored"][k] for r in ok])),
+                        err_damaged=ed, err_restored=er, recovered=float(1 - er / ed) if ed > 1e-9 else None)
+        for k in ("chroma_sim", "rhythm_sim"):
+            s[k] = dict(damaged=float(np.mean([r["sim_damaged"][k] for r in rs])), restored=float(np.mean([r["sim_restored"][k] for r in rs])))
+        summ[c] = s
+    json.dump(dict(ckpt=ckpt, summary=summ, rows=rows), open(os.path.join(out, "musicality.json"), "w"), indent=1, default=float)
+    lines = []
+    for c in CONDS[:-1]:
+        s = summ[c]
+        lines += [f"### {c} (n = {s['n']})", "", "| descriptor | clean | damaged | restored | gap closed |", "|---|---:|---:|---:|---:|"]
+        for k in KEYS:
+            v = s[k]
+            if not v["n"]:
+                continue
+            name = NAMES[k] + ("" if v["n"] == s["n"] else f" ({v['n']} clips)")
+            lines.append(f"| {name} | {v['clean']:.3g} | {v['damaged']:.3g} | {v['restored']:.3g} | " + ("n/a" if v["recovered"] is None else f"{100 * v['recovered']:.0f}%") + " |")
+        lines += [f"| same notes (chroma similarity to clean) | 1 | {s['chroma_sim']['damaged']:.3f} | {s['chroma_sim']['restored']:.3f} | |",
+                  f"| same rhythm (onset-envelope correlation) | 1 | {s['rhythm_sim']['damaged']:.3f} | {s['rhythm_sim']['restored']:.3f} | |", ""]
+    open(os.path.join(out, "musicality.md"), "w").write("Gap closed = 1 - |restored - clean| / |damaged - clean|, averaged per clip. Negative means the restored clip is further from clean than the damaged one.\n\n" + "\n".join(lines))
+    print("\n".join(lines))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--ckpt", required=True)
@@ -60,30 +94,7 @@ def main():
             rows.append(dict(file=os.path.basename(f), cond=cond, clean=dc, damaged=describe(deg, SR), restored=describe(out, SR),
                              sim_damaged=content_similarity(clean, deg, SR), sim_restored=content_similarity(clean, out, SR)))
         print(len({r["file"] for r in rows}), "tracks", flush=True)
-    summ = {}
-    for c in CONDS:
-        rs = [r for r in rows if r["cond"] == c]
-        s = dict(n=len(rs))
-        for k in KEYS:
-            ed = float(np.mean([abs(r["damaged"][k] - r["clean"][k]) for r in rs])); er = float(np.mean([abs(r["restored"][k] - r["clean"][k]) for r in rs]))
-            s[k] = dict(clean=float(np.mean([r["clean"][k] for r in rs])), damaged=float(np.mean([r["damaged"][k] for r in rs])), restored=float(np.mean([r["restored"][k] for r in rs])),
-                        err_damaged=ed, err_restored=er, recovered=float(1 - er / ed) if ed > 1e-9 else None)
-        for k in ("chroma_sim", "rhythm_sim"):
-            s[k] = dict(damaged=float(np.mean([r["sim_damaged"][k] for r in rs])), restored=float(np.mean([r["sim_restored"][k] for r in rs])))
-        summ[c] = s
-    json.dump(dict(ckpt=a.ckpt, summary=summ, rows=rows), open(os.path.join(a.out, "musicality.json"), "w"), indent=1, default=float)
-    lines = []
-    for c in CONDS[:-1]:
-        s = summ[c]
-        lines += [f"### {c} (n = {s['n']})", "", "| descriptor | clean | damaged | restored | gap closed |", "|---|---:|---:|---:|---:|"]
-        for k in KEYS:
-            v = s[k]
-            lines.append(f"| {NAMES[k]} | {v['clean']:.3g} | {v['damaged']:.3g} | {v['restored']:.3g} | " + ("n/a" if v["recovered"] is None else f"{100 * v['recovered']:.0f}%") + " |")
-        lines += [f"| same notes (chroma similarity to clean) | 1 | {s['chroma_sim']['damaged']:.3f} | {s['chroma_sim']['restored']:.3f} | |",
-                  f"| same rhythm (onset-envelope correlation) | 1 | {s['rhythm_sim']['damaged']:.3f} | {s['rhythm_sim']['restored']:.3f} | |", ""]
-    open(os.path.join(a.out, "musicality.md"), "w").write("Gap closed = 1 - |restored - clean| / |damaged - clean|, averaged per clip. Negative means the restored clip is further from clean than the damaged one.\n\n" + "\n".join(lines))
-    print("\n".join(lines))
-
+    summarize(rows, a.out, a.ckpt)
 
 if __name__ == "__main__":
     main()

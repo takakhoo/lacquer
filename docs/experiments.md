@@ -390,3 +390,91 @@ By reverb family (SI-SDR): measured rooms 2.9 -> WPE 1.9, vocal 0.5, Lacquer 11.
 clean and does not improve the waveform on music at these settings. The released vocal model helps on some
 noise-tail clips and is destructive on the rest. Measured rooms were seen in Lacquer's training, so that column
 favors it.
+
+### E19. Musical descriptors: does restoration move the music back toward the original?
+`python -m remaster.evaluate_musicality`, 16 held-out FMA tracks of 12 s, five damage conditions, restoration
+stages only (no stems, no level riding, no mastering). Descriptors come from signal analysis (onset envelope,
+chroma, spectral shape). "Gap closed" is `1 - |restored - clean| / |damaged - clean|` averaged per clip. Full
+tables: `docs/evidence/musicality/musicality.md`.
+
+| condition | same notes (chroma similarity to clean) | same rhythm (onset-envelope correlation) | note decay (s), clean 0.28 | brightness gap closed | dynamics gap closed |
+|---|---:|---:|---:|---:|---:|
+| reverb | 0.981 -> 0.993 | 0.949 -> 0.971 | 0.37 -> 0.27 | 63% | 19% |
+| echo | 0.989 -> 0.995 | 0.912 -> 0.986 | 0.36 -> 0.33 | 16% | 85% |
+| reverb + echo | 0.978 -> 0.991 | 0.854 -> 0.959 | 0.38 -> 0.35 | 58% | 64% |
+| clipping | 0.998 -> 0.997 | 0.950 -> 0.948 | 0.50 -> 0.49 | -9% | -18% |
+| noise | 0.999 -> 0.998 | 0.969 -> 0.969 | n/a | -30% | 82% |
+
+Reverb smears onsets and lengthens note decay; the restored clips get both back (decay 0.37 s to 0.27 s against
+0.28 s clean, on the 14 clips where a decay can be measured). Echo damages the rhythm descriptor most, and the
+echo stage recovers it (0.912 to 0.986). Clipping and noise are not improved by the network on any descriptor,
+which matches the flat SI-SDR and the quality predictor in E11. That gap is what E21 addresses for clipping.
+
+### E20. Community dereverberation models on the same 20 clips
+`python -m remaster.evaluate_external` writes the E18 clips to disk, each tool processes them, and the outputs are
+scored with the same code. Models were run with `audio-separator` 0.47 at default settings, taking the dry stem.
+
+| method | SI-SDR (dB) | LSD (dB) |
+|---|---:|---:|
+| damaged input | 3.2 | 5.48 |
+| WPE | 3.0 | 5.15 |
+| vocal BS-RoFormer (anvuew), as released | 2.9 | 13.54 |
+| Reverb HQ (MDX-Net, FoxJoy) | 3.9 | 12.75 |
+| UVR-DeEcho-DeReverb (VR arch, FoxJoy) | 3.4 | 11.15 |
+| MDX23C De-Reverb (aufr33, jarredou) | -0.5 | 12.92 |
+| Lacquer restoration network | **9.1** | **4.17** |
+
+The MDX-Net model is the best of the released tools on full mixes (+0.7 dB) and all of them raise the
+log-spectral distance, mostly by thinning the mix. The Mel-Band "de-reverb-echo v2" model (Sucial) returns a
+near-silent dry stem on full mixes (-55.9 dB) and is left out of the table. These tools were built for vocal
+stems, so the comparison shows what happens when they are pointed at a finished mix. The clips include measured
+rooms from Lacquer's training set; E22 repeats the comparison on rooms no model here has seen.
+
+### E21. Clipping: a DSP declipper where the network had no effect
+The network never improved clipped clips in SI-SDR (E5, E11, E19). Hard clipping leaves exact knowledge behind:
+samples under the ceiling are untouched and samples at the ceiling were at least that large. `remaster/declip.py`
+detects a flat ceiling on both polarities of a channel and rebuilds the clipped samples with A-SPADE (Kitic,
+Bertin, Gribonval 2015): per frame, the sparsest spectrum whose waveform agrees with both facts. 2048-sample
+frames, hop 512, DFT redundancy 2, relative tolerance 0.1.
+
+`python -m remaster.evaluate_declip`, 29 held-out FMA tracks of 8 s, clipping threshold at the 90th to 99.7th
+percentile of sample magnitude (the training range). Raw rows: `docs/evidence/declip/declip.json`.
+
+| hard clipping | SI-SDR (dB) | LSD (dB) |
+|---|---:|---:|
+| clipped input | 20.1 | 11.4 |
+| restoration network | 19.9 | 4.2 |
+| declipper | **26.7** | 11.0 |
+| declipper, then network | 24.7 | **3.9** |
+
+The declipper improves every clip (29 of 29, median +6.2 dB). The two methods fix different things: the declipper
+restores the waveform peaks, the network removes the distortion products above the music's bandwidth (which is
+what the log-spectral distance sees) and gives back about 2 dB of waveform accuracy doing so. Detection: 29 of 29
+hard-clipped clips, 0 of 29 clean clips, and 0 of 150 full-length MUSDB18-HQ mixtures. Tanh saturation at the
+same thresholds has no flat ceiling, is not detected (0 of 29) and passes through unchanged (17.4 dB in and out),
+so soft saturation remains unsolved. A clipped file that was later resampled or lossy-encoded also loses its flat
+ceiling and will not be detected. Cost: about 1.2x real time on CPU for heavily clipped audio.
+
+### E22. Rooms nobody trained on: the Aachen impulse response database
+E18's measured rooms were in the training set. This test uses rooms the network has never seen: 67 binaural
+impulse responses from six real rooms (booth, office, meeting room, lecture room, stairway, Aula Carolina) of the
+Aachen Impulse Response database v1.4 (Jeub, Schafer, Vary 2009), dummy-head recordings converted to stereo.
+`python -m remaster.evaluate_baselines --rir data/raw/air/wav --p-real 1.0 --tracks 40`: 40 held-out FMA clips of
+12 s, DRR -3 to 9 dB, checkpoint at step 15000. Raw rows: `docs/evidence/heldout_rooms/`.
+
+| method | SI-SDR (dB) | LSD (dB) |
+|---|---:|---:|
+| damaged input | 3.1 | 4.44 |
+| WPE | 0.9 | 4.58 |
+| vocal BS-RoFormer (anvuew), as released | 0.1 | 13.80 |
+| Reverb HQ (MDX-Net, FoxJoy) | 3.2 | 12.45 |
+| UVR-DeEcho-DeReverb (VR arch, FoxJoy) | 3.1 | 9.94 |
+| MDX23C De-Reverb (aufr33, jarredou) | 0.5 | 12.40 |
+| Lacquer restoration network (step 15000) | **4.8** | **4.08** |
+
+Lacquer improves all 40 clips and is the only method that improves the average, but the gain is +1.7 dB (median
++1.3), far below the +8.4 dB on rooms from its training set (E18). By reverb level: +2.7 dB at DRR -3 to 1,
++1.5 dB at 1 to 5, +0.8 dB at 5 to 9. The 270 training rooms are short (median T30 0.35 s, 90th percentile 1.0 s)
+and mono; the Aachen rooms are longer (median 0.93 s) and binaural. The honest reading is that the network
+learned the training rooms' early reflection patterns well and general room reverb much less well. The number to
+quote for real rooms is this one. E24 retrains with 4000 simulated rooms to close the gap.

@@ -177,17 +177,18 @@ def fig_tokens_vs_mask():
 
 # ---------------------------------------------------------------- 3. decision pipeline
 def fig_pipeline():
-    W, H = 14.0, 5.6
+    W, H = 16.26, 5.6
     fig, ax = canvas(W, H)
     title(ax, W, H, "The decision pipeline", "Each stage measures first and acts only outside a normal range. Numbers are the measured readings behind each rule.")
     y, h, w = 2.35, 2.2, 2.05
     stages = [
-        ("1  Echo", AQUA, ["cepstrum of the mix", "", "sharp peak, z >= 45", "-> exact inverse filter", "", "clean music: z ~ 12"], "DSP"),
-        ("2  Room reverb", ORANGE, ["network as a meter", "", "clean mixes: -41 dB", "light reverb: -20 dB", "heavy reverb: -4 dB", "gate at -24 dB"], "transformer"),
-        ("3  Vocal reverb", ORANGE, ["Demucs vocal stem", "+ vocal dereverb model", "", "normal: -32 to 0 dB", "too wet: reduce", "bone dry: add plate"], "stems"),
-        ("4  Level", ORANGE, ["controller network", "gain trajectory g(t)", "", "clamped to +-6 dB", "holds through", "quiet passages"], "controller"),
-        ("5  Dynamics", AQUA, ["peak-to-loudness ratio", "", "normal: 8 to 16 dB", "peaky: 2:1 compression", "squashed: protect", "from more limiting"], "DSP"),
-        ("6  Finish", AQUA, ["tonal range trim", "BS.1770 loudness", "true-peak limiter", "", "-14 LUFS, -1 dBTP", "or match a reference"], "DSP"),
+        ("1  Clipping", AQUA, ["flat ceiling on both", "polarities of a channel", "", "-> rebuild the peaks by", "consistent sparse fit", "no ceiling: skip"], "DSP"),
+        ("2  Echo", AQUA, ["cepstrum of the mix", "", "sharp peak, z >= 45", "-> exact inverse filter", "", "clean music: z ~ 12"], "DSP"),
+        ("3  Room reverb", ORANGE, ["network as a meter", "", "clean mixes: -41 dB", "light reverb: -20 dB", "heavy reverb: -4 dB", "gate at -24 dB"], "transformer"),
+        ("4  Vocal reverb", ORANGE, ["Demucs vocal stem", "+ vocal dereverb model", "", "normal: -32 to 0 dB", "too wet: reduce", "bone dry: add plate"], "stems"),
+        ("5  Level", ORANGE, ["controller network", "gain trajectory g(t)", "", "clamped to +-6 dB", "holds through", "quiet passages"], "controller"),
+        ("6  Dynamics", AQUA, ["peak-to-loudness ratio", "", "normal: 8 to 16 dB", "peaky: 2:1 compression", "squashed: protect", "from more limiting"], "DSP"),
+        ("7  Finish", AQUA, ["tonal range trim", "BS.1770 loudness", "true-peak limiter", "", "-14 LUFS, -1 dBTP", "or match a reference"], "DSP"),
     ]
     x = 0.3
     for i, (name, col, lines, tag) in enumerate(stages):

@@ -25,6 +25,7 @@ def get_args():
     p.add_argument("--p-identity", type=float, default=0.08)
     p.add_argument("--p-algo", type=float, default=0.0, help="share of non-real reverb tails drawn from the algorithmic (plug-in style) reverb")
     p.add_argument("--rir", default=None)
+    p.add_argument("--train-rir", nargs="*", default=[], help="extra impulse-response roots used for training only; validation keeps --rir")
     p.add_argument("--out", required=True)
     p.add_argument("--dim", type=int, default=256)
     p.add_argument("--depth", type=int, default=8)
@@ -126,7 +127,7 @@ def main():
         print(f"resumed from step {step}", flush=True)
     json.dump(vars(a), open(os.path.join(a.out, "args.json"), "w"), indent=1)
 
-    ds = PairDataset(train_files, a.rir, seg_s=a.seg, seed=a.seed, task=a.task, groups=groups, weights=a.data_weights, p_identity=a.p_identity, p_algo=a.p_algo)
+    ds = PairDataset(train_files, [a.rir] + a.train_rir if a.train_rir else a.rir, seg_s=a.seg, seed=a.seed, task=a.task, groups=groups, weights=a.data_weights, p_identity=a.p_identity, p_algo=a.p_algo)
     dl = DataLoader(ds, batch_size=a.batch, num_workers=a.workers, drop_last=True, persistent_workers=a.workers > 0, prefetch_factor=4 if a.workers else None)
     log = open(os.path.join(a.out, "train.jsonl"), "a")
     t0, acc, best = time.time(), {}, (best_resume if a.resume and os.path.exists(a.resume) else -1e9)

@@ -47,6 +47,7 @@ def main():
     p.add_argument("--out", required=True)
     p.add_argument("--tracks", type=int, default=20)
     p.add_argument("--seconds", type=float, default=12.0)
+    p.add_argument("--p-real", type=float, default=0.5, help="1.0 = every clip uses a measured room from --rir")
     a = p.parse_args()
     os.makedirs(a.out, exist_ok=True)
     ours, vocal = load_model(a.ckpt), load_model(a.vocal_ckpt)
@@ -65,7 +66,7 @@ def main():
             continue
         ctx = x[:, : n + 2 * SR]
         rng = np.random.default_rng([13, fi])
-        rev, log = apply_reverb(ctx, rng, bank, drr_db=float(rng.uniform(-3, 9)), p_algo=0.34)
+        rev, log = apply_reverb(ctx, rng, bank, drr_db=float(rng.uniform(-3, 9)), p_real=a.p_real, p_algo=0.34)
         clean, deg = match_level(ctx[:, -n:], -20.0), match_level(rev[:, -n:], -20.0)
         row = dict(file=os.path.basename(f), reverb=log, input=score(deg, clean), wpe=score(match_level(wpe_dereverb(deg), -20.0), clean),
                    vocal_model=score(restore(vocal, deg), clean), lacquer=score(restore(ours, deg), clean))
