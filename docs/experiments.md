@@ -516,7 +516,10 @@ stems. Norms use training-split tracks only (`remaster/mastering_norms.json`). F
 | Classical | 612 | -20.6 [-28.5, -14.5] | 14.9 [11.9, 18.0] | -7.3 [-11.6, -4.7] | -4.1 [-15.6, -0.5] |
 | unmastered professional mixes (MUSDB18-HQ) | 150 | -15.8 [-17.8, -13.6] | 15.8 [13.7, 17.9] | -5.1 [-6.2, -4.4] | -10.0 [-16.1, -6.2] |
 
-Median [10th, 90th percentile]. Two readings matter for the design. First, unmastered professional mixes have
+Median [10th, 90th percentile]. The same analysis on the 106,574-track FMA-large corpus (103,838 training-split
+tracks, 14 genres with at least 150 labelled tracks) gives all released -12.6 LUFS [-20.0, -7.6], peak-to-loudness
+11.9 dB [8.0, 16.3], slope -5.3 dB/octave [-8.1, -3.4], and the norms shipped in `mastering_norms.json` are built
+from it. Two readings matter for the design. First, unmastered professional mixes have
 the same tone and stereo image as released music (slope -5.1 against -5.1 dB/octave) and differ in dynamics:
 4 dB more peak-to-loudness ratio. Mastering a good mix is mostly a dynamics and loudness job. Second, the spread
 inside released music is wide (tone varies by 6 dB per band between tracks), while professional mixes are tight

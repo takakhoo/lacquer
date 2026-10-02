@@ -105,9 +105,9 @@ platform specs, measured studies), and the prior work in
 
 ![Loudness, dynamics, tone, stereo image and instrument balance of released music by genre, against unmastered mixes](docs/figures/mastering_corpus.png)
 
-**What released music measures like (E24).** 24,474 released tracks with genre labels and 150 unmastered
+**What released music measures like (E24).** 103,838 released tracks (FMA-large, 14 genres) and 150 unmastered
 professional mixes, 60 features each. Unmastered professional mixes have the same tone and stereo image as
-released music (spectral slope -5.1 dB/octave in both) and 4 dB more peak-to-loudness ratio. Mastering a good mix
+released music (spectral slope -5.1 against -5.3 dB/octave) and 4 dB more peak-to-loudness ratio. Mastering a good mix
 is mostly a dynamics and loudness job. Vocals sit 3.5 LU under the mix in the professional mixes, close to the
 published -2.7 LU.
 

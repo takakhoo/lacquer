@@ -42,7 +42,7 @@ def fig_corpus():
     fig, axs = plt.subplots(2, 3, figsize=(15, 8.4), dpi=160)
     fig.subplots_adjust(left=0.07, right=0.985, top=0.89, bottom=0.08, wspace=0.34, hspace=0.42)
     fig.text(0.07, 0.955, "What released music measures like", fontsize=14, fontweight="bold")
-    fig.text(0.07, 0.925, f"{G['all']['n']:,} released tracks (FMA-medium, training split) against {n['unmastered_mix']['n']} unmastered professional mixes (MUSDB18-HQ). "
+    fig.text(0.07, 0.925, f"{G['all']['n']:,} released tracks (FMA-large, training split) against {n['unmastered_mix']['n']} unmastered professional mixes (MUSDB18-HQ). "
              "Bars and bands span the 10th to 90th percentile.", fontsize=9, color=INK2)
 
     ax = axs[0, 0]

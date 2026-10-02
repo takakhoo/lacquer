@@ -52,8 +52,8 @@ of leading context so tails from earlier audio land inside the training crop.
 
 Mastering is the part where a network is least justified, and the measurements say why.
 
-**A good mix already has the right tone.** Unmastered professional mixes (MUSDB18-HQ) and 24,474 released
-tracks have the same spectral slope (-5.1 dB/octave) and stereo image, and differ by 4 dB of peak-to-loudness
+**A good mix already has the right tone.** Unmastered professional mixes (MUSDB18-HQ) and 103,838 released
+tracks have nearly the same spectral slope (-5.1 against -5.3 dB/octave) and stereo image, and differ by 4 dB of peak-to-loudness
 ratio (E24). What mastering adds to a good mix is mostly dynamics control and loudness, which have exact DSP
 formulations and published delivery specs.
 
