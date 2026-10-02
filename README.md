@@ -67,29 +67,76 @@ all ones, so anything it does not touch passes through unchanged. There is no co
 
 ## Inside the model
 
-Every shape below was read from the running model with forward hooks, for a 4 s stereo clip at 44.1 kHz.
+Everything in this section is drawn from one real forward pass: a 4 s clip damaged with room reverb and a
+single 210 ms echo, run through the network with hooks on every stage (`python -m remaster.trace`, then
+`python -m remaster.figures_deep`). The spectrograms, the values on the faces of the tensor blocks, the
+attention maps and the mask are that run's data.
 
-![Band-split transformer with tensor shapes at every stage](docs/figures/architecture.png)
+![Overview: band-split transformer with tensor shapes at every stage](docs/figures/architecture.png)
 
-Following one clip through:
+### Stage 1. Sound becomes a grid
 
-1. **Audio in.** `[2, 176400]`: two channels, 4 s at 44.1 kHz.
-2. **STFT.** A 2048-sample window (46 ms) every 512 samples (11.6 ms) gives a complex spectrogram of
-   `[2, 1025, 345]`: 1025 frequency bins, 21.5 Hz apart, over 345 frames.
-3. **Band split.** The 1025 bins are grouped into 62 bands, 2 bins wide at the bottom (43 Hz, where pitch
-   needs resolution) and up to 129 bins wide at the top (2.8 kHz). Each band's bins, for both channels,
-   real and imaginary parts together, pass through that band's own linear layer. The clip becomes a grid of
-   `[345, 62, 256]`: 21,390 tokens of width 256.
-4. **Twelve layers, two views each.** Time attention treats each band as a sequence of 345 frames, which is
-   where a reverb tail or an echo shows up as "this band was loud a moment ago". Band attention treats each
-   frame as a sequence of 62 bands, which is where harmonics and timbre live. Positions are rotary embeddings.
-5. **Mask.** A small MLP per band turns each token back into a complex gain for every bin it covers:
-   `[2, 1025, 345]` again.
-6. **Multiply and invert.** The mask multiplies the input spectrogram and an inverse STFT returns `[2, 176400]`.
+![Waveform, one analysis window, its spectrum, and the resulting spectrogram tensor](docs/figures/stage_1_stft.png)
+
+The clip is `[2, 176400]`: two channels, 4 s at 44.1 kHz. A 2048-sample window (46 ms) is tapered, transformed,
+and slid forward 512 samples (11.6 ms), 345 times. The result is `[2, 1025, 345]` complex numbers: 1025
+frequency bins 21.5 Hz apart, 345 frames, both channels, magnitude and phase kept.
+
+### Stage 2. 1025 bins become 62 tokens
+
+![Band edges on the spectrogram, band widths, and the token tensor with real values on its faces](docs/figures/stage_2_band_split.png)
+
+Frequency is cut into 62 bands, 2 bins wide at the bottom (43 Hz, where pitch needs resolution) and up to 129
+bins wide at the top (2.8 kHz). For each band and frame, the bins of both channels (real and imaginary parts)
+go through that band's own linear layer and come out as 256 numbers. The clip is now `[345, 62, 256]`:
+21,390 tokens.
+
+### Stage 3. Twelve layers
+
+![The token grid after the band split and after layers 1, 3, 6, 9 and 12](docs/figures/stage_3_layers.png)
+
+Each layer has two halves. Time attention treats every band as a sequence of 345 frames. Band attention
+treats every frame as a sequence of 62 bands. The grid starts as noise and takes on the shape of the music.
+
+### Stage 4. What attention looks at
+
+![Time attention maps, attention against lag with a peak at the echo delay, per-head view, band attention](docs/figures/stage_4_attention.png)
+
+This is the most direct evidence of what the network learned. The clip's echo is 210 ms late, which is 18
+frames. In layer 12 the time attention has a second stripe 18 frames below the diagonal, and its average
+weight against lag peaks at exactly 210 ms. One of the eight heads carries most of it. The delay was never
+given to the model; it finds the earlier copy of each sound and uses it.
+
+### Stage 5. The mask
+
+![Input times mask equals output, what was removed against what was added, and energy between notes](docs/figures/stage_5_mask.png)
+
+A small network per band turns each token into a complex gain for every bin it covers, `[2, 1025, 345]` again.
+The gain multiplies the input spectrogram and an inverse STFT returns audio. On this clip, with the network
+alone, SI-SDR against the clean original goes from 0.4 to 7.0 dB. The repair is partial: the level between
+notes drops a little and stays above the clean original.
 
 The model has 51 M parameters. It was fine-tuned from a public vocal dereverb checkpoint with a waveform L1
 loss plus a multi-resolution STFT loss (complex L1 and log-magnitude L1 at windows from 4096 down to 256).
-The log-magnitude term is there because reverb tails are quiet and a linear loss barely sees them.
+
+### Stage 6. Echo, by DSP
+
+![Cepstrum with a spike at the echo delay, and the inverse filter](docs/figures/stage_6_echo.png)
+
+In the full pipeline the echo never reaches the network. A delayed copy shows up as one spike in the cepstrum,
+at the delay, with height equal to its gain. Here it reads 210.0 ms and 0.44 for a true 210.0 ms and 0.45, and
+the inverse filter removes it.
+
+### Stage 7. The level controller
+
+![Mel input, predicted and ideal gain trajectories, and the level before and after](docs/figures/stage_7_controller.png)
+
+The second network is small (5.7 M parameters) and outputs parameters instead of audio: a gain value for each
+of the 690 frames in an 8 s clip (and a 32-point EQ curve that stayed near zero in training). On this clip it
+recovers an 8 dB level step it was never told about. With ideal parameters this family of corrections repairs
+almost all tone and dynamics damage; blind, the network learned the fader and not the EQ.
+
+![Controller network and the curriculum it was trained with](docs/figures/controller.png)
 
 ### What changed from the thesis
 
@@ -100,21 +147,13 @@ decided that, each measured in [`docs/REVIVAL.md`](docs/REVIVAL.md): level is no
 losses sat behind an `argmax`, and the decoder caps quality at the codec's reconstruction. The U-Net itself,
 with CBAM and FiLM, was never the problem and was never tested in isolation; that ablation is running.
 
-### The level controller
-
-![Controller network and the curriculum it was trained with](docs/figures/controller.png)
-
-The second network is small (5.7 M parameters) and outputs parameters instead of audio: a 32-point EQ curve
-and a gain value for each of the 690 frames in an 8 s clip. They combine into a mask that is separable in
-decibels, `G(t, f) = eq(f) + g(t)`, so the only things it can do are an EQ move and a fader move. With ideal
-parameters that family repairs almost all tone and dynamics damage (EQ error 2.67 to 0.31 dB, compression
-envelope error 1.27 to 0.04 dB). Blind, the network learned the fader and not the EQ.
-
 ### Training evidence
 
 ![Validation curves: warm start vs from scratch, clean-audio floor, curriculum vs mixed](docs/figures/training_curves.png)
 
 ### What EnCodec is good for
+
+![The same clip as EnCodec latents and tokens, with three measurements](docs/figures/stage_encodec.png)
 
 ![Detection AUROC from tokens, continuous latents and a mel spectrogram](docs/figures/encodec_probe.png)
 
@@ -211,7 +250,7 @@ docs/REVIVAL.md              why the thesis pipeline failed, and the new design
 docs/experiments.md          every experiment with numbers, including the negative results
 docs/evidence/               figures and metric files behind those numbers
 docs/demo/                   the recorded session and animation shown above
-docs/figures/                diagrams and charts in this README (python -m remaster.figures)
+docs/figures/                diagrams and charts in this README (remaster.figures, remaster.trace + remaster.figures_deep)
 scripts/                     remote training helpers
 ```
 
