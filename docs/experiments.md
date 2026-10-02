@@ -795,3 +795,34 @@ Room reverb improves with the longer-trained network (9.0 to 9.7 dB). The vocal-
 7.8 dB: with the "too wet" threshold at +4 dB instead of 0 dB the policy now reduces the vocal on 7 of 24 songs
 instead of most of them. That is the price of the threshold that cut vocal-reverb false alarms on clean released
 music from 10 to 4 in 98 (E33). One clean song is still altered, down from two.
+
+### E34. Control: the same 51 M network from random initialization
+The comparison in E2/E3 set a 7.7 M from-scratch model against a 51 M fine-tuned one, which mixes two things.
+`runs/scratch51`: the identical BS-RoFormer architecture and recipe as the fine-tune's first phase (FMA-medium,
+artifact task, batch 4, lr 1e-4, 300 warmup steps), with random initial weights, 8000 steps. Same fixed
+validation set. Curve: `docs/evidence/curves/scratch51_val.jsonl`.
+
+| 51 M BS-RoFormer | steps | mean SI-SDR gain | reverb | echo | reverb+echo | identity |
+|---|---:|---:|---:|---:|---:|---:|
+| random initialization | 1000 | -1.70 | 3.0 -> 3.5 | 9.5 -> 9.1 | 0.9 -> 1.4 | 23.9 |
+| random initialization | 8000 | -1.00 | 3.0 -> 4.0 | 9.5 -> 9.1 | 0.9 -> 2.4 | 25.8 |
+| from the vocal dereverb checkpoint | 1000 | +0.61 | 2.9 -> 6.4 | 9.5 -> 9.6 | 0.9 -> 3.9 | 29.1 |
+| from the vocal dereverb checkpoint | 8000 | +2.42 | 2.9 -> 7.6 | 9.5 -> 11.7 | 0.9 -> 5.7 | 35.9 |
+
+With the architecture and parameter count held fixed, the warm start is worth 2.9 dB on reverb at 1000 steps and
+3.6 dB at 8000. From scratch, the large model is no better than the 7.7 M one (3.7 dB at 8000 steps) or the
+spectrogram U-Nets of E23 (4.0 to 4.1 dB). At this training budget the initialization decides the result, and
+model size and attention modules do not. (After step 2000 the fine-tune also had MUSDB18-HQ audio and more
+undamaged pairs, so the 1000-step row is the like-for-like one.)
+
+### E8 on rooms the network never saw (24 songs, checkpoint at step 23000)
+Same protocol as E8 with the 67 Aachen impulse responses instead of the training rooms.
+Raw rows: `docs/evidence/stems_policy/unseen_rooms/`.
+
+| scenario (SI-SDR, dB) | input | full-mix model | per-stem | two-level auto |
+|---|---:|---:|---:|---:|
+| room reverb on the whole mix | 4.9 | 8.4 | 5.0 | 8.2 |
+| reverb on the vocal only | 6.4 | 6.6 | 7.2 | 7.4 |
+
+On lossless professional mixes with unseen rooms the pipeline gains 3.3 dB, more than the 2.6 dB on MP3 clips in
+E27, and the ordering of the three policies is the same as with training rooms.
