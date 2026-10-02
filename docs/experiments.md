@@ -574,7 +574,7 @@ The predictor that separates reverberant from clean clips (E11) is close to chan
 cannot steer a mastering search and it is not evidence for or against a mastering result, so mastering is
 evaluated here with feature errors against known originals and with baselines at equal loudness.
 
-### E27. Retraining with simulated rooms to close the unseen-room gap (running)
+### E27. Retraining with simulated rooms to close the unseen-room gap
 E22 showed the network had learned its 270 training rooms better than reverberation in general. Fix under test:
 `python -m remaster.build_ism_bank` generates 4000 stereo impulse responses of shoebox rooms with
 pyroomacoustics (image sources for the early part, ray tracing for the tail, frequency-dependent absorption,
@@ -583,15 +583,17 @@ second impulse-response source (`--train-rir`, sampled as often as the measured 
 keeps its fixed set, and the Aachen rooms stay unseen. Same 40 Aachen clips as E22, and 20 clips with 64
 simulated rooms from seeds not used in training.
 
-| reverb source (SI-SDR, dB) | input | step 15000 (before) | step 19000 (2500 steps with simulated rooms) | paired change |
-|---|---:|---:|---:|---:|
-| Aachen measured rooms, unseen (40 clips) | 3.11 | 4.81 | 5.51 | +0.70 [+0.53, +0.88], 37 of 40 better |
-| simulated rooms, unseen seeds (20 clips) | 2.25 | 5.20 | 5.98 | +0.78 [+0.54, +1.04], 19 of 20 better |
-| fixed validation set, training families | 3.0 | 8.2 | 8.5 | |
+| reverb source (SI-SDR, dB) | input | step 15000 (before) | step 19000 | step 23000 | paired change, 15000 to 23000 |
+|---|---:|---:|---:|---:|---:|
+| Aachen measured rooms, unseen (40 clips) | 3.11 | 4.81 | 5.51 | 5.70 | +0.89, 37 of 40 better |
+| simulated rooms, unseen seeds (20 clips) | 2.25 | 5.20 | 5.98 | 6.52 | +1.32 |
+| fixed validation set, training families | 3.0 | 8.2 | 8.5 | 8.4 | |
 
-The gain on unseen measured rooms went from +1.70 to +2.40 dB with no loss on the validation set. Part of that
-is 4000 more training steps in general; the earlier trend on the validation set was about +0.1 dB per 1000
-steps, so most of it is the new data. The run continues to 60000 steps and this entry will be updated.
+Simulated rooms entered training at step 16500. The gain on unseen measured rooms went from +1.70 to +2.59 dB
+(95% interval 2.0 to 3.3) with no loss on the validation set. Part of that is more training in general; the
+earlier trend on the validation set was about +0.1 dB per 1000 steps, so most of it is the new data. The gap to
+the training families (+5.4 dB) is narrower and still large. The run paused at step 24000 for the control of E34
+and continues afterwards with the 106,574-track FMA-large corpus added as a music source.
 
 ### E28. Loudness without damage: limiters at equal loudness and equal true peak
 `python -m remaster.evaluate_loudness --true-peak-safe`: the loudest 30 s of each of the 50 MUSDB18-HQ test

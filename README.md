@@ -25,7 +25,7 @@ Held-out music with synthetic damage. SI-SDR is closeness to the clean track in 
 | Room reverb on the whole mix, 24 MUSDB18-HQ test songs | 4.7 dB | **9.0 dB** |
 | Reverb on the vocal only, same songs | 6.7 dB | **8.7 dB** |
 | Reverb from a plug-in style the model never trained on, 40 clips | 3.6 dB | **8.7 dB** |
-| Reverb from six real rooms the model never trained on, 40 clips | 3.1 dB | **5.5 dB** |
+| Reverb from six real rooms the model never trained on, 40 clips | 3.1 dB | **5.7 dB** |
 | Level problems inside a track, 20 clips (envelope error, lower is better) | 4.5 dB | **2.4 dB** |
 | Tonal fault with a reference track, 200 tracks (tone error, lower is better) | 3.1 dB | **0.19 dB** |
 
@@ -34,7 +34,7 @@ rates reverberant clips 6.37, the restored versions 6.63, and the clean original
 
 Against other tools on the same reverberant clips: classical WPE and four released community dereverb models
 land between -0.5 and 3.9 dB where Lacquer reaches 9.1 dB (input 3.2 dB). On the unseen real rooms none of them
-improves the average; Lacquer gained 1.7 dB there, and 2.4 dB after 2,500 training steps with simulated rooms
+improves the average; Lacquer gained 1.7 dB there, and 2.6 dB after 6,500 training steps with simulated rooms
 added (E18, E20, E22, E27).
 
 What does not work yet, stated plainly: real rooms outside the training set gain far less than rooms inside it;
@@ -297,7 +297,7 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
   or vocal stems, change the average by -3.7 to +0.7 dB on reverberant mixes where the fine-tuned network gains 5.9 dB (E18, E20).
 - **Unseen real rooms are the weak point.** On six rooms outside the training set the gain drops from 5.9 dB to
   1.7 dB. The network learned its 270 training rooms much better than room reverb in general (E22). Adding 4,000
-  simulated rooms to training raised it to 2.4 dB within 2,500 steps, and that run continues (E27).
+  simulated rooms to training raised it to 2.6 dB within 6,500 steps, and that run continues (E27).
 - **The music survives.** Restored clips keep their notes and get their rhythm back: onset-envelope correlation
   with the clean track goes from 0.85 to 0.96 under reverb plus echo, and note decay time returns to the clean value (E19).
 - **A good mix needs dynamics work more than tone work.** Unmastered professional mixes match released music in
