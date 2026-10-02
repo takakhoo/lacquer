@@ -1,396 +1,249 @@
 {
- "ckpt": "remaster/checkpoints/best.pt",
+ "ckpt": "runs/ft_bs2/best.pt",
  "summary": {
   "reverb": {
-   "n": 24,
+   "n": 30,
    "input": {
-    "sisdr": 4.356353558599949,
-    "lsd": 4.271311402320862
+    "sisdr": 4.488444882631302,
+    "lsd": 4.888198900222778
    },
    "full": {
-    "sisdr": 6.76662798722585,
-    "lsd": 3.930978020032247
+    "sisdr": 6.479989488919576,
+    "lsd": 4.45028239885966
    },
    "no_declip": {
-    "sisdr": 6.76662798722585,
-    "lsd": 3.930978020032247
+    "sisdr": 6.479989488919576,
+    "lsd": 4.45028239885966
    },
    "no_deecho": {
-    "sisdr": 6.80673070748647,
-    "lsd": 3.811428427696228
+    "sisdr": 6.528102405865988,
+    "lsd": 4.353292719523112
    },
    "no_network": {
-    "sisdr": 4.320211773117383,
-    "lsd": 4.37033678094546
+    "sisdr": 4.422506801287333,
+    "lsd": 5.093085837364197
    }
   },
   "echo": {
-   "n": 24,
+   "n": 30,
    "input": {
-    "sisdr": 8.77275929848353,
-    "lsd": 4.804172267516454
+    "sisdr": 8.912021732330322,
+    "lsd": 5.254771427313487
    },
    "full": {
-    "sisdr": 20.60116668542226,
-    "lsd": 2.4877500707904496
+    "sisdr": 17.248465633392335,
+    "lsd": 3.677270221710205
    },
    "no_declip": {
-    "sisdr": 20.60116668542226,
-    "lsd": 2.4877500707904496
+    "sisdr": 17.248465633392335,
+    "lsd": 3.677270221710205
    },
    "no_deecho": {
-    "sisdr": 12.602101425329844,
-    "lsd": 4.009170005718867
+    "sisdr": 11.920450226465862,
+    "lsd": 4.336741964022319
    },
    "no_network": {
-    "sisdr": 20.88416624069214,
-    "lsd": 2.4628153865536055
+    "sisdr": 15.928590234120687,
+    "lsd": 4.108760515848796
    }
   },
   "clip": {
-   "n": 24,
+   "n": 30,
    "input": {
-    "sisdr": 21.538267850875854,
-    "lsd": 8.277291178703308
+    "sisdr": 23.478565216064453,
+    "lsd": 10.214585828781129
    },
    "full": {
-    "sisdr": 25.239739497502644,
-    "lsd": 8.014048626025518
+    "sisdr": 25.478627332051595,
+    "lsd": 10.180699257055918
    },
    "no_declip": {
-    "sisdr": 20.121843059857685,
-    "lsd": 8.229650725920996
+    "sisdr": 22.621281083424886,
+    "lsd": 10.636392641067506
    },
    "no_deecho": {
-    "sisdr": 25.938328941663105,
-    "lsd": 7.916543930768967
+    "sisdr": 26.99269631703695,
+    "lsd": 9.75521026055018
    },
    "no_network": {
-    "sisdr": 26.606401364008587,
-    "lsd": 8.077573150396347
+    "sisdr": 25.437989139556883,
+    "lsd": 10.190745898087819
    }
   },
   "all three": {
-   "n": 24,
+   "n": 30,
    "input": {
-    "sisdr": 2.4658113879462085,
-    "lsd": 12.126198848088583
+    "sisdr": 2.288188485149294,
+    "lsd": 14.254848130544026
    },
    "full": {
-    "sisdr": 5.822978861629963,
-    "lsd": 7.595710754394531
+    "sisdr": 5.369715178012848,
+    "lsd": 9.279238112767537
    },
    "no_declip": {
-    "sisdr": 5.519608113914728,
-    "lsd": 7.5642072558403015
+    "sisdr": 4.999281322956085,
+    "lsd": 9.362581602732341
    },
    "no_deecho": {
-    "sisdr": 5.229993655035893,
-    "lsd": 6.766559819380443
+    "sisdr": 4.828731101751328,
+    "lsd": 7.904626290003459
    },
    "no_network": {
-    "sisdr": 4.048654951155186,
-    "lsd": 11.92535001039505
+    "sisdr": 3.497988314926624,
+    "lsd": 14.018824323018391
    }
   },
   "clean": {
-   "n": 24,
+   "n": 30,
    "input": {
-    "sisdr": 120.24472332000732,
+    "sisdr": 120.1827407836914,
     "lsd": 0.0
    },
    "full": {
-    "sisdr": 111.13473363717397,
-    "lsd": 0.29088375294425833
+    "sisdr": 109.90601221720378,
+    "lsd": 0.4317993310522676
    },
    "no_declip": {
-    "sisdr": 111.13473363717397,
-    "lsd": 0.29088375294425833
+    "sisdr": 109.90601221720378,
+    "lsd": 0.4317993310522676
    },
    "no_deecho": {
-    "sisdr": 115.50680895646413,
-    "lsd": 0.059826109053877495
+    "sisdr": 120.17264556884766,
+    "lsd": 0.006977009642287158
    },
    "no_network": {
-    "sisdr": 115.86231716473897,
-    "lsd": 0.2338809254191195
+    "sisdr": 109.8620257695516,
+    "lsd": 0.43767116739666867
    }
   }
  },
  "rows": [
   {
-   "file": "092949.mp3",
+   "file": "149212.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 1.0869945287704468,
-    "lsd": 5.183573246002197
+    "sisdr": 0.1428195834159851,
+    "lsd": 5.265894889831543
    },
    "variants": {
     "full": {
-     "sisdr": 2.9859585762023926,
-     "lsd": 4.778605937957764
+     "sisdr": 2.180673122406006,
+     "lsd": 4.375163555145264
     },
     "no_declip": {
-     "sisdr": 2.9859585762023926,
-     "lsd": 4.778605937957764
+     "sisdr": 2.180673122406006,
+     "lsd": 4.375163555145264
     },
     "no_deecho": {
-     "sisdr": 2.9859585762023926,
-     "lsd": 4.778605937957764
+     "sisdr": 2.180673122406006,
+     "lsd": 4.375163555145264
     },
     "no_network": {
-     "sisdr": 1.08699369430542,
-     "lsd": 5.18357515335083
+     "sisdr": 0.14281907677650452,
+     "lsd": 5.265894889831543
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -7.1 dB (gate -24): removed at 100% strength."
+    "Echo at 259 ms sits on the tempo grid (2 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -8.3 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "092949.mp3",
+   "file": "149212.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 12.407234191894531,
-    "lsd": 2.9425578117370605
+    "sisdr": 12.372581481933594,
+    "lsd": 2.8888626098632812
    },
    "variants": {
     "full": {
-     "sisdr": 23.668806076049805,
-     "lsd": 1.392399787902832
+     "sisdr": 20.16766357421875,
+     "lsd": 2.778377056121826
     },
     "no_declip": {
-     "sisdr": 23.668806076049805,
-     "lsd": 1.392399787902832
+     "sisdr": 20.16766357421875,
+     "lsd": 2.778377056121826
     },
     "no_deecho": {
-     "sisdr": 13.813640594482422,
-     "lsd": 2.839569091796875
+     "sisdr": 12.372581481933594,
+     "lsd": 2.8888626098632812
     },
     "no_network": {
-     "sisdr": 23.668806076049805,
-     "lsd": 1.392399787902832
+     "sisdr": 20.16766357421875,
+     "lsd": 2.778377056121826
     }
    },
    "decisions": [
-    "Echo at 359 ms (gain 0.11): removed.",
-    "Echo at 359 ms (gain 0.08): removed.",
-    "Room reverb: none in excess of a normal production (-39.9 dB): left alone."
+    "Echo at 359 ms (gain 0.10): removed.",
+    "Echo at 259 ms sits on the tempo grid (2 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-43.6 dB): left alone."
    ]
   },
   {
-   "file": "092949.mp3",
+   "file": "149212.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 24.739885330200195,
-    "lsd": 3.139951229095459
+    "sisdr": 31.1678466796875,
+    "lsd": 3.2554454803466797
    },
    "variants": {
     "full": {
-     "sisdr": 29.687580108642578,
-     "lsd": 2.9771080017089844
+     "sisdr": 29.147796630859375,
+     "lsd": 3.4099419116973877
     },
     "no_declip": {
-     "sisdr": 24.739885330200195,
-     "lsd": 3.139951229095459
+     "sisdr": 31.1678466796875,
+     "lsd": 3.2554454803466797
     },
     "no_deecho": {
-     "sisdr": 29.687580108642578,
-     "lsd": 2.9771080017089844
+     "sisdr": 29.147796630859375,
+     "lsd": 3.4099419116973877
     },
     "no_network": {
-     "sisdr": 29.687580108642578,
-     "lsd": 2.9771080017089844
+     "sisdr": 29.147796630859375,
+     "lsd": 3.4099419116973877
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (1.06% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-25.5 dB): left alone."
+    "Clipping: flat ceiling found (0.96% of samples): peaks rebuilt.",
+    "Echo at 259 ms sits on the tempo grid (2 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-38.9 dB): left alone."
    ]
   },
   {
-   "file": "092949.mp3",
+   "file": "149212.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 1.4793226718902588,
-    "lsd": 8.422966957092285
+    "sisdr": 1.9131686687469482,
+    "lsd": 11.200732231140137
    },
    "variants": {
     "full": {
-     "sisdr": 6.062250137329102,
-     "lsd": 7.853367805480957
+     "sisdr": 4.891201019287109,
+     "lsd": 11.942462921142578
     },
     "no_declip": {
-     "sisdr": 5.766226768493652,
-     "lsd": 7.635514259338379
+     "sisdr": 4.858453750610352,
+     "lsd": 11.58850383758545
     },
     "no_deecho": {
-     "sisdr": 3.3149609565734863,
-     "lsd": 7.798919677734375
+     "sisdr": 2.1416501998901367,
+     "lsd": 11.140380859375
     },
     "no_network": {
-     "sisdr": 5.782370567321777,
-     "lsd": 8.099923133850098
+     "sisdr": 4.891201019287109,
+     "lsd": 11.942462921142578
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (5.00% of samples): peaks rebuilt.",
+    "Clipping: flat ceiling found (5.42% of samples): peaks rebuilt.",
     "Echo at 69 ms (gain 0.17): removed.",
-    "Echo at 69 ms (gain 0.12): removed.",
-    "Room reverb / noise / clipping: excess measured at -19.4 dB (gate -24): removed at 57% strength."
+    "Echo at 259 ms sits on the tempo grid (2 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-31.5 dB): left alone."
    ]
   },
   {
-   "file": "092949.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24647521972656,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_declip": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_deecho": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_network": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-39.9 dB): left alone."
-   ]
-  },
-  {
-   "file": "043858.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 5.33080530166626,
-    "lsd": 3.150757312774658
-   },
-   "variants": {
-    "full": {
-     "sisdr": 8.46419906616211,
-     "lsd": 2.8574583530426025
-    },
-    "no_declip": {
-     "sisdr": 8.46419906616211,
-     "lsd": 2.8574583530426025
-    },
-    "no_deecho": {
-     "sisdr": 8.46419906616211,
-     "lsd": 2.8574583530426025
-    },
-    "no_network": {
-     "sisdr": 5.33080530166626,
-     "lsd": 3.150757312774658
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -10.7 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "043858.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 5.589025020599365,
-    "lsd": 6.549118995666504
-   },
-   "variants": {
-    "full": {
-     "sisdr": 20.027368545532227,
-     "lsd": 2.1448044776916504
-    },
-    "no_declip": {
-     "sisdr": 20.027368545532227,
-     "lsd": 2.1448044776916504
-    },
-    "no_deecho": {
-     "sisdr": 11.49405574798584,
-     "lsd": 5.0144548416137695
-    },
-    "no_network": {
-     "sisdr": 20.027368545532227,
-     "lsd": 2.1448044776916504
-    }
-   },
-   "decisions": [
-    "Echo at 295 ms (gain 0.51): removed.",
-    "Room reverb: none in excess of a normal production (-44.0 dB): left alone."
-   ]
-  },
-  {
-   "file": "043858.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 35.93448257446289,
-    "lsd": 3.0682244300842285
-   },
-   "variants": {
-    "full": {
-     "sisdr": 40.885047912597656,
-     "lsd": 3.449070930480957
-    },
-    "no_declip": {
-     "sisdr": 35.93448257446289,
-     "lsd": 3.0682244300842285
-    },
-    "no_deecho": {
-     "sisdr": 40.885047912597656,
-     "lsd": 3.449070930480957
-    },
-    "no_network": {
-     "sisdr": 40.885047912597656,
-     "lsd": 3.449070930480957
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (0.65% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-32.8 dB): left alone."
-   ]
-  },
-  {
-   "file": "043858.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": 4.887837886810303,
-    "lsd": 7.364620208740234
-   },
-   "variants": {
-    "full": {
-     "sisdr": 9.133331298828125,
-     "lsd": 4.140350818634033
-    },
-    "no_declip": {
-     "sisdr": 9.109375953674316,
-     "lsd": 4.07788610458374
-    },
-    "no_deecho": {
-     "sisdr": 8.15752124786377,
-     "lsd": 5.500762939453125
-    },
-    "no_network": {
-     "sisdr": 7.403291702270508,
-     "lsd": 6.2173004150390625
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (0.57% of samples): peaks rebuilt.",
-    "Echo at 396 ms (gain 0.32): removed.",
-    "Room reverb / noise / clipping: excess measured at -12.9 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "043858.mp3",
+   "file": "149212.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -415,886 +268,1034 @@
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-44.4 dB): left alone."
+    "Echo at 259 ms sits on the tempo grid (2 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-45.0 dB): left alone."
    ]
   },
   {
-   "file": "075935.mp3",
+   "file": "026178.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 3.0407426357269287,
-    "lsd": 3.9016923904418945
+    "sisdr": 5.413093566894531,
+    "lsd": 4.856513500213623
    },
    "variants": {
     "full": {
-     "sisdr": 5.273594379425049,
-     "lsd": 5.794286251068115
+     "sisdr": 7.470816612243652,
+     "lsd": 4.855283737182617
     },
     "no_declip": {
-     "sisdr": 5.273594379425049,
-     "lsd": 5.794286251068115
+     "sisdr": 7.470816612243652,
+     "lsd": 4.855283737182617
     },
     "no_deecho": {
-     "sisdr": 6.236059665679932,
-     "lsd": 2.925096035003662
+     "sisdr": 7.802248954772949,
+     "lsd": 3.8999180793762207
     },
     "no_network": {
-     "sisdr": 2.17334246635437,
-     "lsd": 6.278294563293457
+     "sisdr": 4.891831398010254,
+     "lsd": 7.0616135597229
     }
    },
    "decisions": [
-    "Echo at 181 ms (gain 0.14): removed.",
-    "Echo at 361 ms (gain 0.13): removed.",
-    "Room reverb / noise / clipping: excess measured at -10.8 dB (gate -24): removed at 100% strength."
+    "Echo at 500 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -9.7 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "075935.mp3",
+   "file": "026178.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 14.333209991455078,
-    "lsd": 4.717021465301514
+    "sisdr": 5.661839485168457,
+    "lsd": 8.789139747619629
    },
    "variants": {
     "full": {
-     "sisdr": 15.290040969848633,
-     "lsd": 5.73702335357666
+     "sisdr": 14.864974975585938,
+     "lsd": 8.331319808959961
     },
     "no_declip": {
-     "sisdr": 15.290040969848633,
-     "lsd": 5.73702335357666
+     "sisdr": 14.864974975585938,
+     "lsd": 8.331319808959961
     },
     "no_deecho": {
-     "sisdr": 17.11975860595703,
-     "lsd": 4.298435211181641
+     "sisdr": 13.519521713256836,
+     "lsd": 5.776938438415527
     },
     "no_network": {
-     "sisdr": 15.290040969848633,
-     "lsd": 5.73702335357666
+     "sisdr": 13.757461547851562,
+     "lsd": 8.540914535522461
+    }
+   },
+   "decisions": [
+    "Echo at 295 ms (gain 0.49): removed.",
+    "Echo at 500 ms (gain 0.13): removed.",
+    "Room reverb / noise / clipping: excess measured at -16.3 dB (gate -18): removed at 21% strength."
+   ]
+  },
+  {
+   "file": "026178.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 28.390169143676758,
+    "lsd": 2.962141990661621
+   },
+   "variants": {
+    "full": {
+     "sisdr": 15.758319854736328,
+     "lsd": 7.233842849731445
+    },
+    "no_declip": {
+     "sisdr": 15.499629020690918,
+     "lsd": 7.451444625854492
+    },
+    "no_deecho": {
+     "sisdr": 33.68471908569336,
+     "lsd": 2.687441825866699
+    },
+    "no_network": {
+     "sisdr": 14.53917407989502,
+     "lsd": 7.535242080688477
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (0.60% of samples): peaks rebuilt.",
+    "Echo at 500 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -16.3 dB (gate -18): removed at 21% strength."
+   ]
+  },
+  {
+   "file": "026178.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 4.91835880279541,
+    "lsd": 11.175411224365234
+   },
+   "variants": {
+    "full": {
+     "sisdr": 8.12019157409668,
+     "lsd": 9.218694686889648
+    },
+    "no_declip": {
+     "sisdr": 7.868078231811523,
+     "lsd": 9.563924789428711
+    },
+    "no_deecho": {
+     "sisdr": 8.00985050201416,
+     "lsd": 6.86472225189209
+    },
+    "no_network": {
+     "sisdr": 6.518108367919922,
+     "lsd": 11.701756477355957
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (0.61% of samples): peaks rebuilt.",
+    "Echo at 396 ms (gain 0.31): removed.",
+    "Echo at 500 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -11.9 dB (gate -18): removed at 76% strength."
+   ]
+  },
+  {
+   "file": "026178.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 15.81402587890625,
+     "lsd": 4.85417366027832
+    },
+    "no_declip": {
+     "sisdr": 15.81402587890625,
+     "lsd": 4.85417366027832
+    },
+    "no_deecho": {
+     "sisdr": 120.17239379882812,
+     "lsd": 0.007618538103997707
+    },
+    "no_network": {
+     "sisdr": 14.49443244934082,
+     "lsd": 5.030328750610352
+    }
+   },
+   "decisions": [
+    "Echo at 500 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -16.2 dB (gate -18): removed at 22% strength."
+   ]
+  },
+  {
+   "file": "069567.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 0.9316145777702332,
+    "lsd": 2.9097046852111816
+   },
+   "variants": {
+    "full": {
+     "sisdr": 1.4333570003509521,
+     "lsd": 2.6509597301483154
+    },
+    "no_declip": {
+     "sisdr": 1.4333570003509521,
+     "lsd": 2.6509597301483154
+    },
+    "no_deecho": {
+     "sisdr": 1.4333570003509521,
+     "lsd": 2.6509597301483154
+    },
+    "no_network": {
+     "sisdr": 0.9316149950027466,
+     "lsd": 2.909705400466919
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -13.7 dB (gate -18): removed at 54% strength."
+   ]
+  },
+  {
+   "file": "069567.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 14.489496231079102,
+    "lsd": 3.3964014053344727
+   },
+   "variants": {
+    "full": {
+     "sisdr": 29.668865203857422,
+     "lsd": 0.8901546001434326
+    },
+    "no_declip": {
+     "sisdr": 29.668865203857422,
+     "lsd": 0.8901546001434326
+    },
+    "no_deecho": {
+     "sisdr": 14.59769058227539,
+     "lsd": 3.385091781616211
+    },
+    "no_network": {
+     "sisdr": 29.668865203857422,
+     "lsd": 0.8901546001434326
     }
    },
    "decisions": [
     "Echo at 63 ms (gain 0.19): removed.",
-    "Echo at 181 ms (gain 0.14): removed.",
-    "Echo at 361 ms (gain 0.13): removed.",
-    "Room reverb: none in excess of a normal production (-25.7 dB): left alone."
+    "Room reverb: none in excess of a normal production (-44.7 dB): left alone."
    ]
   },
   {
-   "file": "075935.mp3",
+   "file": "069567.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 31.3140869140625,
-    "lsd": 14.665148735046387
+    "sisdr": 30.779645919799805,
+    "lsd": 4.5966315269470215
    },
    "variants": {
     "full": {
-     "sisdr": 14.930914878845215,
-     "lsd": 16.793163299560547
+     "sisdr": 33.50066375732422,
+     "lsd": 5.514920234680176
     },
     "no_declip": {
-     "sisdr": 15.056501388549805,
-     "lsd": 16.85415267944336
+     "sisdr": 30.779645919799805,
+     "lsd": 4.596632957458496
     },
     "no_deecho": {
-     "sisdr": 31.69706153869629,
-     "lsd": 14.45305061340332
+     "sisdr": 33.50066375732422,
+     "lsd": 5.514920234680176
     },
     "no_network": {
-     "sisdr": 14.765243530273438,
-     "lsd": 17.42445182800293
+     "sisdr": 33.50066375732422,
+     "lsd": 5.514920234680176
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (0.44% of samples): peaks rebuilt.",
-    "Echo at 181 ms (gain 0.15): removed.",
-    "Echo at 361 ms (gain 0.14): removed.",
-    "Room reverb / noise / clipping: excess measured at -22.6 dB (gate -24): removed at 18% strength."
+    "Clipping: flat ceiling found (2.30% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-27.0 dB): left alone."
    ]
   },
   {
-   "file": "075935.mp3",
+   "file": "069567.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 0.4110879898071289,
-    "lsd": 21.77093505859375
+    "sisdr": -1.257946491241455,
+    "lsd": 12.343247413635254
    },
    "variants": {
     "full": {
-     "sisdr": 5.1482038497924805,
-     "lsd": 8.07308292388916
+     "sisdr": 3.984342098236084,
+     "lsd": 7.3270487785339355
     },
     "no_declip": {
-     "sisdr": 5.095195770263672,
-     "lsd": 8.451872825622559
+     "sisdr": 3.8489506244659424,
+     "lsd": 7.161495208740234
     },
     "no_deecho": {
-     "sisdr": 4.326710224151611,
-     "lsd": 8.42566967010498
+     "sisdr": 2.702178478240967,
+     "lsd": 7.481163024902344
     },
     "no_network": {
-     "sisdr": 2.2039923667907715,
-     "lsd": 20.179832458496094
+     "sisdr": 1.103745698928833,
+     "lsd": 12.855295181274414
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.72% of samples): peaks rebuilt.",
-    "Echo at 261 ms (gain 0.20): removed.",
+    "Clipping: flat ceiling found (8.74% of samples): peaks rebuilt.",
+    "Echo at 261 ms (gain 0.16): removed.",
     "Echo at 261 ms (gain 0.12): removed.",
-    "Room reverb / noise / clipping: excess measured at -8.2 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -7.4 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "075935.mp3",
+   "file": "069567.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.2456283569336,
+    "sisdr": 120.24649810791016,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 15.315820693969727,
-     "lsd": 5.545383453369141
+     "sisdr": 120.24649047851562,
+     "lsd": 0.00935928151011467
     },
     "no_declip": {
-     "sisdr": 15.315820693969727,
-     "lsd": 5.545383453369141
+     "sisdr": 120.24649047851562,
+     "lsd": 0.00935928151011467
     },
     "no_deecho": {
-     "sisdr": 120.2456283569336,
-     "lsd": 0.0
+     "sisdr": 120.24649047851562,
+     "lsd": 0.00935928151011467
     },
     "no_network": {
-     "sisdr": 15.315820693969727,
-     "lsd": 5.545383453369141
+     "sisdr": 120.24649047851562,
+     "lsd": 0.00935928151011467
     }
    },
    "decisions": [
-    "Echo at 181 ms (gain 0.14): removed.",
-    "Echo at 361 ms (gain 0.13): removed.",
-    "Room reverb: none in excess of a normal production (-25.4 dB): left alone."
+    "Room reverb: none in excess of a normal production (-46.0 dB): left alone."
    ]
   },
   {
-   "file": "064628.mp3",
+   "file": "042485.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 4.189115047454834,
-    "lsd": 4.588397026062012
+    "sisdr": 5.746854782104492,
+    "lsd": 3.9787826538085938
    },
    "variants": {
     "full": {
-     "sisdr": 8.3016996383667,
-     "lsd": 3.9331912994384766
+     "sisdr": 6.5786638259887695,
+     "lsd": 3.8158912658691406
     },
     "no_declip": {
-     "sisdr": 8.3016996383667,
-     "lsd": 3.9331912994384766
+     "sisdr": 6.5786638259887695,
+     "lsd": 3.8158912658691406
     },
     "no_deecho": {
-     "sisdr": 8.3016996383667,
-     "lsd": 3.9331912994384766
+     "sisdr": 6.5786638259887695,
+     "lsd": 3.8158912658691406
     },
     "no_network": {
-     "sisdr": 4.189115047454834,
-     "lsd": 4.588397026062012
+     "sisdr": 5.74685525894165,
+     "lsd": 3.9787821769714355
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -9.4 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -14.9 dB (gate -18): removed at 39% strength."
    ]
   },
   {
-   "file": "064628.mp3",
+   "file": "042485.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 6.966414451599121,
-    "lsd": 4.290586471557617
+    "sisdr": 6.335797309875488,
+    "lsd": 3.8761372566223145
    },
    "variants": {
     "full": {
-     "sisdr": 22.8685359954834,
-     "lsd": 1.7207493782043457
+     "sisdr": 17.709102630615234,
+     "lsd": 1.5937426090240479
     },
     "no_declip": {
-     "sisdr": 22.8685359954834,
-     "lsd": 1.7207493782043457
+     "sisdr": 17.709102630615234,
+     "lsd": 1.5937426090240479
     },
     "no_deecho": {
-     "sisdr": 14.407499313354492,
-     "lsd": 3.693488359451294
+     "sisdr": 10.692858695983887,
+     "lsd": 3.442293167114258
     },
     "no_network": {
-     "sisdr": 22.8685359954834,
-     "lsd": 1.7207493782043457
+     "sisdr": 17.709102630615234,
+     "lsd": 1.5937426090240479
     }
    },
    "decisions": [
-    "Echo at 476 ms (gain 0.20): removed.",
+    "Echo at 476 ms (gain 0.19): removed.",
     "Echo at 476 ms (gain 0.14): removed.",
-    "Room reverb: none in excess of a normal production (-43.0 dB): left alone."
+    "Room reverb: none in excess of a normal production (-47.7 dB): left alone."
    ]
   },
   {
-   "file": "064628.mp3",
+   "file": "042485.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 22.16607666015625,
-    "lsd": 6.672947883605957
+    "sisdr": 19.72348403930664,
+    "lsd": 20.31863784790039
    },
    "variants": {
     "full": {
-     "sisdr": 9.864023208618164,
-     "lsd": 6.921298027038574
+     "sisdr": 26.298320770263672,
+     "lsd": 18.785930633544922
     },
     "no_declip": {
-     "sisdr": 22.16607666015625,
-     "lsd": 6.672947883605957
+     "sisdr": 19.72348403930664,
+     "lsd": 20.31863784790039
     },
     "no_deecho": {
-     "sisdr": 9.864023208618164,
-     "lsd": 6.921298027038574
+     "sisdr": 26.298320770263672,
+     "lsd": 18.785930633544922
     },
     "no_network": {
-     "sisdr": 9.864023208618164,
-     "lsd": 6.921298027038574
+     "sisdr": 26.298320770263672,
+     "lsd": 18.785930633544922
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.89% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-26.6 dB): left alone."
+    "Clipping: flat ceiling found (5.64% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-33.2 dB): left alone."
    ]
   },
   {
-   "file": "064628.mp3",
+   "file": "042485.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 1.505033016204834,
-    "lsd": 9.480831146240234
+    "sisdr": 2.2964086532592773,
+    "lsd": 16.098346710205078
    },
    "variants": {
     "full": {
-     "sisdr": 7.951272964477539,
-     "lsd": 5.423306465148926
+     "sisdr": 5.028691291809082,
+     "lsd": 5.717613697052002
     },
     "no_declip": {
-     "sisdr": 6.8439202308654785,
-     "lsd": 5.42158317565918
+     "sisdr": 4.936364650726318,
+     "lsd": 5.794316291809082
     },
     "no_deecho": {
-     "sisdr": 6.81372594833374,
-     "lsd": 6.236135482788086
+     "sisdr": 5.028691291809082,
+     "lsd": 5.717613697052002
     },
     "no_network": {
-     "sisdr": 3.270655870437622,
-     "lsd": 9.489492416381836
+     "sisdr": 2.318366050720215,
+     "lsd": 15.384187698364258
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (2.68% of samples): peaks rebuilt.",
-    "Echo at 489 ms (gain 0.34): removed.",
-    "Room reverb / noise / clipping: excess measured at -7.7 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (2.94% of samples): peaks rebuilt.",
+    "Echo at 489 ms sits on the tempo grid (4 sixteenth notes at 123 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -8.3 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "064628.mp3",
+   "file": "042485.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.24649047851562,
+    "sisdr": 120.24649810791016,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 120.2364273071289,
-     "lsd": 0.004367666784673929
+     "sisdr": 120.2464370727539,
+     "lsd": 0.010758094489574432
     },
     "no_declip": {
-     "sisdr": 120.2364273071289,
-     "lsd": 0.004367666784673929
+     "sisdr": 120.2464370727539,
+     "lsd": 0.010758094489574432
     },
     "no_deecho": {
-     "sisdr": 120.2364273071289,
-     "lsd": 0.004367666784673929
+     "sisdr": 120.2464370727539,
+     "lsd": 0.010758094489574432
     },
     "no_network": {
-     "sisdr": 120.2364273071289,
-     "lsd": 0.004367666784673929
+     "sisdr": 120.2464370727539,
+     "lsd": 0.010758094489574432
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-42.9 dB): left alone."
+    "Room reverb: none in excess of a normal production (-48.4 dB): left alone."
    ]
   },
   {
-   "file": "014358.mp3",
+   "file": "060880.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 7.257163047790527,
-    "lsd": 7.889086723327637
+    "sisdr": 6.365887641906738,
+    "lsd": 2.734147548675537
    },
    "variants": {
     "full": {
-     "sisdr": 9.950798034667969,
-     "lsd": 6.007600784301758
+     "sisdr": 9.052268981933594,
+     "lsd": 2.7114973068237305
     },
     "no_declip": {
-     "sisdr": 9.950798034667969,
-     "lsd": 6.007600784301758
+     "sisdr": 9.052268981933594,
+     "lsd": 2.7114973068237305
     },
     "no_deecho": {
-     "sisdr": 9.950798034667969,
-     "lsd": 6.007600784301758
+     "sisdr": 9.052268981933594,
+     "lsd": 2.7114973068237305
     },
     "no_network": {
-     "sisdr": 7.257163047790527,
-     "lsd": 7.889086723327637
+     "sisdr": 6.365887641906738,
+     "lsd": 2.734147548675537
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -11.6 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -10.7 dB (gate -18): removed at 92% strength."
    ]
   },
   {
-   "file": "014358.mp3",
+   "file": "060880.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 8.77501106262207,
-    "lsd": 5.494404315948486
+    "sisdr": 9.335883140563965,
+    "lsd": 2.3838295936584473
    },
    "variants": {
     "full": {
-     "sisdr": 29.2908878326416,
-     "lsd": 2.450967311859131
+     "sisdr": 20.11267852783203,
+     "lsd": 1.65284264087677
     },
     "no_declip": {
-     "sisdr": 29.2908878326416,
-     "lsd": 2.450967311859131
+     "sisdr": 20.11267852783203,
+     "lsd": 1.65284264087677
     },
     "no_deecho": {
-     "sisdr": 16.36617088317871,
-     "lsd": 3.260547161102295
+     "sisdr": 10.661364555358887,
+     "lsd": 2.351135730743408
     },
     "no_network": {
-     "sisdr": 29.2908878326416,
-     "lsd": 2.450967311859131
+     "sisdr": 20.11267852783203,
+     "lsd": 1.65284264087677
     }
    },
    "decisions": [
     "Echo at 123 ms (gain 0.13): removed.",
-    "Echo at 123 ms (gain 0.09): removed.",
-    "Room reverb: none in excess of a normal production (-30.6 dB): left alone."
-   ]
-  },
-  {
-   "file": "014358.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 16.31266212463379,
-    "lsd": 6.992750644683838
-   },
-   "variants": {
-    "full": {
-     "sisdr": 19.461654663085938,
-     "lsd": 6.758160591125488
-    },
-    "no_declip": {
-     "sisdr": 16.457321166992188,
-     "lsd": 6.828300476074219
-    },
-    "no_deecho": {
-     "sisdr": 19.461654663085938,
-     "lsd": 6.758160591125488
-    },
-    "no_network": {
-     "sisdr": 19.461654663085938,
-     "lsd": 6.758160591125488
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (6.74% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-25.7 dB): left alone."
-   ]
-  },
-  {
-   "file": "014358.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": -1.2184278964996338,
-    "lsd": 20.482656478881836
-   },
-   "variants": {
-    "full": {
-     "sisdr": 0.5288890600204468,
-     "lsd": 11.366146087646484
-    },
-    "no_declip": {
-     "sisdr": 0.6723543405532837,
-     "lsd": 11.333685874938965
-    },
-    "no_deecho": {
-     "sisdr": 0.9677874445915222,
-     "lsd": 9.074361801147461
-    },
-    "no_network": {
-     "sisdr": -0.38838231563568115,
-     "lsd": 20.702228546142578
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (6.33% of samples): peaks rebuilt.",
-    "Echo at 448 ms (gain 0.23): removed.",
-    "Echo at 448 ms (gain 0.08): removed.",
-    "Room reverb / noise / clipping: excess measured at -12.5 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "014358.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.21723937988281,
-     "lsd": 0.006660869810730219
-    },
-    "no_declip": {
-     "sisdr": 120.21723937988281,
-     "lsd": 0.006660869810730219
-    },
-    "no_deecho": {
-     "sisdr": 120.21723937988281,
-     "lsd": 0.006660869810730219
-    },
-    "no_network": {
-     "sisdr": 120.21723937988281,
-     "lsd": 0.006660869810730219
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-30.3 dB): left alone."
-   ]
-  },
-  {
-   "file": "014344.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 9.26161003112793,
-    "lsd": 2.6625680923461914
-   },
-   "variants": {
-    "full": {
-     "sisdr": 9.487300872802734,
-     "lsd": 2.6483497619628906
-    },
-    "no_declip": {
-     "sisdr": 9.487300872802734,
-     "lsd": 2.6483497619628906
-    },
-    "no_deecho": {
-     "sisdr": 9.487300872802734,
-     "lsd": 2.6483497619628906
-    },
-    "no_network": {
-     "sisdr": 9.261609077453613,
-     "lsd": 2.6625678539276123
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -22.6 dB (gate -24): removed at 18% strength."
-   ]
-  },
-  {
-   "file": "014344.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 11.673114776611328,
-    "lsd": 4.2064104080200195
-   },
-   "variants": {
-    "full": {
-     "sisdr": 32.66898727416992,
-     "lsd": 1.2521902322769165
-    },
-    "no_declip": {
-     "sisdr": 32.66898727416992,
-     "lsd": 1.2521902322769165
-    },
-    "no_deecho": {
-     "sisdr": 15.910737991333008,
-     "lsd": 3.657230854034424
-    },
-    "no_network": {
-     "sisdr": 32.66898727416992,
-     "lsd": 1.2521902322769165
-    }
-   },
-   "decisions": [
-    "Echo at 377 ms (gain 0.26): removed.",
-    "Room reverb: none in excess of a normal production (-30.0 dB): left alone."
-   ]
-  },
-  {
-   "file": "014344.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 17.079875946044922,
-    "lsd": 3.1161742210388184
-   },
-   "variants": {
-    "full": {
-     "sisdr": 21.079788208007812,
-     "lsd": 4.0397491455078125
-    },
-    "no_declip": {
-     "sisdr": 17.079875946044922,
-     "lsd": 3.1161742210388184
-    },
-    "no_deecho": {
-     "sisdr": 21.079788208007812,
-     "lsd": 4.0397491455078125
-    },
-    "no_network": {
-     "sisdr": 21.161195755004883,
-     "lsd": 4.104254245758057
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (4.55% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -23.2 dB (gate -24): removed at 11% strength."
-   ]
-  },
-  {
-   "file": "014344.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": 2.342160940170288,
-    "lsd": 7.978097915649414
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.282766342163086,
-     "lsd": 6.257728576660156
-    },
-    "no_declip": {
-     "sisdr": 6.106509208679199,
-     "lsd": 6.1412224769592285
-    },
-    "no_deecho": {
-     "sisdr": 6.282766342163086,
-     "lsd": 6.257728576660156
-    },
-    "no_network": {
-     "sisdr": 1.6855710744857788,
-     "lsd": 8.331744194030762
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (3.54% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -6.4 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "014344.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.20486450195312,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.17513275146484,
-     "lsd": 0.006080438382923603
-    },
-    "no_declip": {
-     "sisdr": 120.17513275146484,
-     "lsd": 0.006080438382923603
-    },
-    "no_deecho": {
-     "sisdr": 120.17513275146484,
-     "lsd": 0.006080438382923603
-    },
-    "no_network": {
-     "sisdr": 120.17513275146484,
-     "lsd": 0.006080438382923603
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-30.0 dB): left alone."
-   ]
-  },
-  {
-   "file": "135219.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 4.7621259689331055,
-    "lsd": 2.8582587242126465
-   },
-   "variants": {
-    "full": {
-     "sisdr": 5.008311748504639,
-     "lsd": 2.8292715549468994
-    },
-    "no_declip": {
-     "sisdr": 5.008311748504639,
-     "lsd": 2.8292715549468994
-    },
-    "no_deecho": {
-     "sisdr": 5.008311748504639,
-     "lsd": 2.8292715549468994
-    },
-    "no_network": {
-     "sisdr": 4.7621259689331055,
-     "lsd": 2.8582587242126465
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -20.2 dB (gate -24): removed at 47% strength."
-   ]
-  },
-  {
-   "file": "135219.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 4.478079795837402,
-    "lsd": 6.2711076736450195
-   },
-   "variants": {
-    "full": {
-     "sisdr": 19.393600463867188,
-     "lsd": 1.5531620979309082
-    },
-    "no_declip": {
-     "sisdr": 19.393600463867188,
-     "lsd": 1.5531620979309082
-    },
-    "no_deecho": {
-     "sisdr": 9.005776405334473,
-     "lsd": 5.5461249351501465
-    },
-    "no_network": {
-     "sisdr": 19.393600463867188,
-     "lsd": 1.5531620979309082
-    }
-   },
-   "decisions": [
-    "Echo at 460 ms (gain 0.55): removed.",
-    "Room reverb: none in excess of a normal production (-42.6 dB): left alone."
-   ]
-  },
-  {
-   "file": "135219.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 13.703697204589844,
-    "lsd": 3.8383116722106934
-   },
-   "variants": {
-    "full": {
-     "sisdr": 24.81232452392578,
-     "lsd": 3.1067073345184326
-    },
-    "no_declip": {
-     "sisdr": 13.703697204589844,
-     "lsd": 3.8383116722106934
-    },
-    "no_deecho": {
-     "sisdr": 24.81232452392578,
-     "lsd": 3.1067073345184326
-    },
-    "no_network": {
-     "sisdr": 24.81232452392578,
-     "lsd": 3.1067073345184326
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (6.92% of samples): peaks rebuilt.",
     "Room reverb: none in excess of a normal production (-27.5 dB): left alone."
    ]
   },
   {
-   "file": "135219.mp3",
-   "cond": "all three",
+   "file": "060880.mp3",
+   "cond": "clip",
    "input": {
-    "sisdr": 2.361044406890869,
-    "lsd": 6.095033645629883
+    "sisdr": 34.95668029785156,
+    "lsd": 13.889457702636719
    },
    "variants": {
     "full": {
-     "sisdr": 6.859775066375732,
-     "lsd": 5.67799711227417
+     "sisdr": 22.62518310546875,
+     "lsd": 14.149709701538086
     },
     "no_declip": {
-     "sisdr": 4.833758354187012,
-     "lsd": 5.592700958251953
+     "sisdr": 34.956687927246094,
+     "lsd": 13.889457702636719
     },
     "no_deecho": {
-     "sisdr": 6.859775066375732,
-     "lsd": 5.67799711227417
+     "sisdr": 22.62518310546875,
+     "lsd": 14.149709701538086
     },
     "no_network": {
-     "sisdr": 3.0549490451812744,
-     "lsd": 5.979936599731445
+     "sisdr": 22.62518310546875,
+     "lsd": 14.149709701538086
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (7.64% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -8.7 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (4.36% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-24.1 dB): left alone."
    ]
   },
   {
-   "file": "135219.mp3",
+   "file": "060880.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": -0.09052728116512299,
+    "lsd": 16.536556243896484
+   },
+   "variants": {
+    "full": {
+     "sisdr": 1.6379547119140625,
+     "lsd": 11.656926155090332
+    },
+    "no_declip": {
+     "sisdr": 2.4044082164764404,
+     "lsd": 6.279146194458008
+    },
+    "no_deecho": {
+     "sisdr": 1.6082502603530884,
+     "lsd": 6.4873576164245605
+    },
+    "no_network": {
+     "sisdr": 0.6763414144515991,
+     "lsd": 15.281606674194336
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (6.68% of samples): peaks rebuilt.",
+    "Echo at 448 ms (gain 0.28): removed.",
+    "Room reverb / noise / clipping: excess measured at -11.8 dB (gate -18): removed at 78% strength."
+   ]
+  },
+  {
+   "file": "060880.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.24649047851562,
+    "sisdr": 120.23843383789062,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.23314666748047,
+     "lsd": 0.008351437747478485
     },
     "no_declip": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.23314666748047,
+     "lsd": 0.008351437747478485
     },
     "no_deecho": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.23314666748047,
+     "lsd": 0.008351437747478485
     },
     "no_network": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.23314666748047,
+     "lsd": 0.008351437747478485
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-41.9 dB): left alone."
+    "Room reverb: none in excess of a normal production (-33.6 dB): left alone."
    ]
   },
   {
-   "file": "116099.mp3",
+   "file": "012923.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 9.185029029846191,
-    "lsd": 3.960158348083496
+    "sisdr": 8.293069839477539,
+    "lsd": 3.270078182220459
    },
    "variants": {
     "full": {
-     "sisdr": 9.307062149047852,
-     "lsd": 3.9320945739746094
+     "sisdr": 8.432077407836914,
+     "lsd": 3.2577056884765625
     },
     "no_declip": {
-     "sisdr": 9.307062149047852,
-     "lsd": 3.9320945739746094
+     "sisdr": 8.432077407836914,
+     "lsd": 3.2577056884765625
     },
     "no_deecho": {
-     "sisdr": 9.307062149047852,
-     "lsd": 3.9320945739746094
+     "sisdr": 8.432077407836914,
+     "lsd": 3.2577056884765625
     },
     "no_network": {
-     "sisdr": 9.185029029846191,
-     "lsd": 3.960158348083496
+     "sisdr": 8.293069839477539,
+     "lsd": 3.2700793743133545
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -22.9 dB (gate -24): removed at 13% strength."
+    "Room reverb / noise / clipping: excess measured at -17.2 dB (gate -18): removed at 10% strength."
    ]
   },
   {
-   "file": "116099.mp3",
+   "file": "012923.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 12.771239280700684,
-    "lsd": 3.952274799346924
+    "sisdr": 10.912667274475098,
+    "lsd": 6.016775131225586
    },
    "variants": {
     "full": {
-     "sisdr": 30.960586547851562,
-     "lsd": 0.7571499347686768
+     "sisdr": 19.424999237060547,
+     "lsd": 4.200788497924805
     },
     "no_declip": {
-     "sisdr": 30.960586547851562,
-     "lsd": 0.7571499347686768
+     "sisdr": 19.424999237060547,
+     "lsd": 4.200788497924805
     },
     "no_deecho": {
-     "sisdr": 14.015790939331055,
-     "lsd": 3.259791851043701
+     "sisdr": 13.144635200500488,
+     "lsd": 5.655927658081055
     },
     "no_network": {
-     "sisdr": 30.960586547851562,
-     "lsd": 0.7571499347686768
+     "sisdr": 19.424999237060547,
+     "lsd": 4.200788497924805
+    }
+   },
+   "decisions": [
+    "Echo at 377 ms (gain 0.22): removed.",
+    "Room reverb: none in excess of a normal production (-45.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "012923.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 15.670204162597656,
+    "lsd": 13.216320991516113
+   },
+   "variants": {
+    "full": {
+     "sisdr": 29.53268051147461,
+     "lsd": 11.450104713439941
+    },
+    "no_declip": {
+     "sisdr": 15.670204162597656,
+     "lsd": 13.216320991516113
+    },
+    "no_deecho": {
+     "sisdr": 29.53268051147461,
+     "lsd": 11.450104713439941
+    },
+    "no_network": {
+     "sisdr": 29.53268051147461,
+     "lsd": 11.450104713439941
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (4.25% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-26.5 dB): left alone."
+   ]
+  },
+  {
+   "file": "012923.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": -0.006496799178421497,
+    "lsd": 16.235191345214844
+   },
+   "variants": {
+    "full": {
+     "sisdr": 1.0194352865219116,
+     "lsd": 11.823488235473633
+    },
+    "no_declip": {
+     "sisdr": 0.6111563444137573,
+     "lsd": 14.23086166381836
+    },
+    "no_deecho": {
+     "sisdr": 1.0194352865219116,
+     "lsd": 11.823488235473633
+    },
+    "no_network": {
+     "sisdr": 0.200553759932518,
+     "lsd": 14.428014755249023
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.88% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -12.1 dB (gate -18): removed at 73% strength."
+   ]
+  },
+  {
+   "file": "012923.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24646759033203,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.2461929321289,
+     "lsd": 0.010933838784694672
+    },
+    "no_declip": {
+     "sisdr": 120.2461929321289,
+     "lsd": 0.010933838784694672
+    },
+    "no_deecho": {
+     "sisdr": 120.2461929321289,
+     "lsd": 0.010933838784694672
+    },
+    "no_network": {
+     "sisdr": 120.2461929321289,
+     "lsd": 0.010933838784694672
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-45.9 dB): left alone."
+   ]
+  },
+  {
+   "file": "091755.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 9.267860412597656,
+    "lsd": 3.9878649711608887
+   },
+   "variants": {
+    "full": {
+     "sisdr": 10.18210220336914,
+     "lsd": 3.854273796081543
+    },
+    "no_declip": {
+     "sisdr": 10.18210220336914,
+     "lsd": 3.854273796081543
+    },
+    "no_deecho": {
+     "sisdr": 10.18210220336914,
+     "lsd": 3.854273796081543
+    },
+    "no_network": {
+     "sisdr": 9.26785945892334,
+     "lsd": 3.9878642559051514
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -15.6 dB (gate -18): removed at 30% strength."
+   ]
+  },
+  {
+   "file": "091755.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 5.356393337249756,
+    "lsd": 7.689519882202148
+   },
+   "variants": {
+    "full": {
+     "sisdr": 18.28326416015625,
+     "lsd": 4.295620918273926
+    },
+    "no_declip": {
+     "sisdr": 18.28326416015625,
+     "lsd": 4.295620918273926
+    },
+    "no_deecho": {
+     "sisdr": 8.37098217010498,
+     "lsd": 6.969597816467285
+    },
+    "no_network": {
+     "sisdr": 18.28326416015625,
+     "lsd": 4.295620918273926
+    }
+   },
+   "decisions": [
+    "Echo at 460 ms (gain 0.51): removed.",
+    "Room reverb: none in excess of a normal production (-33.7 dB): left alone."
+   ]
+  },
+  {
+   "file": "091755.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 21.800350189208984,
+    "lsd": 20.772050857543945
+   },
+   "variants": {
+    "full": {
+     "sisdr": 28.88639259338379,
+     "lsd": 18.430469512939453
+    },
+    "no_declip": {
+     "sisdr": 21.80035400390625,
+     "lsd": 20.772052764892578
+    },
+    "no_deecho": {
+     "sisdr": 28.88639259338379,
+     "lsd": 18.430469512939453
+    },
+    "no_network": {
+     "sisdr": 28.88639259338379,
+     "lsd": 18.430469512939453
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (5.80% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-29.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "091755.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 5.409688472747803,
+    "lsd": 18.98640251159668
+   },
+   "variants": {
+    "full": {
+     "sisdr": 10.623368263244629,
+     "lsd": 6.185185432434082
+    },
+    "no_declip": {
+     "sisdr": 10.087091445922852,
+     "lsd": 7.230228424072266
+    },
+    "no_deecho": {
+     "sisdr": 10.623368263244629,
+     "lsd": 6.185185432434082
+    },
+    "no_network": {
+     "sisdr": 5.388851165771484,
+     "lsd": 17.312152862548828
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (7.46% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -8.2 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "091755.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24642944335938,
+     "lsd": 0.008591113612055779
+    },
+    "no_declip": {
+     "sisdr": 120.24642944335938,
+     "lsd": 0.008591113612055779
+    },
+    "no_deecho": {
+     "sisdr": 120.24642944335938,
+     "lsd": 0.008591113612055779
+    },
+    "no_network": {
+     "sisdr": 120.24642944335938,
+     "lsd": 0.008591113612055779
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-33.8 dB): left alone."
+   ]
+  },
+  {
+   "file": "014585.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 3.5649168491363525,
+    "lsd": 4.9420881271362305
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.725028038024902,
+     "lsd": 5.917726039886475
+    },
+    "no_declip": {
+     "sisdr": 5.725028038024902,
+     "lsd": 5.917726039886475
+    },
+    "no_deecho": {
+     "sisdr": 6.070226669311523,
+     "lsd": 4.5793232917785645
+    },
+    "no_network": {
+     "sisdr": 3.3558506965637207,
+     "lsd": 6.231592178344727
+    }
+   },
+   "decisions": [
+    "Echo at 500 ms (gain 0.22): removed.",
+    "Room reverb / noise / clipping: excess measured at -11.0 dB (gate -18): removed at 87% strength."
+   ]
+  },
+  {
+   "file": "014585.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 12.882952690124512,
+    "lsd": 5.9504594802856445
+   },
+   "variants": {
+    "full": {
+     "sisdr": 20.061283111572266,
+     "lsd": 4.877990245819092
+    },
+    "no_declip": {
+     "sisdr": 20.061283111572266,
+     "lsd": 4.877990245819092
+    },
+    "no_deecho": {
+     "sisdr": 14.751067161560059,
+     "lsd": 5.565860748291016
+    },
+    "no_network": {
+     "sisdr": 20.061283111572266,
+     "lsd": 4.877990245819092
     }
    },
    "decisions": [
     "Echo at 147 ms (gain 0.22): removed.",
-    "Room reverb: none in excess of a normal production (-39.1 dB): left alone."
+    "Echo at 500 ms (gain 0.23): removed.",
+    "Room reverb: none in excess of a normal production (-30.4 dB): left alone."
    ]
   },
   {
-   "file": "116099.mp3",
+   "file": "014585.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 19.889299392700195,
-    "lsd": 4.872697830200195
+    "sisdr": 19.960554122924805,
+    "lsd": 17.28797149658203
    },
    "variants": {
     "full": {
-     "sisdr": 29.880443572998047,
-     "lsd": 6.826415061950684
+     "sisdr": 21.195354461669922,
+     "lsd": 16.66919708251953
     },
     "no_declip": {
-     "sisdr": 19.889299392700195,
-     "lsd": 4.872697830200195
+     "sisdr": 18.12775421142578,
+     "lsd": 17.93334197998047
     },
     "no_deecho": {
-     "sisdr": 29.880443572998047,
-     "lsd": 6.826415061950684
+     "sisdr": 31.351016998291016,
+     "lsd": 15.924291610717773
     },
     "no_network": {
-     "sisdr": 29.880443572998047,
-     "lsd": 6.826415061950684
+     "sisdr": 21.195354461669922,
+     "lsd": 16.66919708251953
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.97% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-28.7 dB): left alone."
+    "Clipping: flat ceiling found (4.78% of samples): peaks rebuilt.",
+    "Echo at 500 ms (gain 0.19): removed.",
+    "Room reverb: none in excess of a normal production (-33.4 dB): left alone."
    ]
   },
   {
-   "file": "116099.mp3",
+   "file": "014585.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 8.022500991821289,
-    "lsd": 6.669102668762207
+    "sisdr": 7.037866115570068,
+    "lsd": 16.433765411376953
    },
    "variants": {
     "full": {
-     "sisdr": 8.620896339416504,
-     "lsd": 8.339704513549805
+     "sisdr": 9.580498695373535,
+     "lsd": 11.490579605102539
     },
     "no_declip": {
-     "sisdr": 8.282004356384277,
-     "lsd": 6.085030555725098
+     "sisdr": 9.425243377685547,
+     "lsd": 12.20965576171875
     },
     "no_deecho": {
-     "sisdr": 9.077526092529297,
-     "lsd": 4.764184951782227
+     "sisdr": 9.580498695373535,
+     "lsd": 11.490579605102539
     },
     "no_network": {
-     "sisdr": 8.620896339416504,
-     "lsd": 8.339704513549805
+     "sisdr": 7.194194793701172,
+     "lsd": 15.416377067565918
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.16% of samples): peaks rebuilt.",
-    "Echo at 124 ms (gain 0.14): removed.",
-    "Room reverb: none in excess of a normal production (-24.9 dB): left alone."
+    "Clipping: flat ceiling found (3.66% of samples): peaks rebuilt.",
+    "Echo at 124 ms sits on the tempo grid (1 sixteenth notes at 117 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -12.4 dB (gate -18): removed at 70% strength."
    ]
   },
   {
-   "file": "116099.mp3",
+   "file": "014585.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -1302,298 +1303,149 @@
    },
    "variants": {
     "full": {
-     "sisdr": 120.21812438964844,
-     "lsd": 0.010013140738010406
+     "sisdr": 20.65976905822754,
+     "lsd": 4.390872955322266
     },
     "no_declip": {
-     "sisdr": 120.21812438964844,
-     "lsd": 0.010013140738010406
+     "sisdr": 20.65976905822754,
+     "lsd": 4.390872955322266
     },
     "no_deecho": {
-     "sisdr": 120.21812438964844,
-     "lsd": 0.010013140738010406
+     "sisdr": 120.24649810791016,
+     "lsd": 0.009832615032792091
     },
     "no_network": {
-     "sisdr": 120.21812438964844,
-     "lsd": 0.010013140738010406
+     "sisdr": 20.65976905822754,
+     "lsd": 4.390872955322266
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-39.3 dB): left alone."
+    "Echo at 500 ms (gain 0.23): removed.",
+    "Room reverb: none in excess of a normal production (-30.3 dB): left alone."
    ]
   },
   {
-   "file": "080693.mp3",
+   "file": "011198.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 4.884220600128174,
-    "lsd": 2.267413377761841
+    "sisdr": 6.855982780456543,
+    "lsd": 3.050173759460449
    },
    "variants": {
     "full": {
-     "sisdr": 9.84412956237793,
-     "lsd": 1.9145164489746094
+     "sisdr": 9.225987434387207,
+     "lsd": 2.3869621753692627
     },
     "no_declip": {
-     "sisdr": 9.84412956237793,
-     "lsd": 1.9145164489746094
+     "sisdr": 9.225987434387207,
+     "lsd": 2.3869621753692627
     },
     "no_deecho": {
-     "sisdr": 9.84412956237793,
-     "lsd": 1.9145164489746094
+     "sisdr": 9.225987434387207,
+     "lsd": 2.3869621753692627
     },
     "no_network": {
-     "sisdr": 4.884220600128174,
-     "lsd": 2.267413377761841
+     "sisdr": 6.855985641479492,
+     "lsd": 3.050172805786133
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -8.9 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -10.3 dB (gate -18): removed at 96% strength."
    ]
   },
   {
-   "file": "080693.mp3",
+   "file": "011198.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 6.333718299865723,
-    "lsd": 5.817802429199219
+    "sisdr": 6.4008355140686035,
+    "lsd": 5.204418182373047
    },
    "variants": {
     "full": {
-     "sisdr": 20.209972381591797,
-     "lsd": 2.903601884841919
+     "sisdr": 22.911033630371094,
+     "lsd": 2.3784923553466797
     },
     "no_declip": {
-     "sisdr": 20.209972381591797,
-     "lsd": 2.903601884841919
+     "sisdr": 22.911033630371094,
+     "lsd": 2.3784923553466797
     },
     "no_deecho": {
-     "sisdr": 11.813005447387695,
-     "lsd": 4.863697052001953
+     "sisdr": 9.579338073730469,
+     "lsd": 4.488593578338623
     },
     "no_network": {
-     "sisdr": 20.209972381591797,
-     "lsd": 2.903601884841919
+     "sisdr": 22.911033630371094,
+     "lsd": 2.3784923553466797
     }
    },
    "decisions": [
-    "Echo at 362 ms (gain 0.43): removed.",
-    "Room reverb: none in excess of a normal production (-34.1 dB): left alone."
+    "Echo at 362 ms (gain 0.45): removed.",
+    "Room reverb: none in excess of a normal production (-45.3 dB): left alone."
    ]
   },
   {
-   "file": "080693.mp3",
+   "file": "011198.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 21.06458282470703,
-    "lsd": 16.505796432495117
+    "sisdr": 17.9897403717041,
+    "lsd": 17.721349716186523
    },
    "variants": {
     "full": {
-     "sisdr": 32.00605392456055,
-     "lsd": 14.440261840820312
+     "sisdr": 28.95836067199707,
+     "lsd": 14.850672721862793
     },
     "no_declip": {
-     "sisdr": 21.06458282470703,
-     "lsd": 16.505796432495117
+     "sisdr": 17.9897403717041,
+     "lsd": 17.721349716186523
     },
     "no_deecho": {
-     "sisdr": 32.00605392456055,
-     "lsd": 14.440261840820312
+     "sisdr": 28.95836067199707,
+     "lsd": 14.850672721862793
     },
     "no_network": {
-     "sisdr": 32.00605392456055,
-     "lsd": 14.440261840820312
+     "sisdr": 28.95836067199707,
+     "lsd": 14.850672721862793
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (5.95% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-28.3 dB): left alone."
-   ]
-  },
-  {
-   "file": "080693.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": 5.382341384887695,
-    "lsd": 17.64256477355957
-   },
-   "variants": {
-    "full": {
-     "sisdr": 9.067327499389648,
-     "lsd": 12.679306983947754
-    },
-    "no_declip": {
-     "sisdr": 9.162596702575684,
-     "lsd": 13.213891983032227
-    },
-    "no_deecho": {
-     "sisdr": 8.083578109741211,
-     "lsd": 5.806678771972656
-    },
-    "no_network": {
-     "sisdr": 8.212441444396973,
-     "lsd": 16.151308059692383
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (3.86% of samples): peaks rebuilt.",
-    "Echo at 148 ms (gain 0.25): removed.",
-    "Echo at 148 ms (gain 0.09): removed.",
-    "Room reverb / noise / clipping: excess measured at -18.8 dB (gate -24): removed at 65% strength."
-   ]
-  },
-  {
-   "file": "080693.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24647521972656,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_declip": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_deecho": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    },
-    "no_network": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-34.0 dB): left alone."
-   ]
-  },
-  {
-   "file": "045126.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 4.953479290008545,
-    "lsd": 3.1965506076812744
-   },
-   "variants": {
-    "full": {
-     "sisdr": 5.07736873626709,
-     "lsd": 3.1907360553741455
-    },
-    "no_declip": {
-     "sisdr": 5.07736873626709,
-     "lsd": 3.1907360553741455
-    },
-    "no_deecho": {
-     "sisdr": 5.07736873626709,
-     "lsd": 3.1907360553741455
-    },
-    "no_network": {
-     "sisdr": 4.953479290008545,
-     "lsd": 3.1965506076812744
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -22.2 dB (gate -24): removed at 22% strength."
-   ]
-  },
-  {
-   "file": "045126.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 6.821611404418945,
-    "lsd": 3.4434642791748047
-   },
-   "variants": {
-    "full": {
-     "sisdr": 15.716935157775879,
-     "lsd": 1.9580756425857544
-    },
-    "no_declip": {
-     "sisdr": 15.716935157775879,
-     "lsd": 1.9580756425857544
-    },
-    "no_deecho": {
-     "sisdr": 7.81538200378418,
-     "lsd": 3.448540687561035
-    },
-    "no_network": {
-     "sisdr": 15.716935157775879,
-     "lsd": 1.9580756425857544
-    }
-   },
-   "decisions": [
-    "Echo at 310 ms (gain 0.15): removed.",
-    "Echo at 310 ms (gain 0.11): removed.",
-    "Room reverb: none in excess of a normal production (-32.7 dB): left alone."
-   ]
-  },
-  {
-   "file": "045126.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 31.78035545349121,
-    "lsd": 6.688189506530762
-   },
-   "variants": {
-    "full": {
-     "sisdr": 25.370237350463867,
-     "lsd": 6.405378341674805
-    },
-    "no_declip": {
-     "sisdr": 31.78035545349121,
-     "lsd": 6.688189506530762
-    },
-    "no_deecho": {
-     "sisdr": 25.370237350463867,
-     "lsd": 6.405378341674805
-    },
-    "no_network": {
-     "sisdr": 25.370237350463867,
-     "lsd": 6.405378341674805
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (0.98% of samples): peaks rebuilt.",
+    "Clipping: flat ceiling found (5.00% of samples): peaks rebuilt.",
     "Room reverb: none in excess of a normal production (-28.5 dB): left alone."
    ]
   },
   {
-   "file": "045126.mp3",
+   "file": "011198.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 2.34714412689209,
-    "lsd": 8.435678482055664
+    "sisdr": 4.690196990966797,
+    "lsd": 18.010108947753906
    },
    "variants": {
     "full": {
-     "sisdr": 3.5475828647613525,
-     "lsd": 4.668922424316406
+     "sisdr": 8.1821928024292,
+     "lsd": 16.32297134399414
     },
     "no_declip": {
-     "sisdr": 3.1890060901641846,
-     "lsd": 4.831897735595703
+     "sisdr": 7.9310078620910645,
+     "lsd": 18.429960250854492
     },
     "no_deecho": {
-     "sisdr": 3.5475828647613525,
-     "lsd": 4.668922424316406
+     "sisdr": 6.527481555938721,
+     "lsd": 10.203767776489258
     },
     "no_network": {
-     "sisdr": 2.361630916595459,
-     "lsd": 8.475574493408203
+     "sisdr": 8.1821928024292,
+     "lsd": 16.32297134399414
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (1.47% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -9.5 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (3.49% of samples): peaks rebuilt.",
+    "Echo at 148 ms (gain 0.27): removed.",
+    "Room reverb: none in excess of a normal production (-31.4 dB): left alone."
    ]
   },
   {
-   "file": "045126.mp3",
+   "file": "011198.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -1618,726 +1470,584 @@
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-32.6 dB): left alone."
+    "Room reverb: none in excess of a normal production (-47.1 dB): left alone."
    ]
   },
   {
-   "file": "056691.mp3",
+   "file": "009793.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 5.302143573760986,
-    "lsd": 7.119262218475342
+    "sisdr": 6.241659641265869,
+    "lsd": 5.594720840454102
    },
    "variants": {
     "full": {
-     "sisdr": 8.605722427368164,
-     "lsd": 5.807513236999512
+     "sisdr": 6.2416582107543945,
+     "lsd": 5.594719886779785
     },
     "no_declip": {
-     "sisdr": 8.605722427368164,
-     "lsd": 5.807513236999512
+     "sisdr": 6.2416582107543945,
+     "lsd": 5.594719886779785
     },
     "no_deecho": {
-     "sisdr": 8.605722427368164,
-     "lsd": 5.807513236999512
+     "sisdr": 6.2416582107543945,
+     "lsd": 5.594719886779785
     },
     "no_network": {
-     "sisdr": 5.302143573760986,
-     "lsd": 7.119262218475342
+     "sisdr": 6.2416582107543945,
+     "lsd": 5.594719886779785
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -11.0 dB (gate -24): removed at 100% strength."
+    "Echo at 468 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-18.7 dB): left alone."
    ]
   },
   {
-   "file": "056691.mp3",
+   "file": "009793.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 6.301922798156738,
-    "lsd": 9.704072952270508
+    "sisdr": 6.8818769454956055,
+    "lsd": 4.816106796264648
    },
    "variants": {
     "full": {
-     "sisdr": 22.8586368560791,
-     "lsd": 3.942694664001465
+     "sisdr": 11.17603874206543,
+     "lsd": 4.242860317230225
     },
     "no_declip": {
-     "sisdr": 22.8586368560791,
-     "lsd": 3.942694664001465
+     "sisdr": 11.17603874206543,
+     "lsd": 4.242860317230225
     },
     "no_deecho": {
-     "sisdr": 14.370116233825684,
-     "lsd": 6.76549768447876
+     "sisdr": 11.17603874206543,
+     "lsd": 4.242860317230225
     },
     "no_network": {
-     "sisdr": 22.8586368560791,
-     "lsd": 3.942694664001465
+     "sisdr": 6.881875514984131,
+     "lsd": 4.816106796264648
     }
    },
    "decisions": [
-    "Echo at 351 ms (gain 0.49): removed.",
-    "Room reverb: none in excess of a normal production (-41.9 dB): left alone."
+    "Echo at 468 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -8.7 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "056691.mp3",
+   "file": "009793.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 13.498536109924316,
-    "lsd": 9.706989288330078
+    "sisdr": 29.86079216003418,
+    "lsd": 4.575871467590332
    },
    "variants": {
     "full": {
-     "sisdr": 13.264081954956055,
-     "lsd": 8.701604843139648
+     "sisdr": 21.199939727783203,
+     "lsd": 4.363925933837891
     },
     "no_declip": {
-     "sisdr": 13.498536109924316,
-     "lsd": 9.706989288330078
+     "sisdr": 29.860797882080078,
+     "lsd": 4.575875282287598
     },
     "no_deecho": {
-     "sisdr": 13.264081954956055,
-     "lsd": 8.701604843139648
+     "sisdr": 21.199939727783203,
+     "lsd": 4.363925933837891
     },
     "no_network": {
-     "sisdr": 13.264081954956055,
-     "lsd": 8.701604843139648
+     "sisdr": 21.199939727783203,
+     "lsd": 4.363925933837891
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (5.69% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-27.2 dB): left alone."
+    "Clipping: flat ceiling found (1.29% of samples): peaks rebuilt.",
+    "Echo at 468 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-22.6 dB): left alone."
    ]
   },
   {
-   "file": "056691.mp3",
+   "file": "009793.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 3.659940004348755,
-    "lsd": 12.624456405639648
+    "sisdr": 1.495690941810608,
+    "lsd": 9.775420188903809
    },
    "variants": {
     "full": {
-     "sisdr": 9.138890266418457,
-     "lsd": 11.710603713989258
+     "sisdr": 6.093835830688477,
+     "lsd": 5.7487640380859375
     },
     "no_declip": {
-     "sisdr": 10.141777992248535,
-     "lsd": 10.282482147216797
+     "sisdr": 6.12853479385376,
+     "lsd": 5.854389190673828
     },
     "no_deecho": {
-     "sisdr": 9.261219024658203,
-     "lsd": 8.936047554016113
+     "sisdr": 6.093835830688477,
+     "lsd": 5.7487640380859375
     },
     "no_network": {
-     "sisdr": 8.779682159423828,
-     "lsd": 12.39419174194336
+     "sisdr": 1.5241875648498535,
+     "lsd": 9.800488471984863
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (0.89% of samples): peaks rebuilt.",
-    "Echo at 487 ms (gain 0.48): removed.",
-    "Room reverb / noise / clipping: excess measured at -20.7 dB (gate -24): removed at 41% strength."
+    "Clipping: flat ceiling found (1.29% of samples): peaks rebuilt.",
+    "Echo at 468 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -4.6 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "056691.mp3",
+   "file": "009793.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.24649810791016,
+    "sisdr": 120.23602294921875,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.2323226928711,
+     "lsd": 0.009893870912492275
     },
     "no_declip": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.2323226928711,
+     "lsd": 0.009893870912492275
     },
     "no_deecho": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.2323226928711,
+     "lsd": 0.009893870912492275
     },
     "no_network": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.2323226928711,
+     "lsd": 0.009893870912492275
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-43.9 dB): left alone."
+    "Echo at 468 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-30.4 dB): left alone."
    ]
   },
   {
-   "file": "062180.mp3",
+   "file": "066806.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 7.389859676361084,
-    "lsd": 3.1598730087280273
+    "sisdr": 5.03989315032959,
+    "lsd": 5.421590805053711
    },
    "variants": {
     "full": {
-     "sisdr": 8.43276596069336,
-     "lsd": 2.8099515438079834
+     "sisdr": 6.225285530090332,
+     "lsd": 4.912981986999512
     },
     "no_declip": {
-     "sisdr": 8.43276596069336,
-     "lsd": 2.8099515438079834
+     "sisdr": 6.225285530090332,
+     "lsd": 4.912981986999512
     },
     "no_deecho": {
-     "sisdr": 8.43276596069336,
-     "lsd": 2.8099515438079834
+     "sisdr": 6.225285530090332,
+     "lsd": 4.912981986999512
     },
     "no_network": {
-     "sisdr": 7.389859676361084,
-     "lsd": 3.1598730087280273
+     "sisdr": 5.039892673492432,
+     "lsd": 5.4215922355651855
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -16.7 dB (gate -24): removed at 91% strength."
+    "Room reverb / noise / clipping: excess measured at -13.6 dB (gate -18): removed at 55% strength."
    ]
   },
   {
-   "file": "062180.mp3",
+   "file": "066806.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 8.879783630371094,
-    "lsd": 6.511176109313965
+    "sisdr": 6.220963478088379,
+    "lsd": 5.874986171722412
    },
    "variants": {
     "full": {
-     "sisdr": 17.873245239257812,
-     "lsd": 4.193124771118164
+     "sisdr": 8.185415267944336,
+     "lsd": 5.2056050300598145
     },
     "no_declip": {
-     "sisdr": 17.873245239257812,
-     "lsd": 4.193124771118164
+     "sisdr": 8.185415267944336,
+     "lsd": 5.2056050300598145
     },
     "no_deecho": {
-     "sisdr": 13.031267166137695,
-     "lsd": 4.409059524536133
+     "sisdr": 8.185415267944336,
+     "lsd": 5.2056050300598145
     },
     "no_network": {
-     "sisdr": 17.873245239257812,
-     "lsd": 4.193124771118164
+     "sisdr": 6.220963001251221,
+     "lsd": 5.874987602233887
     }
    },
    "decisions": [
-    "Echo at 438 ms (gain 0.31): removed.",
-    "Room reverb: none in excess of a normal production (-40.6 dB): left alone."
+    "Echo at 351 ms sits on the tempo grid (3 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -9.7 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "062180.mp3",
+   "file": "066806.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 20.94133186340332,
-    "lsd": 7.77058219909668
+    "sisdr": 15.483216285705566,
+    "lsd": 10.325149536132812
    },
    "variants": {
     "full": {
-     "sisdr": 34.922279357910156,
-     "lsd": 9.276759147644043
+     "sisdr": 20.447139739990234,
+     "lsd": 9.901421546936035
     },
     "no_declip": {
-     "sisdr": 20.94133186340332,
-     "lsd": 7.77058219909668
+     "sisdr": 15.4832181930542,
+     "lsd": 10.325153350830078
     },
     "no_deecho": {
-     "sisdr": 34.922279357910156,
-     "lsd": 9.276759147644043
+     "sisdr": 20.447139739990234,
+     "lsd": 9.901421546936035
     },
     "no_network": {
-     "sisdr": 34.922279357910156,
-     "lsd": 9.276759147644043
+     "sisdr": 20.447139739990234,
+     "lsd": 9.901421546936035
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (3.28% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-27.7 dB): left alone."
+    "Clipping: flat ceiling found (6.36% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-22.0 dB): left alone."
    ]
   },
   {
-   "file": "062180.mp3",
+   "file": "066806.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 2.9568991661071777,
-    "lsd": 10.069717407226562
+    "sisdr": 3.7000231742858887,
+    "lsd": 8.959827423095703
    },
    "variants": {
     "full": {
-     "sisdr": 4.6281256675720215,
-     "lsd": 5.7329583168029785
+     "sisdr": 8.568431854248047,
+     "lsd": 9.46904468536377
     },
     "no_declip": {
-     "sisdr": 4.444075584411621,
-     "lsd": 5.404823303222656
+     "sisdr": 8.499204635620117,
+     "lsd": 9.29295825958252
     },
     "no_deecho": {
-     "sisdr": 3.858936071395874,
-     "lsd": 5.788295745849609
+     "sisdr": 5.051847457885742,
+     "lsd": 6.366013526916504
     },
     "no_network": {
-     "sisdr": 3.8651652336120605,
-     "lsd": 12.259435653686523
+     "sisdr": 8.568431854248047,
+     "lsd": 9.46904468536377
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (7.55% of samples): peaks rebuilt.",
-    "Echo at 241 ms (gain 0.20): removed.",
-    "Room reverb / noise / clipping: excess measured at -12.5 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (0.88% of samples): peaks rebuilt.",
+    "Echo at 487 ms (gain 0.33): removed.",
+    "Echo at 487 ms (gain 0.11): removed.",
+    "Room reverb: none in excess of a normal production (-18.9 dB): left alone."
    ]
   },
   {
-   "file": "062180.mp3",
+   "file": "066806.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.24649810791016,
+    "sisdr": 120.22826385498047,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 120.21836853027344,
-     "lsd": 0.009694928303360939
+     "sisdr": 120.22826385498047,
+     "lsd": 0.0
     },
     "no_declip": {
-     "sisdr": 120.21836853027344,
-     "lsd": 0.009694928303360939
+     "sisdr": 120.22826385498047,
+     "lsd": 0.0
     },
     "no_deecho": {
-     "sisdr": 120.21836853027344,
-     "lsd": 0.009694928303360939
+     "sisdr": 120.22826385498047,
+     "lsd": 0.0
     },
     "no_network": {
-     "sisdr": 120.21836853027344,
-     "lsd": 0.009694928303360939
+     "sisdr": 120.22826385498047,
+     "lsd": 0.0
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-41.2 dB): left alone."
-   ]
-  },
-  {
-   "file": "040657.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 0.6136175990104675,
-    "lsd": 4.8831329345703125
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.605929851531982,
-     "lsd": 4.138115406036377
-    },
-    "no_declip": {
-     "sisdr": 6.605929851531982,
-     "lsd": 4.138115406036377
-    },
-    "no_deecho": {
-     "sisdr": 6.605929851531982,
-     "lsd": 4.138115406036377
-    },
-    "no_network": {
-     "sisdr": 0.6136162281036377,
-     "lsd": 4.8831377029418945
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -3.9 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "040657.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 6.783268928527832,
-    "lsd": 4.667053699493408
-   },
-   "variants": {
-    "full": {
-     "sisdr": 21.104278564453125,
-     "lsd": 2.115034341812134
-    },
-    "no_declip": {
-     "sisdr": 21.104278564453125,
-     "lsd": 2.115034341812134
-    },
-    "no_deecho": {
-     "sisdr": 12.449074745178223,
-     "lsd": 3.7732396125793457
-    },
-    "no_network": {
-     "sisdr": 21.104278564453125,
-     "lsd": 2.115034341812134
-    }
-   },
-   "decisions": [
-    "Echo at 142 ms (gain 0.39): removed.",
-    "Room reverb: none in excess of a normal production (-37.6 dB): left alone."
-   ]
-  },
-  {
-   "file": "040657.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 14.699063301086426,
-    "lsd": 7.421929359436035
-   },
-   "variants": {
-    "full": {
-     "sisdr": 23.256790161132812,
-     "lsd": 6.9004106521606445
-    },
-    "no_declip": {
-     "sisdr": 14.733519554138184,
-     "lsd": 7.327476501464844
-    },
-    "no_deecho": {
-     "sisdr": 23.256790161132812,
-     "lsd": 6.9004106521606445
-    },
-    "no_network": {
-     "sisdr": 23.256790161132812,
-     "lsd": 6.9004106521606445
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (3.13% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-27.4 dB): left alone."
-   ]
-  },
-  {
-   "file": "040657.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": -0.5296764969825745,
-    "lsd": 11.298978805541992
-   },
-   "variants": {
-    "full": {
-     "sisdr": 5.972365379333496,
-     "lsd": 5.098087310791016
-    },
-    "no_declip": {
-     "sisdr": 5.738653659820557,
-     "lsd": 5.193811416625977
-    },
-    "no_deecho": {
-     "sisdr": 5.281220436096191,
-     "lsd": 5.411174774169922
-    },
-    "no_network": {
-     "sisdr": 1.161861538887024,
-     "lsd": 11.242859840393066
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (2.97% of samples): peaks rebuilt.",
-    "Echo at 180 ms (gain 0.21): removed.",
-    "Echo at 180 ms (gain 0.11): removed.",
-    "Echo at 360 ms (gain 0.07): removed.",
-    "Room reverb / noise / clipping: excess measured at -5.4 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "040657.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.2296142578125,
-     "lsd": 0.008856698870658875
-    },
-    "no_declip": {
-     "sisdr": 120.2296142578125,
-     "lsd": 0.008856698870658875
-    },
-    "no_deecho": {
-     "sisdr": 120.2296142578125,
-     "lsd": 0.008856698870658875
-    },
-    "no_network": {
-     "sisdr": 120.2296142578125,
-     "lsd": 0.008856698870658875
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-41.7 dB): left alone."
+    "Room reverb: none in excess of a normal production (-26.4 dB): left alone."
    ]
   },
   {
    "file": "057891.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 2.163098096847534,
-    "lsd": 4.279417037963867
+    "sisdr": 7.586551666259766,
+    "lsd": 2.9521703720092773
    },
    "variants": {
     "full": {
-     "sisdr": 6.25993537902832,
-     "lsd": 3.942431926727295
+     "sisdr": 9.502359390258789,
+     "lsd": 2.8280587196350098
     },
     "no_declip": {
-     "sisdr": 6.25993537902832,
-     "lsd": 3.942431926727295
+     "sisdr": 9.502359390258789,
+     "lsd": 2.8280587196350098
     },
     "no_deecho": {
-     "sisdr": 6.25993537902832,
-     "lsd": 3.942431926727295
+     "sisdr": 9.502359390258789,
+     "lsd": 2.8280587196350098
     },
     "no_network": {
-     "sisdr": 2.163098096847534,
-     "lsd": 4.279417037963867
+     "sisdr": 7.586551666259766,
+     "lsd": 2.952169895172119
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -8.0 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -13.2 dB (gate -18): removed at 60% strength."
    ]
   },
   {
    "file": "057891.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 12.479735374450684,
-    "lsd": 2.477475166320801
+    "sisdr": 8.620771408081055,
+    "lsd": 6.368919849395752
    },
    "variants": {
     "full": {
-     "sisdr": 13.822481155395508,
-     "lsd": 2.424860954284668
+     "sisdr": 17.30245590209961,
+     "lsd": 4.146169185638428
     },
     "no_declip": {
-     "sisdr": 13.822481155395508,
-     "lsd": 2.424860954284668
+     "sisdr": 17.30245590209961,
+     "lsd": 4.146169185638428
     },
     "no_deecho": {
-     "sisdr": 13.822481155395508,
-     "lsd": 2.424860954284668
+     "sisdr": 10.30401611328125,
+     "lsd": 6.030770778656006
     },
     "no_network": {
-     "sisdr": 12.479735374450684,
-     "lsd": 2.477475643157959
+     "sisdr": 17.30245590209961,
+     "lsd": 4.146169185638428
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -16.4 dB (gate -24): removed at 95% strength."
-   ]
-  },
-  {
-   "file": "057891.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 25.297080993652344,
-    "lsd": 16.373374938964844
-   },
-   "variants": {
-    "full": {
-     "sisdr": 20.955692291259766,
-     "lsd": 14.250442504882812
-    },
-    "no_declip": {
-     "sisdr": 25.297080993652344,
-     "lsd": 16.373374938964844
-    },
-    "no_deecho": {
-     "sisdr": 20.955692291259766,
-     "lsd": 14.250442504882812
-    },
-    "no_network": {
-     "sisdr": 20.955692291259766,
-     "lsd": 14.250442504882812
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (2.64% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-32.2 dB): left alone."
-   ]
-  },
-  {
-   "file": "057891.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": -0.619956910610199,
-    "lsd": 22.20697021484375
-   },
-   "variants": {
-    "full": {
-     "sisdr": 0.3719499707221985,
-     "lsd": 20.41260528564453
-    },
-    "no_declip": {
-     "sisdr": 0.345329612493515,
-     "lsd": 21.514583587646484
-    },
-    "no_deecho": {
-     "sisdr": -0.3231874704360962,
-     "lsd": 17.824142456054688
-    },
-    "no_network": {
-     "sisdr": 0.3719499707221985,
-     "lsd": 20.41260528564453
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (6.96% of samples): peaks rebuilt.",
-    "Echo at 373 ms (gain 0.10): removed.",
-    "Room reverb: none in excess of a normal production (-25.8 dB): left alone."
-   ]
-  },
-  {
-   "file": "057891.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
-    },
-    "no_declip": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
-    },
-    "no_deecho": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
-    },
-    "no_network": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-41.1 dB): left alone."
-   ]
-  },
-  {
-   "file": "069726.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 2.809434413909912,
-    "lsd": 3.789212226867676
-   },
-   "variants": {
-    "full": {
-     "sisdr": 5.473455905914307,
-     "lsd": 3.287207841873169
-    },
-    "no_declip": {
-     "sisdr": 5.473455905914307,
-     "lsd": 3.287207841873169
-    },
-    "no_deecho": {
-     "sisdr": 5.473455905914307,
-     "lsd": 3.287207841873169
-    },
-    "no_network": {
-     "sisdr": 2.809434413909912,
-     "lsd": 3.789212226867676
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -8.3 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "069726.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 12.482752799987793,
-    "lsd": 1.7058091163635254
-   },
-   "variants": {
-    "full": {
-     "sisdr": 13.739824295043945,
-     "lsd": 1.6404228210449219
-    },
-    "no_declip": {
-     "sisdr": 13.739824295043945,
-     "lsd": 1.6404228210449219
-    },
-    "no_deecho": {
-     "sisdr": 13.739824295043945,
-     "lsd": 1.6404228210449219
-    },
-    "no_network": {
-     "sisdr": 12.482751846313477,
-     "lsd": 1.7058097124099731
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -17.9 dB (gate -24): removed at 76% strength."
-   ]
-  },
-  {
-   "file": "069726.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 19.92989730834961,
-    "lsd": 16.11333465576172
-   },
-   "variants": {
-    "full": {
-     "sisdr": 26.76580047607422,
-     "lsd": 14.551478385925293
-    },
-    "no_declip": {
-     "sisdr": 19.92989730834961,
-     "lsd": 16.11333465576172
-    },
-    "no_deecho": {
-     "sisdr": 26.76580047607422,
-     "lsd": 14.551478385925293
-    },
-    "no_network": {
-     "sisdr": 26.76580047607422,
-     "lsd": 14.551478385925293
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (3.65% of samples): peaks rebuilt.",
+    "Echo at 438 ms (gain 0.33): removed.",
     "Room reverb: none in excess of a normal production (-29.1 dB): left alone."
    ]
   },
   {
-   "file": "069726.mp3",
-   "cond": "all three",
+   "file": "057891.mp3",
+   "cond": "clip",
    "input": {
-    "sisdr": 3.941459894180298,
-    "lsd": 22.695287704467773
+    "sisdr": 24.26093292236328,
+    "lsd": 17.259456634521484
    },
    "variants": {
     "full": {
-     "sisdr": 6.775832176208496,
-     "lsd": 4.59608268737793
+     "sisdr": 20.68296241760254,
+     "lsd": 14.965290069580078
     },
     "no_declip": {
-     "sisdr": 6.293339729309082,
-     "lsd": 4.985040664672852
+     "sisdr": 24.26093292236328,
+     "lsd": 17.259456634521484
     },
     "no_deecho": {
-     "sisdr": 6.775832176208496,
-     "lsd": 4.59608268737793
+     "sisdr": 20.68296241760254,
+     "lsd": 14.965290069580078
     },
     "no_network": {
-     "sisdr": 4.291339874267578,
-     "lsd": 20.877593994140625
+     "sisdr": 20.68296241760254,
+     "lsd": 14.965290069580078
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (8.56% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -9.5 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (2.92% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-29.2 dB): left alone."
    ]
   },
   {
-   "file": "069726.mp3",
+   "file": "057891.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 0.9968150854110718,
+    "lsd": 22.52858543395996
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.413172245025635,
+     "lsd": 6.098600387573242
+    },
+    "no_declip": {
+     "sisdr": 5.230045318603516,
+     "lsd": 6.618975639343262
+    },
+    "no_deecho": {
+     "sisdr": 3.9884188175201416,
+     "lsd": 6.620638370513916
+    },
+    "no_network": {
+     "sisdr": 2.597377061843872,
+     "lsd": 20.57004165649414
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (7.54% of samples): peaks rebuilt.",
+    "Echo at 241 ms (gain 0.28): removed.",
+    "Room reverb / noise / clipping: excess measured at -9.3 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "057891.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24642181396484,
+     "lsd": 0.01088101789355278
+    },
+    "no_declip": {
+     "sisdr": 120.24642181396484,
+     "lsd": 0.01088101789355278
+    },
+    "no_deecho": {
+     "sisdr": 120.24642181396484,
+     "lsd": 0.01088101789355278
+    },
+    "no_network": {
+     "sisdr": 120.24642181396484,
+     "lsd": 0.01088101789355278
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-41.5 dB): left alone."
+   ]
+  },
+  {
+   "file": "080010.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 4.965360641479492,
+    "lsd": 7.229068756103516
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.970673561096191,
+     "lsd": 6.281315803527832
+    },
+    "no_declip": {
+     "sisdr": 5.970673561096191,
+     "lsd": 6.281315803527832
+    },
+    "no_deecho": {
+     "sisdr": 5.970673561096191,
+     "lsd": 6.281315803527832
+    },
+    "no_network": {
+     "sisdr": 4.965359687805176,
+     "lsd": 7.229067802429199
+    }
+   },
+   "decisions": [
+    "Echo at 281 ms sits on the tempo grid (2 sixteenth notes at 108 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -13.7 dB (gate -18): removed at 54% strength."
+   ]
+  },
+  {
+   "file": "080010.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 8.2102632522583,
+    "lsd": 8.37664794921875
+   },
+   "variants": {
+    "full": {
+     "sisdr": 12.61495590209961,
+     "lsd": 5.669639587402344
+    },
+    "no_declip": {
+     "sisdr": 12.61495590209961,
+     "lsd": 5.669639587402344
+    },
+    "no_deecho": {
+     "sisdr": 12.61495590209961,
+     "lsd": 5.669639587402344
+    },
+    "no_network": {
+     "sisdr": 8.210262298583984,
+     "lsd": 8.376648902893066
+    }
+   },
+   "decisions": [
+    "Echo at 142 ms sits on the tempo grid (1 sixteenth notes at 108 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -9.0 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "080010.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 33.875823974609375,
+    "lsd": 12.164446830749512
+   },
+   "variants": {
+    "full": {
+     "sisdr": 27.312450408935547,
+     "lsd": 13.50505256652832
+    },
+    "no_declip": {
+     "sisdr": 33.875823974609375,
+     "lsd": 12.164450645446777
+    },
+    "no_deecho": {
+     "sisdr": 27.312450408935547,
+     "lsd": 13.50505256652832
+    },
+    "no_network": {
+     "sisdr": 27.312450408935547,
+     "lsd": 13.50505256652832
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.17% of samples): peaks rebuilt.",
+    "Echo at 281 ms sits on the tempo grid (2 sixteenth notes at 108 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-28.9 dB): left alone."
+   ]
+  },
+  {
+   "file": "080010.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 2.171919107437134,
+    "lsd": 15.398892402648926
+   },
+   "variants": {
+    "full": {
+     "sisdr": 4.202115058898926,
+     "lsd": 9.787769317626953
+    },
+    "no_declip": {
+     "sisdr": 4.236105918884277,
+     "lsd": 9.64653205871582
+    },
+    "no_deecho": {
+     "sisdr": 4.202115058898926,
+     "lsd": 9.787769317626953
+    },
+    "no_network": {
+     "sisdr": 2.100534677505493,
+     "lsd": 15.436174392700195
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.74% of samples): peaks rebuilt.",
+    "Echo at 180 ms sits on the tempo grid (1 triplet eighths at 108 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -10.3 dB (gate -18): removed at 96% strength."
+   ]
+  },
+  {
+   "file": "080010.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -2346,147 +2056,1789 @@
    "variants": {
     "full": {
      "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "lsd": 0.009178186766803265
     },
     "no_declip": {
      "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "lsd": 0.009178186766803265
     },
     "no_deecho": {
      "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "lsd": 0.009178186766803265
     },
     "no_network": {
      "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "lsd": 0.009178186766803265
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-46.7 dB): left alone."
+    "Echo at 281 ms sits on the tempo grid (2 sixteenth notes at 108 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-46.2 dB): left alone."
    ]
   },
   {
-   "file": "036616.mp3",
+   "file": "018159.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 1.3404868841171265,
-    "lsd": 5.279229164123535
+    "sisdr": 0.4761039912700653,
+    "lsd": 3.8157618045806885
    },
    "variants": {
     "full": {
-     "sisdr": 6.412484645843506,
-     "lsd": 4.552285194396973
+     "sisdr": 4.684012413024902,
+     "lsd": 3.83743953704834
     },
     "no_declip": {
-     "sisdr": 6.412484645843506,
-     "lsd": 4.552285194396973
+     "sisdr": 4.684012413024902,
+     "lsd": 3.83743953704834
     },
     "no_deecho": {
-     "sisdr": 6.412484645843506,
-     "lsd": 4.552285194396973
+     "sisdr": 4.684012413024902,
+     "lsd": 3.83743953704834
     },
     "no_network": {
-     "sisdr": 1.3404868841171265,
-     "lsd": 5.279229164123535
+     "sisdr": 0.4761039912700653,
+     "lsd": 3.8157618045806885
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -4.2 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -5.4 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "036616.mp3",
+   "file": "018159.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 5.8891754150390625,
-    "lsd": 3.9515221118927
+    "sisdr": 12.333959579467773,
+    "lsd": 2.077221393585205
    },
    "variants": {
     "full": {
-     "sisdr": 23.85516929626465,
-     "lsd": 1.9986088275909424
+     "sisdr": 12.333959579467773,
+     "lsd": 2.077221393585205
     },
     "no_declip": {
-     "sisdr": 23.85516929626465,
-     "lsd": 1.9986088275909424
+     "sisdr": 12.333959579467773,
+     "lsd": 2.077221393585205
     },
     "no_deecho": {
-     "sisdr": 12.494752883911133,
-     "lsd": 3.580148696899414
+     "sisdr": 12.333959579467773,
+     "lsd": 2.077221393585205
     },
     "no_network": {
-     "sisdr": 23.85516929626465,
-     "lsd": 1.9986088275909424
+     "sisdr": 12.333959579467773,
+     "lsd": 2.077221393585205
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-20.5 dB): left alone."
+   ]
+  },
+  {
+   "file": "018159.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 20.44906234741211,
+    "lsd": 14.965309143066406
+   },
+   "variants": {
+    "full": {
+     "sisdr": 29.966079711914062,
+     "lsd": 13.620109558105469
+    },
+    "no_declip": {
+     "sisdr": 20.44906234741211,
+     "lsd": 14.965309143066406
+    },
+    "no_deecho": {
+     "sisdr": 29.966079711914062,
+     "lsd": 13.620109558105469
+    },
+    "no_network": {
+     "sisdr": 29.966079711914062,
+     "lsd": 13.620109558105469
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (2.63% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-34.1 dB): left alone."
+   ]
+  },
+  {
+   "file": "018159.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": -0.52101731300354,
+    "lsd": 19.653797149658203
+   },
+   "variants": {
+    "full": {
+     "sisdr": 1.190331220626831,
+     "lsd": 16.85272216796875
+    },
+    "no_declip": {
+     "sisdr": 0.6771583557128906,
+     "lsd": 18.448474884033203
+    },
+    "no_deecho": {
+     "sisdr": 0.7389405369758606,
+     "lsd": 12.283060073852539
+    },
+    "no_network": {
+     "sisdr": 0.8665615320205688,
+     "lsd": 18.967266082763672
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (7.35% of samples): peaks rebuilt.",
+    "Echo at 373 ms (gain 0.10): removed.",
+    "Room reverb / noise / clipping: excess measured at -14.6 dB (gate -18): removed at 42% strength."
+   ]
+  },
+  {
+   "file": "018159.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.010989237576723099
+    },
+    "no_declip": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.010989237576723099
+    },
+    "no_deecho": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.010989237576723099
+    },
+    "no_network": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.010989237576723099
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.9 dB): left alone."
+   ]
+  },
+  {
+   "file": "113300.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 1.814198613166809,
+    "lsd": 4.10793924331665
+   },
+   "variants": {
+    "full": {
+     "sisdr": 3.2003281116485596,
+     "lsd": 3.5570735931396484
+    },
+    "no_declip": {
+     "sisdr": 3.2003281116485596,
+     "lsd": 3.5570735931396484
+    },
+    "no_deecho": {
+     "sisdr": 3.2003281116485596,
+     "lsd": 3.5570735931396484
+    },
+    "no_network": {
+     "sisdr": 1.814198613166809,
+     "lsd": 4.107938289642334
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -11.6 dB (gate -18): removed at 79% strength."
+   ]
+  },
+  {
+   "file": "113300.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 12.591556549072266,
+    "lsd": 1.8000069856643677
+   },
+   "variants": {
+    "full": {
+     "sisdr": 13.78795051574707,
+     "lsd": 1.6468868255615234
+    },
+    "no_declip": {
+     "sisdr": 13.78795051574707,
+     "lsd": 1.6468868255615234
+    },
+    "no_deecho": {
+     "sisdr": 13.78795051574707,
+     "lsd": 1.6468868255615234
+    },
+    "no_network": {
+     "sisdr": 12.591557502746582,
+     "lsd": 1.800006628036499
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -15.2 dB (gate -18): removed at 35% strength."
+   ]
+  },
+  {
+   "file": "113300.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 30.91799545288086,
+    "lsd": 8.632083892822266
+   },
+   "variants": {
+    "full": {
+     "sisdr": 18.59336280822754,
+     "lsd": 8.274258613586426
+    },
+    "no_declip": {
+     "sisdr": 30.917991638183594,
+     "lsd": 8.632095336914062
+    },
+    "no_deecho": {
+     "sisdr": 18.59336280822754,
+     "lsd": 8.274258613586426
+    },
+    "no_network": {
+     "sisdr": 18.59336280822754,
+     "lsd": 8.274258613586426
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (2.65% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-26.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "113300.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 2.5894904136657715,
+    "lsd": 17.48391342163086
+   },
+   "variants": {
+    "full": {
+     "sisdr": 4.376537322998047,
+     "lsd": 4.309973239898682
+    },
+    "no_declip": {
+     "sisdr": 4.413504123687744,
+     "lsd": 4.5933003425598145
+    },
+    "no_deecho": {
+     "sisdr": 4.376537322998047,
+     "lsd": 4.309973239898682
+    },
+    "no_network": {
+     "sisdr": 2.4067869186401367,
+     "lsd": 15.874549865722656
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (7.16% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -8.9 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "113300.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 118.41935729980469,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 118.41935729980469,
+     "lsd": 0.0
+    },
+    "no_declip": {
+     "sisdr": 118.41935729980469,
+     "lsd": 0.0
+    },
+    "no_deecho": {
+     "sisdr": 118.41935729980469,
+     "lsd": 0.0
+    },
+    "no_network": {
+     "sisdr": 118.41935729980469,
+     "lsd": 0.0
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-27.6 dB): left alone."
+   ]
+  },
+  {
+   "file": "036300.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 0.679743766784668,
+    "lsd": 7.654784679412842
+   },
+   "variants": {
+    "full": {
+     "sisdr": 7.208373546600342,
+     "lsd": 6.2709550857543945
+    },
+    "no_declip": {
+     "sisdr": 7.208373546600342,
+     "lsd": 6.2709550857543945
+    },
+    "no_deecho": {
+     "sisdr": 7.208373546600342,
+     "lsd": 6.2709550857543945
+    },
+    "no_network": {
+     "sisdr": 0.679743766784668,
+     "lsd": 7.654784679412842
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -2.9 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "036300.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 6.165225028991699,
+    "lsd": 5.731982231140137
+   },
+   "variants": {
+    "full": {
+     "sisdr": 20.905208587646484,
+     "lsd": 2.404188632965088
+    },
+    "no_declip": {
+     "sisdr": 20.905208587646484,
+     "lsd": 2.404188632965088
+    },
+    "no_deecho": {
+     "sisdr": 12.374667167663574,
+     "lsd": 4.018894195556641
+    },
+    "no_network": {
+     "sisdr": 20.905208587646484,
+     "lsd": 2.404188632965088
     }
    },
    "decisions": [
     "Echo at 155 ms (gain 0.20): removed.",
     "Echo at 155 ms (gain 0.14): removed.",
-    "Room reverb: none in excess of a normal production (-39.8 dB): left alone."
+    "Room reverb: none in excess of a normal production (-28.2 dB): left alone."
    ]
   },
   {
-   "file": "036616.mp3",
+   "file": "036300.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 15.470260620117188,
-    "lsd": 3.06734037399292
+    "sisdr": 17.122623443603516,
+    "lsd": 3.9210472106933594
    },
    "variants": {
     "full": {
-     "sisdr": 26.038345336914062,
-     "lsd": 2.5066184997558594
+     "sisdr": 22.680683135986328,
+     "lsd": 3.9389147758483887
     },
     "no_declip": {
-     "sisdr": 15.484432220458984,
-     "lsd": 3.055011034011841
+     "sisdr": 17.122623443603516,
+     "lsd": 3.9210457801818848
     },
     "no_deecho": {
-     "sisdr": 26.038345336914062,
-     "lsd": 2.5066184997558594
+     "sisdr": 22.680683135986328,
+     "lsd": 3.9389147758483887
     },
     "no_network": {
-     "sisdr": 26.038345336914062,
-     "lsd": 2.5066184997558594
+     "sisdr": 22.680683135986328,
+     "lsd": 3.9389147758483887
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (2.51% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-24.8 dB): left alone."
+    "Clipping: flat ceiling found (2.62% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-23.1 dB): left alone."
    ]
   },
   {
-   "file": "036616.mp3",
+   "file": "036300.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 1.8783156871795654,
-    "lsd": 5.798064231872559
+    "sisdr": -0.07244742661714554,
+    "lsd": 9.543991088867188
    },
    "variants": {
     "full": {
-     "sisdr": 4.109381675720215,
-     "lsd": 5.355741500854492
+     "sisdr": 2.628689765930176,
+     "lsd": 6.844085693359375
     },
     "no_declip": {
-     "sisdr": 3.7896738052368164,
-     "lsd": 5.191309928894043
+     "sisdr": 1.9028756618499756,
+     "lsd": 7.02906608581543
     },
     "no_deecho": {
-     "sisdr": 4.109381675720215,
-     "lsd": 5.355741500854492
+     "sisdr": 2.628689765930176,
+     "lsd": 6.844085693359375
     },
     "no_network": {
-     "sisdr": 2.210817575454712,
-     "lsd": 5.959880352020264
+     "sisdr": 0.3072358965873718,
+     "lsd": 9.846288681030273
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (2.76% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -9.7 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "036300.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.22557067871094,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.21881866455078,
+     "lsd": 0.006484932266175747
+    },
+    "no_declip": {
+     "sisdr": 120.21881866455078,
+     "lsd": 0.006484932266175747
+    },
+    "no_deecho": {
+     "sisdr": 120.21881866455078,
+     "lsd": 0.006484932266175747
+    },
+    "no_network": {
+     "sisdr": 120.21881866455078,
+     "lsd": 0.006484932266175747
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-28.8 dB): left alone."
+   ]
+  },
+  {
+   "file": "066634.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 3.035499095916748,
+    "lsd": 6.923104763031006
+   },
+   "variants": {
+    "full": {
+     "sisdr": 8.724355697631836,
+     "lsd": 5.590003967285156
+    },
+    "no_declip": {
+     "sisdr": 8.724355697631836,
+     "lsd": 5.590003967285156
+    },
+    "no_deecho": {
+     "sisdr": 8.724355697631836,
+     "lsd": 5.590003967285156
+    },
+    "no_network": {
+     "sisdr": 3.035499095916748,
+     "lsd": 6.923104763031006
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -6.3 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "066634.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 5.394423007965088,
+    "lsd": 4.206851005554199
+   },
+   "variants": {
+    "full": {
+     "sisdr": 15.52071475982666,
+     "lsd": 3.0881447792053223
+    },
+    "no_declip": {
+     "sisdr": 15.52071475982666,
+     "lsd": 3.0881447792053223
+    },
+    "no_deecho": {
+     "sisdr": 15.52071475982666,
+     "lsd": 3.0881447792053223
+    },
+    "no_network": {
+     "sisdr": 5.394424915313721,
+     "lsd": 4.206851482391357
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -6.2 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "066634.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 24.309463500976562,
+    "lsd": 3.307215690612793
+   },
+   "variants": {
+    "full": {
+     "sisdr": 17.351911544799805,
+     "lsd": 7.549610137939453
+    },
+    "no_declip": {
+     "sisdr": 16.699203491210938,
+     "lsd": 8.026174545288086
+    },
+    "no_deecho": {
+     "sisdr": 25.189422607421875,
+     "lsd": 3.064608097076416
+    },
+    "no_network": {
+     "sisdr": 17.351911544799805,
+     "lsd": 7.549610137939453
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (0.60% of samples): peaks rebuilt.",
+    "Echo at 643 ms (gain 0.12): removed.",
+    "Room reverb: none in excess of a normal production (-26.1 dB): left alone."
+   ]
+  },
+  {
+   "file": "066634.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 1.230025053024292,
+    "lsd": 10.330604553222656
+   },
+   "variants": {
+    "full": {
+     "sisdr": 7.224340915679932,
+     "lsd": 7.374651908874512
+    },
+    "no_declip": {
+     "sisdr": 6.700371742248535,
+     "lsd": 8.845601081848145
+    },
+    "no_deecho": {
+     "sisdr": 7.224340915679932,
+     "lsd": 7.374651908874512
+    },
+    "no_network": {
+     "sisdr": 1.4233067035675049,
+     "lsd": 10.775688171386719
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (2.00% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -4.9 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "066634.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.007361060474067926
+    },
+    "no_declip": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.007361060474067926
+    },
+    "no_deecho": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.007361060474067926
+    },
+    "no_network": {
+     "sisdr": 120.24649047851562,
+     "lsd": 0.007361060474067926
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-46.3 dB): left alone."
+   ]
+  },
+  {
+   "file": "127181.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 3.3574066162109375,
+    "lsd": 4.907200813293457
+   },
+   "variants": {
+    "full": {
+     "sisdr": 7.001442909240723,
+     "lsd": 3.1963558197021484
+    },
+    "no_declip": {
+     "sisdr": 7.001442909240723,
+     "lsd": 3.1963558197021484
+    },
+    "no_deecho": {
+     "sisdr": 7.001442909240723,
+     "lsd": 3.1963558197021484
+    },
+    "no_network": {
+     "sisdr": 3.3574066162109375,
+     "lsd": 4.907200813293457
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -8.8 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "127181.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 13.998994827270508,
+    "lsd": 5.073884010314941
+   },
+   "variants": {
+    "full": {
+     "sisdr": 25.329809188842773,
+     "lsd": 2.3962559700012207
+    },
+    "no_declip": {
+     "sisdr": 25.329809188842773,
+     "lsd": 2.3962559700012207
+    },
+    "no_deecho": {
+     "sisdr": 14.189002990722656,
+     "lsd": 5.017850875854492
+    },
+    "no_network": {
+     "sisdr": 25.329809188842773,
+     "lsd": 2.3962559700012207
+    }
+   },
+   "decisions": [
+    "Echo at 426 ms (gain 0.19): removed.",
+    "Room reverb: none in excess of a normal production (-48.0 dB): left alone."
+   ]
+  },
+  {
+   "file": "127181.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 22.5944881439209,
+    "lsd": 4.23780632019043
+   },
+   "variants": {
+    "full": {
+     "sisdr": 24.675264358520508,
+     "lsd": 4.2220964431762695
+    },
+    "no_declip": {
+     "sisdr": 22.5944881439209,
+     "lsd": 4.23780632019043
+    },
+    "no_deecho": {
+     "sisdr": 24.675264358520508,
+     "lsd": 4.2220964431762695
+    },
+    "no_network": {
+     "sisdr": 24.675264358520508,
+     "lsd": 4.2220964431762695
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (1.74% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-22.9 dB): left alone."
+   ]
+  },
+  {
+   "file": "127181.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 1.877600073814392,
+    "lsd": 7.064666748046875
+   },
+   "variants": {
+    "full": {
+     "sisdr": 4.551955223083496,
+     "lsd": 5.371257781982422
+    },
+    "no_declip": {
+     "sisdr": 4.267893314361572,
+     "lsd": 5.274477005004883
+    },
+    "no_deecho": {
+     "sisdr": 4.551955223083496,
+     "lsd": 5.371257781982422
+    },
+    "no_network": {
+     "sisdr": 1.9139851331710815,
+     "lsd": 7.329531669616699
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (1.92% of samples): peaks rebuilt.",
+    "Room reverb / noise / clipping: excess measured at -9.0 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "127181.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.2464370727539,
+     "lsd": 0.00748926866799593
+    },
+    "no_declip": {
+     "sisdr": 120.2464370727539,
+     "lsd": 0.00748926866799593
+    },
+    "no_deecho": {
+     "sisdr": 120.2464370727539,
+     "lsd": 0.00748926866799593
+    },
+    "no_network": {
+     "sisdr": 120.2464370727539,
+     "lsd": 0.00748926866799593
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-48.0 dB): left alone."
+   ]
+  },
+  {
+   "file": "030048.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 2.1446619033813477,
+    "lsd": 4.845061302185059
+   },
+   "variants": {
+    "full": {
+     "sisdr": 2.273444652557373,
+     "lsd": 4.77770471572876
+    },
+    "no_declip": {
+     "sisdr": 2.273444652557373,
+     "lsd": 4.77770471572876
+    },
+    "no_deecho": {
+     "sisdr": 2.273444652557373,
+     "lsd": 4.77770471572876
+    },
+    "no_network": {
+     "sisdr": 2.1446621417999268,
+     "lsd": 4.84506368637085
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -16.9 dB (gate -18): removed at 14% strength."
+   ]
+  },
+  {
+   "file": "030048.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 9.702746391296387,
+    "lsd": 2.3079605102539062
+   },
+   "variants": {
+    "full": {
+     "sisdr": 14.290547370910645,
+     "lsd": 2.1006500720977783
+    },
+    "no_declip": {
+     "sisdr": 14.290547370910645,
+     "lsd": 2.1006500720977783
+    },
+    "no_deecho": {
+     "sisdr": 14.290547370910645,
+     "lsd": 2.1006500720977783
+    },
+    "no_network": {
+     "sisdr": 9.70274829864502,
+     "lsd": 2.3079612255096436
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -12.0 dB (gate -18): removed at 75% strength."
+   ]
+  },
+  {
+   "file": "030048.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 44.13609313964844,
+    "lsd": 12.513078689575195
+   },
+   "variants": {
+    "full": {
+     "sisdr": 29.08729362487793,
+     "lsd": 16.298688888549805
+    },
+    "no_declip": {
+     "sisdr": 44.13610076904297,
+     "lsd": 12.513072967529297
+    },
+    "no_deecho": {
+     "sisdr": 29.08729362487793,
+     "lsd": 16.298688888549805
+    },
+    "no_network": {
+     "sisdr": 29.08729362487793,
+     "lsd": 16.298688888549805
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (5.94% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-24.2 dB): left alone."
+   ]
+  },
+  {
+   "file": "030048.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 6.630742073059082,
+    "lsd": 13.508975982666016
+   },
+   "variants": {
+    "full": {
+     "sisdr": 8.183686256408691,
+     "lsd": 9.995889663696289
+    },
+    "no_declip": {
+     "sisdr": 8.236261367797852,
+     "lsd": 9.177581787109375
+    },
+    "no_deecho": {
+     "sisdr": 8.183686256408691,
+     "lsd": 9.995889663696289
+    },
+    "no_network": {
+     "sisdr": 6.3926286697387695,
+     "lsd": 15.167444229125977
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (8.06% of samples): peaks rebuilt.",
+    "Echo at 220 ms sits on the tempo grid (2 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -11.4 dB (gate -18): removed at 82% strength."
+   ]
+  },
+  {
+   "file": "030048.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.22620391845703,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.16075897216797,
+     "lsd": 0.010382628068327904
+    },
+    "no_declip": {
+     "sisdr": 120.16075897216797,
+     "lsd": 0.010382628068327904
+    },
+    "no_deecho": {
+     "sisdr": 120.16075897216797,
+     "lsd": 0.010382628068327904
+    },
+    "no_network": {
+     "sisdr": 120.16075897216797,
+     "lsd": 0.010382628068327904
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-30.1 dB): left alone."
+   ]
+  },
+  {
+   "file": "129836.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 2.700777053833008,
+    "lsd": 4.386828422546387
+   },
+   "variants": {
+    "full": {
+     "sisdr": 2.847444772720337,
+     "lsd": 4.838510513305664
+    },
+    "no_declip": {
+     "sisdr": 2.847444772720337,
+     "lsd": 4.838510513305664
+    },
+    "no_deecho": {
+     "sisdr": 2.847444772720337,
+     "lsd": 4.838510513305664
+    },
+    "no_network": {
+     "sisdr": 2.7007758617401123,
+     "lsd": 4.386828422546387
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -8.4 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "129836.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 4.55726432800293,
+    "lsd": 5.361462593078613
+   },
+   "variants": {
+    "full": {
+     "sisdr": 11.381611824035645,
+     "lsd": 3.562687873840332
+    },
+    "no_declip": {
+     "sisdr": 11.381611824035645,
+     "lsd": 3.562687873840332
+    },
+    "no_deecho": {
+     "sisdr": 5.137447834014893,
+     "lsd": 5.267975807189941
+    },
+    "no_network": {
+     "sisdr": 11.381611824035645,
+     "lsd": 3.562687873840332
+    }
+   },
+   "decisions": [
+    "Echo at 424 ms (gain 0.41): removed.",
+    "Room reverb: none in excess of a normal production (-21.5 dB): left alone."
+   ]
+  },
+  {
+   "file": "129836.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 17.75087547302246,
+    "lsd": 11.70671272277832
+   },
+   "variants": {
+    "full": {
+     "sisdr": 26.6478271484375,
+     "lsd": 14.590888023376465
+    },
+    "no_declip": {
+     "sisdr": 17.750877380371094,
+     "lsd": 11.706708908081055
+    },
+    "no_deecho": {
+     "sisdr": 26.6478271484375,
+     "lsd": 14.590888023376465
+    },
+    "no_network": {
+     "sisdr": 26.6478271484375,
+     "lsd": 14.590888023376465
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (8.81% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-20.0 dB): left alone."
+   ]
+  },
+  {
+   "file": "129836.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 2.5983662605285645,
+    "lsd": 9.399933815002441
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.697765350341797,
+     "lsd": 6.185229301452637
+    },
+    "no_declip": {
+     "sisdr": 5.731504440307617,
+     "lsd": 6.1024980545043945
+    },
+    "no_deecho": {
+     "sisdr": 3.1264724731445312,
+     "lsd": 6.181042194366455
+    },
+    "no_network": {
+     "sisdr": 5.7978363037109375,
+     "lsd": 12.254315376281738
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (4.21% of samples): peaks rebuilt.",
+    "Echo at 89 ms (gain 0.21): removed.",
+    "Room reverb / noise / clipping: excess measured at -10.2 dB (gate -18): removed at 98% strength."
+   ]
+  },
+  {
+   "file": "129836.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010927999392151833
+    },
+    "no_declip": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010927999392151833
+    },
+    "no_deecho": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010927999392151833
+    },
+    "no_network": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010927999392151833
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-21.8 dB): left alone."
+   ]
+  },
+  {
+   "file": "114239.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 1.1935324668884277,
+    "lsd": 4.025245189666748
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.82406759262085,
+     "lsd": 3.995356798171997
+    },
+    "no_declip": {
+     "sisdr": 5.82406759262085,
+     "lsd": 3.995356798171997
+    },
+    "no_deecho": {
+     "sisdr": 5.82406759262085,
+     "lsd": 3.995356798171997
+    },
+    "no_network": {
+     "sisdr": 1.1935316324234009,
+     "lsd": 4.025246620178223
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -5.1 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "114239.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 10.849885940551758,
+    "lsd": 2.4441587924957275
+   },
+   "variants": {
+    "full": {
+     "sisdr": 30.509042739868164,
+     "lsd": 0.6815611124038696
+    },
+    "no_declip": {
+     "sisdr": 30.509042739868164,
+     "lsd": 0.6815611124038696
+    },
+    "no_deecho": {
+     "sisdr": 14.03023910522461,
+     "lsd": 2.212817668914795
+    },
+    "no_network": {
+     "sisdr": 30.509042739868164,
+     "lsd": 0.6815611124038696
+    }
+   },
+   "decisions": [
+    "Echo at 223 ms (gain 0.13): removed.",
+    "Echo at 223 ms (gain 0.08): removed.",
+    "Room reverb: none in excess of a normal production (-37.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "114239.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 24.473295211791992,
+    "lsd": 1.2852556705474854
+   },
+   "variants": {
+    "full": {
+     "sisdr": 33.72522735595703,
+     "lsd": 1.2364572286605835
+    },
+    "no_declip": {
+     "sisdr": 24.473295211791992,
+     "lsd": 1.2852556705474854
+    },
+    "no_deecho": {
+     "sisdr": 33.72522735595703,
+     "lsd": 1.2364572286605835
+    },
+    "no_network": {
+     "sisdr": 33.72522735595703,
+     "lsd": 1.2364572286605835
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (0.96% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-27.3 dB): left alone."
+   ]
+  },
+  {
+   "file": "114239.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 0.9930605888366699,
+    "lsd": 10.3274507522583
+   },
+   "variants": {
+    "full": {
+     "sisdr": 2.9683637619018555,
+     "lsd": 6.5655035972595215
+    },
+    "no_declip": {
+     "sisdr": 1.8760700225830078,
+     "lsd": 7.836727142333984
+    },
+    "no_deecho": {
+     "sisdr": 2.9683637619018555,
+     "lsd": 6.5655035972595215
+    },
+    "no_network": {
+     "sisdr": 1.938882827758789,
+     "lsd": 10.460942268371582
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (7.62% of samples): peaks rebuilt.",
+    "Echo at 350 ms sits on the tempo grid (4 sixteenth notes at 172 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -10.5 dB (gate -18): removed at 94% strength."
+   ]
+  },
+  {
+   "file": "114239.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.009169287979602814
+    },
+    "no_declip": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.009169287979602814
+    },
+    "no_deecho": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.009169287979602814
+    },
+    "no_network": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.009169287979602814
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-38.2 dB): left alone."
+   ]
+  },
+  {
+   "file": "041867.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 7.935982704162598,
+    "lsd": 7.798969268798828
+   },
+   "variants": {
+    "full": {
+     "sisdr": 11.727580070495605,
+     "lsd": 6.392834663391113
+    },
+    "no_declip": {
+     "sisdr": 11.727580070495605,
+     "lsd": 6.392834663391113
+    },
+    "no_deecho": {
+     "sisdr": 11.727580070495605,
+     "lsd": 6.392834663391113
+    },
+    "no_network": {
+     "sisdr": 7.935982704162598,
+     "lsd": 7.798969268798828
+    }
+   },
+   "decisions": [
+    "Echo at 444 ms sits on the tempo grid (4 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -12.2 dB (gate -18): removed at 73% strength."
+   ]
+  },
+  {
+   "file": "041867.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 4.584615707397461,
+    "lsd": 13.828034400939941
+   },
+   "variants": {
+    "full": {
+     "sisdr": 15.284883499145508,
+     "lsd": 11.759634017944336
+    },
+    "no_declip": {
+     "sisdr": 15.284883499145508,
+     "lsd": 11.759634017944336
+    },
+    "no_deecho": {
+     "sisdr": 12.274331092834473,
+     "lsd": 8.09112548828125
+    },
+    "no_network": {
+     "sisdr": 15.284883499145508,
+     "lsd": 11.759634017944336
+    }
+   },
+   "decisions": [
+    "Echo at 209 ms (gain 0.48): removed.",
+    "Echo at 418 ms (gain 0.24): removed.",
+    "Echo at 444 ms sits on the tempo grid (4 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-36.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "041867.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 19.307819366455078,
+    "lsd": 14.098111152648926
+   },
+   "variants": {
+    "full": {
+     "sisdr": 28.200210571289062,
+     "lsd": 13.143146514892578
+    },
+    "no_declip": {
+     "sisdr": 19.30782127380371,
+     "lsd": 14.098114013671875
+    },
+    "no_deecho": {
+     "sisdr": 28.200210571289062,
+     "lsd": 13.143146514892578
+    },
+    "no_network": {
+     "sisdr": 28.200210571289062,
+     "lsd": 13.143146514892578
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.98% of samples): peaks rebuilt.",
+    "Echo at 444 ms sits on the tempo grid (4 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-26.8 dB): left alone."
+   ]
+  },
+  {
+   "file": "041867.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 3.4279680252075195,
+    "lsd": 19.399959564208984
+   },
+   "variants": {
+    "full": {
+     "sisdr": 7.8661580085754395,
+     "lsd": 18.18232536315918
+    },
+    "no_declip": {
+     "sisdr": 6.409130573272705,
+     "lsd": 20.686492919921875
+    },
+    "no_deecho": {
+     "sisdr": 8.843153953552246,
+     "lsd": 9.13746166229248
+    },
+    "no_network": {
+     "sisdr": 5.983601093292236,
+     "lsd": 21.743677139282227
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (4.16% of samples): peaks rebuilt.",
+    "Echo at 105 ms (gain 0.14): removed.",
+    "Echo at 444 ms (gain 0.23): removed.",
+    "Room reverb / noise / clipping: excess measured at -12.9 dB (gate -18): removed at 64% strength."
+   ]
+  },
+  {
+   "file": "041867.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.23937225341797,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.16462707519531,
+     "lsd": 0.009140495210886002
+    },
+    "no_declip": {
+     "sisdr": 120.16462707519531,
+     "lsd": 0.009140495210886002
+    },
+    "no_deecho": {
+     "sisdr": 120.16462707519531,
+     "lsd": 0.009140495210886002
+    },
+    "no_network": {
+     "sisdr": 120.16462707519531,
+     "lsd": 0.009140495210886002
+    }
+   },
+   "decisions": [
+    "Echo at 444 ms sits on the tempo grid (4 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-37.5 dB): left alone."
+   ]
+  },
+  {
+   "file": "060536.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 4.88145637512207,
+    "lsd": 5.754607677459717
+   },
+   "variants": {
+    "full": {
+     "sisdr": 6.336254596710205,
+     "lsd": 4.101807594299316
+    },
+    "no_declip": {
+     "sisdr": 6.336254596710205,
+     "lsd": 4.101807594299316
+    },
+    "no_deecho": {
+     "sisdr": 6.336254596710205,
+     "lsd": 4.101807594299316
+    },
+    "no_network": {
+     "sisdr": 4.881458282470703,
+     "lsd": 5.754608154296875
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -10.5 dB (gate -18): removed at 94% strength."
+   ]
+  },
+  {
+   "file": "060536.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 7.390850067138672,
+    "lsd": 6.172314167022705
+   },
+   "variants": {
+    "full": {
+     "sisdr": 9.788952827453613,
+     "lsd": 5.192296504974365
+    },
+    "no_declip": {
+     "sisdr": 9.788952827453613,
+     "lsd": 5.192296504974365
+    },
+    "no_deecho": {
+     "sisdr": 9.788952827453613,
+     "lsd": 5.192296504974365
+    },
+    "no_network": {
+     "sisdr": 7.390850067138672,
+     "lsd": 6.172314167022705
+    }
+   },
+   "decisions": [
+    "Echo at 304 ms sits on the tempo grid (2 triplet eighths at 129 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -10.8 dB (gate -18): removed at 90% strength."
+   ]
+  },
+  {
+   "file": "060536.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 21.40802001953125,
+    "lsd": 12.18140983581543
+   },
+   "variants": {
+    "full": {
+     "sisdr": 29.596033096313477,
+     "lsd": 10.826715469360352
+    },
+    "no_declip": {
+     "sisdr": 21.40802001953125,
+     "lsd": 12.18140983581543
+    },
+    "no_deecho": {
+     "sisdr": 29.596033096313477,
+     "lsd": 10.826715469360352
+    },
+    "no_network": {
+     "sisdr": 29.596033096313477,
+     "lsd": 10.826715469360352
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.43% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-29.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "060536.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 2.3359570503234863,
+    "lsd": 15.462213516235352
+   },
+   "variants": {
+    "full": {
+     "sisdr": 5.183012008666992,
+     "lsd": 6.789644241333008
+    },
+    "no_declip": {
+     "sisdr": 4.960207462310791,
+     "lsd": 6.972319602966309
+    },
+    "no_deecho": {
+     "sisdr": 3.9446065425872803,
+     "lsd": 6.318488121032715
+    },
+    "no_network": {
+     "sisdr": 4.136727809906006,
+     "lsd": 14.691361427307129
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (3.13% of samples): peaks rebuilt.",
+    "Echo at 362 ms (gain 0.31): removed.",
+    "Room reverb / noise / clipping: excess measured at -8.7 dB (gate -18): removed at 100% strength."
+   ]
+  },
+  {
+   "file": "060536.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010225002653896809
+    },
+    "no_declip": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010225002653896809
+    },
+    "no_deecho": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010225002653896809
+    },
+    "no_network": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.010225002653896809
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-43.6 dB): left alone."
+   ]
+  },
+  {
+   "file": "032461.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 7.981123447418213,
+    "lsd": 2.433108329772949
+   },
+   "variants": {
+    "full": {
+     "sisdr": 7.981123447418213,
+     "lsd": 2.433105945587158
+    },
+    "no_declip": {
+     "sisdr": 7.981123447418213,
+     "lsd": 2.433105945587158
+    },
+    "no_deecho": {
+     "sisdr": 7.981123447418213,
+     "lsd": 2.433105945587158
+    },
+    "no_network": {
+     "sisdr": 7.981123447418213,
+     "lsd": 2.433105945587158
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-20.9 dB): left alone."
+   ]
+  },
+  {
+   "file": "032461.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 10.595039367675781,
+    "lsd": 3.9782896041870117
+   },
+   "variants": {
+    "full": {
+     "sisdr": 25.297754287719727,
+     "lsd": 1.2034724950790405
+    },
+    "no_declip": {
+     "sisdr": 25.297754287719727,
+     "lsd": 1.2034724950790405
+    },
+    "no_deecho": {
+     "sisdr": 11.387782096862793,
+     "lsd": 3.7872772216796875
+    },
+    "no_network": {
+     "sisdr": 25.297754287719727,
+     "lsd": 1.2034724950790405
+    }
+   },
+   "decisions": [
+    "Echo at 117 ms (gain 0.27): removed.",
+    "Room reverb: none in excess of a normal production (-31.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "032461.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 25.11102294921875,
+    "lsd": 18.667137145996094
+   },
+   "variants": {
+    "full": {
+     "sisdr": 33.049556732177734,
+     "lsd": 16.342248916625977
+    },
+    "no_declip": {
+     "sisdr": 25.11102294921875,
+     "lsd": 18.667137145996094
+    },
+    "no_deecho": {
+     "sisdr": 33.049556732177734,
+     "lsd": 16.342248916625977
+    },
+    "no_network": {
+     "sisdr": 33.049556732177734,
+     "lsd": 16.342248916625977
     }
    },
    "decisions": [
     "Clipping: flat ceiling found (3.01% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -11.2 dB (gate -24): removed at 100% strength."
+    "Room reverb: none in excess of a normal production (-31.4 dB): left alone."
    ]
   },
   {
-   "file": "036616.mp3",
+   "file": "032461.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": -0.5531899929046631,
+    "lsd": 19.879281997680664
+   },
+   "variants": {
+    "full": {
+     "sisdr": 2.9432201385498047,
+     "lsd": 11.551827430725098
+    },
+    "no_declip": {
+     "sisdr": 1.0793399810791016,
+     "lsd": 6.787912368774414
+    },
+    "no_deecho": {
+     "sisdr": 1.3421404361724854,
+     "lsd": 6.5466413497924805
+    },
+    "no_network": {
+     "sisdr": 1.2579618692398071,
+     "lsd": 18.695606231689453
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (6.67% of samples): peaks rebuilt.",
+    "Echo at 282 ms (gain 0.28): removed.",
+    "Echo at 563 ms (gain 0.12): removed.",
+    "Echo at 282 ms (gain 0.10): removed.",
+    "Room reverb / noise / clipping: excess measured at -11.2 dB (gate -18): removed at 85% strength."
+   ]
+  },
+  {
+   "file": "032461.mp3",
+   "cond": "clean",
+   "input": {
+    "sisdr": 120.24649810791016,
+    "lsd": 0.0
+   },
+   "variants": {
+    "full": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.0
+    },
+    "no_declip": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.0
+    },
+    "no_deecho": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.0
+    },
+    "no_network": {
+     "sisdr": 120.24649810791016,
+     "lsd": 0.0
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-43.2 dB): left alone."
+   ]
+  },
+  {
+   "file": "135219.mp3",
+   "cond": "reverb",
+   "input": {
+    "sisdr": 9.805871963500977,
+    "lsd": 2.8687984943389893
+   },
+   "variants": {
+    "full": {
+     "sisdr": 9.805871963500977,
+     "lsd": 2.8687984943389893
+    },
+    "no_declip": {
+     "sisdr": 9.805871963500977,
+     "lsd": 2.8687984943389893
+    },
+    "no_deecho": {
+     "sisdr": 9.805871963500977,
+     "lsd": 2.8687984943389893
+    },
+    "no_network": {
+     "sisdr": 9.805871963500977,
+     "lsd": 2.8687984943389893
+    }
+   },
+   "decisions": [
+    "Room reverb: none in excess of a normal production (-18.4 dB): left alone."
+   ]
+  },
+  {
+   "file": "135219.mp3",
+   "cond": "echo",
+   "input": {
+    "sisdr": 11.16662883758545,
+    "lsd": 1.8680460453033447
+   },
+   "variants": {
+    "full": {
+     "sisdr": 13.149194717407227,
+     "lsd": 1.7723374366760254
+    },
+    "no_declip": {
+     "sisdr": 13.149194717407227,
+     "lsd": 1.7723374366760254
+    },
+    "no_deecho": {
+     "sisdr": 13.149194717407227,
+     "lsd": 1.7723374366760254
+    },
+    "no_network": {
+     "sisdr": 11.16662883758545,
+     "lsd": 1.8680460453033447
+    }
+   },
+   "decisions": [
+    "Room reverb / noise / clipping: excess measured at -14.6 dB (gate -18): removed at 43% strength."
+   ]
+  },
+  {
+   "file": "135219.mp3",
+   "cond": "clip",
+   "input": {
+    "sisdr": 14.503384590148926,
+    "lsd": 3.4666996002197266
+   },
+   "variants": {
+    "full": {
+     "sisdr": 25.50762367248535,
+     "lsd": 2.8243632316589355
+    },
+    "no_declip": {
+     "sisdr": 14.503384590148926,
+     "lsd": 3.4666996002197266
+    },
+    "no_deecho": {
+     "sisdr": 25.50762367248535,
+     "lsd": 2.8243632316589355
+    },
+    "no_network": {
+     "sisdr": 25.50762367248535,
+     "lsd": 2.8243632316589355
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (5.76% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-24.1 dB): left alone."
+   ]
+  },
+  {
+   "file": "135219.mp3",
+   "cond": "all three",
+   "input": {
+    "sisdr": 3.8554749488830566,
+    "lsd": 6.474689483642578
+   },
+   "variants": {
+    "full": {
+     "sisdr": 6.194908142089844,
+     "lsd": 4.513357162475586
+    },
+    "no_declip": {
+     "sisdr": 5.258480072021484,
+     "lsd": 4.808919906616211
+    },
+    "no_deecho": {
+     "sisdr": 5.848550319671631,
+     "lsd": 5.765265464782715
+    },
+    "no_network": {
+     "sisdr": 5.379672527313232,
+     "lsd": 4.60743522644043
+    }
+   },
+   "decisions": [
+    "Clipping: flat ceiling found (1.73% of samples): peaks rebuilt.",
+    "Echo at 186 ms (gain 0.41): removed.",
+    "Room reverb / noise / clipping: excess measured at -14.1 dB (gate -18): removed at 49% strength."
+   ]
+  },
+  {
+   "file": "135219.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649047851562,
@@ -2494,298 +3846,148 @@
    },
    "variants": {
     "full": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.24639129638672,
+     "lsd": 0.0004483347584027797
     },
     "no_declip": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.24639129638672,
+     "lsd": 0.0004483347584027797
     },
     "no_deecho": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.24639129638672,
+     "lsd": 0.0004483347584027797
     },
     "no_network": {
-     "sisdr": 120.24649047851562,
-     "lsd": 0.0
+     "sisdr": 120.24639129638672,
+     "lsd": 0.0004483347584027797
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-39.4 dB): left alone."
+    "Room reverb: none in excess of a normal production (-42.0 dB): left alone."
    ]
   },
   {
-   "file": "059687.mp3",
+   "file": "042234.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 1.2598358392715454,
-    "lsd": 4.3852105140686035
+    "sisdr": 6.454506874084473,
+    "lsd": 4.619126319885254
    },
    "variants": {
     "full": {
-     "sisdr": 4.008004188537598,
-     "lsd": 4.116152763366699
+     "sisdr": 7.042645454406738,
+     "lsd": 4.466607093811035
     },
     "no_declip": {
-     "sisdr": 4.008004188537598,
-     "lsd": 4.116152763366699
+     "sisdr": 7.042645454406738,
+     "lsd": 4.466607093811035
     },
     "no_deecho": {
-     "sisdr": 4.008004188537598,
-     "lsd": 4.116152763366699
+     "sisdr": 7.042645454406738,
+     "lsd": 4.466607093811035
     },
     "no_network": {
-     "sisdr": 1.2598358392715454,
-     "lsd": 4.3852105140686035
+     "sisdr": 6.454506874084473,
+     "lsd": 4.619124412536621
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -4.2 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -15.3 dB (gate -18): removed at 34% strength."
    ]
   },
   {
-   "file": "059687.mp3",
+   "file": "042234.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 6.123851776123047,
-    "lsd": 3.02590274810791
+    "sisdr": 11.402565002441406,
+    "lsd": 6.006750106811523
    },
    "variants": {
     "full": {
-     "sisdr": 6.096512794494629,
-     "lsd": 1.8890736103057861
+     "sisdr": 21.133277893066406,
+     "lsd": 2.9589436054229736
     },
     "no_declip": {
-     "sisdr": 6.096512794494629,
-     "lsd": 1.8890736103057861
+     "sisdr": 21.133277893066406,
+     "lsd": 2.9589436054229736
     },
     "no_deecho": {
-     "sisdr": 3.870483875274658,
-     "lsd": 3.266496181488037
+     "sisdr": 12.597799301147461,
+     "lsd": 5.627506256103516
     },
     "no_network": {
-     "sisdr": 20.077651977539062,
-     "lsd": 1.0413577556610107
+     "sisdr": 21.133277893066406,
+     "lsd": 2.9589436054229736
     }
    },
    "decisions": [
-    "Echo at 451 ms (gain 0.13): removed.",
-    "Echo at 451 ms (gain 0.08): removed.",
-    "Room reverb / noise / clipping: excess measured at -6.8 dB (gate -24): removed at 100% strength."
+    "Echo at 385 ms (gain 0.25): removed.",
+    "Room reverb: none in excess of a normal production (-46.6 dB): left alone."
    ]
   },
   {
-   "file": "059687.mp3",
+   "file": "042234.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 25.135986328125,
-    "lsd": 3.078291416168213
+    "sisdr": 21.38465690612793,
+    "lsd": 11.436777114868164
    },
    "variants": {
     "full": {
-     "sisdr": 6.131453514099121,
-     "lsd": 1.9225058555603027
+     "sisdr": 32.49610137939453,
+     "lsd": 10.103056907653809
     },
     "no_declip": {
-     "sisdr": 6.357367515563965,
-     "lsd": 2.0803699493408203
+     "sisdr": 21.384658813476562,
+     "lsd": 11.436777114868164
     },
     "no_deecho": {
-     "sisdr": 6.131453514099121,
-     "lsd": 1.9225058555603027
+     "sisdr": 32.49610137939453,
+     "lsd": 10.103056907653809
     },
     "no_network": {
-     "sisdr": 39.015602111816406,
-     "lsd": 2.751300811767578
+     "sisdr": 32.49610137939453,
+     "lsd": 10.103056907653809
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (0.64% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -6.8 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (1.82% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-27.0 dB): left alone."
    ]
   },
   {
-   "file": "059687.mp3",
+   "file": "042234.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": -0.34227117896080017,
-    "lsd": 8.773017883300781
+    "sisdr": 3.077274799346924,
+    "lsd": 18.756912231445312
    },
    "variants": {
     "full": {
-     "sisdr": 3.2172152996063232,
-     "lsd": 4.67784309387207
+     "sisdr": 7.111825466156006,
+     "lsd": 8.295829772949219
     },
     "no_declip": {
-     "sisdr": 3.2462997436523438,
-     "lsd": 4.8511962890625
+     "sisdr": 6.64687442779541,
+     "lsd": 8.709162712097168
     },
     "no_deecho": {
-     "sisdr": 3.2172152996063232,
-     "lsd": 4.67784309387207
+     "sisdr": 7.111825466156006,
+     "lsd": 8.295829772949219
     },
     "no_network": {
-     "sisdr": -0.18644729256629944,
-     "lsd": 8.310197830200195
+     "sisdr": 3.5537118911743164,
+     "lsd": 17.30525779724121
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (2.09% of samples): peaks rebuilt.",
-    "Room reverb / noise / clipping: excess measured at -2.9 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (6.20% of samples): peaks rebuilt.",
+    "Echo at 263 ms sits on the tempo grid (2 sixteenth notes at 112 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -7.5 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "059687.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.784493446350098,
-     "lsd": 1.3680678606033325
-    },
-    "no_declip": {
-     "sisdr": 6.784493446350098,
-     "lsd": 1.3680678606033325
-    },
-    "no_deecho": {
-     "sisdr": 6.784493446350098,
-     "lsd": 1.3680678606033325
-    },
-    "no_network": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -7.3 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "091755.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 1.0906625986099243,
-    "lsd": 4.699467658996582
-   },
-   "variants": {
-    "full": {
-     "sisdr": 4.184527397155762,
-     "lsd": 4.159398078918457
-    },
-    "no_declip": {
-     "sisdr": 4.184527397155762,
-     "lsd": 4.159398078918457
-    },
-    "no_deecho": {
-     "sisdr": 4.184527397155762,
-     "lsd": 4.159398078918457
-    },
-    "no_network": {
-     "sisdr": 1.0906625986099243,
-     "lsd": 4.699467658996582
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -7.4 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "091755.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 14.030879974365234,
-    "lsd": 5.2290544509887695
-   },
-   "variants": {
-    "full": {
-     "sisdr": 24.382259368896484,
-     "lsd": 2.678797721862793
-    },
-    "no_declip": {
-     "sisdr": 24.382259368896484,
-     "lsd": 2.678797721862793
-    },
-    "no_deecho": {
-     "sisdr": 15.81301212310791,
-     "lsd": 5.148379325866699
-    },
-    "no_network": {
-     "sisdr": 24.382259368896484,
-     "lsd": 2.678797721862793
-    }
-   },
-   "decisions": [
-    "Echo at 426 ms (gain 0.18): removed.",
-    "Room reverb: none in excess of a normal production (-33.0 dB): left alone."
-   ]
-  },
-  {
-   "file": "091755.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 29.159013748168945,
-    "lsd": 16.783721923828125
-   },
-   "variants": {
-    "full": {
-     "sisdr": 35.754024505615234,
-     "lsd": 15.126899719238281
-    },
-    "no_declip": {
-     "sisdr": 29.159015655517578,
-     "lsd": 16.783721923828125
-    },
-    "no_deecho": {
-     "sisdr": 35.754024505615234,
-     "lsd": 15.126899719238281
-    },
-    "no_network": {
-     "sisdr": 35.754024505615234,
-     "lsd": 15.126899719238281
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (1.36% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-30.9 dB): left alone."
-   ]
-  },
-  {
-   "file": "091755.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": 5.507769584655762,
-    "lsd": 12.084888458251953
-   },
-   "variants": {
-    "full": {
-     "sisdr": 8.45488166809082,
-     "lsd": 5.609909534454346
-    },
-    "no_declip": {
-     "sisdr": 8.18970012664795,
-     "lsd": 5.996072769165039
-    },
-    "no_deecho": {
-     "sisdr": 7.334603786468506,
-     "lsd": 6.003485202789307
-    },
-    "no_network": {
-     "sisdr": 6.3683648109436035,
-     "lsd": 11.482398986816406
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (1.72% of samples): peaks rebuilt.",
-    "Echo at 470 ms (gain 0.10): removed.",
-    "Echo at 470 ms (gain 0.08): removed.",
-    "Room reverb / noise / clipping: excess measured at -13.0 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "091755.mp3",
+   "file": "042234.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -2810,131 +4012,134 @@
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-33.0 dB): left alone."
+    "Room reverb: none in excess of a normal production (-46.5 dB): left alone."
    ]
   },
   {
-   "file": "085438.mp3",
+   "file": "130165.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 3.3699235916137695,
-    "lsd": 4.892508029937744
+    "sisdr": 4.623209476470947,
+    "lsd": 9.011213302612305
    },
    "variants": {
     "full": {
-     "sisdr": 3.572702407836914,
-     "lsd": 4.678783416748047
+     "sisdr": 5.7507710456848145,
+     "lsd": 9.32810115814209
     },
     "no_declip": {
-     "sisdr": 3.572702407836914,
-     "lsd": 4.678783416748047
+     "sisdr": 5.7507710456848145,
+     "lsd": 9.32810115814209
     },
     "no_deecho": {
-     "sisdr": 3.572702407836914,
-     "lsd": 4.678783416748047
+     "sisdr": 6.5175275802612305,
+     "lsd": 8.712179183959961
     },
     "no_network": {
-     "sisdr": 3.3699235916137695,
-     "lsd": 4.892508506774902
+     "sisdr": 3.375394821166992,
+     "lsd": 11.663219451904297
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -18.3 dB (gate -24): removed at 72% strength."
+    "Echo at 234 ms (gain 0.21): removed.",
+    "Echo at 469 ms sits on the tempo grid (3 sixteenth notes at 96 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -9.5 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "085438.mp3",
+   "file": "130165.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 9.597419738769531,
-    "lsd": 1.9756886959075928
+    "sisdr": 3.234553813934326,
+    "lsd": 12.092641830444336
    },
    "variants": {
     "full": {
-     "sisdr": 14.186752319335938,
-     "lsd": 1.8444066047668457
+     "sisdr": 7.038878440856934,
+     "lsd": 7.317669868469238
     },
     "no_declip": {
-     "sisdr": 14.186752319335938,
-     "lsd": 1.8444066047668457
+     "sisdr": 7.038878440856934,
+     "lsd": 7.317669868469238
     },
     "no_deecho": {
-     "sisdr": 14.186752319335938,
-     "lsd": 1.8444066047668457
+     "sisdr": 7.038878440856934,
+     "lsd": 7.317669868469238
     },
     "no_network": {
-     "sisdr": 9.597420692443848,
-     "lsd": 1.9756884574890137
+     "sisdr": 3.234553813934326,
+     "lsd": 12.092641830444336
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -12.5 dB (gate -24): removed at 100% strength."
+    "Echo at 463 ms sits on the tempo grid (4 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -5.5 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "085438.mp3",
+   "file": "130165.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 15.71859359741211,
-    "lsd": 7.9550580978393555
+    "sisdr": 23.586454391479492,
+    "lsd": 3.3990848064422607
    },
    "variants": {
     "full": {
-     "sisdr": 28.90402603149414,
-     "lsd": 8.867408752441406
+     "sisdr": 30.096847534179688,
+     "lsd": 3.211808204650879
     },
     "no_declip": {
-     "sisdr": 15.834650039672852,
-     "lsd": 7.771645545959473
+     "sisdr": 23.58645248413086,
+     "lsd": 3.3990914821624756
     },
     "no_deecho": {
-     "sisdr": 28.90402603149414,
-     "lsd": 8.867408752441406
+     "sisdr": 30.096847534179688,
+     "lsd": 3.211808204650879
     },
     "no_network": {
-     "sisdr": 28.90402603149414,
-     "lsd": 8.867408752441406
+     "sisdr": 30.096847534179688,
+     "lsd": 3.211808204650879
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (6.31% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-29.0 dB): left alone."
+    "Clipping: flat ceiling found (1.08% of samples): peaks rebuilt.",
+    "Echo at 234 ms sits on the tempo grid (2 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-36.3 dB): left alone."
    ]
   },
   {
-   "file": "085438.mp3",
+   "file": "130165.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 4.698213577270508,
-    "lsd": 11.379977226257324
+    "sisdr": 2.6412014961242676,
+    "lsd": 14.221124649047852
    },
    "variants": {
     "full": {
-     "sisdr": 7.509049892425537,
-     "lsd": 9.561569213867188
+     "sisdr": 3.4156136512756348,
+     "lsd": 14.091190338134766
     },
     "no_declip": {
-     "sisdr": 6.8753204345703125,
-     "lsd": 8.358909606933594
+     "sisdr": 2.6412014961242676,
+     "lsd": 14.221125602722168
     },
     "no_deecho": {
-     "sisdr": 7.167384147644043,
-     "lsd": 5.71367073059082
+     "sisdr": 3.4156136512756348,
+     "lsd": 14.091190338134766
     },
     "no_network": {
-     "sisdr": 6.86106014251709,
-     "lsd": 12.584992408752441
+     "sisdr": 3.4156136512756348,
+     "lsd": 14.091190338134766
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (7.22% of samples): peaks rebuilt.",
-    "Echo at 220 ms (gain 0.11): removed.",
-    "Echo at 220 ms (gain 0.09): removed.",
-    "Room reverb / noise / clipping: excess measured at -18.4 dB (gate -24): removed at 70% strength."
+    "Clipping: flat ceiling found (5.06% of samples): peaks rebuilt.",
+    "Echo at 234 ms sits on the tempo grid (2 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-21.2 dB): left alone."
    ]
   },
   {
-   "file": "085438.mp3",
+   "file": "130165.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -2942,150 +4147,149 @@
    },
    "variants": {
     "full": {
-     "sisdr": 120.22970581054688,
-     "lsd": 0.008514382876455784
+     "sisdr": 120.24639129638672,
+     "lsd": 0.005599869415163994
     },
     "no_declip": {
-     "sisdr": 120.22970581054688,
-     "lsd": 0.008514382876455784
+     "sisdr": 120.24639129638672,
+     "lsd": 0.005599869415163994
     },
     "no_deecho": {
-     "sisdr": 120.22970581054688,
-     "lsd": 0.008514382876455784
+     "sisdr": 120.24639129638672,
+     "lsd": 0.005599869415163994
     },
     "no_network": {
-     "sisdr": 120.22970581054688,
-     "lsd": 0.008514382876455784
+     "sisdr": 120.24639129638672,
+     "lsd": 0.005599869415163994
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-45.3 dB): left alone."
+    "Echo at 234 ms sits on the tempo grid (2 sixteenth notes at 129 BPM): a musical delay, left alone.",
+    "Room reverb: none in excess of a normal production (-46.2 dB): left alone."
    ]
   },
   {
-   "file": "112976.mp3",
+   "file": "151403.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 2.916729688644409,
-    "lsd": 5.091884613037109
+    "sisdr": 2.782444953918457,
+    "lsd": 7.094742774963379
    },
    "variants": {
     "full": {
-     "sisdr": 5.721513748168945,
-     "lsd": 4.721749305725098
+     "sisdr": 5.699873924255371,
+     "lsd": 5.429713726043701
     },
     "no_declip": {
-     "sisdr": 5.721513748168945,
-     "lsd": 4.721749305725098
+     "sisdr": 5.699873924255371,
+     "lsd": 5.429713726043701
     },
     "no_deecho": {
-     "sisdr": 5.721513748168945,
-     "lsd": 4.721749305725098
+     "sisdr": 5.699873924255371,
+     "lsd": 5.429713726043701
     },
     "no_network": {
-     "sisdr": 2.916729688644409,
-     "lsd": 5.091884613037109
+     "sisdr": 2.7824454307556152,
+     "lsd": 7.094742774963379
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -7.6 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -7.8 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "112976.mp3",
+   "file": "151403.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 4.600130081176758,
-    "lsd": 7.62501859664917
+    "sisdr": 9.98330020904541,
+    "lsd": 7.701352119445801
    },
    "variants": {
     "full": {
-     "sisdr": 11.230549812316895,
-     "lsd": 5.1055474281311035
+     "sisdr": 12.849140167236328,
+     "lsd": 6.391573905944824
     },
     "no_declip": {
-     "sisdr": 11.230549812316895,
-     "lsd": 5.1055474281311035
+     "sisdr": 12.849140167236328,
+     "lsd": 6.391573905944824
     },
     "no_deecho": {
-     "sisdr": 10.183694839477539,
-     "lsd": 5.564981460571289
+     "sisdr": 12.849140167236328,
+     "lsd": 6.391573905944824
     },
     "no_network": {
-     "sisdr": 11.230549812316895,
-     "lsd": 5.1055474281311035
+     "sisdr": 9.98330020904541,
+     "lsd": 7.701352119445801
     }
    },
    "decisions": [
-    "Echo at 424 ms (gain 0.44): removed.",
-    "Echo at 424 ms (gain 0.09): removed.",
-    "Room reverb: none in excess of a normal production (-35.5 dB): left alone."
+    "Echo at 107 ms sits on the tempo grid (1 sixteenth notes at 144 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -11.6 dB (gate -18): removed at 80% strength."
    ]
   },
   {
-   "file": "112976.mp3",
+   "file": "151403.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 12.509559631347656,
-    "lsd": 11.500722885131836
+    "sisdr": 17.86862564086914,
+    "lsd": 7.582592964172363
    },
    "variants": {
     "full": {
-     "sisdr": 26.237993240356445,
-     "lsd": 10.956106185913086
+     "sisdr": 20.581668853759766,
+     "lsd": 6.8270649909973145
     },
     "no_declip": {
-     "sisdr": 13.242225646972656,
-     "lsd": 9.620919227600098
+     "sisdr": 17.86862564086914,
+     "lsd": 7.582592964172363
     },
     "no_deecho": {
-     "sisdr": 26.237993240356445,
-     "lsd": 10.956106185913086
+     "sisdr": 20.581668853759766,
+     "lsd": 6.8270649909973145
     },
     "no_network": {
-     "sisdr": 26.237993240356445,
-     "lsd": 10.956106185913086
+     "sisdr": 20.581668853759766,
+     "lsd": 6.8270649909973145
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (8.41% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-26.8 dB): left alone."
+    "Clipping: flat ceiling found (2.29% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-28.1 dB): left alone."
    ]
   },
   {
-   "file": "112976.mp3",
+   "file": "151403.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 2.344372034072876,
-    "lsd": 10.883245468139648
+    "sisdr": -0.5379486083984375,
+    "lsd": 15.034244537353516
    },
    "variants": {
     "full": {
-     "sisdr": 5.955429553985596,
-     "lsd": 6.0830488204956055
+     "sisdr": 2.1513774394989014,
+     "lsd": 8.27463150024414
     },
     "no_declip": {
-     "sisdr": 5.782865524291992,
-     "lsd": 6.193756103515625
+     "sisdr": 2.0295822620391846,
+     "lsd": 8.329179763793945
     },
     "no_deecho": {
-     "sisdr": 4.914988040924072,
-     "lsd": 6.07656717300415
+     "sisdr": 2.1513774394989014,
+     "lsd": 8.27463150024414
     },
     "no_network": {
-     "sisdr": 4.468020915985107,
-     "lsd": 10.719246864318848
+     "sisdr": -0.37572067975997925,
+     "lsd": 14.428779602050781
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.16% of samples): peaks rebuilt.",
-    "Echo at 89 ms (gain 0.30): removed.",
-    "Echo at 89 ms (gain 0.13): removed.",
-    "Room reverb / noise / clipping: excess measured at -12.9 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (1.88% of samples): peaks rebuilt.",
+    "Echo at 226 ms sits on the tempo grid (2 sixteenth notes at 136 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -7.9 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "112976.mp3",
+   "file": "151403.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -3093,149 +4297,150 @@
    },
    "variants": {
     "full": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.24642944335938,
+     "lsd": 0.0073994980193674564
     },
     "no_declip": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.24642944335938,
+     "lsd": 0.0073994980193674564
     },
     "no_deecho": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.24642944335938,
+     "lsd": 0.0073994980193674564
     },
     "no_network": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.24642944335938,
+     "lsd": 0.0073994980193674564
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-42.4 dB): left alone."
+    "Room reverb: none in excess of a normal production (-37.6 dB): left alone."
    ]
   },
   {
-   "file": "043859.mp3",
+   "file": "106508.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 3.0081310272216797,
-    "lsd": 5.603523254394531
+    "sisdr": 0.3442177474498749,
+    "lsd": 5.346384048461914
    },
    "variants": {
     "full": {
-     "sisdr": 6.419977188110352,
-     "lsd": 5.115574359893799
+     "sisdr": 5.283494472503662,
+     "lsd": 4.359338760375977
     },
     "no_declip": {
-     "sisdr": 6.419977188110352,
-     "lsd": 5.115574359893799
+     "sisdr": 5.283494472503662,
+     "lsd": 4.359338760375977
     },
     "no_deecho": {
-     "sisdr": 6.419977188110352,
-     "lsd": 5.115574359893799
+     "sisdr": 5.283494472503662,
+     "lsd": 4.359338760375977
     },
     "no_network": {
-     "sisdr": 3.0081310272216797,
-     "lsd": 5.603523254394531
+     "sisdr": 0.34421825408935547,
+     "lsd": 5.346384048461914
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -8.4 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -5.4 dB (gate -18): removed at 100% strength."
    ]
   },
   {
-   "file": "043859.mp3",
+   "file": "106508.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 10.193021774291992,
-    "lsd": 3.3797054290771484
+    "sisdr": 13.699427604675293,
+    "lsd": 1.6047687530517578
    },
    "variants": {
     "full": {
-     "sisdr": 26.053312301635742,
-     "lsd": 2.00573468208313
+     "sisdr": 12.350273132324219,
+     "lsd": 3.66744065284729
     },
     "no_declip": {
-     "sisdr": 26.053312301635742,
-     "lsd": 2.00573468208313
+     "sisdr": 12.350273132324219,
+     "lsd": 3.66744065284729
     },
     "no_deecho": {
-     "sisdr": 15.251224517822266,
-     "lsd": 3.0078296661376953
+     "sisdr": 15.964910507202148,
+     "lsd": 1.5130653381347656
     },
     "no_network": {
-     "sisdr": 26.053312301635742,
-     "lsd": 2.00573468208313
+     "sisdr": 11.486148834228516,
+     "lsd": 3.8133022785186768
     }
    },
    "decisions": [
-    "Echo at 223 ms (gain 0.12): removed.",
-    "Echo at 223 ms (gain 0.08): removed.",
-    "Room reverb: none in excess of a normal production (-43.1 dB): left alone."
+    "Echo at 111 ms (gain 0.13): removed.",
+    "Room reverb / noise / clipping: excess measured at -14.9 dB (gate -18): removed at 38% strength."
    ]
   },
   {
-   "file": "043859.mp3",
+   "file": "106508.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 31.070497512817383,
-    "lsd": 1.9217677116394043
+    "sisdr": 17.535503387451172,
+    "lsd": 5.463381767272949
    },
    "variants": {
     "full": {
-     "sisdr": 33.52192687988281,
-     "lsd": 2.2661190032958984
+     "sisdr": 15.657564163208008,
+     "lsd": 8.080320358276367
     },
     "no_declip": {
-     "sisdr": 31.070497512817383,
-     "lsd": 1.9217677116394043
+     "sisdr": 14.150552749633789,
+     "lsd": 8.263930320739746
     },
     "no_deecho": {
-     "sisdr": 33.52192687988281,
-     "lsd": 2.2661190032958984
+     "sisdr": 25.16006088256836,
+     "lsd": 5.091958999633789
     },
     "no_network": {
-     "sisdr": 33.52192687988281,
-     "lsd": 2.2661190032958984
+     "sisdr": 15.657564163208008,
+     "lsd": 8.080320358276367
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (0.89% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-33.2 dB): left alone."
+    "Clipping: flat ceiling found (1.69% of samples): peaks rebuilt.",
+    "Echo at 111 ms (gain 0.13): removed.",
+    "Room reverb: none in excess of a normal production (-20.3 dB): left alone."
    ]
   },
   {
-   "file": "043859.mp3",
+   "file": "106508.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 3.9425902366638184,
-    "lsd": 9.446155548095703
+    "sisdr": 1.3049416542053223,
+    "lsd": 17.104026794433594
    },
    "variants": {
     "full": {
-     "sisdr": 5.752890110015869,
-     "lsd": 10.21805191040039
+     "sisdr": 6.400437355041504,
+     "lsd": 12.696382522583008
     },
     "no_declip": {
-     "sisdr": 5.354495525360107,
-     "lsd": 9.217599868774414
+     "sisdr": 5.521737098693848,
+     "lsd": 12.037005424499512
     },
     "no_deecho": {
-     "sisdr": 5.3286452293396,
-     "lsd": 7.892189025878906
+     "sisdr": 6.170254707336426,
+     "lsd": 6.172880172729492
     },
     "no_network": {
-     "sisdr": 5.746182918548584,
-     "lsd": 10.25311279296875
+     "sisdr": 4.622335910797119,
+     "lsd": 17.863441467285156
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (6.69% of samples): peaks rebuilt.",
-    "Echo at 350 ms (gain 0.26): removed.",
-    "Room reverb / noise / clipping: excess measured at -23.8 dB (gate -24): removed at 2% strength."
+    "Clipping: flat ceiling found (7.20% of samples): peaks rebuilt.",
+    "Echo at 450 ms (gain 0.37): removed.",
+    "Echo at 111 ms (gain 0.12): removed.",
+    "Room reverb / noise / clipping: excess measured at -11.8 dB (gate -18): removed at 78% strength."
    ]
   },
   {
-   "file": "043859.mp3",
+   "file": "106508.mp3",
    "cond": "clean",
    "input": {
     "sisdr": 120.24649810791016,
@@ -3243,472 +4448,175 @@
    },
    "variants": {
     "full": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 16.12148094177246,
+     "lsd": 3.5267510414123535
     },
     "no_declip": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 16.12148094177246,
+     "lsd": 3.5267510414123535
     },
     "no_deecho": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 120.17538452148438,
+     "lsd": 0.009676861576735973
     },
     "no_network": {
-     "sisdr": 120.24649810791016,
-     "lsd": 0.0
+     "sisdr": 16.12148094177246,
+     "lsd": 3.5267510414123535
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-43.4 dB): left alone."
+    "Echo at 111 ms (gain 0.13): removed.",
+    "Room reverb: none in excess of a normal production (-19.9 dB): left alone."
    ]
   },
   {
-   "file": "023041.mp3",
+   "file": "057407.mp3",
    "cond": "reverb",
    "input": {
-    "sisdr": 7.4898786544799805,
-    "lsd": 2.9902615547180176
+    "sisdr": 4.027044296264648,
+    "lsd": 4.860291481018066
    },
    "variants": {
     "full": {
-     "sisdr": 9.883030891418457,
-     "lsd": 2.7532410621643066
+     "sisdr": 4.787648677825928,
+     "lsd": 4.622224807739258
     },
     "no_declip": {
-     "sisdr": 9.883030891418457,
-     "lsd": 2.7532410621643066
+     "sisdr": 4.787648677825928,
+     "lsd": 4.622224807739258
     },
     "no_deecho": {
-     "sisdr": 9.883030891418457,
-     "lsd": 2.7532410621643066
+     "sisdr": 4.787648677825928,
+     "lsd": 4.622224807739258
     },
     "no_network": {
-     "sisdr": 7.489879131317139,
-     "lsd": 2.9902615547180176
+     "sisdr": 4.027044296264648,
+     "lsd": 4.860291481018066
     }
    },
    "decisions": [
-    "Room reverb / noise / clipping: excess measured at -14.1 dB (gate -24): removed at 100% strength."
+    "Room reverb / noise / clipping: excess measured at -14.8 dB (gate -18): removed at 40% strength."
    ]
   },
   {
-   "file": "023041.mp3",
+   "file": "057407.mp3",
    "cond": "echo",
    "input": {
-    "sisdr": 4.854733943939209,
-    "lsd": 7.6352081298828125
+    "sisdr": 6.027294158935547,
+    "lsd": 3.755214214324951
    },
    "variants": {
     "full": {
-     "sisdr": 15.750154495239258,
-     "lsd": 4.820122241973877
+     "sisdr": 24.020038604736328,
+     "lsd": 1.8335386514663696
     },
     "no_declip": {
-     "sisdr": 15.750154495239258,
-     "lsd": 4.820122241973877
+     "sisdr": 24.020038604736328,
+     "lsd": 1.8335386514663696
     },
     "no_deecho": {
-     "sisdr": 9.306469917297363,
-     "lsd": 6.199187278747559
+     "sisdr": 10.927522659301758,
+     "lsd": 3.305788040161133
     },
     "no_network": {
-     "sisdr": 15.750154495239258,
-     "lsd": 4.820122241973877
+     "sisdr": 24.020038604736328,
+     "lsd": 1.8335386514663696
     }
    },
    "decisions": [
-    "Echo at 209 ms (gain 0.48): removed.",
-    "Echo at 418 ms (gain 0.24): removed.",
-    "Room reverb: none in excess of a normal production (-42.8 dB): left alone."
+    "Echo at 73 ms (gain 0.20): removed.",
+    "Echo at 73 ms (gain 0.14): removed.",
+    "Room reverb: none in excess of a normal production (-38.3 dB): left alone."
    ]
   },
   {
-   "file": "023041.mp3",
+   "file": "057407.mp3",
    "cond": "clip",
    "input": {
-    "sisdr": 19.05897331237793,
-    "lsd": 12.76811695098877
+    "sisdr": 17.978132247924805,
+    "lsd": 11.228939056396484
    },
    "variants": {
     "full": {
-     "sisdr": 23.192123413085938,
-     "lsd": 11.622245788574219
+     "sisdr": 20.899999618530273,
+     "lsd": 11.100749969482422
     },
     "no_declip": {
-     "sisdr": 19.05897331237793,
-     "lsd": 12.76811408996582
+     "sisdr": 17.978132247924805,
+     "lsd": 11.228938102722168
     },
     "no_deecho": {
-     "sisdr": 23.192123413085938,
-     "lsd": 11.622245788574219
+     "sisdr": 20.899999618530273,
+     "lsd": 11.100749969482422
     },
     "no_network": {
-     "sisdr": 23.192123413085938,
-     "lsd": 11.622245788574219
+     "sisdr": 20.899999618530273,
+     "lsd": 11.100749969482422
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (3.80% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-28.0 dB): left alone."
+    "Clipping: flat ceiling found (6.16% of samples): peaks rebuilt.",
+    "Room reverb: none in excess of a normal production (-28.1 dB): left alone."
    ]
   },
   {
-   "file": "023041.mp3",
+   "file": "057407.mp3",
    "cond": "all three",
    "input": {
-    "sisdr": 3.1918373107910156,
-    "lsd": 13.480646133422852
+    "sisdr": 4.492990016937256,
+    "lsd": 10.317170143127441
    },
    "variants": {
     "full": {
-     "sisdr": 7.95216178894043,
-     "lsd": 5.897434711456299
+     "sisdr": 5.657802581787109,
+     "lsd": 7.693492412567139
     },
     "no_declip": {
-     "sisdr": 7.716402053833008,
-     "lsd": 6.266009330749512
+     "sisdr": 5.5616021156311035,
+     "lsd": 7.1166558265686035
     },
     "no_deecho": {
-     "sisdr": 6.982540130615234,
-     "lsd": 5.875446319580078
+     "sisdr": 5.657802581787109,
+     "lsd": 7.693492412567139
     },
     "no_network": {
-     "sisdr": 6.111590385437012,
-     "lsd": 12.817861557006836
+     "sisdr": 4.654435157775879,
+     "lsd": 10.541379928588867
     }
    },
    "decisions": [
-    "Clipping: flat ceiling found (4.17% of samples): peaks rebuilt.",
-    "Echo at 105 ms (gain 0.14): removed.",
-    "Room reverb / noise / clipping: excess measured at -14.8 dB (gate -24): removed at 100% strength."
+    "Clipping: flat ceiling found (4.06% of samples): peaks rebuilt.",
+    "Echo at 403 ms sits on the tempo grid (3 sixteenth notes at 112 BPM): a musical delay, left alone.",
+    "Room reverb / noise / clipping: excess measured at -11.8 dB (gate -18): removed at 78% strength."
    ]
   },
   {
-   "file": "023041.mp3",
+   "file": "057407.mp3",
    "cond": "clean",
    "input": {
-    "sisdr": 120.24647521972656,
+    "sisdr": 120.24607849121094,
     "lsd": 0.0
    },
    "variants": {
     "full": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
+     "sisdr": 120.24520874023438,
+     "lsd": 0.008617818355560303
     },
     "no_declip": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
+     "sisdr": 120.24520874023438,
+     "lsd": 0.008617818355560303
     },
     "no_deecho": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
+     "sisdr": 120.24520874023438,
+     "lsd": 0.008617818355560303
     },
     "no_network": {
-     "sisdr": 120.24647521972656,
-     "lsd": 0.0
+     "sisdr": 120.24520874023438,
+     "lsd": 0.008617818355560303
     }
    },
    "decisions": [
-    "Room reverb: none in excess of a normal production (-42.7 dB): left alone."
-   ]
-  },
-  {
-   "file": "108036.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 5.167003154754639,
-    "lsd": 3.817605972290039
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.438203811645508,
-     "lsd": 3.5125277042388916
-    },
-    "no_declip": {
-     "sisdr": 6.438203811645508,
-     "lsd": 3.5125277042388916
-    },
-    "no_deecho": {
-     "sisdr": 6.438203811645508,
-     "lsd": 3.5125277042388916
-    },
-    "no_network": {
-     "sisdr": 5.167003154754639,
-     "lsd": 3.817605972290039
-    }
-   },
-   "decisions": [
-    "Room reverb / noise / clipping: excess measured at -13.0 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "108036.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 7.352092266082764,
-    "lsd": 5.8799147605896
-   },
-   "variants": {
-    "full": {
-     "sisdr": 21.444284439086914,
-     "lsd": 2.457585573196411
-    },
-    "no_declip": {
-     "sisdr": 21.444284439086914,
-     "lsd": 2.457585573196411
-    },
-    "no_deecho": {
-     "sisdr": 10.446548461914062,
-     "lsd": 4.855495929718018
-    },
-    "no_network": {
-     "sisdr": 21.444284439086914,
-     "lsd": 2.457585573196411
-    }
-   },
-   "decisions": [
-    "Echo at 304 ms (gain 0.40): removed.",
-    "Room reverb: none in excess of a normal production (-43.2 dB): left alone."
-   ]
-  },
-  {
-   "file": "108036.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 21.053199768066406,
-    "lsd": 5.855016708374023
-   },
-   "variants": {
-    "full": {
-     "sisdr": 24.360767364501953,
-     "lsd": 5.413671493530273
-    },
-    "no_declip": {
-     "sisdr": 21.053199768066406,
-     "lsd": 5.855016708374023
-    },
-    "no_deecho": {
-     "sisdr": 24.360767364501953,
-     "lsd": 5.413671493530273
-    },
-    "no_network": {
-     "sisdr": 24.360767364501953,
-     "lsd": 5.413671493530273
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (2.01% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-25.3 dB): left alone."
-   ]
-  },
-  {
-   "file": "108036.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": 3.023359537124634,
-    "lsd": 10.29157829284668
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.100456237792969,
-     "lsd": 5.536223888397217
-    },
-    "no_declip": {
-     "sisdr": 5.548482418060303,
-     "lsd": 7.819710731506348
-    },
-    "no_deecho": {
-     "sisdr": 4.481249809265137,
-     "lsd": 6.252694129943848
-    },
-    "no_network": {
-     "sisdr": 5.126317977905273,
-     "lsd": 9.781022071838379
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (1.91% of samples): peaks rebuilt.",
-    "Echo at 362 ms (gain 0.30): removed.",
-    "Room reverb / noise / clipping: excess measured at -15.7 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "108036.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.17464447021484,
-     "lsd": 0.006446335464715958
-    },
-    "no_declip": {
-     "sisdr": 120.17464447021484,
-     "lsd": 0.006446335464715958
-    },
-    "no_deecho": {
-     "sisdr": 120.17464447021484,
-     "lsd": 0.006446335464715958
-    },
-    "no_network": {
-     "sisdr": 120.17464447021484,
-     "lsd": 0.006446335464715958
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-44.2 dB): left alone."
-   ]
-  },
-  {
-   "file": "025233.mp3",
-   "cond": "reverb",
-   "input": {
-    "sisdr": 6.680395126342773,
-    "lsd": 2.862429618835449
-   },
-   "variants": {
-    "full": {
-     "sisdr": 6.680395126342773,
-     "lsd": 2.862429618835449
-    },
-    "no_declip": {
-     "sisdr": 6.680395126342773,
-     "lsd": 2.862429618835449
-    },
-    "no_deecho": {
-     "sisdr": 6.680395126342773,
-     "lsd": 2.862429618835449
-    },
-    "no_network": {
-     "sisdr": 6.680395126342773,
-     "lsd": 2.862429618835449
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-33.5 dB): left alone."
-   ]
-  },
-  {
-   "file": "025233.mp3",
-   "cond": "echo",
-   "input": {
-    "sisdr": 10.82879638671875,
-    "lsd": 3.8477838039398193
-   },
-   "variants": {
-    "full": {
-     "sisdr": 31.934818267822266,
-     "lsd": 0.7198633551597595
-    },
-    "no_declip": {
-     "sisdr": 31.934818267822266,
-     "lsd": 0.7198633551597595
-    },
-    "no_deecho": {
-     "sisdr": 11.72291374206543,
-     "lsd": 3.858194351196289
-    },
-    "no_network": {
-     "sisdr": 31.934818267822266,
-     "lsd": 0.7198633551597595
-    }
-   },
-   "decisions": [
-    "Echo at 117 ms (gain 0.28): removed.",
-    "Room reverb: none in excess of a normal production (-43.6 dB): left alone."
-   ]
-  },
-  {
-   "file": "025233.mp3",
-   "cond": "clip",
-   "input": {
-    "sisdr": 19.391429901123047,
-    "lsd": 8.778549194335938
-   },
-   "variants": {
-    "full": {
-     "sisdr": 34.470375061035156,
-     "lsd": 8.257583618164062
-    },
-    "no_declip": {
-     "sisdr": 19.391427993774414,
-     "lsd": 8.778547286987305
-    },
-    "no_deecho": {
-     "sisdr": 34.470375061035156,
-     "lsd": 8.257583618164062
-    },
-    "no_network": {
-     "sisdr": 34.470375061035156,
-     "lsd": 8.257583618164062
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (2.76% of samples): peaks rebuilt.",
-    "Room reverb: none in excess of a normal production (-41.5 dB): left alone."
-   ]
-  },
-  {
-   "file": "025233.mp3",
-   "cond": "all three",
-   "input": {
-    "sisdr": -1.993424654006958,
-    "lsd": 15.653301239013672
-   },
-   "variants": {
-    "full": {
-     "sisdr": 0.610567569732666,
-     "lsd": 7.326984405517578
-    },
-    "no_declip": {
-     "sisdr": -0.05676925182342529,
-     "lsd": 7.480382442474365
-    },
-    "no_deecho": {
-     "sisdr": -0.30211493372917175,
-     "lsd": 7.782693862915039
-    },
-    "no_network": {
-     "sisdr": -0.21560439467430115,
-     "lsd": 15.145956039428711
-    }
-   },
-   "decisions": [
-    "Clipping: flat ceiling found (6.31% of samples): peaks rebuilt.",
-    "Echo at 282 ms (gain 0.18): removed.",
-    "Room reverb / noise / clipping: excess measured at -13.4 dB (gate -24): removed at 100% strength."
-   ]
-  },
-  {
-   "file": "025233.mp3",
-   "cond": "clean",
-   "input": {
-    "sisdr": 120.24649810791016,
-    "lsd": 0.0
-   },
-   "variants": {
-    "full": {
-     "sisdr": 120.22964477539062,
-     "lsd": 0.007124295458197594
-    },
-    "no_declip": {
-     "sisdr": 120.22964477539062,
-     "lsd": 0.007124295458197594
-    },
-    "no_deecho": {
-     "sisdr": 120.22964477539062,
-     "lsd": 0.007124295458197594
-    },
-    "no_network": {
-     "sisdr": 120.22964477539062,
-     "lsd": 0.007124295458197594
-    }
-   },
-   "decisions": [
-    "Room reverb: none in excess of a normal production (-43.6 dB): left alone."
+    "Room reverb: none in excess of a normal production (-44.3 dB): left alone."
    ]
   }
  ]

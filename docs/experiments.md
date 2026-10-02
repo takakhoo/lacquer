@@ -842,3 +842,24 @@ VGGish (one vector per 0.96 s). Raw: `docs/evidence/fad/fad.json`.
 On both embeddings the restored set sits close to the floor. Both embeddings work on downmixed, band-limited
 audio (VGGish at 16 kHz mono), so this says the restored clips are distributed like clean music at that
 resolution. It complements the paired SI-SDR numbers and does not replace them.
+
+### E36. Leave one stage out: what each repair stage contributes
+`python -m remaster.evaluate_ablation`: 30 held-out FMA-medium tracks of 12 s, each with room reverb from the
+unseen Aachen rooms (DRR 0 to 9 dB), with a discrete echo, with hard clipping, with all three stacked, and
+clean. The repair half runs complete and with one stage removed (no stems, level riding or mastering), final
+defaults, checkpoint at step 23000. Raw rows: `docs/evidence/ablation/ablation.json`.
+
+| SI-SDR (dB) | input | full | without declipper | without echo stage | without network |
+|---|---:|---:|---:|---:|---:|
+| reverb, unseen rooms | 4.5 | 6.5 | 6.5 | 6.5 | 4.4 |
+| echo | 8.9 | 17.2 | 17.2 | 11.9 | 15.9 |
+| hard clipping | 23.5 | 25.5 | 22.6 | 27.0 | 25.4 |
+| all three | 2.3 | 5.4 | 5.0 | 4.8 | 3.5 |
+| clean (identical output = 120) | | 109.9 | 109.9 | 120.2 | 109.9 |
+
+Each stage carries its own fault: removing the network costs the reverb gain, removing the echo stage costs
+5.3 dB on echo, removing the declipper costs 2.9 dB on clipping, and on the stacked case every stage
+contributes. Three things to note. The network also removes part of an echo on its own (8.9 to 11.9 dB).
+The tempo rule left 8 of the 30 added echoes in place, which is why the echo row is lower than in E4. And the
+echo stage is the remaining source of harm: it altered 4 of the 30 clean clips and lowers the clipping row
+(27.0 dB without it), so 26 of 30 clean clips come out bit-identical.
