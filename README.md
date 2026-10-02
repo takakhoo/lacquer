@@ -1,8 +1,9 @@
 # Lacquer
 
-**Automatic restoration and mastering for finished music mixes.** Give it a stereo track and it removes echo
-and excess reverb, evens out level problems, and sets loudness and peaks for release. It tells you every
-decision it made and leaves alone whatever is already fine.
+**Automatic restoration and mastering for finished music mixes.** Give it a stereo track and it rebuilds clipped
+peaks, removes echo and excess reverb, checks the instrument balance, evens out level problems, and masters the
+result against the measured norms of released music or against a reference track. It tells you every decision
+it made, with the reading behind it, and leaves alone whatever is already fine.
 
 ![A damaged mix being restored: the sweep reveals the cleaned spectrogram while the decisions appear](docs/demo/restore.gif)
 
@@ -54,6 +55,7 @@ comparison against SonicMaster, the closest published system.
 
 - [Paper](#paper)
 - [How it works](#how-it-works)
+- [Mastering](#mastering)
 - [Inside the model](#inside-the-model)
 - [The decisions](#the-decisions)
 - [What the experiments found](#what-the-experiments-found)
@@ -73,13 +75,52 @@ learned prior use a network. Aesthetic choices are measured against a normal ran
 | Discrete echo | Cepstral detection, then an exact recursive inverse filter | `remaster/deecho.py` |
 | Room reverb, noise, clipping | Band-split transformer that predicts a complex mask on the stereo spectrogram, fine-tuned from a pretrained vocal dereverb model | `remaster/pretrained.py`, `remaster/train.py` |
 | Reverb decisions | The same network is a calibrated meter for excess reverb on the mix; a vocal model measures how wet the vocal stem is | `remaster/reverb_meter.py`, `remaster/stems.py` |
+| Instrument balance | Stem loudness relative to the mix against its range in professional mixes; a stem outside it is moved to the edge, applied as a stem difference | `remaster/stem_master.py` |
 | Level riding | A small controller network outputs a gain trajectory (a VU-ballistics rider is the fallback) | `remaster/controller.py`, `remaster/vu.py` |
-| Tonal balance, loudness, peaks | Range-based tonal correction, BS.1770 loudness, 4x-oversampled true-peak limiter, optional reference track | `remaster/master.py` |
+| Tone, stereo image, band dynamics | 60 measured features compared with the 10th to 90th percentile range of released music in the chosen genre, or with a reference track | `remaster/analysis.py`, `remaster/mastering.py` |
+| Loudness and peaks | BS.1770 target by delivery profile, two-stage true-peak limiter with a 3 dB limiting budget | `remaster/master.py`, `remaster/mastering.py` |
 
 The restoration network never generates audio. It multiplies the input spectrogram by a mask that starts as
 all ones, so anything it does not touch passes through unchanged. There is no codec or vocoder in the path.
 
-![The seven decision stages, with the measured readings behind each rule](docs/figures/pipeline.png)
+![The nine decision stages, with the measured readings behind each rule](docs/figures/pipeline.png)
+
+## Mastering
+
+Mastering here means what a mastering engineer does to a mix that is already good: measure it, compare it with
+released music of its kind, and change as little as the readings call for. The rules and their sources are in
+[`docs/research/mastering_practice.md`](docs/research/mastering_practice.md) (73 references: standards,
+platform specs, measured studies), and the prior work in
+[`docs/research/automastering_literature.md`](docs/research/automastering_literature.md).
+
+![Loudness, dynamics, tone, stereo image and instrument balance of released music by genre, against unmastered mixes](docs/figures/mastering_corpus.png)
+
+**What released music measures like (E24).** 24,474 released tracks with genre labels and 150 unmastered
+professional mixes, 60 features each. Unmastered professional mixes have the same tone and stereo image as
+released music (spectral slope -5.1 dB/octave in both) and 4 dB more peak-to-loudness ratio. Mastering a good mix
+is mostly a dynamics and loudness job. Vocals sit 3.5 LU under the mix in the professional mixes, close to the
+published -2.7 LU.
+
+**What cannot be corrected blind (E25, E26).** A track's own tone is 5.2 dB away from the average of all music,
+4.6 dB from the average of its genre and 4.3 dB from its nearest neighbours, while a typical tonal mistake is
+2.3 dB. Population norms therefore take back only a few percent of a tonal fault, and no estimator we tried does
+better. A reference-free quality predictor is also blind to these faults (it prefers the original over the
+faulted version 47 to 60% of the time). So blind tone moves are capped at 1.5 dB, the size engineers call normal,
+and anything larger is reported as a mix problem. A reference track lifts the cap.
+
+![Distortion against gain movement for limiters reaching the same loudness and true peak](docs/figures/mastering_limiter.png)
+
+**Loudness without damage (E28, E29).** 50 unmastered mixes are driven to -9 LUFS under a -1 dBTP ceiling by each
+limiter. At equal loudness and equal true peak the two-stage limiter leaves 5 to 10 dB less distortion than
+Matchering's with less gain movement, and matches ffmpeg's limiter on distortion with 2.5 dB less gain movement.
+Left to their defaults, every baseline overshoots the true-peak ceiling by 0.9 to 1.9 dB. Against the iZotope
+Ozone 9 Maximizer versions of the same songs (musdb-XL), at Ozone's loudness and peak, it leaves 5 to 8 dB less
+distortion at equal or lower gain movement, while Ozone changes the long-term spectrum least. These are signal
+measures. Which limiter sounds better is a listening-test question.
+
+**Decisions with a budget.** The limiter may take 3 dB (6 dB for the loud profile). A target that needs more is
+not reached and the report says by how much. The ceiling drops to -2 dBTP above -14 LUFS. Delivery profiles:
+streaming (-14 LUFS), track normalization (-16), loud (-9), broadcast (-23), film streaming (-27).
 
 ## Inside the model
 
@@ -196,11 +237,15 @@ latents keep it, about as well as a plain mel spectrogram, and better for reverb
 4. **Vocal reverb.** The vocal stem (Demucs) gets an absolute wetness reading. Produced vocals span a wide
    range, so the vocal is only changed when it is clearly outside it: reduced if far too wet, and a plate added
    if bone dry. Stems are remixed only when the vocal was changed.
-5. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move.
-6. **Dynamics.** The peak-to-loudness ratio is compared with the corpus range (8 to 16 dB). Unusually peaky
-   tracks get gentle 2:1 compression; tracks that are already squashed are flagged and not limited further.
-7. **Finish.** Bands outside the normal tonal range are trimmed, loudness is set to the target, and peaks are
-   limited at -1 dBTP. A reference track can replace the tonal and loudness targets.
+5. **Instrument balance.** The loudness of each separated stem relative to the mix is compared with its range in
+   professional mixes. A stem outside it is moved to the edge of the range. The change is applied as a
+   difference, so a stem that needed nothing contributes nothing and its separation artifacts never reach the output.
+6. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move.
+7. **Tone and stereo image.** Third-octave bands and band-wise side level outside the range of the chosen genre
+   are moved to its edge, by at most 1.5 dB unless a reference track is given. A decorrelated low end is narrowed.
+8. **Dynamics.** Band crest factors and the peak-to-loudness ratio are compared with the genre's range. Peaky
+   bands or mixes get 2:1 compression on the excess; mixes that are already dense are flagged and protected.
+9. **Loudness and peaks.** Gain to the delivery target, then the two-stage true-peak limiter inside its budget.
 
 A "reverb target" control shifts steps 3 and 4 drier or wetter.
 
@@ -223,6 +268,14 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
   1.7 dB. The network learned its 270 training rooms much better than room reverb in general (E22).
 - **The music survives.** Restored clips keep their notes and get their rhythm back: onset-envelope correlation
   with the clean track goes from 0.85 to 0.96 under reverb plus echo, and note decay time returns to the clean value (E19).
+- **A good mix needs dynamics work more than tone work.** Unmastered professional mixes match released music in
+  tone and stereo image and differ by 4 dB of peak-to-loudness ratio (E24).
+- **Blind tone correction has an information bound.** Natural variation between tracks (5.2 dB) is twice a
+  typical fault (2.3 dB), so norms recover a few percent where a reference recovers most of it (E25).
+- **The limiter is where an open tool can beat the baselines.** Equal loudness, equal true peak: less distortion
+  and less gain movement than Matchering, and in the same class as Ozone 9 on signal measures (E28, E29).
+- **CBAM helps a little, FiLM without a condition does nothing.** On a U-Net baseline CBAM raises the identity
+  score from 25 to 30 dB; neither closes the gap to a pretrained start (E23).
 - **Room reverb belongs to the whole mix, vocal reverb to the stem.** Neither approach wins both cases, so the
   pipeline decides at two levels (E8).
 - **EnCodec tokens are a poor place to look for damage.** The same probe detects degradations with AUROC 0.68
@@ -255,6 +308,25 @@ python -m remaster.app          # http://127.0.0.1:7860
 
 The app looks in `remaster/checkpoints/` for `best.pt` (restoration), `vocal_dereverb.pt` (vocal meter) and
 `controller.pt` (level riding). Checkpoints are not in the repository. Without them it runs the DSP stages only.
+Pick a style (the genre whose norms apply), a delivery profile, and optionally a reference track.
+
+Master one file from Python:
+
+```python
+from remaster.data import load_audio
+from remaster.mastering import master_track
+y, report = master_track(load_audio("mix.wav"), genre="Rock", profile="streaming")
+print("\n".join(report["decisions"]))
+```
+
+Run a blind listening test (MUSHRA-style, with a hidden reference where one exists). Put each trial in a folder
+with `reference.wav` and one WAV per system, then:
+
+```bash
+python -m remaster.listening build --src trials/ --dir listening/
+python -m remaster.listening serve --dir listening/        # http://127.0.0.1:7871
+python -m remaster.listening analyze --dir listening/ --target lacquer
+```
 
 ## Train and evaluate
 
@@ -269,6 +341,14 @@ python -m remaster.controller --curriculum --data <music dirs> --rir <IRs> --out
 python -m remaster.evaluate_pipeline --ckpt runs/x/best.pt --data <music> --rir <IRs> --out eval/pipeline
 python -m remaster.evaluate_stems --musdb <musdb18hq/test> --rir <IRs> --mix-ckpt ... --vocal-ckpt ... --out eval/stems
 python -m remaster.evaluate_quality --ckpt runs/x/best.pt --data <music> --rir <IRs> --out eval/quality
+
+# mastering: corpus norms, recovery test, limiter comparison, reference mastering against Matchering and ITO-Master
+python -m remaster.build_mastering_norms --fma <fma_medium> --metadata <tracks.csv> --musdb <musdb18hq> --out data/norms
+python -m remaster.mastering_norms --corpus data/norms/corpus.npz --stems data/norms/stems.npz
+python -m remaster.evaluate_mastering --fma <fma_medium> --corpus data/norms/corpus.npz --out eval/mastering
+python -m remaster.evaluate_loudness --musdb <musdb18hq/test> --out eval/loudness --true-peak-safe
+python -m remaster.evaluate_reference_baselines --fma <fma_medium> --corpus data/norms/corpus.npz --out eval/reference
+python -m remaster.stats                                   # paired statistics with confidence intervals
 ```
 
 `scripts/` holds helpers for training on a remote GPU box over a shared SSH socket.
@@ -280,6 +360,7 @@ remaster/                    package: models, DSP stages, training, evaluation, 
 remaster/third_party/msst/   BS-RoFormer and Mel-Band RoFormer model code, vendored (MIT)
 docs/design.md               design rationale: why masking, why not codec tokens
 docs/experiments.md          every experiment with numbers, including the negative results
+docs/research/               mastering practice with sources, and the automatic mastering literature
 docs/evidence/               figures and metric files behind those numbers
 docs/demo/                   the recorded session and animation shown above
 docs/figures/                diagrams and charts in this README (remaster.figures, remaster.trace + remaster.figures_deep)
@@ -296,5 +377,8 @@ The Python package keeps its working name, `remaster`.
   derived from it carry that license.
 - Stem separation uses [Demucs](https://github.com/facebookresearch/demucs) (MIT). Quality scoring uses
   Meta's Audiobox Aesthetics.
-- Training data: FMA (per-track Creative Commons licenses), MUSDB18-HQ (educational use), MIT IR Survey.
-  Several of these exclude commercial use.
+- Training data: FMA (per-track Creative Commons licenses), MUSDB18-HQ (educational use), MIT IR Survey,
+  simulated rooms from pyroomacoustics. Several of these exclude commercial use.
+- Evaluation only: Aachen Impulse Response database (unseen rooms), musdb-XL (Ozone-limited MUSDB18-HQ, CC BY 4.0).
+- Baselines run for comparison and not shipped: Matchering 2.0 (GPL-3.0), ITO-Master (CC BY-NC 4.0), WPE
+  (`nara_wpe`), UVR and MDX community dereverb models, ffmpeg, Pedalboard.

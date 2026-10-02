@@ -296,10 +296,15 @@ function drawBalance() {
     g.fillStyle = '#262a33'; g.fillRect(left, y - 1, w - left - 12, 2);
     g.fillStyle = 'rgba(92,200,255,0.25)'; g.fillRect(x(nr[0]), y - 7, x(nr[2]) - x(nr[0]), 14);
     g.fillStyle = '#5cc8ff'; g.fillRect(x(nr[1]) - 1, y - 7, 2, 14);
-    if (isFinite(lv)) { g.fillStyle = ok ? '#e8e8ea' : '#ffb35c'; g.beginPath(); g.arc(x(lv), y, 5, 0, 7); g.fill(); g.fillText(lv.toFixed(1), Math.min(x(lv) + 9, w - 34), y + 4); }
+    if (!isFinite(lv) || lv < -22) { g.fillStyle = '#8b8f99'; g.fillText('not present', left + 4, y - 9 + 13); return; }
+    g.fillStyle = ok ? '#e8e8ea' : '#ffb35c'; g.beginPath(); g.arc(x(lv), y, 5, 0, 7); g.fill();
+    const right = x(lv) + 9 > w - 40; g.textAlign = right ? 'right' : 'left'; g.fillText(lv.toFixed(1), right ? x(lv) - 9 : x(lv) + 9, y + 4); g.textAlign = 'left';
   });
   g.fillStyle = '#8b8f99'; [-20, -15, -10, -5, 0].forEach(v => g.fillText(v, x(v) - 8, h - 2));
 }
+// canvases measure their own width, so redraw when the page is resized or becomes visible again
+window.addEventListener('resize', () => { if (info) renderReport(); });
+document.addEventListener('visibilitychange', () => { if (info && !document.hidden) renderReport(); });
 </script>
 </body>
 </html>

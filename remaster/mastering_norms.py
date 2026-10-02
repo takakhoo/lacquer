@@ -97,7 +97,9 @@ def stem_ranges(name, lo=10, hi=90, norms=None):
     n = norms or load()
     t = n["stems"][name]
     out = _ranges(t, n["features"], lo, hi)
-    out["level"] = tuple(t["level_re_mix"][f"p{p}"] for p in (5, 10, 50, 90, 95))
+    # prefer levels measured on separated stems: that is what the pipeline can measure on a finished mix
+    lv = (n.get("stems_separated") or {}).get(name) or t["level_re_mix"]
+    out["level"] = tuple(lv[f"p{p}"] for p in (5, 10, 50, 90, 95))
     return out
 
 

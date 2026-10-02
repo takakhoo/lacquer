@@ -106,5 +106,27 @@ def fig_corpus():
     save(fig, "mastering_corpus.png")
 
 
+def fig_limiter():
+    d = json.load(open(os.path.join(ROOT, "docs", "evidence", "loudness", "loudness_tp.json")))["summary"]["-9.0"]
+    fig, ax = plt.subplots(figsize=(8.6, 5.4), dpi=160)
+    fig.subplots_adjust(left=0.1, right=0.97, top=0.82, bottom=0.12)
+    fig.text(0.1, 0.945, "Reaching -9 LUFS under a -1 dBTP ceiling", fontsize=13, fontweight="bold")
+    fig.text(0.1, 0.875, "50 unmastered mixes (MUSDB18-HQ test). Each limiter is driven to the same loudness\nand the same true peak. Lower left is better.", fontsize=8.6, color=INK2, linespacing=1.5)
+    _ax(ax, "", "gain movement: spread of the applied gain (dB)", "distortion not explained by a smooth gain (dB)")
+    ours = [("v2_noslow_clip0", "no clip stage"), ("v2_noslow_clip1", "1 dB clip stage"), ("v2_slow250_clip2", "2 dB"), ("v2_clip3", "3 dB")]
+    xs, ys = [d[k]["gain_spread_db"] for k, _ in ours], [d[k]["distortion_db"] for k, _ in ours]
+    ax.plot(xs, ys, "-", color=ORANGE, lw=1.6, zorder=2)
+    ax.plot(xs, ys, "o", color=ORANGE, ms=8, mec="white", mew=1.4, zorder=3)
+    for (k, lab), x, y in zip(ours, xs, ys):
+        ax.annotate(lab, (x, y), xytext=(-8, -5), textcoords="offset points", ha="right", va="top", fontsize=8, color=INK2)
+    ax.annotate("ours, two-stage limiter", ((xs[1] + xs[2]) / 2, (ys[1] + ys[2]) / 2), xytext=(10, 12), textcoords="offset points", fontsize=9, color=INK, fontweight="bold")
+    for k, lab, dx, dy, ha in (("matchering", "Matchering 2.0", 8, 0, "left"), ("ffmpeg_alimiter", "ffmpeg alimiter", 8, 0, "left"), ("clip", "hard clip", 8, 0, "left"),
+                               ("ours_v1", "ours, single stage", -8, 0, "right")):
+        ax.plot([d[k]["gain_spread_db"]], [d[k]["distortion_db"]], "s" if k != "ours_v1" else "o", color=INK2 if k != "ours_v1" else TINT[ORANGE], ms=7.5, mec=INK2 if k == "ours_v1" else "white", mew=1.2, zorder=3)
+        ax.annotate(lab, (d[k]["gain_spread_db"], d[k]["distortion_db"]), xytext=(dx, dy), textcoords="offset points", ha=ha, va="center", fontsize=8.5, color=INK)
+    ax.set_xlim(0, 7.6); ax.set_ylim(-48, -20)
+    save(fig, "mastering_limiter.png")
+
+
 if __name__ == "__main__":
-    fig_corpus()
+    fig_corpus(); fig_limiter()

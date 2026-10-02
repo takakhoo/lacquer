@@ -609,3 +609,26 @@ on distortion with 2.5 dB less gain movement. Without the true-peak requirement 
 ceiling by 0.9 to 1.9 dB at this loudness (`loudness.json`), and ours by 0.0. At the streaming target of -14 LUFS
 these mixes need under 1 dB of limiting and every system except loudnorm is transparent (distortion below
 -57 dB). The two measures are signal measures: which trade-off sounds best is a question for the listening test.
+
+### E29. Against a commercial limiter: iZotope Ozone 9 Maximizer (musdb-XL)
+musdb-XL (Jeon and Lee 2023, Zenodo 7041331) is the MUSDB18-HQ test set processed by the Ozone 9 Maximizer,
+released as sample-wise gain ratios. `python -m remaster.evaluate_loudness --xl <ratios>` rebuilds the Ozone
+output for the same 30 s excerpts as E28 (mean -7.5 LUFS, true peak +1.05 dBTP as shipped), then drives every
+other limiter to Ozone's loudness and Ozone's true peak on each song. Raw rows:
+`docs/evidence/loudness/loudness_ozone.json`.
+
+| system at Ozone's loudness and true peak | distortion (dB) | gain movement (dB) | log-spectral distance to input (dB) |
+|---|---:|---:|---:|
+| Ozone 9 Maximizer | -25.7 | 1.4 | **0.95** |
+| Matchering 2.0 limiter | -28.8 | 2.5 | 1.64 |
+| ffmpeg alimiter | -38.6 | 4.3 | 1.66 |
+| ours, 1 dB clip stage | -38.4 | 2.2 | 1.32 |
+| ours, 2 dB clip stage | -33.6 | 1.3 | 1.20 |
+| ours, 3 dB clip stage | -30.5 | **0.7** | 1.15 |
+
+At equal loudness and peak, the two-stage limiter leaves 5 to 8 dB less unexplained distortion than Ozone at
+equal or lower gain movement. Ozone changes the long-term spectrum least (0.95 dB against 1.15 to 1.32 dB),
+so on that measure it is still ahead. These are three signal measures of one preset of a commercial product
+whose modes are tuned by ear; they say the open limiter is in the same class, and a listening test has to say
+which one sounds better. The Ozone outputs in the dataset exceed 0 dBTP by 1 dB on average, which a streaming
+delivery spec would reject.

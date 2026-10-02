@@ -54,6 +54,19 @@ def loudness_stats(x, sr=SR):
     return dict(lufs=lufs, lra=lra, short_term=to_l(st))
 
 
+def loudest_window(x, sr=SR, seconds=30.0):
+    """(start, stop) sample indices of the window with the highest short-term loudness. Balance readings are
+    taken there, so that they are comparable between a 30 s clip and a full song with a quiet intro."""
+    n = int(seconds * sr)
+    if x.shape[1] <= n:
+        return 0, x.shape[1]
+    st = loudness_stats(x, sr)["short_term"]
+    if not len(st):
+        return 0, n
+    start = int(np.clip(np.argmax(st) * 0.1 - seconds / 2 + 1.5, 0, x.shape[1] / sr - seconds) * sr)
+    return start, start + n
+
+
 def true_peak_db(x, sr=SR, os_factor=4):
     up = signal.resample_poly(x, os_factor, 1, axis=1)
     return float(20 * np.log10(np.abs(up).max() + 1e-12))

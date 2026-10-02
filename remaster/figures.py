@@ -177,35 +177,41 @@ def fig_tokens_vs_mask():
 
 # ---------------------------------------------------------------- 3. decision pipeline
 def fig_pipeline():
-    W, H = 16.26, 5.6
+    W, H = 14.2, 8.3
     fig, ax = canvas(W, H)
     title(ax, W, H, "The decision pipeline", "Each stage measures first and acts only outside a normal range. Numbers are the measured readings behind each rule.")
-    y, h, w = 2.35, 2.2, 2.05
-    stages = [
+    h, w, gap = 2.2, 2.52, 0.24
+    repair = [
         ("1  Clipping", AQUA, ["flat ceiling on both", "polarities of a channel", "", "-> rebuild the peaks by", "consistent sparse fit", "no ceiling: skip"], "DSP"),
         ("2  Echo", AQUA, ["cepstrum of the mix", "", "sharp peak, z >= 45", "-> exact inverse filter", "", "clean music: z ~ 12"], "DSP"),
         ("3  Room reverb", ORANGE, ["network as a meter", "", "clean mixes: -41 dB", "light reverb: -20 dB", "heavy reverb: -4 dB", "gate at -24 dB"], "transformer"),
         ("4  Vocal reverb", ORANGE, ["Demucs vocal stem", "+ vocal dereverb model", "", "normal: -32 to 0 dB", "too wet: reduce", "bone dry: add plate"], "stems"),
-        ("5  Level", ORANGE, ["controller network", "gain trajectory g(t)", "", "clamped to +-6 dB", "holds through", "quiet passages"], "controller"),
-        ("6  Dynamics", AQUA, ["peak-to-loudness ratio", "", "normal: 8 to 16 dB", "peaky: 2:1 compression", "squashed: protect", "from more limiting"], "DSP"),
-        ("7  Finish", AQUA, ["tonal range trim", "BS.1770 loudness", "true-peak limiter", "", "-14 LUFS, -1 dBTP", "or match a reference"], "DSP"),
+        ("5  Instrument balance", ORANGE, ["stem loudness re. mix", "", "vocals: -3.5 LU", "normal -6.1 to -1.3", "outside: move the stem", "to the edge of normal"], "stems"),
     ]
-    x = 0.3
-    for i, (name, col, lines, tag) in enumerate(stages):
-        box(ax, x, y, w, h, name, lines, col, title_size=10)
-        ax.text(x + w / 2, y + 0.12, tag, ha="center", va="bottom", fontsize=7.5, color=INK2, style="italic")
-        if i < len(stages) - 1:
-            arrow(ax, (x + w, y + h / 2), (x + w + 0.21, y + h / 2))
-        x += w + 0.21
-    note(ax, 0.3, 1.75, "in: any stereo mix", BLUE, 9, weight="bold")
-    note(ax, W - 0.3, 1.75, "out: restored and mastered mix + the list of decisions", BLUE, 9, ha="right", weight="bold")
-    ax.add_patch(Rectangle((0.3, 0.45), 0.28, 0.28, fc=TINT[AQUA], ec=AQUA, lw=1.2)); note(ax, 0.68, 0.59, "deterministic DSP: the problem has an exact answer", INK2, 8.3)
-    ax.add_patch(Rectangle((5.2, 0.45), 0.28, 0.28, fc=TINT[ORANGE], ec=ORANGE, lw=1.2)); note(ax, 5.58, 0.59, "learned: the problem needs a prior about what music sounds like", INK2, 8.3)
-    note(ax, 0.3, 1.2, "A stage that finds nothing in excess does nothing, so a track that is already fine comes out unchanged apart from the loudness target.", INK2, 8.3)
+    master = [
+        ("6  Level", ORANGE, ["controller network", "gain trajectory g(t)", "", "clamped to +-6 dB", "holds through", "quiet passages"], "controller"),
+        ("7  Tone and image", AQUA, ["third-octave spectrum,", "side level in 5 bands", "", "norms of the style", "moves up to 1.5 dB,", "or match a reference"], "DSP"),
+        ("8  Dynamics", AQUA, ["peak-to-loudness ratio,", "crest in four bands", "", "above the style: 2:1", "dense already: protect", "from more limiting"], "DSP"),
+        ("9  Loudness and peaks", AQUA, ["BS.1770 target by delivery", "two-stage limiter", "", "-1 dBTP (-2 when loud)", "3 dB limiting budget,", "shortfall is reported"], "DSP"),
+    ]
+    for row, y, label in ((repair, 4.55, "REPAIR"), (master, 1.55, "MASTER")):
+        x = 0.3 + (0 if len(row) == 5 else (w + gap) / 2)
+        ax.text(0.3, y + h + 0.2, label, fontsize=8.5, color=INK2, fontweight="bold")
+        for i, (name, col, lines, tag) in enumerate(row):
+            box(ax, x, y, w, h, name, lines, col, title_size=10)
+            ax.text(x + w / 2, y + 0.12, tag, ha="center", va="bottom", fontsize=7.5, color=INK2, style="italic")
+            if i < len(row) - 1:
+                arrow(ax, (x + w, y + h / 2), (x + w + gap, y + h / 2))
+            x += w + gap
+    arrow(ax, (0.3 + 4 * (w + gap) + w / 2, 4.55), (0.3 + (w + gap) / 2 + w / 2, 1.55 + h), rad=-0.0, ls="--")
+    note(ax, 0.3, 7.25, "in: any stereo mix", BLUE, 9, weight="bold")
+    note(ax, W - 0.3, 1.15, "out: restored and mastered mix + the list of decisions", BLUE, 9, ha="right", weight="bold")
+    ax.add_patch(Rectangle((0.3, 0.3), 0.28, 0.28, fc=TINT[AQUA], ec=AQUA, lw=1.2)); note(ax, 0.68, 0.44, "deterministic DSP: the problem has an exact answer or a measurable norm", INK2, 8.3)
+    ax.add_patch(Rectangle((6.6, 0.3), 0.28, 0.28, fc=TINT[ORANGE], ec=ORANGE, lw=1.2)); note(ax, 6.98, 0.44, "learned: the problem needs a prior about what music sounds like", INK2, 8.3)
+    note(ax, 0.3, 0.85, "A stage that finds nothing outside its range does nothing, so a track that is already fine comes out unchanged apart from the loudness target.", INK2, 8.3)
     save(fig, "pipeline.png")
 
 
-# ---------------------------------------------------------------- 4. controller + curriculum
 def fig_controller():
     W, H = 14.0, 6.4
     fig, ax = canvas(W, H)

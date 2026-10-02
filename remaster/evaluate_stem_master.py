@@ -17,7 +17,7 @@ import numpy as np
 import soundfile as sf
 import torch
 
-from .analysis import SR
+from .analysis import SR, loudest_window
 from .degrade import match_level
 from .evaluate_mastering import unmaster
 from .losses import log_spec_dist, si_sdr
@@ -47,18 +47,23 @@ def main():
     p.add_argument("--out", required=True)
     p.add_argument("--songs", type=int, default=50)
     p.add_argument("--seconds", type=float, default=30.0)
+    p.add_argument("--tone", action="store_true", help="also correct stem tone toward the stem norms (harmful, kept for the record)")
+    p.add_argument("--only", nargs="+", default=["vocals", "drums", "bass", "other"])
+    p.add_argument("--margin", type=float, default=0.0)
+    p.add_argument("--name", default="stem_master.json")
+    p.add_argument("--kinds", nargs="+", default=["level", "tone", "none"])
     a = p.parse_args()
     os.makedirs(a.out, exist_ok=True)
     rows, n = [], int(a.seconds * SR)
     for si, d in enumerate(sorted(glob.glob(os.path.join(a.musdb, "*", "")))[: a.songs]):
         true = {s: sf.read(os.path.join(d, s + ".wav"), dtype="float32", always_2d=True)[0].T for s in STEMS}
-        # the 30 s where the vocal is most active
-        v = (true["vocals"] ** 2).mean(axis=0)
-        c = np.concatenate([[0], np.cumsum(v)])
-        start = int(np.argmax(c[n::SR] - c[:-n:SR])) * SR if len(v) > n + SR else 0
-        true = {s: x[:, start:start + n] for s, x in true.items()}
+        # the loudest 30 s of the clean mix, the same window the pipeline measures balance on
+        start, stop = loudest_window(sum(true.values()), seconds=a.seconds)
+        true = {s: x[:, start:stop] for s, x in true.items()}
         clean = sum(true.values())
         for fi, (kind, stem) in enumerate(FAULTS):
+            if kind not in a.kinds:
+                continue
             rng = np.random.default_rng([31, si, fi])
             faulty = dict(true)
             info = {}
@@ -70,10 +75,12 @@ def main():
             mix = sum(faulty.values()).astype(np.float32)
             sep = separate(mix)
             out_mix, _ = tonal(mix, ranges("all"))
-            out_sep, rep = master_stems(mix, stems=sep)
+            kw = dict(do_tone=a.tone, only=tuple(a.only), margin_db=a.margin)
+            out_sep, rep = master_stems(mix, stems=sep, **kw)
             oracle = dict(faulty, residual=np.zeros_like(mix))
-            out_orc, _ = master_stems(mix, stems=oracle)
+            out_orc, rep_o = master_stems(mix, stems=oracle, **kw)
             row = dict(song=os.path.basename(d.rstrip("/")), kind=kind, stem=stem, info=info, decisions=rep["decisions"],
+                       levels_separated=rep["levels"], levels_true=rep_o["levels"],
                        input=score(mix, clean), mix_level=score(out_mix, clean), stems=score(out_sep, clean), stems_true=score(out_orc, clean))
             if kind == "level":
                 others = [s for s in ("vocals", "drums", "bass", "other") if s != stem]
@@ -86,8 +93,10 @@ def main():
     summ = {}
     for kind, stem in FAULTS:
         rs = [r for r in rows if r["kind"] == kind and r["stem"] == stem]
+        if not rs:
+            continue
         summ[f"{kind}:{stem}"] = dict(n=len(rs), **{k: {m: float(np.mean([r[k][m] for r in rs])) for m in rs[0][k]} for k in ("input", "mix_level", "stems", "stems_true")})
-    json.dump(dict(summary=summ, rows=rows), open(os.path.join(a.out, "stem_master.json"), "w"), indent=1)
+    json.dump(dict(summary=summ, rows=rows), open(os.path.join(a.out, a.name), "w"), indent=1)
     print(json.dumps(summ, indent=1))
 
 

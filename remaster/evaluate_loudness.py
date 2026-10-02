@@ -50,9 +50,10 @@ def sys_matchering(x, ceil):
 def sys_alimiter(x, ceil):
     with tempfile.TemporaryDirectory() as d:
         a, b = os.path.join(d, "a.wav"), os.path.join(d, "b.wav")
-        sf.write(a, x.T, SR, subtype="FLOAT")
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-af", f"alimiter=limit={ceil:.5f}:attack=5:release=50:level=disabled", "-c:a", "pcm_f32le", b], check=True)
-        return sf.read(b, dtype="float32")[0].T
+        scale = max(ceil, 1.0)                                   # the filter accepts limits up to 1.0
+        sf.write(a, (x / scale).T, SR, subtype="FLOAT")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-af", f"alimiter=limit={ceil / scale:.5f}:attack=5:release=50:level=disabled", "-c:a", "pcm_f32le", b], check=True)
+        return sf.read(b, dtype="float32")[0].T * scale
 
 
 def sys_loudnorm(x, target, ceiling_db):
