@@ -530,22 +530,33 @@ upward expansion) and go through the mastering chain (`remaster/mastering.py`) w
 measured against the original track's own features. (b) `python -m remaster.tone_identifiability` works on the
 measured spectra directly.
 
-| fault | measure (dB) | damaged | global norms | genre norms | oracle (the original as reference) |
-|---|---|---:|---:|---:|---:|
-| tilt | tone error | 3.13 | 3.01 | 2.91 | 1.36 |
-| EQ bumps | tone error | 2.56 | 2.52 | 2.44 | 1.19 |
-| stereo width | width error | 5.68 | 5.08 | 4.92 | 2.04 |
-| no fault | tone moved | 0 | 0.79 | 0.80 | 0.21 |
+| fault | measure (dB) | damaged | global norms | genre norms | reference mode (the original as reference) | Matchering 2.0 (same reference) |
+|---|---|---:|---:|---:|---:|---:|
+| tilt | tone error | 3.13 | 3.03 | 2.98 | **0.19** | 0.72 |
+| EQ bumps | tone error | 2.56 | 2.53 | 2.48 | **0.12** | 0.65 |
+| stereo width | width error | 5.68 | 5.09 | 4.93 | 0.27 | **0.03** |
+| over-dynamic | band crest error | 0.61 | 0.52 | 0.54 | **0.32** | 0.52 |
+| any of the above | peak-to-loudness error | 1.14 | 1.29 | 1.25 | 0.44 | **0.21** |
+| no fault | tone moved | 0 | 0.65 | 0.66 | 0.05 | n/a |
 
-Population norms take back 4 to 7% of a tonal fault and genre labels add 3 points, while moving undamaged tracks
-by 0.8 dB. With the original as reference the same chain removes 54 to 64%. The reason is in (b): a held-out
-track's own tone is 5.2 dB RMS away from the population mean, 4.6 dB from its genre mean and 4.3 dB from the mean
-of its 20 nearest neighbours in EQ-invariant descriptors, while the fault is 2.3 dB. A Gaussian posterior-mean
-estimator with the full band covariance does no better than the range rule (2.28 to 2.25 dB). Professional mixes
-are tighter (2.9 dB band spread), and there the range rule removes 14% (2.41 to 2.08 dB) at 0.4 dB disturbance.
-Stems do not rescue this: per-stem tone varies more than the mix (slope spread 1.6 dB/octave for vocals against
-0.8 for the mix), although stem deviations are nearly independent of each other (correlations 0.07 to 0.25).
-Consequence for the system: blind tone and width corrections stay conservative, and anything stronger needs a
+Numbers are for the final chain (blind moves capped at 1.5 dB; reference mode matches the mid and side spectra
+separately). Population norms take back 3% of a tilt and 1% of an EQ bump, genre labels add 2 points, and an
+undamaged track is moved by 0.65 dB. With the original as reference the same chain removes 94 to 95% of a tonal
+fault and 95% of a width fault. The reason is in (b): a held-out track's own tone is 5.2 dB RMS away from the
+population mean, 4.6 dB from its genre mean and 4.3 dB from the mean of its 20 nearest neighbours in
+EQ-invariant descriptors, while the fault is 2.3 dB. A Gaussian posterior-mean estimator with the full band
+covariance does no better than the range rule (2.28 to 2.25 dB). Professional mixes are tighter (2.9 dB band
+spread), and there the range rule removes 14% (2.41 to 2.08 dB) at 0.4 dB disturbance. Stems do not rescue
+this: per-stem tone varies more than the mix (slope spread 1.6 dB/octave for vocals against 0.8 for the mix),
+although stem deviations are nearly independent of each other (correlations 0.07 to 0.25).
+
+Against Matchering 2.0 given the same reference (200 tracks per fault): our reference mode ends closer in tone
+after a tilt (0.19 against 0.72 dB, better on 80% of tracks) and after EQ bumps (0.12 against 0.65 dB, better on
+88%), and closer in band dynamics. Matchering is closer on stereo width (0.03 against 0.27 dB; our median is
+0.06) and on peak-to-loudness ratio (0.21 against 0.44 dB), the second because our output is held at 0 dBTP when
+the reference peaks above full scale. An earlier version of the reference mode with a five-band width control
+left 0.41 dB of width error and 0.44 dB of tilt error; matching mid and side spectra separately fixed both.
+Consequence for the system: blind tone and width corrections stay small, and anything stronger needs a
 reference track.
 
 ### E26. A reference-free quality predictor does not see mastering faults
@@ -632,3 +643,31 @@ so on that measure it is still ahead. These are three signal measures of one pre
 whose modes are tuned by ear; they say the open limiter is in the same class, and a listening test has to say
 which one sounds better. The Ozone outputs in the dataset exceed 0 dBTP by 1 dB on average, which a streaming
 delivery spec would reject.
+
+### E30. Can a fault inside one instrument be fixed from the finished mix? Level yes, tone no (first version)
+`python -m remaster.evaluate_stem_master`: each of the 50 MUSDB18-HQ test songs is rebuilt from its true stems
+with one fault on one stem (a level error of 4 to 9 dB, or one or two EQ bumps of 3 to 8 dB), plus an unmodified
+copy. Three systems see only the mix: the mix-level tone correction, the stem engine on Demucs-separated stems,
+and the stem engine on the true faulty stems (the bound set by perfect separation). In this first version the
+stem engine corrected both level and tone, against norms from the true stems of the training songs.
+Raw rows: `docs/evidence/stem_master/stem_master_v1.json`.
+
+| fault | measure | input | mix-level chain | stem engine | stem engine, true stems |
+|---|---|---:|---:|---:|---:|
+| vocal level | balance error (dB) | 6.3 | | 4.3 | 4.1 |
+| drum level | balance error (dB) | 6.4 | | 5.1 | 4.7 |
+| bass level | balance error (dB) | 6.5 | | 5.2 | 4.7 |
+| vocal level | SI-SDR to the intended mix (dB) | 10.8 | 10.9 | 12.2 | 12.8 |
+| vocal tone | SI-SDR (dB) | 17.2 | 17.2 | 15.3 | 15.1 |
+| drum tone | SI-SDR (dB) | 22.6 | 21.6 | 19.0 | 19.1 |
+| bass tone | SI-SDR (dB) | 28.6 | 25.2 | 18.7 | 18.5 |
+| no fault | SI-SDR (dB) | | 55.6 | 23.2 | 23.4 |
+
+Three findings. Level errors on a stem are partly corrected from the mix alone (vocal balance error 6.3 to
+4.3 dB), and separation costs little against true stems (4.3 against 4.1), because the correction is applied as
+a stem difference. Tone correction per stem makes every case worse, with true stems as much as with separated
+ones: instrument tone varies more between songs (5.5 dB per band for vocals) than the fault, the same bound as
+E25. And the level rule fired on 24 of 50 unmodified songs: separated stems read about 1 LU lower than true
+stems, and the norms came from whole songs while the test reads 30 s. Changes made after this run: stem tone
+correction is off by default, and the balance norms are measured on separated stems over the loudest 30 s, the
+same way a new track is measured (`remaster/build_stem_level_norms.py`). The rerun is E31.

@@ -96,6 +96,41 @@ def transfer(a, files, genre):
     print(json.dumps(summ, indent=1))
 
 
+def refresh(a):
+    """Our chain changed after the baselines ran: rescore `ours` on the saved input and reference clips."""
+    import torch
+
+    from .degrade import match_level
+    from .losses import si_sdr
+    rd = lambda f: sf.read(f, dtype="float32", always_2d=True)[0].T
+    for mode, sub, name in (("transfer", "work_transfer", "transfer.json"), ("recover", "work", "reference.json")):
+        path = os.path.join(a.out, name)
+        if not os.path.exists(path):
+            continue
+        d = json.load(open(path))
+        dirs = sorted(glob.glob(os.path.join(a.out, sub, "*", "")))
+        assert len(dirs) >= len(d["rows"]), (len(dirs), len(d["rows"]))
+        for row, wd in zip(d["rows"], dirs):
+            x, ref = rd(os.path.join(wd, "input.wav")), rd(os.path.join(wd, "reference.wav"))
+            y = master_track(x, reference=ref, match_reference_peak=True)[0]
+            e = errors(mastering_features(y), mastering_features(ref))
+            if mode == "transfer":
+                n = min(y.shape[1], x.shape[1])
+                e["sisdr_vs_input"] = si_sdr(torch.from_numpy(match_level(y[:, :n], -20.0))[None], torch.from_numpy(match_level(x[:, :n], -20.0))[None]).item()
+            row["systems"]["ours"] = e
+        rows = d["rows"]
+        keys = ("tone", "width", "plr", "crest") + (("sisdr_vs_input",) if mode == "transfer" else ())
+        groups = {"all": rows} if mode == "transfer" else {f: [r for r in rows if r["fault"] == f] for f in FAULTS}
+        summ = {}
+        for g, rs in groups.items():
+            names = sorted(set.union(*[set(r["systems"]) for r in rs]))
+            base = "input" if mode == "transfer" else "damaged"
+            summ[g] = dict(n=len(rs), **{base: {k: float(np.mean([r[base][k] for r in rs])) for k in ("tone", "width", "plr", "crest")}},
+                           **{s_: dict(n=sum(s_ in r["systems"] for r in rs), **{k: float(np.mean([r["systems"][s_][k] for r in rs if s_ in r["systems"]])) for k in keys}) for s_ in names})
+        json.dump(dict(summary=summ, rows=rows), open(path, "w"), indent=1)
+        print(mode, json.dumps(summ, indent=1))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--fma", required=True)
@@ -106,6 +141,7 @@ def main():
     p.add_argument("--ito-python", default=None)
     p.add_argument("--device", default="cuda")
     p.add_argument("--ito-opt-tracks", type=int, default=8, help="run ITO-Master's inference-time optimization on the first N tracks only (it is slow)")
+    p.add_argument("--refresh-ours", action="store_true", help="recompute only our system from the saved clips, keeping the baseline outputs already scored")
     p.add_argument("--mode", default="recover", choices=["recover", "transfer"],
                    help="recover: damaged clip, original as reference. transfer: untouched clip, a different track of the same genre as reference")
     a = p.parse_args()
@@ -117,6 +153,8 @@ def main():
     files = [f for f in sorted(glob.glob(os.path.join(a.fma, "*", "*.mp3"))) if split_of(f) == "test" and genre.get(int(os.path.basename(f)[:6])) in known]
     files = [files[i] for i in np.random.default_rng(3).permutation(len(files))][: a.tracks]
     rows = []
+    if a.refresh_ours:
+        return refresh(a)
     if a.mode == "transfer":
         return transfer(a, files, genre)
     for seed, f in enumerate(files):

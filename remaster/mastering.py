@@ -39,6 +39,39 @@ def reference_ranges(ref, sr=SR, tol=0.25):
     return r
 
 
+def _third_octave(sig, sr):
+    f, p = signal.welch(sig, sr, nperseg=8192, noverlap=4096)
+    return np.array([10 * np.log10(p[(f >= fc / 2 ** (1 / 6)) & (f < fc * 2 ** (1 / 6))].sum() + 1e-20) for fc in THIRD_OCT])
+
+
+def match_reference(x, ref, sr=SR, passes=2, max_db=12.0):
+    """Reference mastering of tone and image in one step: the mid and the side channel each get a linear-phase
+    EQ that moves their third-octave spectrum onto the reference's, relative to total level."""
+    rm, rs = (ref[0] + ref[1]) / 2, (ref[0] - ref[1]) / 2
+    tot_r = 10 * np.log10(np.mean(rm ** 2) + np.mean(rs ** 2) + 1e-20)
+    tgt = [_third_octave(rm, sr) - tot_r, _third_octave(rs, sr) - tot_r]
+    y, total = x.astype(np.float32), [np.zeros(len(THIRD_OCT)), np.zeros(len(THIRD_OCT))]
+    for _ in range(passes):
+        mid, side = (y[0] + y[1]) / 2, (y[0] - y[1]) / 2
+        tot = 10 * np.log10(np.mean(mid ** 2) + np.mean(side ** 2) + 1e-20)
+        out = []
+        for ci, ch in enumerate((mid, side)):
+            cur = _third_octave(ch, sr) - tot
+            # bands with nothing in them on either side cannot be matched by an EQ (band-limited source, mono track)
+            valid = (THIRD_OCT >= 30) & (THIRD_OCT <= 16000) & (cur > -90) & (tgt[ci] > -90) & (np.abs(tgt[ci] - cur) < 24)
+            diff = np.where(valid, tgt[ci] - cur, 0.0)
+            diff = diff - (np.mean(diff[valid]) if ci == 0 and valid.any() else 0.0)       # overall level is set later, by loudness
+            corr = np.clip(ndimage.gaussian_filter1d(diff, 0.6, mode="nearest"), -max_db, max_db)
+            total[ci] += corr
+            freqs = np.concatenate([[0], THIRD_OCT, [sr / 2]])
+            fir = signal.firwin2(4097, freqs, 10 ** (np.concatenate([[corr[0]], corr, [corr[-1]]]) / 20), fs=sr)
+            out.append(signal.fftconvolve(ch, fir, mode="same"))
+        y = np.stack([out[0] + out[1], out[0] - out[1]]).astype(np.float32)
+    i = int(np.argmax(np.abs(total[0])))
+    return y, dict(action="match", bands_hz=THIRD_OCT.tolist(), correction_db=total[0].tolist(), side_correction_db=total[1].tolist(),
+                   largest_db=float(total[0][i]), largest_hz=float(THIRD_OCT[i]))
+
+
 def tonal(x, rng, sr=SR, strength=0.7, max_db=6.0):
     """Third-octave bands outside the style's range are pulled to its edge with one smooth linear-phase EQ."""
     cur = mastering_features(x, sr)["ltas"]
@@ -178,11 +211,13 @@ def master_track(x, sr=SR, genre="all", profile="streaming", target_lufs=None, c
         b, a = signal.butter(2, 25 / (sr / 2), "high")
         y = signal.lfilter(b, a, y, axis=1).astype(np.float32)
         say("Clean-up: DC offset or excess sub-bass found, high-passed at 25 Hz.")
-    if do_tonal:
+    if do_tonal and reference is not None:
+        y, rep["tonal"] = match_reference(y, reference, sr)
+        t = rep["tonal"]
+        say(f"Tone and image: mid and side spectra matched to the reference, largest move {t['largest_db']:+.1f} dB at {t['largest_hz']:.0f} Hz.")
+        do_width = False
+    elif do_tonal:
         y, rep["tonal"] = tonal(y, rng, sr, strength, max_db)
-        if reference is not None and rep["tonal"]["action"] == "eq":
-            y, second = tonal(y, rng, sr, strength, max_db)      # one more pass takes out what smoothing left behind
-            rep["tonal"]["second_pass_db"] = second.get("largest_db", 0.0)
         t = rep["tonal"]
         if t["action"] == "eq":
             say(f"Tone: largest correction {t['largest_db']:+.1f} dB at {t['largest_hz']:.0f} Hz."

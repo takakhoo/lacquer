@@ -39,10 +39,7 @@ which removes the quality ceiling. Differences from stock BS-RoFormer:
 - loss = waveform L1 + multi-resolution complex STFT L1 + log-magnitude L1. The log term is there
   because reverb tails and echo repeats are quiet and nearly invisible to linear-domain losses.
 
-**Stage 2, deterministic mastering (`remaster/master.py`).** Tonal balance toward a corpus-median
-third-octave curve (bounded, smoothed, linear-phase), ITU-R BS.1770 loudness normalization, and a
-4x-oversampled lookahead true-peak limiter. Loudness and peak control have exact DSP solutions, so no
-network is used for them.
+**Mastering (`remaster/analysis.py`, `remaster/mastering.py`, `remaster/stem_master.py`).** See section 3.
 
 **Degradations (`remaster/degrade.py`)** are generated on the fly, time-aligned with the clean target:
 real room impulse responses (MIT IR Survey, 270 IRs) and synthetic band-decaying tails with RT60
@@ -51,11 +48,43 @@ feedback and darker repeats; 1-4 band peaking/shelving EQ at +-12 dB; a feed-for
 attack/release; hard/soft clipping; white/pink noise at 20-45 dB SNR. Segments are degraded with 2 s
 of leading context so tails from earlier audio land inside the training crop.
 
-## 3. Experiments
+## 3. Why the mastering half is measurement plus small moves
+
+Mastering is the part where a network is least justified, and the measurements say why.
+
+**A good mix already has the right tone.** Unmastered professional mixes (MUSDB18-HQ) and 24,474 released
+tracks have the same spectral slope (-5.1 dB/octave) and stereo image, and differ by 4 dB of peak-to-loudness
+ratio (E24). What mastering adds to a good mix is mostly dynamics control and loudness, which have exact DSP
+formulations and published delivery specs.
+
+**A bad tone cannot be identified blind.** A track's own spectrum is 5.2 dB RMS from the population mean and
+4.3 dB from the mean of its nearest neighbours, while a typical tonal fault is 2.3 dB (E25). Whatever the
+estimator (range rule, Gaussian posterior mean, genre conditioning, the learned controller of E14), the fault
+is smaller than the natural spread it has to be told apart from. A reference-free quality predictor does not
+see these faults either (E26). So the chain does what mastering engineers describe: moves of at most 1.5 dB
+without a reference, a note in the report when the reading is further out than mastering should fix, and full
+matching only when a reference track says what the target is.
+
+**Every action has a budget and a reading.** The limiter may take 3 dB; a loudness target that would need more
+is not reached and the report says so. The true-peak ceiling tightens to -2 dBTP for loud masters. Nothing is
+filtered as routine. Each stage reports the measured value, the normal range it was compared with, and what it
+did.
+
+**Stems are for balance.** Instrument tone varies more between songs than a typical fault, so pulling a stem
+toward the average of its kind made mixes worse in the first stem evaluation. Stem loudness relative to the mix
+is tighter, so that is the one stem-level correction, measured on separated stems against norms measured the
+same way, and applied as a difference so that untouched stems add nothing.
+
+**The limiter is engineered and measured.** A slow stage carries sustained reduction, a fast lookahead stage
+catches the rest, and an oversampled soft clipper takes the last 1 to 2 dB off the shortest peaks. It is
+compared with other limiters at equal loudness and equal true peak on two signal measures, distortion and gain
+movement (E28, E29).
+
+## 4. Experiments
 
 See `docs/experiments.md` (appended as runs finish).
 
-## 4. Running it
+## 5. Running it
 
 ```bash
 python -m remaster.app --ckpt remaster/checkpoints/best.pt   # web UI at http://127.0.0.1:7860

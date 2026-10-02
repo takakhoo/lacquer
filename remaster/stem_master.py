@@ -22,6 +22,29 @@ def stem_levels(stems, x, sr=SR):
     return {k: (loudness(stems[k][:, a:b], sr) - ref) for k in STEMS}
 
 
+def stem_notes(stems, x, sr=SR, present_db=-22.0):
+    """Advisory readings per instrument against stems of professional mixes (5th to 95th percentile). Nothing is
+    changed on the basis of these: instrument tone and dynamics vary too much between songs to correct blind (E30)."""
+    from .analysis import mastering_features
+    a, b = loudest_window(x, sr)
+    levels, notes = stem_levels(stems, x, sr), []
+    checks = (("slope", "tone", "darker than", "brighter than", "dB/octave"), ("plr", "dynamics", "denser than", "more dynamic than", "dB peak-to-loudness"),
+              ("width_all", "stereo width", "narrower than", "wider than", "dB side/mid"))
+    for name in STEMS:
+        if not np.isfinite(levels[name]) or levels[name] < present_db:
+            continue
+        f, rng = mastering_features(stems[name][:, a:b], sr), stem_ranges(name, 5, 95)
+        for key, label, low_word, high_word, unit in checks:
+            lo, _, hi = rng[key]
+            v = f[key]
+            if not np.isfinite(v) or (key == "width_all" and v < -60):
+                continue
+            if v < lo or v > hi:
+                kind = dict(vocals="vocal", drums="drum", bass="bass", other="accompaniment")[name]
+                notes.append(f"{name.capitalize()} {label}: {v:.1f} {unit}, {low_word if v < lo else high_word} 95% of {kind} stems in professional mixes ({lo:.1f} to {hi:.1f}).")
+    return notes
+
+
 def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_tone=False, max_gain_db=6.0, present_db=-22.0, tone_strength=0.7,
                  only=STEMS, margin_db=0.0):
     """Returns (audio, report). `stems` may be passed in to skip separation.
@@ -54,6 +77,7 @@ def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_ton
                 rep["decisions"].append(f"{name.capitalize()} level: {lv:.1f} LU relative to the mix, outside the normal {p5:.1f} to {p95:.1f}: moved by {g:+.1f} dB.")
         y += new - s
         rep["stems"][name] = r
+    rep["notes"] = stem_notes(stems, x, sr, present_db)
     if not rep["decisions"]:
         rep["decisions"].append("Instrument balance: every stem inside the normal range of professional mixes, left alone.")
     return y, rep

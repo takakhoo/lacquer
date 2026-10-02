@@ -25,15 +25,17 @@ Held-out music with synthetic damage. SI-SDR is closeness to the clean track in 
 | Room reverb on the whole mix, 24 MUSDB18-HQ test songs | 4.7 dB | **9.0 dB** |
 | Reverb on the vocal only, same songs | 6.7 dB | **8.7 dB** |
 | Reverb from a plug-in style the model never trained on, 40 clips | 3.6 dB | **8.7 dB** |
-| Reverb from six real rooms the model never trained on, 40 clips | 3.1 dB | **4.8 dB** |
+| Reverb from six real rooms the model never trained on, 40 clips | 3.1 dB | **5.5 dB** |
 | Level problems inside a track, 20 clips (envelope error, lower is better) | 4.5 dB | **2.4 dB** |
+| Tonal fault with a reference track, 200 tracks (tone error, lower is better) | 3.1 dB | **0.19 dB** |
 
 A separate judge that never sees the clean reference (Meta's Audiobox Aesthetics, production quality 1-10)
 rates reverberant clips 6.37, the restored versions 6.63, and the clean originals 6.66.
 
 Against other tools on the same reverberant clips: classical WPE and four released community dereverb models
 land between -0.5 and 3.9 dB where Lacquer reaches 9.1 dB (input 3.2 dB). On the unseen real rooms none of them
-improves the average and Lacquer gains 1.7 dB (E18, E20, E22).
+improves the average; Lacquer gained 1.7 dB there, and 2.4 dB after 2,500 training steps with simulated rooms
+added (E18, E20, E22, E27).
 
 What does not work yet, stated plainly: real rooms outside the training set gain far less than rooms inside it;
 noise and soft saturation are not improved; blind EQ correction and undoing compression or limiting are unsolved
@@ -117,6 +119,12 @@ Left to their defaults, every baseline overshoots the true-peak ceiling by 0.9 t
 Ozone 9 Maximizer versions of the same songs (musdb-XL), at Ozone's loudness and peak, it leaves 5 to 8 dB less
 distortion at equal or lower gain movement, while Ozone changes the long-term spectrum least. These are signal
 measures. Which limiter sounds better is a listening-test question.
+
+**Reference mastering (E25).** Give it a reference track and the same chain matches the mid and side spectra,
+band dynamics and loudness of the reference. On 200 held-out tracks with a deliberate tonal fault and the
+original as reference, it leaves 0.19 dB of tone error after a tilt and 0.12 dB after EQ bumps, where
+Matchering 2.0 leaves 0.72 and 0.65 dB (ours closer on 80 to 88% of tracks). Matchering is more exact on stereo
+width (0.03 against 0.27 dB) and on peak-to-loudness ratio.
 
 **Decisions with a budget.** The limiter may take 3 dB (6 dB for the loud profile). A target that needs more is
 not reached and the report says by how much. The ceiling drops to -2 dBTP above -14 LUFS. Delivery profiles:
@@ -265,13 +273,16 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
 - **Released dereverb tools do not transfer to finished mixes.** WPE and four community models, built for speech
   or vocal stems, change the average by -3.7 to +0.7 dB on reverberant mixes where the fine-tuned network gains 5.9 dB (E18, E20).
 - **Unseen real rooms are the weak point.** On six rooms outside the training set the gain drops from 5.9 dB to
-  1.7 dB. The network learned its 270 training rooms much better than room reverb in general (E22).
+  1.7 dB. The network learned its 270 training rooms much better than room reverb in general (E22). Adding 4,000
+  simulated rooms to training raised it to 2.4 dB within 2,500 steps, and that run continues (E27).
 - **The music survives.** Restored clips keep their notes and get their rhythm back: onset-envelope correlation
   with the clean track goes from 0.85 to 0.96 under reverb plus echo, and note decay time returns to the clean value (E19).
 - **A good mix needs dynamics work more than tone work.** Unmastered professional mixes match released music in
   tone and stereo image and differ by 4 dB of peak-to-loudness ratio (E24).
 - **Blind tone correction has an information bound.** Natural variation between tracks (5.2 dB) is twice a
-  typical fault (2.3 dB), so norms recover a few percent where a reference recovers most of it (E25).
+  typical fault (2.3 dB), so norms recover 1 to 3% of a fault where a reference recovers 94% (E25).
+- **With a reference, matching mid and side spectra beats Matchering on tone.** 0.19 against 0.72 dB after a
+  tilt, on 200 tracks; Matchering stays ahead on stereo width (E25).
 - **The limiter is where an open tool can beat the baselines.** Equal loudness, equal true peak: less distortion
   and less gain movement than Matchering, and in the same class as Ozone 9 on signal measures (E28, E29).
 - **CBAM helps a little, FiLM without a condition does nothing.** On a U-Net baseline CBAM raises the identity

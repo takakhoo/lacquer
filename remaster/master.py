@@ -154,8 +154,9 @@ def limiter_v2(x, sr=SR, ceiling_db=-1.0, clip_db=1.5, lookahead_ms=3.0, fast_ms
         a = np.abs(u)
         over = np.maximum(a - knee, 0.0)
         clipped = np.sign(u) * np.where(a > knee, knee + (ceil - knee) * np.tanh(over / (ceil - knee)), a)
-        # add back only what the clipper changed, so audio under the knee does not pass through the resampler
-        if (a > knee).any():
+        # act only when a peak is over the ceiling, and add back only what the clipper changed, so audio that
+        # needs no limiting passes through untouched
+        if (a > ceil).any():
             y = y + signal.resample_poly(clipped - u, 1, os_factor, axis=1)[:, :n]
     tp = np.abs(signal.resample_poly(y, os_factor, 1, axis=1)).max()
     if tp > ceil:
