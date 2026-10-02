@@ -34,8 +34,18 @@ clean songs were still altered in the stem test; everything above is synthetic d
 
 Every number has its experiment, data and caveats in [`docs/experiments.md`](docs/experiments.md).
 
+## Paper
+
+A paper on this work is in preparation for **DAFx27**, the 30th International Conference on Digital Audio
+Effects (Cremona, Italy, 24 to 27 August 2027). DAFx is the venue whose scope matches best: its call lists audio
+restoration and machine learning for audio, and the work is a hybrid of DSP and learned models. The DAFx27 call
+is not published yet. The 2026 edition allowed 8 pages, used double-blind review and discouraged preprints, so
+the draft is kept out of this repository. What the paper still needs before submission: a listening test, and a
+comparison against SonicMaster, the closest published system.
+
 ## Contents
 
+- [Paper](#paper)
 - [How it works](#how-it-works)
 - [Inside the model](#inside-the-model)
 - [The decisions](#the-decisions)

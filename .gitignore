@@ -11,3 +11,4 @@ docs/evidence/**/*.wav
 .DS_Store
 scripts/.env
 docs/evidence/trace.npz
+paper/
