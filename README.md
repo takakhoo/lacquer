@@ -50,8 +50,16 @@ A paper on this work is in preparation for **DAFx27**, the 30th International Co
 Effects (Cremona, Italy, 24 to 27 August 2027). DAFx is the venue whose scope matches best: its call lists audio
 restoration and machine learning for audio, and the work is a hybrid of DSP and learned models. The DAFx27 call
 is not published yet. The 2026 edition allowed 8 pages, used double-blind review and discouraged preprints, so
-the draft is kept out of this repository. What the paper still needs before submission: a listening test, and a
-comparison against SonicMaster, the closest published system.
+the draft is kept out of this repository.
+
+What the paper still needs before submission:
+
+- A listening test. The tooling is here (`remaster/listening.py`, `remaster/build_listening_trials.py`): a blind
+  MUSHRA-style page with a hidden reference, loudness-matched stimuli, and an analysis with the BS.1534 listener
+  screening and Holm-corrected Wilcoxon tests. It needs 15 or more listeners.
+- A comparison against SonicMaster, the closest published system. Its inference depends on a gated model that
+  needs a license acceptance, so it has not been run here yet.
+- Recordings damaged in the field. All damage evaluated so far is synthetic, applied to real music.
 
 ## Contents
 
