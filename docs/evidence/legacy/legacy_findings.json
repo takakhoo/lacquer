@@ -1,0 +1,47 @@
+{
+ "legacy_reverb": {
+  "dc_gain_db": 72.75880931095485,
+  "response_at_1khz_db": 14.758635783083403,
+  "median_peak_growth_x": 61.729990005493164,
+  "median_energy_above_1khz_db": -30.784711837768555,
+  "note": "output peaks far exceed 1.0, so sf.write to 16-bit PCM hard-clipped every 'reverb' example"
+ },
+ "legacy_gain": {
+  "range_db": [
+   -1,
+   1
+  ],
+  "mean_abs_db": 0.5013135512709456
+ },
+ "legacy_eq": {
+  "range_db": [
+   -0.8,
+   0.8
+  ],
+  "note": "iirpeak is a band-PASS resonator, so apply_eq returned the band-passed signal scaled by <1 dB instead of a boost/cut",
+  "response_db_at_100hz_1khz_10khz": [
+   -19.963767308431223,
+   -2.8941145574338984e-05,
+   -21.584052761486717
+  ]
+ },
+ "encodec_ceiling": {
+  "si_sdr_db": 9.55436177253723,
+  "lsd_db": 10.267687129974366,
+  "n": 10
+ },
+ "gain_in_tokens": {
+  "fraction_tokens_unchanged_after_plus_1db": 1.0,
+  "note": "the 48 kHz EnCodec normalizes each chunk and stores level in a separate scale, so tokens barely encode gain"
+ },
+ "legacy_degradation_distance": {
+  "gain": {
+   "si_sdr_db": 115.72402572631836,
+   "lsd_db": 0.39521948117762806
+  },
+  "echo": {
+   "si_sdr_db": 12.239601135253906,
+   "lsd_db": 4.955747056007385
+  }
+ }
+}

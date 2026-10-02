@@ -1,0 +1,23 @@
+torch>=2.6
+torchaudio>=2.6
+numpy
+scipy
+soundfile
+librosa
+matplotlib
+pyloudnorm
+pyyaml
+einops
+tqdm
+# app
+fastapi
+uvicorn[standard]
+python-multipart
+requests
+# pretrained RoFormer models (vendored code in remaster/third_party/msst)
+rotary_embedding_torch
+beartype
+# stems
+demucs
+# EnCodec study and legacy diagnosis only
+encodec

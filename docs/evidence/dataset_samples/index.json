@@ -1,0 +1,422 @@
+[
+ {
+  "id": "reverb_0",
+  "source": "115849.mp3",
+  "effects": [
+   "reverb"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "real",
+    "drr_db": 4.47891664915862
+   }
+  }
+ },
+ {
+  "id": "reverb_1",
+  "source": "014585.mp3",
+  "effects": [
+   "reverb"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "synth",
+    "drr_db": 0.770651268735578
+   }
+  }
+ },
+ {
+  "id": "reverb_2",
+  "source": "038784.mp3",
+  "effects": [
+   "reverb"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "synth",
+    "drr_db": -1.6210264729744779
+   }
+  }
+ },
+ {
+  "id": "echo_0",
+  "source": "043587.mp3",
+  "effects": [
+   "echo"
+  ],
+  "params": {
+   "echo": {
+    "delay": 0.17143135425411643,
+    "att": 0.33323873607689763,
+    "taps": 4
+   }
+  }
+ },
+ {
+  "id": "echo_1",
+  "source": "038784.mp3",
+  "effects": [
+   "echo"
+  ],
+  "params": {
+   "echo": {
+    "delay": 0.38724524519751075,
+    "att": 0.507927093099066,
+    "taps": 2
+   }
+  }
+ },
+ {
+  "id": "echo_2",
+  "source": "114239.mp3",
+  "effects": [
+   "echo"
+  ],
+  "params": {
+   "echo": {
+    "delay": 0.25226609071180556,
+    "att": 0.4737860069631624,
+    "taps": 4
+   }
+  }
+ },
+ {
+  "id": "eq_0",
+  "source": "125821.mp3",
+  "effects": [
+   "eq"
+  ],
+  "params": {
+   "eq": {
+    "bands": [
+     [
+      "high",
+      2451,
+      5.8
+     ],
+     [
+      "peak",
+      680,
+      -12.0
+     ],
+     [
+      "peak",
+      64,
+      -11.3
+     ],
+     [
+      "peak",
+      3491,
+      -5.1
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "eq_1",
+  "source": "091755.mp3",
+  "effects": [
+   "eq"
+  ],
+  "params": {
+   "eq": {
+    "bands": [
+     [
+      "high",
+      6233,
+      -3.8
+     ],
+     [
+      "peak",
+      1477,
+      1.3
+     ],
+     [
+      "low",
+      199,
+      4.5
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "eq_2",
+  "source": "011769.mp3",
+  "effects": [
+   "eq"
+  ],
+  "params": {
+   "eq": {
+    "bands": [
+     [
+      "peak",
+      5577,
+      -6.7
+     ],
+     [
+      "peak",
+      1744,
+      -5.2
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "comp_0",
+  "source": "016340.mp3",
+  "effects": [
+   "comp"
+  ],
+  "params": {
+   "comp": {
+    "thr": -37.121610780985094,
+    "ratio": 5.5394928876384695,
+    "att": 0.029973364223130117,
+    "rel": 0.10941768876631948
+   }
+  }
+ },
+ {
+  "id": "comp_1",
+  "source": "056691.mp3",
+  "effects": [
+   "comp"
+  ],
+  "params": {
+   "comp": {
+    "thr": -12.747989064951945,
+    "ratio": 3.6543723046250873,
+    "att": 0.014694148373124737,
+    "rel": 0.38890238401013566
+   }
+  }
+ },
+ {
+  "id": "comp_2",
+  "source": "069726.mp3",
+  "effects": [
+   "comp"
+  ],
+  "params": {
+   "comp": {
+    "thr": -23.001828539006436,
+    "ratio": 9.01873466295766,
+    "att": 0.023866408503606783,
+    "rel": 0.2397435581394684
+   }
+  }
+ },
+ {
+  "id": "clip_0",
+  "source": "105670.mp3",
+  "effects": [
+   "clip"
+  ],
+  "params": {
+   "clip": {
+    "pct": 98.71435816590346
+   }
+  }
+ },
+ {
+  "id": "clip_1",
+  "source": "075314.mp3",
+  "effects": [
+   "clip"
+  ],
+  "params": {
+   "clip": {
+    "pct": 91.00855365875945
+   }
+  }
+ },
+ {
+  "id": "clip_2",
+  "source": "043859.mp3",
+  "effects": [
+   "clip"
+  ],
+  "params": {
+   "clip": {
+    "pct": 97.79967941233267
+   }
+  }
+ },
+ {
+  "id": "noise_0",
+  "source": "026022.mp3",
+  "effects": [
+   "noise"
+  ],
+  "params": {
+   "noise": {
+    "snr": 23.416835394594546
+   }
+  }
+ },
+ {
+  "id": "noise_1",
+  "source": "108416.mp3",
+  "effects": [
+   "noise"
+  ],
+  "params": {
+   "noise": {
+    "snr": 35.17106145347262
+   }
+  }
+ },
+ {
+  "id": "noise_2",
+  "source": "110204.mp3",
+  "effects": [
+   "noise"
+  ],
+  "params": {
+   "noise": {
+    "snr": 44.76330375674231
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_0",
+  "source": "011198.mp3",
+  "effects": [
+   "reverb",
+   "echo"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "real",
+    "drr_db": -4.788749610077172
+   },
+   "echo": {
+    "delay": 0.2051411486685646,
+    "att": 0.5621539019853816,
+    "taps": 3
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_1",
+  "source": "018159.mp3",
+  "effects": [
+   "reverb",
+   "echo"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "synth",
+    "drr_db": -5.549009607358755
+   },
+   "echo": {
+    "delay": 0.21720847158563902,
+    "att": 0.49724289420063916,
+    "taps": 1
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_2",
+  "source": "072289.mp3",
+  "effects": [
+   "reverb",
+   "echo"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "synth",
+    "drr_db": -3.944090586228672
+   },
+   "echo": {
+    "delay": 0.4860703912687259,
+    "att": 0.15829109237056022,
+    "taps": 3
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_clip_noise_0",
+  "source": "060536.mp3",
+  "effects": [
+   "reverb",
+   "echo",
+   "clip",
+   "noise"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "synth",
+    "drr_db": 2.4690390983682375
+   },
+   "echo": {
+    "delay": 0.1793944466039413,
+    "att": 0.49002109518585174,
+    "taps": 4
+   },
+   "clip": {
+    "pct": 92.72221730606067
+   },
+   "noise": {
+    "snr": 34.482721681608204
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_clip_noise_1",
+  "source": "127912.mp3",
+  "effects": [
+   "reverb",
+   "echo",
+   "clip",
+   "noise"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "real",
+    "drr_db": -0.40067556419310857
+   },
+   "echo": {
+    "delay": 0.3610178440066621,
+    "att": 0.5372145716928853,
+    "taps": 2
+   },
+   "clip": {
+    "pct": 96.27361534095975
+   },
+   "noise": {
+    "snr": 32.176780898619484
+   }
+  }
+ },
+ {
+  "id": "reverb_echo_clip_noise_2",
+  "source": "080693.mp3",
+  "effects": [
+   "reverb",
+   "echo",
+   "clip",
+   "noise"
+  ],
+  "params": {
+   "reverb": {
+    "kind": "real",
+    "drr_db": -5.3429203283457944
+   },
+   "echo": {
+    "delay": 0.19756108424712163,
+    "att": 0.45901065734233043,
+    "taps": 1
+   },
+   "clip": {
+    "pct": 92.38475078320961
+   },
+   "noise": {
+    "snr": 29.597672026858202
+   }
+  }
+ }
+]

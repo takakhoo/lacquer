@@ -1,0 +1,7 @@
+#!/bin/sh
+# Run a command on the training box over a shared SSH control socket.
+# Set REMASTER_LAB=user@host in scripts/.env (git-ignored), then open the socket once with:
+#   ssh -fN -M -S ~/.ssh/cm-remaster -o ControlPersist=24h "$REMASTER_LAB"
+. "$(dirname "$0")/.env" 2>/dev/null
+: "${REMASTER_LAB:?set REMASTER_LAB=user@host in scripts/.env}"
+exec ssh -S "${REMASTER_SOCKET:-$HOME/.ssh/cm-remaster}" -o BatchMode=yes "$REMASTER_LAB" "$@"

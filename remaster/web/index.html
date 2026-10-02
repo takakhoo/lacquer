@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remaster</title>
+<style>
+  :root { --bg:#0e0f12; --panel:#16181d; --line:#262a33; --text:#e8e6e1; --dim:#8b8f99; --a:#7aa2ff; --b:#ffb35c; --ok:#6fd49a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 -apple-system, "SF Pro Text", Inter, system-ui, sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1 { font-size: 20px; font-weight: 600; letter-spacing: .2px; margin: 0; }
+  header { display:flex; align-items:baseline; gap:14px; margin-bottom: 20px; }
+  header span { color: var(--dim); font-size: 13px; }
+  .panel { background: var(--panel); border:1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  #drop { border:1.5px dashed #3a3f4b; border-radius: 10px; padding: 26px; text-align:center; color: var(--dim); cursor:pointer; transition: border-color .15s, background .15s; }
+  #drop.over, #drop:hover { border-color: var(--a); background:#171b25; color: var(--text); }
+  #drop b { color: var(--text); font-weight: 600; }
+  .controls { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 22px; margin-top: 16px; }
+  label { display:block; font-size: 12px; color: var(--dim); margin-bottom: 4px; }
+  label output { float:right; color: var(--text); font-variant-numeric: tabular-nums; }
+  input[type=range] { width:100%; accent-color: var(--a); }
+  select { width:100%; background:#0f1115; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 8px; font: inherit; }
+  button { background: var(--a); color:#0b0d12; border:0; border-radius: 8px; padding: 9px 16px; font: inherit; font-weight: 600; cursor:pointer; }
+  button:disabled { opacity:.4; cursor: default; }
+  button.ghost { background: transparent; color: var(--text); border:1px solid var(--line); font-weight: 500; }
+  .row { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+  .ab { display:inline-flex; border:1px solid var(--line); border-radius: 8px; overflow:hidden; }
+  .ab button { background:transparent; color:var(--dim); border-radius:0; padding: 9px 18px; }
+  .ab button.on[data-k=before] { background: var(--a); color:#0b0d12; }
+  .ab button.on[data-k=after] { background: var(--b); color:#0b0d12; }
+  .spec { position:relative; margin-top: 12px; border-radius: 8px; overflow:hidden; border:1px solid var(--line); cursor: pointer; background:#000; }
+  .spec img { display:block; width:100%; height: 170px; object-fit: fill; }
+  .spec .tag { position:absolute; left:8px; top:6px; font-size:11px; padding:2px 7px; border-radius: 4px; background: rgba(0,0,0,.6); }
+  .spec .head { position:absolute; top:0; bottom:0; width:1.5px; background:#fff; left:0; pointer-events:none; }
+  .spec .hz { position:absolute; right:6px; font-size:10px; color:#fff9; pointer-events:none; transform: translateY(-50%); }
+  .spec.dimmed img { opacity:.8; }
+  .spec:not(.dimmed) { border-color:#fff8; }
+  table { width:100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align:right; padding: 5px 8px; border-bottom:1px solid var(--line); }
+  th:first-child, td:first-child { text-align:left; color: var(--dim); font-weight: 400; }
+  th { color: var(--dim); font-weight: 500; font-size: 12px; }
+  #status { color: var(--dim); }
+  #eq { width:100%; height:110px; display:block; }
+  .hint { color: var(--dim); font-size: 12px; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header><h1>Remaster</h1><span id="modelinfo">loading…</span></header>
+
+  <div class="panel">
+    <div id="drop"><b>Drop a track here</b> or click to choose. WAV, FLAC, MP3, M4A.</div>
+    <input type="file" id="file" accept="audio/*,.wav,.flac,.mp3,.m4a,.aiff,.ogg" hidden>
+    <div class="row" id="exrow" style="margin-top:10px" hidden><span class="hint">or try an example:</span><select id="example" style="width:auto;min-width:220px"><option value="">(none)</option></select></div>
+    <div class="row" style="margin-top:10px"><span class="hint">Reference track (optional): match its tone and loudness</span>
+      <input type="file" id="ref" accept="audio/*,.wav,.flac,.mp3,.m4a,.aiff,.ogg" style="color:var(--dim)"></div>
+    <div class="controls">
+      <div><label>Restoration strength <output id="o_rs"></output></label><input type="range" id="rs" min="0" max="100" value="100"></div>
+      <div><label>Tonal balance <output id="o_tb"></output></label><input type="range" id="tb" min="0" max="100" value="60"></div>
+      <div><label>Target loudness <output id="o_lu"></output></label><input type="range" id="lu" min="-18" max="-8" step="0.5" value="-14"></div>
+      <div><label>Reverb target <output id="o_rv"></output></label><input type="range" id="rv" min="-12" max="12" step="1" value="0"></div>
+      <div><label>Level riding (VU) <output id="o_rd"></output></label><input type="range" id="rd" min="0" max="100" value="75"></div>
+      <div><label>Vocal stem analysis</label>
+        <select id="stems"><option value="demucs">On: local separation (Demucs)</option><option value="off">Off: whole mix only</option></select></div>
+      <div><label>Stress test (damage the upload first)</label>
+        <select id="stress">
+          <option value="none">Off: process my track as is</option>
+          <option value="reverb">Add room reverb</option>
+          <option value="echo">Add echo</option>
+          <option value="reverb+echo">Add reverb + echo</option>
+          <option value="eq">Add bad EQ</option>
+          <option value="comp">Add heavy compression</option>
+          <option value="clip">Add clipping</option>
+          <option value="reverb+eq+comp">Add reverb + EQ + compression</option>
+        </select></div>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button id="go" disabled>Enhance</button>
+      <label style="margin:0;color:var(--text)"><input type="checkbox" id="deecho" checked> Remove detected echoes</label>
+      <span id="status">Choose a file to begin.</span>
+    </div>
+  </div>
+
+  <div class="panel" id="result" hidden>
+    <div class="row">
+      <button id="play">Play</button>
+      <div class="ab"><button data-k="before">A · Before</button><button data-k="after" class="on">B · After</button></div>
+      <label style="margin:0;color:var(--text)"><input type="checkbox" id="match" checked> Loudness-matched A/B</label>
+      <span class="hint">Space: play/pause. A / B: switch.</span>
+      <span style="flex:1"></span>
+      <a id="dl" download="remastered.wav"><button class="ghost">Download WAV</button></a>
+    </div>
+    <div class="spec" id="s_before"><img alt="before spectrogram"><span class="tag" style="color:var(--a)">Before</span><div class="head"></div></div>
+    <div class="spec" id="s_after"><img alt="after spectrogram"><span class="tag" style="color:var(--b)">After</span><div class="head"></div></div>
+  </div>
+
+  <div class="panel" id="report" hidden>
+    <p class="hint" style="margin:0 0 6px">What it decided</p>
+    <ul id="decisions" style="margin:0 0 16px;padding-left:18px"></ul>
+    <div class="row" style="margin-bottom:6px"><span class="hint">VU level over time (0 VU = -18 dBFS)</span><span style="flex:1"></span>
+      <span class="hint">now:</span><div id="vubar" style="width:180px;height:10px;background:#0f1115;border:1px solid var(--line);border-radius:5px;overflow:hidden"><div id="vufill" style="height:100%;width:0;background:var(--ok)"></div></div><span id="vunum" class="hint" style="width:62px;text-align:right">-- VU</span></div>
+    <canvas id="vu" style="width:100%;height:130px;display:block;margin-bottom:16px"></canvas>
+    <table>
+      <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+      <tbody id="stats"></tbody>
+    </table>
+    <p class="hint" style="margin:14px 0 4px">Tonal balance correction applied (dB by frequency)</p>
+    <canvas id="eq"></canvas>
+    <p class="hint" id="notes"></p>
+  </div>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+let file = null, ctx = null, bufs = {}, gains = {}, srcs = [], playing = false, startedAt = 0, offset = 0, which = 'after', info = null;
+
+const bind = (id, out, fmt) => { const el = $(id), o = $(out); const f = () => o.textContent = fmt(el.value); el.addEventListener('input', f); f(); };
+bind('#rv', '#o_rv', v => v == 0 ? 'auto' : (v < 0 ? v + ' dB drier' : '+' + v + ' dB wetter')); bind('#rd', '#o_rd', v => v + '%');
+bind('#rs', '#o_rs', v => v + '%'); bind('#tb', '#o_tb', v => v + '%'); bind('#lu', '#o_lu', v => v + ' LUFS');
+
+fetch('/api/info').then(r => r.json()).then(j => {
+  $('#modelinfo').textContent = j.model ? 'restoration model: ' + j.model : 'no restoration model loaded: mastering only';
+  if (j.elevenlabs) { const o = document.createElement('option'); o.value = 'elevenlabs'; o.textContent = 'On: ElevenLabs API (uploads your track)'; $('#stems').appendChild(o); }
+  if (!j.vocal_model) { $('#stems').value = 'off'; $('#stems').disabled = true; }
+  if (j.examples && j.examples.length) { $('#exrow').hidden = false; j.examples.forEach(e => { const o = document.createElement('option'); o.value = o.textContent = e; $('#example').appendChild(o); }); }
+});
+$('#example').onchange = e => { if (e.target.value) { file = null; drop.innerHTML = '<b>Example:</b> ' + e.target.value; $('#go').disabled = false; $('#status').textContent = 'Ready.'; } };
+
+const drop = $('#drop');
+drop.onclick = () => $('#file').click();
+$('#file').onchange = e => setFile(e.target.files[0]);
+['dragover', 'dragenter'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => setFile(e.dataTransfer.files[0]));
+function setFile(f) { if (!f) return; file = f; $('#example').value = ''; drop.innerHTML = '<b>' + f.name.replace(/[<>&]/g, '') + '</b> · ' + (f.size / 1e6).toFixed(1) + ' MB'; $('#go').disabled = false; $('#status').textContent = 'Ready.'; }
+
+$('#go').onclick = async () => {
+  stop(); $('#go').disabled = true; $('#status').textContent = 'Processing… analysis takes about 30 s; each repair it decides on adds roughly 0.4 s per second of audio.';
+  const fd = new FormData();
+  if (file) fd.append('file', file); else fd.append('example', $('#example').value);
+  if ($('#ref').files[0]) fd.append('reference', $('#ref').files[0]);
+  fd.append('restore_strength', $('#rs').value / 100); fd.append('tonal_strength', $('#tb').value / 100);
+  fd.append('target_lufs', $('#lu').value); fd.append('stress', $('#stress').value); fd.append('do_master', 'true'); fd.append('do_deecho', $('#deecho').checked ? 'true' : 'false');
+  fd.append('use_stems', $('#stems').value === 'off' ? 'false' : 'true'); fd.append('backend', $('#stems').value === 'off' ? 'demucs' : $('#stems').value);
+  fd.append('reverb_bias_db', $('#rv').value); fd.append('ride', $('#rd').value / 100);
+  try {
+    const r = await fetch('/api/process', { method: 'POST', body: fd });
+    info = await r.json();
+    if (!r.ok) throw new Error(info.error || 'failed');
+    await loadResult();
+    $('#status').textContent = 'Done.';
+  } catch (e) { $('#status').textContent = 'Error: ' + e.message; }
+  $('#go').disabled = false;
+};
+
+async function loadResult() {
+  const base = '/api/file/' + info.id + '/';
+  ctx = ctx || new AudioContext();
+  for (const k of ['before', 'after']) {
+    const ab = await (await fetch(base + k + '.wav')).arrayBuffer();
+    bufs[k] = await ctx.decodeAudioData(ab);
+    $('#s_' + k + ' img').src = base + k + '.png';
+  }
+  $('#dl').href = base + 'after.wav';
+  $('#result').hidden = false; $('#report').hidden = false; offset = 0;
+  addHz(); renderReport(); setWhich('after');
+}
+
+function addHz() {
+  document.querySelectorAll('.spec').forEach(el => {
+    el.querySelectorAll('.hz').forEach(n => n.remove());
+    for (const hz of [100, 1000, 10000]) {
+      const s = document.createElement('span'); s.className = 'hz'; s.textContent = hz >= 1000 ? hz / 1000 + 'k' : hz;
+      s.style.top = (100 * (1 - Math.log(hz / 20) / Math.log(1000))) + '%'; el.appendChild(s);
+    }
+  });
+}
+
+function levels() {
+  // with matching on, both versions play at the quieter one's loudness so "louder" cannot pass for "better"
+  if (!$('#match').checked) return { before: 1, after: 1 };
+  const d = info.after.lufs - info.before.lufs;
+  return d > 0 ? { before: 1, after: Math.pow(10, -d / 20) } : { before: Math.pow(10, d / 20), after: 1 };
+}
+function applyGains() { if (!gains.before) return; const l = levels(); for (const k of ['before', 'after']) gains[k].gain.setTargetAtTime(k === which ? l[k] : 0, ctx.currentTime, 0.008); }
+function setWhich(k) {
+  which = k; document.querySelectorAll('.ab button').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  $('#s_before').classList.toggle('dimmed', k !== 'before'); $('#s_after').classList.toggle('dimmed', k !== 'after'); applyGains();
+}
+document.querySelectorAll('.ab button').forEach(b => b.onclick = () => setWhich(b.dataset.k));
+$('#match').onchange = applyGains;
+
+let analyser = null, vuState = 0;
+function start() {
+  if (!bufs.after) return; ctx.resume(); srcs = [];
+  if (!analyser) { analyser = ctx.createAnalyser(); analyser.fftSize = 2048; }
+  for (const k of ['before', 'after']) {
+    const s = ctx.createBufferSource(); s.buffer = bufs[k]; gains[k] = ctx.createGain(); gains[k].gain.value = 0;
+    s.connect(gains[k]); gains[k].connect(ctx.destination); gains[k].connect(analyser); s.start(0, offset); srcs.push(s);
+  }
+  srcs[0].onended = () => { if (playing && pos() >= bufs.after.duration - 0.05) { stop(); offset = 0; } };
+  startedAt = ctx.currentTime; playing = true; $('#play').textContent = 'Pause'; applyGains(); tick();
+}
+function stop() { if (!playing) return; offset = pos(); playing = false; srcs.forEach(s => { s.onended = null; try { s.stop(); } catch (e) {} }); $('#play').textContent = 'Play'; }
+function pos() { return playing ? Math.min(offset + ctx.currentTime - startedAt, bufs.after.duration) : offset; }
+function tick() {
+  const p = 100 * pos() / bufs.after.duration; document.querySelectorAll('.head').forEach(h => h.style.left = p + '%');
+  if (analyser && playing) {
+    // rectified average with ~300 ms smoothing, referenced so a -18 dBFS sine reads 0 VU
+    const b = new Float32Array(analyser.fftSize); analyser.getFloatTimeDomainData(b);
+    let a = 0; for (let i = 0; i < b.length; i++) a += Math.abs(b[i]); a /= b.length;
+    vuState += 0.12 * (a - vuState);
+    const vu = 20 * Math.log10(vuState / (Math.pow(10, -18 / 20) * Math.SQRT2 * 2 / Math.PI) + 1e-9);
+    $('#vufill').style.width = Math.max(0, Math.min(100, (vu + 30) / 36 * 100)) + '%';
+    $('#vufill').style.background = vu > 3 ? '#ff6b6b' : vu > 0 ? '#ffb35c' : '#6fd49a';
+    $('#vunum').textContent = (vu > -60 ? vu.toFixed(1) : '--') + ' VU';
+  }
+  drawVU(p / 100);
+  if (playing) requestAnimationFrame(tick);
+}
+function drawVU(playFrac) {
+  const v = info && info.report.vu, c = $('#vu'); if (!c) return;
+  const dpr = devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight; if (c.width !== w * dpr) { c.width = w * dpr; c.height = h * dpr; }
+  const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+  if (!v) { g.fillStyle = '#8b8f99'; g.font = '11px system-ui'; g.fillText('Level riding is off.', 4, 14); return; }
+  const lo = -30, hi = 6, Y = d => h - (Math.max(lo, Math.min(hi, d)) - lo) / (hi - lo) * h, n = v.vu_before.length, X = i => i / (n - 1) * w;
+  g.strokeStyle = '#262a33'; g.lineWidth = 1; [0, -10, -20].forEach(d => { g.beginPath(); g.moveTo(0, Y(d)); g.lineTo(w, Y(d)); g.stroke(); });
+  g.fillStyle = '#8b8f99'; g.font = '10px system-ui'; g.fillText('0 VU', 3, Y(0) - 3); g.fillText('-20', 3, Y(-20) - 3);
+  const line = (arr, col, f) => { g.strokeStyle = col; g.lineWidth = 1.5; g.beginPath(); arr.forEach((d, i) => i ? g.lineTo(X(i), f(d)) : g.moveTo(X(i), f(d))); g.stroke(); };
+  line(v.vu_before, '#7aa2ff', Y);
+  line(v.vu_after, '#ffb35c', Y);
+  line(v.gain_db, '#6fd49a', d => h / 2 - d / 12 * (h / 2 - 4));
+  g.fillStyle = '#7aa2ff'; g.fillText('before', w - 150, 12); g.fillStyle = '#ffb35c'; g.fillText('after riding', w - 110, 12); g.fillStyle = '#6fd49a'; g.fillText('gain', w - 40, 12);
+  if (playFrac !== undefined) { g.strokeStyle = '#fff'; g.beginPath(); g.moveTo(playFrac * w, 0); g.lineTo(playFrac * w, h); g.stroke(); }
+}
+$('#play').onclick = () => playing ? stop() : start();
+document.querySelectorAll('.spec').forEach(el => el.onclick = e => {
+  const r = el.getBoundingClientRect(), was = playing; stop(); offset = (e.clientX - r.left) / r.width * bufs.after.duration;
+  setWhich(el.id === 's_before' ? 'before' : 'after'); was ? start() : tick();
+});
+document.addEventListener('keydown', e => {
+  if (!bufs.after || e.target.tagName === 'SELECT') return;
+  if (e.code === 'Space') { e.preventDefault(); playing ? stop() : start(); }
+  if (e.key === 'a' || e.key === 'A') setWhich('before');
+  if (e.key === 'b' || e.key === 'B') setWhich('after');
+});
+
+function renderReport() {
+  const rows = [['Integrated loudness (LUFS)', 'lufs'], ['True peak (dBTP)', 'true_peak_db'], ['Crest factor (dB)', 'crest_db']];
+  $('#stats').innerHTML = rows.map(([n, k]) => `<tr><td>${n}</td><td>${info.before[k].toFixed(1)}</td><td>${info.after[k].toFixed(1)}</td></tr>`).join('');
+  $('#decisions').innerHTML = (info.report.decisions || []).map(d => '<li>' + d.replace(/[<>&]/g, '') + '</li>').join('');
+  drawVU(0);
+  const m = info.report.master || {}, notes = [];
+  if (m.reference_lufs !== undefined) notes.push('Matched to reference (' + m.reference_lufs.toFixed(1) + ' LUFS).');
+  if (m.limiter) notes.push('Limiter max gain reduction: ' + m.limiter.max_gr_db.toFixed(1) + ' dB.');
+
+  if (info.report.echoes && !info.report.echoes.length) notes.push('No discrete echo detected.');
+  const st = Object.keys(info.stress || {}); if (st.length) notes.push('Stress test applied: ' + st.join(', ') + '.');
+  $('#notes').textContent = notes.join(' ');
+  const c = $('#eq'), dpr = devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight; c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext('2d'); g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+  const t = m.tonal; g.strokeStyle = '#262a33'; g.beginPath(); g.moveTo(0, h / 2); g.lineTo(w, h / 2); g.stroke();
+  if (!t) return;
+  const x = f => Math.log(f / 20) / Math.log(1000) * w, y = d => h / 2 - d / 8 * (h / 2 - 6);
+  g.strokeStyle = '#ffb35c'; g.lineWidth = 2; g.beginPath();
+  t.bands_hz.forEach((f, i) => i ? g.lineTo(x(f), y(t.correction_db[i])) : g.moveTo(x(f), y(t.correction_db[i]))); g.stroke();
+  g.fillStyle = '#8b8f99'; g.font = '10px system-ui'; [100, 1000, 10000].forEach(f => g.fillText(f >= 1000 ? f / 1000 + 'k' : f, x(f) + 3, h - 3));
+  g.fillText('+8 dB', 3, 10); g.fillText('-8 dB', 3, h - 14);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Push code to the training box (no data, no runs). Remote layout: $REMASTER_LAB_DIR (default /scratch/<user>/remaster).
+. "$(dirname "$0")/.env" 2>/dev/null
+: "${REMASTER_LAB:?set REMASTER_LAB=user@host in scripts/.env}"
+DIR=${REMASTER_LAB_DIR:-/scratch/${REMASTER_LAB%%@*}/remaster}
+cd "$(dirname "$0")/.." && rsync -az --delete -e "ssh -S ${REMASTER_SOCKET:-$HOME/.ssh/cm-remaster}" --exclude __pycache__ --exclude runs --exclude checkpoints --exclude .env remaster scripts "$REMASTER_LAB:$DIR/"

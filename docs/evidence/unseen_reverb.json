@@ -1,0 +1,23 @@
+{
+ "real IRs (seen in training)": {
+  "n": 40,
+  "sisdr_in": 3.7375111557543277,
+  "sisdr_out": 11.388492584228516,
+  "lsd_in": 2.7558780878782274,
+  "lsd_out": 2.010438135266304
+ },
+ "noise-tail synthetic (seen family)": {
+  "n": 40,
+  "sisdr_in": 3.6549674101173877,
+  "sisdr_out": 9.074664069712162,
+  "lsd_in": 6.273085761070251,
+  "lsd_out": 4.915433597564697
+ },
+ "algorithmic plug-in style (never seen)": {
+  "n": 40,
+  "sisdr_in": 3.6288330868817864,
+  "sisdr_out": 8.669128227233887,
+  "lsd_in": 7.802665436267853,
+  "lsd_out": 5.783108174800873
+ }
+}
