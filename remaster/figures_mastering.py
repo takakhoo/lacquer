@@ -128,5 +128,37 @@ def fig_limiter():
     save(fig, "mastering_limiter.png")
 
 
+def fig_recovery():
+    t = json.load(open(os.path.join(EV, "tone_identifiability.json")))
+    u = json.load(open(os.path.join(EV, "unmaster.json")))["summary"]
+    fig, axs = plt.subplots(1, 2, figsize=(12.6, 4.6), dpi=160, gridspec_kw=dict(width_ratios=[1, 1.15]))
+    fig.subplots_adjust(left=0.2, right=0.975, top=0.78, bottom=0.14, wspace=0.62)
+    fig.text(0.035, 0.93, "Why blind tone correction is bounded, and what a reference buys", fontsize=13, fontweight="bold")
+    fig.text(0.035, 0.87, "Third-octave tone, RMS over bands in dB. Left: 506 held-out released tracks. Right: 200 held-out tracks with a spectral tilt of 0.6 to 1.6 dB per octave.", fontsize=8.6, color=INK2)
+
+    ax = axs[0]
+    _ax(ax, "How far is a track's tone from the best guess?", "distance (dB)")
+    p = t["predictability_db"]
+    items = [("the average of all music", p["population_mean"], INK2), ("the average of its genre", p["genre_mean"], INK2), ("its 20 nearest neighbours", p["nearest_20"], INK2),
+             ("a typical tonal fault", t["released_corpus"]["fault"], ORANGE)]
+    for i, (lab, v, c) in enumerate(items[::-1]):
+        ax.barh(i, v, height=0.56, color=c, alpha=0.85 if c == ORANGE else 0.55)
+        ax.text(v + 0.08, i, f"{v:.1f}", va="center", fontsize=8.5, color=INK)
+    ax.set_yticks(range(len(items))); ax.set_yticklabels([x[0] for x in items[::-1]], fontsize=8.5)
+    ax.set_xlim(0, 6.2); ax.grid(axis="y", visible=False)
+
+    ax = axs[1]
+    _ax(ax, "Tone error left after mastering a tilted copy", "tone error against the original (dB)")
+    d = u["tilt"]
+    items = [("damaged", d["damaged"]["tone"], INK2), ("blind, norms of all music", d["global"]["tone"], INK2), ("blind, norms of its genre", d["genre"]["tone"], INK2),
+             ("Matchering 2.0, original as reference", d["matchering"]["tone"], BLUE), ("ours, original as reference", d["reference"]["tone"], ORANGE)]
+    for i, (lab, v, c) in enumerate(items[::-1]):
+        ax.barh(i, v, height=0.56, color=c, alpha=0.85 if c != INK2 else 0.55)
+        ax.text(v + 0.05, i, f"{v:.2f}", va="center", fontsize=8.5, color=INK)
+    ax.set_yticks(range(len(items))); ax.set_yticklabels([x[0] for x in items[::-1]], fontsize=8.5)
+    ax.set_xlim(0, 3.6); ax.grid(axis="y", visible=False)
+    save(fig, "mastering_recovery.png")
+
+
 if __name__ == "__main__":
-    fig_corpus(); fig_limiter()
+    fig_corpus(); fig_limiter(); fig_recovery()

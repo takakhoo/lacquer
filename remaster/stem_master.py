@@ -46,12 +46,13 @@ def stem_notes(stems, x, sr=SR, present_db=-22.0):
 
 
 def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_tone=False, max_gain_db=6.0, present_db=-22.0, tone_strength=0.7,
-                 only=STEMS, margin_db=0.0):
+                 only=("vocals",), margin_db=0.0):
     """Returns (audio, report). `stems` may be passed in to skip separation.
 
     Tone correction per stem is off by default: instrument tone varies more between songs than a typical fault
-    (experiment E29), so pulling a stem toward the norm of its kind does more harm than good. `only` limits which
-    stems may be moved and `margin_db` widens the normal range before a level counts as outside it.
+    (experiment E30), so pulling a stem toward the norm of its kind does more harm than good. Only the vocal level
+    is corrected by default: with all four stems a third of unmodified songs has some stem outside its range,
+    with the vocal alone 8% (E31). The other stems are reported. `margin_db` widens the normal range.
     """
     stems = stems or separate(x, backend=backend)
     levels = stem_levels(stems, x, sr)
@@ -75,9 +76,13 @@ def master_stems(x, sr=SR, stems=None, backend="demucs", do_balance=True, do_ton
             if g:
                 new = new * 10 ** (g / 20)
                 rep["decisions"].append(f"{name.capitalize()} level: {lv:.1f} LU relative to the mix, outside the normal {p5:.1f} to {p95:.1f}: moved by {g:+.1f} dB.")
+        elif do_balance:
+            p5, _, _, _, p95 = rng["level"]
+            if lv < p5 or lv > p95:
+                rep.setdefault("level_notes", []).append(f"{name.capitalize()} level: {lv:.1f} LU relative to the mix, outside the normal {p5:.1f} to {p95:.1f} of professional mixes.")
         y += new - s
         rep["stems"][name] = r
-    rep["notes"] = stem_notes(stems, x, sr, present_db)
+    rep["notes"] = rep.pop("level_notes", []) + stem_notes(stems, x, sr, present_db)
     if not rep["decisions"]:
-        rep["decisions"].append("Instrument balance: every stem inside the normal range of professional mixes, left alone.")
+        rep["decisions"].append("Instrument balance: vocal level inside the normal range of professional mixes, left alone.")
     return y, rep

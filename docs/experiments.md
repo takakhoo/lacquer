@@ -671,3 +671,34 @@ E25. And the level rule fired on 24 of 50 unmodified songs: separated stems read
 stems, and the norms came from whole songs while the test reads 30 s. Changes made after this run: stem tone
 correction is off by default, and the balance norms are measured on separated stems over the loudest 30 s, the
 same way a new track is measured (`remaster/build_stem_level_norms.py`). The rerun is E31.
+
+### E31. Instrument balance with norms measured the way a new track is measured
+Changes from E30: no stem tone correction, balance read over the loudest 30 s of the mix, and the normal range
+taken from Demucs-separated stems of the 99 MUSDB18-HQ training mixes (`remaster/build_stem_level_norms.py`;
+the same reading on 1500 released FMA tracks is stored alongside). Separated-stem ranges are wide: vocals -10.5 to
+-1.1 LU (5th to 95th percentile, median -4.2), drums -14.9 to -4.2, bass -15.3 to -3.6, other -12.4 to -2.1.
+Same 50 test songs, level faults of 4 to 9 dB on one stem. Raw rows:
+`docs/evidence/stem_master/stem_master_v3.json`.
+
+| all four stems may be moved | value |
+|---|---:|
+| faults acted on | 64 of 150 |
+| balance error, all faults | 7.1 to 6.1 dB |
+| balance error when the stage acted | 6.9 to 4.6 dB |
+| SI-SDR to the intended mix when it acted | 10.6 to 13.2 dB |
+| same with true stems instead of separated ones (vocal faults) | 6.69 against 6.77 dB balance error |
+| unmodified songs altered | 16 of 50 |
+
+| which stems may be moved (decision replayed on the recorded readings) | unmodified songs altered | faults caught | a different stem moved |
+|---|---:|---:|---:|
+| all four | 32% | 43% | 33% |
+| all four, 2 LU margin | 10% | 14% | 11% |
+| vocal only | 8% | 44% | 0% |
+| vocal only, 1 LU margin | 6% | 34% | 0% |
+
+The mechanics work: when the stage acts, the balance error falls by a third and separation costs almost nothing
+against true stems. The decision is the limit. Instrument balance is a wide distribution in professional mixes,
+so fewer than half of 4 to 9 dB faults leave the normal range, and with four stems checked a third of unmodified
+songs has some stem outside it. The default is therefore the vocal alone, the one element with published level
+norms: 8% of unmodified songs are touched, 44% of vocal faults are caught, and no other stem is moved by
+mistake. Drums, bass and accompaniment are measured and reported.

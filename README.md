@@ -77,7 +77,7 @@ learned prior use a network. Aesthetic choices are measured against a normal ran
 | Discrete echo | Cepstral detection, then an exact recursive inverse filter | `remaster/deecho.py` |
 | Room reverb, noise, clipping | Band-split transformer that predicts a complex mask on the stereo spectrogram, fine-tuned from a pretrained vocal dereverb model | `remaster/pretrained.py`, `remaster/train.py` |
 | Reverb decisions | The same network is a calibrated meter for excess reverb on the mix; a vocal model measures how wet the vocal stem is | `remaster/reverb_meter.py`, `remaster/stems.py` |
-| Instrument balance | Stem loudness relative to the mix against its range in professional mixes; a stem outside it is moved to the edge, applied as a stem difference | `remaster/stem_master.py` |
+| Instrument balance | Stem loudness relative to the mix against its range in professional mixes; a vocal outside it is moved to the edge, applied as a stem difference; other stems are reported | `remaster/stem_master.py` |
 | Level riding | A small controller network outputs a gain trajectory (a VU-ballistics rider is the fallback) | `remaster/controller.py`, `remaster/vu.py` |
 | Tone, stereo image, band dynamics | 60 measured features compared with the 10th to 90th percentile range of released music in the chosen genre, or with a reference track | `remaster/analysis.py`, `remaster/mastering.py` |
 | Loudness and peaks | BS.1770 target by delivery profile, two-stage true-peak limiter with a 3 dB limiting budget | `remaster/master.py`, `remaster/mastering.py` |
@@ -110,6 +110,8 @@ better. A reference-free quality predictor is also blind to these faults (it pre
 faulted version 47 to 60% of the time). So blind tone moves are capped at 1.5 dB, the size engineers call normal,
 and anything larger is reported as a mix problem. A reference track lifts the cap.
 
+![How far a track's tone is from population, genre and neighbour averages, and the tone error left by blind and reference mastering](docs/figures/mastering_recovery.png)
+
 ![Distortion against gain movement for limiters reaching the same loudness and true peak](docs/figures/mastering_limiter.png)
 
 **Loudness without damage (E28, E29).** 50 unmastered mixes are driven to -9 LUFS under a -1 dBTP ceiling by each
@@ -125,6 +127,13 @@ band dynamics and loudness of the reference. On 200 held-out tracks with a delib
 original as reference, it leaves 0.19 dB of tone error after a tilt and 0.12 dB after EQ bumps, where
 Matchering 2.0 leaves 0.72 and 0.65 dB (ours closer on 80 to 88% of tracks). Matchering is more exact on stereo
 width (0.03 against 0.27 dB) and on peak-to-loudness ratio.
+
+**Instrument balance from the finished mix (E30, E31).** A level error on one stem can be partly undone from
+the mix alone: when the stage acts, the balance error falls from 6.9 to 4.6 dB, and separated stems cost almost
+nothing against true stems because the change is applied as a stem difference. The limit is the decision, since
+balance varies widely in professional mixes. Checking all four stems would alter a third of unmodified songs, so
+only the vocal is moved (8% of unmodified songs touched, 44% of vocal faults caught). Correcting the tone of
+individual stems made every case worse and is off.
 
 **Decisions with a budget.** The limiter may take 3 dB (6 dB for the loud profile). A target that needs more is
 not reached and the report says by how much. The ceiling drops to -2 dBTP above -14 LUFS. Delivery profiles:
@@ -246,8 +255,9 @@ latents keep it, about as well as a plain mel spectrogram, and better for reverb
    range, so the vocal is only changed when it is clearly outside it: reduced if far too wet, and a plate added
    if bone dry. Stems are remixed only when the vocal was changed.
 5. **Instrument balance.** The loudness of each separated stem relative to the mix is compared with its range in
-   professional mixes. A stem outside it is moved to the edge of the range. The change is applied as a
-   difference, so a stem that needed nothing contributes nothing and its separation artifacts never reach the output.
+   professional mixes, measured on separated stems. A vocal outside its range is moved to the edge; drums, bass
+   and accompaniment are reported. The change is applied as a difference, so a stem that needed nothing
+   contributes nothing and its separation artifacts never reach the output.
 6. **Level.** A gain trajectory is predicted for the whole track and applied as a fader move.
 7. **Tone and stereo image.** Third-octave bands and band-wise side level outside the range of the chosen genre
    are moved to its edge, by at most 1.5 dB unless a reference track is given. A decorrelated low end is narrowed.
@@ -287,6 +297,9 @@ Short versions. Each links to numbers in [`docs/experiments.md`](docs/experiment
   and less gain movement than Matchering, and in the same class as Ozone 9 on signal measures (E28, E29).
 - **CBAM helps a little, FiLM without a condition does nothing.** On a U-Net baseline CBAM raises the identity
   score from 25 to 30 dB; neither closes the gap to a pretrained start (E23).
+- **Stems are for balance, and only the vocal.** Stem tone correction made mixes worse; stem level correction
+  works mechanically, but only the vocal has a range tight enough to act on without touching a third of clean
+  songs (E30, E31).
 - **Room reverb belongs to the whole mix, vocal reverb to the stem.** Neither approach wins both cases, so the
   pipeline decides at two levels (E8).
 - **EnCodec tokens are a poor place to look for damage.** The same probe detects degradations with AUROC 0.68

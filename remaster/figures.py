@@ -186,7 +186,7 @@ def fig_pipeline():
         ("2  Echo", AQUA, ["cepstrum of the mix", "", "sharp peak, z >= 45", "-> exact inverse filter", "", "clean music: z ~ 12"], "DSP"),
         ("3  Room reverb", ORANGE, ["network as a meter", "", "clean mixes: -41 dB", "light reverb: -20 dB", "heavy reverb: -4 dB", "gate at -24 dB"], "transformer"),
         ("4  Vocal reverb", ORANGE, ["Demucs vocal stem", "+ vocal dereverb model", "", "normal: -32 to 0 dB", "too wet: reduce", "bone dry: add plate"], "stems"),
-        ("5  Instrument balance", ORANGE, ["stem loudness re. mix", "", "vocals: -3.5 LU", "normal -6.1 to -1.3", "outside: move the stem", "to the edge of normal"], "stems"),
+        ("5  Instrument balance", ORANGE, ["stem loudness re. mix", "", "vocal normal: -10.5 to", "-1.1 LU (separated)", "outside: move the vocal;", "other stems: reported"], "stems"),
     ]
     master = [
         ("6  Level", ORANGE, ["controller network", "gain trajectory g(t)", "", "clamped to +-6 dB", "holds through", "quiet passages"], "controller"),
