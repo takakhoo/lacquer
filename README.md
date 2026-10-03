@@ -49,8 +49,9 @@ Every number has its experiment, data and caveats in [`docs/experiments.md`](doc
 A paper on this work is in preparation for **DAFx27**, the 30th International Conference on Digital Audio
 Effects (Cremona, Italy, 24 to 27 August 2027). DAFx is the venue whose scope matches best: its call lists audio
 restoration and machine learning for audio, and the work is a hybrid of DSP and learned models. The DAFx27 call
-is not published yet. The 2026 edition allowed 8 pages, used double-blind review and discouraged preprints, so
-the draft is kept out of this repository.
+is not published yet. The 2026 edition allowed 8 pages, used double-blind review and discouraged preprints.
+The current draft is here for now as [`docs/lacquer_draft.pdf`](docs/lacquer_draft.pdf) (8 pages in the DAFx
+format, not yet peer reviewed); it will come down before submission if the DAFx27 call asks for that.
 
 What the paper still needs before submission:
 
