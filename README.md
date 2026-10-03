@@ -93,7 +93,9 @@ learned prior use a network. Aesthetic choices are measured against a normal ran
 The restoration network never generates audio. It multiplies the input spectrogram by a mask that starts as
 all ones, so anything it does not touch passes through unchanged. There is no codec or vocoder in the path.
 
-![The nine decision stages, with the measured readings behind each rule](docs/figures/pipeline.png)
+![The nine decision stages drawn from one clip: each card shows what the stage measures and what it decided, with two before-and-after spectrogram pairs marking the echo copy and the room tail](docs/figures/pipeline_render.png)
+
+The same nine stages as a plain block diagram, with the rule behind each one: [pipeline.png](docs/figures/pipeline.png).
 
 ## Mastering
 
